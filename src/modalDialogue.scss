@@ -1,0 +1,90 @@
+@import "variables";
+
+/* modal fade scroll rm */
+body .fade {
+  overflow: auto !important;
+  overflow-y: auto !important;
+}
+
+.modal2-dialog,
+.modal2-header,
+.modal2-content,
+.modal2-footer {
+  background: $darkgray !important;
+  color: $white !important;
+  border: none !important;
+}
+
+.modal {
+  border: 1px solid $middlegray !important;
+  background: $darkgray !important;
+}
+
+.modal-body {
+  overflow-y: hidden !important;
+  background: $darkgray !important;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  background: $darkgray !important;
+}
+
+.modal-footer {
+  border-top: 1px solid $middlegray !important;
+}
+
+.modal-header,
+.modal2-header {
+  border-bottom: 1px solid $middlegray !important;
+}
+
+.modal2-dialog {
+  font-weight: lighter;
+  border: 1px solid $middlegray !important;
+  .progress-label {
+    position: fixed !important;
+    top: 3px !important;
+    font-weight: lighter !important;
+    font-family: Verdana !important;
+    color: $deepgray !important;
+  }
+  .progress-striped {
+    margin: 0 !important;
+    background: $middlegray !important;
+  }
+  span {
+    color: $white !important;
+  }
+}
+
+.modal2-content {
+  .award-status-block {
+    text-align: center !important;
+  }
+  .award-status {
+    color: $blue !important;
+  }
+  .task-description {
+    padding-left: 0 !important;
+  }
+  .no-progress-label,
+  .next-level-label {
+    color: $white !important;
+  }
+  b {
+    font-weight: lighter !important;
+  }
+}
+
+.edit,
+.preview {
+  background: $darkgray !important;
+  color: $white !important;
+  border: 1px solid $middlegray !important;
+}
+
+.gametype-icons {
+  display: none !important;
+}

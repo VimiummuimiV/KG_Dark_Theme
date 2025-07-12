@@ -1,0 +1,161 @@
+@import "variables";
+
+// Mixin for car base positions
+@mixin car-base-position($base-num) {
+  .car .car-base_#{$base-num} {
+    background-position: #{-100px * ($base-num + 1)} 0 !important;
+  }
+}
+
+// Mixin for tuning positions
+@mixin tuning-positions($tuning-num) {
+  .car .car-tuning#{$tuning-num}_ {
+    background: transparent !important;
+    @for $i from 0 through 13 {
+      &#{$i} {
+        background-position: #{-100px * $i} #{-50px * $tuning-num} !important;
+      }
+    }
+  }
+}
+
+// Mixin for creating car styles
+@mixin car-style($car-class, $variable-name) {
+  div[class*="car-base"].#{$car-class},
+  .car-tuning.#{$car-class} {
+    background: $variable-name;
+  }
+}
+
+// Mixin for creating car styles with multiple classes
+@mixin car-group($car-classes, $variable-name) {
+  @each $class in $car-classes {
+    div[class*="car-base"].#{$class},
+    .car-tuning.#{$class} {
+      background: $variable-name;
+    }
+  }
+}
+
+/* ===== EXCLUSIVE CARS SET ===== */
+$exclusive-cars: (
+  car1000-1: $car1000-1,
+  car1001-1: $car1001-1,
+  car1002-1: $car1002-1,
+  car1003-1: $car1003-1,
+  car1006-1: $car1006-1,
+  car1008-1: $car1008-1,
+  car1009-1: $car1009-1,
+  car1010-1: $car1010-1,
+  car1012-3: $car1012-3,
+  car1015-1: $car1015-1,
+  car1016-1: $car1016-1,
+  car1023-1: $car1023-1
+);
+
+@each $car-class, $variable in $exclusive-cars {
+  @include car-style($car-class, $variable);
+}
+
+/* ===== SPECIAL CARS ===== */
+// Grouped cars with their variables
+$car-groups: (
+  (car1013-3, car1013, car1014): $car1013-3,
+  (car1019, car45): $car1019,
+  (car1021-1, car1021): $car1021-1,
+  (car1022, car1004): $car1022
+);
+
+@each $classes, $variable in $car-groups {
+  @include car-group($classes, $variable);
+}
+
+// Single special cars
+@include car-style(car1017, $car1017);
+@include car-style(car1018, $car1018);
+@include car-style(car1020, $car1020);
+@include car-style(car1024, $car1024);
+
+/* ===== BATMAN CAR ===== */
+@include car-style(car1011, $batman);
+
+/* ===== FIXES ===== */
+.profile-car .shop .tuning-category .tuning-item .car.light .car-base_ {
+  opacity: 1 !important;
+}
+
+.profile-car .shop.tuning .car .imgcont {
+  background: #777777 !important;
+}
+
+/* ===== STANDARD CARS ===== */
+// Create a map of all standard car variables
+$standard-cars: (
+  1: $car1,
+  2: $car2,
+  3: $car3,
+  4: $car4,
+  5: $car5,
+  6: $car6,
+  7: $car7,
+  8: $car8,
+  9: $car9,
+  10: $car10,
+  11: $car11,
+  12: $car12,
+  13: $car13,
+  14: $car14,
+  15: $car15,
+  16: $car16,
+  17: $car17,
+  18: $car18,
+  19: $car19,
+  20: $car20,
+  22: $car22,
+  23: $car23,
+  24: $car24,
+  25: $car25,
+  26: $car26,
+  27: $car27,
+  28: $car28,
+  29: $car29,
+  30: $car30,
+  31: $car31,
+  32: $car32,
+  33: $car33,
+  34: $car34,
+  35: $car35,
+  36: $car36,
+  37: $car37,
+  38: $car38,
+  39: $car39,
+  40: $car40,
+  41: $car41,
+  42: $car42,
+  43: $car43,
+  44: $car44
+);
+
+// Generate styles for all standard cars
+@each $car-num, $car-variable in $standard-cars {
+  div[class*="car-base"].car#{$car-num},
+  .car-tuning.car#{$car-num} {
+    background: $car-variable;
+  }
+}
+
+// Special case for car1 with additional selectors
+.car1[style*="background-color: #777"] {
+  background: $car1;
+}
+
+/* ===== CAR POSITION PRIORITIES FIX ===== */
+// Generate car base positions (0-13)
+@for $i from 0 through 13 {
+  @include car-base-position($i);
+}
+
+// Generate tuning positions (1-14)
+@for $i from 1 through 14 {
+  @include tuning-positions($i);
+}

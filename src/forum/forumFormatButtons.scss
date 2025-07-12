@@ -1,0 +1,82 @@
+@import "../variables";
+
+/* forum and comments vocs bbcode buttons attach */
+body img {
+  // Individual button backgrounds using map
+  $button-map: (
+    "rte-background": $background,
+    "rte-bold": $bold,
+    "rte-center": $center,
+    "rte-code": $code,
+    "rte-color": $color,
+    "rte-hide": $hide,
+    "rte-html": $html,
+    "rte-image": $image,
+    "rte-italic": $italic,
+    "rte-left": $left,
+    "rte-link": $link,
+    "rte-list_0": $list,
+    "rte-list_1": $listnum,
+    "rte-quote": $quote,
+    "rte-quotesel": $quotesel,
+    "rte-right": $right,
+    "rte-size": $size,
+    "rte-strike": $strike,
+    "rte-sub": $sub,
+    "rte-sup": $sup,
+    "rte-tab": $tab,
+    "rte-underlined": $underlined,
+    "rte-youtube": $youtube
+  );
+
+  @each $selector, $bg-color in $button-map {
+    &[src*="#{$selector}"] {
+      background: $bg-color !important;
+    }
+  }
+
+  // Special case for onclick attribute
+  &[onclick*="rte-smileTab"] {
+    background: $smile !important;
+  }
+
+  // Common styles for all BBCode buttons
+  &[src*="rte-background"],
+  &[src*="rte-bold"],
+  &[src*="rte-center"],
+  &[src*="rte-code"],
+  &[src*="rte-color"],
+  &[src*="rte-hide"],
+  &[src*="rte-html"],
+  &[src*="rte-image"],
+  &[src*="rte-italic"],
+  &[src*="rte-left"],
+  &[src*="rte-link"],
+  &[src*="rte-list"],
+  &[src*="rte-listnum"],
+  &[src*="rte-quote"],
+  &[src*="rte-quotesel"],
+  &[src*="rte-right"],
+  &[src*="rte-size"],
+  &[src*="rte-strike"],
+  &[src*="rte-sub"],
+  &[src*="rte-sup"],
+  &[src*="rte-tab"],
+  &[src*="rte-underlined"],
+  &[onclick*="rte-smileTab"],
+  &[src*="rte-youtube"] {
+    box-sizing: border-box !important;
+    padding-left: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    image-rendering: crisp-edges !important;
+    transition: all 0.15s !important;
+    border: 1px solid transparent !important;
+
+    // Hover states
+    &:hover {
+      background-color: rgba(200, 200, 200, 0.2) !important;
+      border: 1px solid silver !important;
+    }
+  }
+}

@@ -1,0 +1,391 @@
+@import 'variables';
+
+// Configuration Maps
+$rang-colors: (
+  1: $rang1,
+  2: $rang2,
+  3: $rang3,
+  4: $rang4,
+  5: $rang5,
+  6: $rang6,
+  7: $rang7,
+  8: $rang8,
+  9: $rang9
+);
+
+$awards: (
+  1: ($medal-award, "awards"),
+  2: ($star-award, "10px 0"),
+  3: ($trophy-award, "20px 0"),
+  4: ($crown-award, "30px 0"),
+  5: ($gold-helmet-award, "40px 0"),
+  6: ($platinum-helmet-award, "50px 0"),
+  7: ($black-helmet-award, "60px 0"),
+  8: ($wheel-award, "70px 0"),
+  '1b': ($bronze-book-award, "80px 0"),
+  '2b': ($silver-book-award, "90px 0"),
+  '3b': ($gold-book-award, "100px 0")
+);
+
+// Mixins
+@mixin reset-styles {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  text-shadow: none !important;
+}
+
+@mixin button-base {
+  font-weight: lighter !important;
+  border: none !important;
+}
+
+@mixin button-style($bg-color, $text-color) {
+  @include button-base;
+  background: $bg-color !important;
+  color: $text-color !important;
+}
+
+@mixin border-style($color) {
+  border: 1px solid $color !important;
+}
+
+@mixin rang-style($color) {
+  color: $color !important;
+  border-color: $color !important;
+}
+
+@mixin award-icon($bg-image) {
+  background: $bg-image transparent no-repeat 0 / 18px 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+// Functions
+@function get-rang-color($rang) {
+  @return map-get($rang-colors, $rang);
+}
+
+// Base Elements
+%reset-base {
+  @include reset-styles;
+  
+  &:focus {
+    outline: none !important;
+  }
+}
+
+%button-base {
+  @include button-style($middlegray, $deepgray);
+  
+  &:hover {
+    @include button-style($blue, $deepgray);
+  }
+}
+
+%input-base {
+  color: $white !important;
+  @include border-style($middlegray);
+}
+
+// Global Styles
+html, body {
+  background: $darkgray !important;
+}
+
+body {
+  color: $white !important;
+}
+
+// Universal Reset
+* {
+  @extend %reset-base;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  color: $orange !important;
+}
+
+// Links
+a {
+  color: $blue !important;
+  
+  &:hover {
+    color: $lightblue !important;
+  }
+  
+  &:visited {
+    color: $blue !important;
+  }
+}
+
+// Form Elements
+input {
+  &[type="text"] {
+    @extend %input-base;
+    
+    &.blur {
+      color: $deepgray !important;
+    }
+  }
+  
+  &[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: $deepgray;
+    margin: 0;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid $middlegray;
+    border-radius: 50% !important;
+    transform: translateY(-0.075em) !important;
+    display: inline-grid;
+    place-content: center;
+
+    &::before {
+      content: "";
+      width: 0.65em;
+      height: 0.65em;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      background-color: $orange;
+    }
+
+    &:checked::before {
+      transform: scale(1);
+    }
+  }
+}
+
+.search input[name="text"] {
+  color: $white !important;
+}
+
+.form-control {
+  background: $darkgray !important;
+  @include border-style($middlegray);
+  color: $white;
+
+  &:focus {
+    background: $darkgray;
+    @include border-style($blue);
+    color: $white;
+  }
+}
+
+textarea {
+  @include border-style($middlegray);
+  background-color: $darkgray !important;
+  color: $white !important;
+}
+
+// Buttons
+body .btn {
+  @extend %button-base;
+}
+
+body .close {
+  background: none !important;
+  color: $middlegray !important;
+  opacity: 1 !important;
+
+  &:hover {
+    background: none !important;
+    color: $blue !important;
+    opacity: 1 !important;
+  }
+}
+
+// Layout Components
+.msg {
+  background: $deepgray !important;
+  @include border-style($blue);
+  text-align: center !important;
+}
+
+blockquote {
+  color: $blue !important;
+  background: $deepgray !important;
+  border: none !important;
+}
+
+// Border Elements
+hr, th, tr, td {
+  border-color: $middlegray !important;
+}
+
+pre {
+  background-color: $deepgray !important;
+  border-color: $blue !important;
+}
+
+// Progress Components
+.progress {
+  background: $middlegray !important;
+
+  &-bar {
+    filter: hue-rotate(80deg) !important;
+  }
+
+  &-label {
+    color: $darkgray !important;
+  }
+}
+
+.next-level-label {
+  color: $white !important;
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 10px !important;
+  background: $deepgray !important;
+  
+  &-track {
+    @include border-style($deepgray);
+    background-color: $darkgray !important;
+  }
+
+  &-thumb {
+    background-color: $deepgray !important;
+  }
+}
+
+// Dropdown
+div.btn-group .dropdown-menu {
+  background: $darkgray !important;
+  @include border-style($middlegray);
+}
+
+// Actions
+div.actions button {
+  background-color: $darkgray !important;
+  @include border-style($middlegray);
+
+  &:hover {
+    background-color: $darkgray !important;
+    @include border-style($blue);
+  }
+}
+
+// Profile Components
+.profile-root {
+  .empty {
+    color: $red !important;
+  }
+  
+  textarea {
+    border: none !important;
+  }
+}
+
+.modal2 textarea {
+  border: none !important;
+}
+
+.resolve-failed {
+  background: $darkgray !important;
+  @include border-style($middlegray);
+}
+
+// Rang Colors - Generated with loops
+@each $rang, $color in $rang-colors {
+  .rang#{$rang},
+  a.rang#{$rang},
+  a.rang#{$rang}:visited {
+    @include rang-style($color);
+  }
+}
+
+// Awards - Generated with loops
+.award {
+  position: absolute !important;
+  top: -4px !important;
+  right: -6px !important;
+  @include award-icon(none);
+}
+
+#popup_content .popup_profile a {
+  @include award-icon(none);
+}
+
+@each $class, $props in $awards {
+  $image: nth($props, 1);
+  $selector: nth($props, 2);
+  
+  .award#{$class},
+  body .popup_profile a[style*="#{$selector}"] {
+    @include award-icon($image);
+  }
+}
+
+// Reformal Widget
+#reformal_widget {
+  @include reset-styles;
+  filter: invert(0.95) brightness(1.2) grayscale(0.6) contrast(0.8) hue-rotate(-30deg) !important;
+}
+
+// Reformal Tab
+body #reformal_tab,
+#reformal_tab {
+  top: 25% !important;
+  bottom: 0 !important;
+  box-sizing: content-box !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  background-color: transparent !important;
+  background: $deepgray $reformalTabDefault !important;
+  border: none !important;
+  border-left: 2px solid $blue !important;
+  height: 46px !important;
+  width: 46px !important;
+  transform: translateY(-50%) !important;
+  transition: all 0.2s !important;
+
+  &:hover {
+    top: 25% !important;
+    box-sizing: content-box !important;
+    border-radius: 50% !important;
+    transform: rotate(180deg) translateY(50%) !important;
+    background-color: transparent !important;
+    border: 2px solid $orange !important;
+    background: $black $reformalTabHover !important;
+    transition: all 0.2s !important;
+  }
+
+  img {
+    display: none !important;
+  }
+}
+
+// Special Cases
+img[src*="/img/yellow_cros"] {
+  box-sizing: border-box;
+  padding-left: 17px;
+  height: 17px;
+  width: 17px;
+  background: $close;
+  position: relative;
+  top: 0 !important;
+}
+
+// Tooltips
+body .tipsy {
+  position: absolute !important;
+  opacity: 0.9 !important;
+  font: 12px Tahoma !important;
+
+  &-inner {
+    max-width: 400px !important;
+    text-align: center !important;
+    background-color: $blue;
+    color: $deepgray !important;
+    margin-left: 5px !important;
+    margin-top: 2px !important;
+  }
+
+  &-arrow {
+    display: none !important;
+  }
+}

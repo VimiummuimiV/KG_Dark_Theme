@@ -1,0 +1,223 @@
+@import "variables";
+
+/* LOGIN BUTTON */
+
+/* Login block styles */
+.login-block {
+  z-index: 100 !important;
+  position: fixed !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 45px !important;
+  width: 45px !important;
+  padding: 0 !important;
+  color: transparent !important;
+  right: 0 !important;
+  top: 0 !important;
+  background: rgba(200, 200, 200, 0.2) !important;
+  transition: background 0.3s !important;
+
+  &:hover {
+    background: rgba(200, 200, 200, 0.4) !important;
+  }
+
+  a {
+    cursor: pointer !important;
+    padding-left: unset !important;
+    background: transparent $key-icon no-repeat center center !important;
+    text-decoration: none !important;
+    height: 45px !important;
+    position: absolute !important;
+    width: 45px !important;
+
+    span {
+      display: none !important;
+    }
+  }
+
+  .error {
+    color: $red !important;
+    margin-right: 0 !important;
+    position: absolute !important;
+    top: 0px !important;
+  }
+}
+
+/* LOGIN FORM */
+
+/* Login input backgrounds */
+#username,
+#password {
+  color: $white !important;
+  background: $darkgray !important;
+  border: none !important;
+}
+
+/* Login && register popup close button */
+.popup-box .close ins {
+  filter: invert(60%) !important;
+
+  &:hover {
+    filter: invert(70%) !important;
+  }
+}
+
+/* Login form popup */
+#login-form {
+  position: fixed !important;
+  z-index: 150 !important;
+  height: 100vh !important;
+  width: unset !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+
+  .c {
+    background: #484a4e !important;
+    padding: 0 !important;
+    height: 300px !important;
+    width: 250px !important;
+    border: none !important;
+
+    form {
+      margin-top: 45px;
+      padding-right: 0 !important;
+      height: 300px !important;
+    }
+  }
+
+  dt {
+    display: none;
+  }
+
+  dt,
+  dl,
+  dd {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  dd,
+  dl,
+  input {
+    width: 100% !important;
+  }
+
+  #username,
+  #password {
+    background-color: $blue !important;
+    height: 45px !important;
+    padding: 10px !important;
+    color: $deepgray !important;
+    text-align: center !important;
+
+    &:active,
+    &:focus {
+      background-color: $lightblue !important;
+      transition: background-color 0.3s !important;
+    }
+  }
+
+  #username {
+    border-bottom: 1px solid #484a4e !important;
+    background-image: $user-icon !important;
+    background-position: 10px !important;
+    background-repeat: no-repeat !important;
+  }
+
+  #password {
+    margin-bottom: 10px !important;
+    background-image: $lock-icon !important;
+    background-position: 10px !important;
+    background-repeat: no-repeat !important;
+  }
+
+  // Login button
+  #login_form_submit {
+    width: 200px !important;
+    transform: translate(25px);
+    height: 45px !important;
+    border: 2px solid $blue !important;
+    border-radius: 25px !important;
+    background-color: $deepgray !important;
+    color: $blue !important;
+    text-transform: uppercase !important;
+    transition: all 0.15s !important;
+
+    &:hover {
+      color: $lightblue !important;
+      border: 2px solid $lightblue !important;
+    }
+  }
+
+  .close {
+    top: 0 !important;
+    right: 0 !important;
+    height: 45px !important;
+    width: 45px !important;
+    background-color: #484a4e !important;
+    background-image: $close-icon !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    transition: background-color 0.3s !important;
+
+    &:hover {
+      background-color: #626468 !important;
+    }
+
+    ins {
+      display: none !important;
+    }
+  }
+
+  // Login and password description text color
+  table label {
+    font-weight: lighter !important;
+  }
+
+  .navigation {
+    display: inline-flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+
+    li {
+      margin-bottom: 0 !important;
+
+      a {
+        border-radius: 50% !important;
+        background-color: rgba(200, 200, 200, 0.3) !important;
+        display: block !important;
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0 !important;
+        border: 2px solid gray;
+        transition: background-color 0.3s !important;
+
+        &:hover {
+          background-color: rgba(200, 200, 200, 0.5) !important;
+          border: 2px solid lightgray;
+        }
+      }
+
+      &:nth-child(1) a {
+        margin-right: 10px !important;
+        background-image: $user-plus-icon !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+      }
+
+      &:nth-child(2) a {
+        margin-left: 10px !important;
+        background-image: $user-check-icon !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+      }
+    }
+  }
+}

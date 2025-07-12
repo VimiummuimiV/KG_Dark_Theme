@@ -1,0 +1,308 @@
+@import "variables";
+
+// Mixins
+@mixin flex-center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+@mixin score-level-style($bg-color) {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 45px !important;
+  height: 44px !important;
+  background: $bg-color !important;
+  padding-left: 46px !important;
+  position: relative !important;
+}
+
+@mixin daily-task-icon($bg-color) {
+  box-sizing: border-box;
+  padding-left: 32px;
+  height: 32px;
+  width: 32px;
+  background: $bg-color !important;
+  position: relative;
+  top: 6px;
+  left: -9px;
+}
+
+@mixin pin-style($has-border: false) {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 20px !important;
+  height: 20px !important;
+  background: transparent url($pin) center no-repeat !important;
+  padding-left: 16px !important;
+  z-index: 1 !important;
+
+  @if $has-border {
+    border: 1px solid $white !important;
+  }
+}
+
+.userpanel {
+  font-family: "Montserrat", sans-serif !important;
+  border: none;
+  background: $deepgray !important;
+  color: $middlegray !important;
+
+  // User block styles
+  .user-block {
+    .daily-task {
+      border-left: 1px solid $middlegray !important;
+      border-right: 1px solid $middlegray !important;
+      width: 50px !important;
+      height: 44px !important;
+
+      .icon {
+        &[src*="active"] {
+          @include daily-task-icon($no);
+        }
+
+        &[src*="completed"] {
+          @include daily-task-icon($yes);
+        }
+      }
+    }
+
+    // User dropdown styles
+    .user-dropdown {
+      border: none !important;
+      z-index: 1 !important;
+
+      .active .name {
+        background: $deepgray !important;
+        border-right: 1px solid $middlegray !important;
+      }
+
+      .drop-btn:hover {
+        background: $darkgray !important;
+      }
+
+      .dropmenu {
+        background: $deepgray !important;
+        border: 1px solid $middlegray !important;
+
+        .col1 {
+          a.btn,
+          ul li.logout a {
+            background: $middlegray !important;
+            color: $black !important;
+            border: none !important;
+            font-weight: lighter !important;
+
+            &:hover {
+              background: $blue !important;
+              color: $black !important;
+            }
+          }
+
+          ul {
+            li {
+              color: $white !important;
+
+              &.unread_mail a:hover {
+                background-color: $black !important;
+              }
+            }
+          }
+
+          a.note {
+            color: $white !important;
+
+            &:hover {
+              color: $lightblue !important;
+            }
+          }
+        }
+
+        .col2 {
+          ul {
+            border-left: 1px solid $middlegray !important;
+
+            li a:hover {
+              background: $blue !important;
+              color: $deepgray !important;
+            }
+          }
+        }
+
+        a {
+          color: $blue !important;
+        }
+      }
+    }
+
+    // Name styles
+    .name {
+      img {
+        opacity: 0.8 !important;
+      }
+
+      span {
+        color: $blue !important;
+      }
+
+      .caret {
+        border-top: 4px solid $blue !important;
+      }
+    }
+  }
+
+  // Theme change button
+  #change_theme {
+    width: 50px !important;
+    height: 44px !important;
+    border-right: 1px solid $middlegray !important;
+
+    img {
+      width: 50px !important;
+      height: 44px !important;
+    }
+  }
+
+  // Level container styles
+  #userpanel-level-container {
+    background: none !important;
+    height: 45px !important;
+    width: 45px !important;
+    top: -5px !important;
+  }
+
+  #userpanel-level-value {
+    margin: 0 !important;
+    height: 45px !important;
+    @include flex-center;
+    width: 45px !important;
+    color: #fff3b1 !important;
+    text-shadow: 0 0 1px !important;
+    z-index: 2 !important;
+    margin-left: -1px !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+  }
+
+  #userpanel-level-value-shadow {
+    display: none !important;
+  }
+
+  #userpanel-level {
+    border-right: none !important;
+  }
+
+  // Score level progress styles
+  #userpanel-level-progress {
+    &[style*="0.png"] {
+      @include score-level-style($score0);
+      width: 47px !important;
+    }
+
+    &[style*="1.png"] {
+      @include score-level-style($score1);
+    }
+
+    &[style*="2.png"] {
+      @include score-level-style($score2);
+    }
+
+    &[style*="3.png"] {
+      @include score-level-style($score3);
+    }
+
+    &[style*="4.png"] {
+      @include score-level-style($score4);
+    }
+
+    &[style*="5.png"] {
+      @include score-level-style($score5);
+    }
+
+    &[style*="6.png"] {
+      @include score-level-style($score6);
+    }
+
+    &[style*="7.png"] {
+      @include score-level-style($score7);
+    }
+
+    &[style*="8.png"] {
+      @include score-level-style($score8);
+    }
+
+    &[style*="9.png"] {
+      @include score-level-style($score9);
+    }
+
+    &[style*="10.png"] {
+      @include score-level-style($score10);
+    }
+
+    &[style*="11.png"] {
+      @include score-level-style($score11);
+    }
+  }
+
+  // Game type styles
+  #gametype-select {
+    font-weight: 400 !important;
+    font-size: 11px !important;
+  }
+
+  #gametype-mdash {
+    color: transparent !important;
+  }
+
+  // Statistics block styles
+  #stats-block {
+    .value {
+      color: $blue !important;
+    }
+
+    .title,
+    .rating {
+      color: $white !important;
+    }
+  }
+
+  // General text styles
+  .value,
+  a,
+  #userpanel-scores-container,
+  #userpanel-bonuses {
+    font-weight: 500 !important;
+  }
+
+  .value,
+  a {
+    font-size: 11px !important;
+    color: $blue !important;
+  }
+
+  .title,
+  .rating,
+  .scores-table {
+    font-size: 9px !important;
+    color: $white !important;
+  }
+
+  // Vocabulary selector
+  a.gametype-voc {
+    border: none !important;
+    text-decoration: none !important;
+  }
+
+  .gametype-voc {
+    color: $blue !important;
+  }
+
+  // Pin styles
+  #pin {
+    @include pin-style(false);
+
+    &.active {
+      @include pin-style(true);
+    }
+  }
+}

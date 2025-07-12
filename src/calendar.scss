@@ -1,0 +1,38 @@
+@import "variables";
+
+.calendar {
+  *:not(.ui-icon) {
+    border: none !important;
+    background: none !important;
+  }
+
+  * a {
+    text-align: center !important;
+    color: $white !important;
+  }
+
+  td.ui-state-disabled,
+  span.ui-state-default {
+    border: 1px solid transparent !important;
+    background: $darkgray !important;
+  }
+
+  td[data-handler="selectDay"] {
+    background-color: $darkgray !important;
+    border-bottom: 1px solid transparent !important;
+
+    &:hover {
+      background-color: $deepgray !important;
+      border-bottom: 1px solid $blue !important;
+    }
+  }
+
+  .ui-datepicker-header {
+    background: $blue !important;
+    color: $darkgray !important;
+  }
+
+  .ui-datepicker-calendar span {
+    color: $blue !important;
+  }
+}
