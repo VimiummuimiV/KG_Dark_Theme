@@ -1,0 +1,144 @@
+@import "variables";
+
+/* voc author bg row color */
+.user-content {
+  dd:nth-child(2) {
+    background-color: $darkgray !important;
+  }
+}
+
+/* voc play add btn */
+.btn80 {
+  background: $blue !important;
+  
+  &:hover {
+    background: $orange !important;
+  }
+}
+
+.play {
+  background: $orange !important;
+}
+
+/* voc remove btn */
+body .voclist .remove {
+  background: #622020 $rmvoc no-repeat 5px 4px !important;
+  color: $red !important;
+  padding: 3px 25px !important;
+  border: 1px solid $red !important;
+  transition: all 0.2s !important;
+  background-size: 9px !important;
+  
+  &:hover {
+    filter: hue-rotate(60deg) !important;
+  }
+}
+
+/* voc popularity */
+body .voc_popularity {
+  background: $vocPopularity;
+}
+
+/* voc popularity fix position */
+body {
+  .popularity0 {
+    background-position: 0px -96px !important;
+  }
+  
+  .popularity1 {
+    background-position: 0px -72px !important;
+  }
+  
+  .popularity2 {
+    background-position: 0px -48px !important;
+  }
+  
+  .popularity3 {
+    background-position: 0px -24px !important;
+  }
+  
+  .popularity4 {
+    background-position: 0px 0px !important;
+  }
+  
+  .create_voc {
+    position: absolute !important;
+    margin: 0 !important;
+    top: -17px !important;
+    border-radius: 5px !important;
+    border: 1px solid $orange !important;
+    transition: all 0.1s !important;
+    filter: invert(1) !important;
+    
+    &:hover {
+      border: 1px solid $blue !important;
+    }
+  }
+}
+
+/* vocs show history button */
+.vocview-block .editfor-title i {
+  background: $showHistory !important;
+}
+
+/* play button */
+#profile-block {
+  &.vocview-block .user-title .btn_play {
+    filter: hue-rotate(90deg) !important;
+  }
+  
+  #toplist {
+    width: 100% !important;
+    display: block !important;
+    margin: 0 !important;
+    
+    dt {
+      display: block !important;
+    }
+    
+    > dd:nth-child(2) {
+      margin: 0 !important;
+    }
+  }
+}
+
+body {
+  .columns {
+    top: 20px !important;
+    
+    .content-col {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 16% !important;
+      margin-right: 16% !important;
+    }
+    
+    h3 {
+      display: none !important;
+    }
+  }
+  
+  .voclist {
+    .content-col {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    .left-col {
+      position: absolute !important;
+      left: -160px !important;
+      top: 22px !important;
+      justify-content: center !important;
+      display: flex !important;
+      float: none !important;
+      width: 150px !important;
+      flex-direction: column !important;
+      margin: 0 !important;
+      padding: 25px 0 5px 0 !important;
+      
+      > h4 {
+        display: none !important;
+      }
+    }
+  }
+}

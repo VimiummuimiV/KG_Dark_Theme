@@ -1,0 +1,262 @@
+@import "variables";
+
+/* GAMELIST */
+.r {
+  .tr,
+  .bl,
+  .br,
+  &.tl {
+    margin-bottom: 0 !important;
+    background: none !important;
+  }
+}
+
+.gamelist-create {
+  margin-bottom: 0 !important;
+  background: none !important;
+
+  .rc {
+    padding: 10px 0 !important;
+  }
+
+  #savedModes {
+    margin-right: 10px !important;
+    border: 1px solid $white !important;
+  }
+
+  form {
+    display: inline-flex;
+    font-size: 0;
+    color: $white !important;
+
+    input#create_game,
+    input#delete {
+      color: transparent !important;
+      border: none !important;
+      background-color: rgba(200, 200, 200, 0.3) !important;
+      padding: 0 !important;
+      display: inline-flex !important;
+      width: 35px !important;
+      height: 35px !important;
+      border-radius: 50% !important;
+      cursor: pointer !important;
+      transition: background-color 0.3s !important;
+      background-position: center center;
+      background-repeat: no-repeat;
+      margin-right: 5px !important;
+    }
+
+    input#create_game {
+      background-image: $icon-plus;
+
+      &:hover {
+        background-color: rgba(134, 226, 213, 0.5) !important;
+      }
+    }
+
+    input#delete {
+      background-image: $icon-x;
+
+      &:hover {
+        background-color: rgba(240, 52, 52, 0.5) !important;
+      }
+    }
+
+    span input[type="button"] {
+      margin-right: 5px !important;
+      background-image: $icon-eye-off;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+#gamelist {
+  .rang1:after { content: "newbie" !important; }
+  .rang2:after { content: "amateur" !important; }
+  .rang3:after { content: "cabbie" !important; }
+  .rang4:after { content: "profi" !important; }
+  .rang5:after { content: "racer" !important; }
+  .rang6:after { content: "maniac" !important; }
+  .rang7:after { content: "superman" !important; }
+  .rang8:after { content: "cyber" !important; }
+  .rang9:after { content: "extra" !important; }
+
+  .rang1:after,
+  .rang2:after,
+  .rang3:after,
+  .rang4:after,
+  .rang5:after,
+  .rang6:after,
+  .rang7:after,
+  .rang8:after,
+  .rang9:after {
+    display: block;
+    margin-top: 0;
+    font-size: 10px;
+  }
+
+  .item * {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .tl {
+    display: none !important;
+  }
+
+  td.enter {
+    padding: 0 !important;
+    margin: 0 !important;
+
+    div.enter {
+      padding: 0 !important;
+      margin: 0 5px 0 0 !important;
+    }
+
+    a {
+      display: block !important;
+      box-sizing: border-box !important;
+      width: 63px !important;
+      height: 63px !important;
+      background: $race !important;
+      background-size: contain !important;
+      padding-left: 63px !important;
+      filter: brightness(0.8) !important;
+
+      &:hover {
+        display: block !important;
+        box-sizing: border-box !important;
+        width: 63px !important;
+        height: 63px !important;
+        padding-left: 63px !important;
+      }
+
+      &.competition {
+        display: block !important;
+        box-sizing: border-box !important;
+        width: 63px !important;
+        height: 63px !important;
+        background: $competition !important;
+        background-size: contain !important;
+        padding-left: 63px !important;
+
+        &:hover {
+          display: block !important;
+          box-sizing: border-box !important;
+          width: 63px !important;
+          height: 63px !important;
+          padding-left: 63px !important;
+          filter: brightness(0.8) !important;
+        }
+      }
+    }
+  }
+
+  td.sign {
+    padding: 0 4px 0 8px !important;
+  }
+
+  .remain span {
+    color: $white !important;
+    background-position: 0 -25px !important;
+  }
+
+  .custominfo {
+    color: $white !important;
+  }
+
+  .name a {
+    border-bottom-style: solid !important;
+  }
+
+  .item td {
+    border-top: none !important;
+  }
+
+  #gamelist-active .item td {
+    border: none !important;
+  }
+}
+
+div#gamelist {
+  .name a {
+    border-bottom-style: solid !important;
+  }
+
+  .item td {
+    border-top: none !important;
+  }
+
+  .custominfo {
+    color: $white !important;
+  }
+}
+
+#gamelist-active {
+  background: $darkgray !important;
+  border-top: 1px solid $middlegray !important;
+
+  button.hide-btn {
+    background: $darkgray !important;
+    border: 1px solid $middlegray !important;
+    color: $middlegray !important;
+
+    &:hover {
+      background: $deepgray !important;
+      border: 1px solid $blue !important;
+      color: $blue !important;
+    }
+
+    .glyphicon {
+      display: none !important;
+    }
+  }
+
+  &.hide-block {
+    background-color: $darkgray !important;
+    border: none !important;
+    margin: 0 !important;
+
+    h3,
+    h4 {
+      color: $middlegray !important;
+    }
+
+    button {
+      background: $darkgray !important;
+      color: $middlegray !important;
+      border: 1px solid $middlegray !important;
+
+      &:hover {
+        background: $deepgray !important;
+        color: $blue !important;
+        border: 1px solid $blue !important;
+      }
+    }
+  }
+}
+
+.recent-game {
+  margin: 4px 4px !important;
+  border: 1px solid $middlegray !important;
+  transition: all 0.2s !important;
+
+  &:hover {
+    border: 1px solid $blue !important;
+    background: $deepgray !important;
+    transition: all 0.2s !important;
+  }
+}
+
+#recent-games {
+  .recent-game-description,
+  .recent-game-levels,
+  .recent-game-name {
+    color: $white !important;
+  }
+}
+
+#savedModes {
+  border: 1px solid $white !important;
+}

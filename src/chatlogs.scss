@@ -1,0 +1,41 @@
+@import "variables";
+
+/* CHAT LOGS */
+div.logdate {
+  color: $orange !important;
+}
+
+div.rct {
+  background: $darkgray !important;
+
+  div.rc {
+    color: $white !important;
+  }
+}
+
+.mn {
+  color: $blue !important;
+}
+
+.mne {
+  color: $red !important;
+}
+
+html[xmlns*="xhtml"] {
+  font: 18px Tahoma !important;
+  color: $white !important;
+
+  a[href*="klavogonki.ru/chatlogs/"] {
+    background-color: $red !important;
+    color: $deepgray !important;
+    padding: 1px !important;
+    border-radius: 3px !important;
+  }
+}
+
+.rcod,
+.rcoe,
+.rcot,
+.rcos {
+  background: $deepgray !important;
+}

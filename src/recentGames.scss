@@ -1,0 +1,177 @@
+@import "variables";
+
+// Recent games options container
+#recent-games-options {
+  display: inline-flex !important;
+  width: 105px !important;
+  height: 35px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  color: transparent !important;
+  margin-left: 0 !important;
+  font-size: 0;
+}
+
+// Recent games count buttons (increment/decrement) and display
+#recent-games-count-dec,
+#recent-games-count-inc,
+#recent-games-count {
+  color: transparent !important;
+  height: 35px !important;
+  width: 35px !important;
+  display: inline-flex;
+  border: none !important;
+  outline: none !important;
+  transition: background-color 0.3s !important;
+}
+
+// Decrement button (left arrow)
+#recent-games-count-dec {
+  background-image: $chevron-left-icon;
+  background-repeat: no-repeat;
+  background-position: center !important;
+  border-radius: 5px 0 0 5px !important;
+  background-color: $button-bg-color !important;
+  border-left: 2px solid $button-border-color !important;
+  border-bottom: 2px solid $button-border-color !important;
+  border-top: 2px solid $button-border-color !important;
+
+  &:hover {
+    background-color: $button-bg-hover !important;
+  }
+}
+
+// Increment button (right arrow)
+#recent-games-count-inc {
+  background-image: $chevron-right-icon;
+  background-repeat: no-repeat;
+  background-position: center !important;
+  border-radius: 0 5px 5px 0 !important;
+  background-color: $button-bg-color !important;
+  border-right: 2px solid $button-border-color !important;
+  border-bottom: 2px solid $button-border-color !important;
+  border-top: 2px solid $button-border-color !important;
+
+  &:hover {
+    background-color: $button-bg-hover !important;
+  }
+}
+
+// Count display (center number)
+#recent-games-count {
+  font-family: $font-family !important;
+  color: $text-color !important;
+  font-size: 19px !important;
+  margin: 0 !important;
+  padding: 0 5px !important;
+  font-weight: bold !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-top: 2px solid $count-border-color !important;
+  border-bottom: 2px solid $count-border-color !important;
+}
+
+// ===== RECENT GAMES CONTAINER STYLES =====
+
+// Base container styling
+#recent-games-container {
+  background: $darkgray !important;
+}
+
+// ===== GAMELIST PAGE SPECIFIC STYLES =====
+body .gamelist-create {
+  #recent-games-container {
+    margin-top: 0 !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    padding-top: 15px !important;
+    max-height: 20vh !important;
+  }
+}
+
+// ===== MAIN PAGE SPECIFIC STYLES =====
+// Recent games container positioned at bottom left of main page
+#head {
+  #recent-games-container {
+    height: 20vh !important;
+    width: 100vw !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    z-index: 100 !important;
+    overflow-y: auto !important;
+    padding-top: 15px !important;
+  }
+}
+
+// ===== RECENT GAMES INDIVIDUAL ITEM CONTROLS =====
+
+body {
+  // Pin and delete buttons container
+  .recent-game-buttons {
+    position: absolute !important;
+    top: 0 !important;
+    left: -1px !important;
+    right: -1px !important;
+  }
+
+  // Handle/grip for recent game items
+  .recent-game-handle {
+    left: -1px !important;
+    top: -15px !important;
+    width: 51% !important;
+    height: 15px !important;
+    background: $middlegray $fixedRecent 50% !important;
+    opacity: $handle-opacity !important;
+
+    &:hover {
+      opacity: $handle-opacity-hover !important;
+    }
+  }
+
+  // Base styles for pin and delete buttons
+  .recent-game-pin,
+  .recent-game-delete {
+    margin: 0 !important;
+    height: 15px !important;
+    width: 50% !important;
+    float: unset !important;
+    position: absolute !important;
+    bottom: 0 !important;
+
+    // Hide the original images
+    img {
+      max-width: unset !important;
+      max-height: unset !important;
+      height: 15px !important;
+      width: 100% !important;
+      opacity: 0 !important;
+      display: block !important;
+      clip: unset !important;
+    }
+  }
+
+  // Pin button (green)
+  .recent-game-pin {
+    bottom: 0 !important;
+    background: $pin-color $pinResent 50% !important;
+    filter: $button-filter-dim !important;
+
+    &:hover {
+      filter: $button-filter-bright !important;
+    }
+  }
+
+  // Delete button (red)
+  .recent-game-delete {
+    left: 50% !important;
+    top: unset !important;
+    bottom: 0 !important;
+    background: $delete-color $closeResent 50% !important;
+    filter: $button-filter-dim !important;
+
+    &:hover {
+      filter: $button-filter-bright !important;
+    }
+  }
+}
