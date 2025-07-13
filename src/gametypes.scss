@@ -1,0 +1,158 @@
+@import "variables";
+
+// ====================
+// GAMETYPE CONFIGURATION
+// ====================
+
+// Define all gametypes in a map for easy maintenance
+$gametypes: (
+  'normal': $gametype-normal,
+  'quote': $gametype-quote,
+  'sprint': $gametype-sprint,
+  'marathon': $gametype-marathon,
+  'noerror': $gametype-noerror,
+  'noerrorcnt': $gametype-noerrorcnt,
+  'abra': $gametype-abra,
+  'abra-premium': $gametype-abra-premium,
+  'digits': $gametype-digits,
+  'referats': $gametype-referats,
+  'voc': $gametype-voc,
+  'chars': $gametype-chars,
+  'qual': $gametype-qual
+);
+
+// Define icon mappings
+$gametype-icons: (
+  'normal': $usual,
+  'noerror': $crash,
+  'chars': $letters,
+  'marathon': $marathone,
+  'sprint': $infinity,
+  'abra': $abra,
+  'digits': $digits,
+  'voc': $dictionary,
+  'referats': $yandex
+);
+
+// ====================
+// DYNAMIC GAMETYPE COLORS
+// ====================
+
+#content {
+  // Generate gametype color classes dynamically
+  @each $gametype, $color in $gametypes {
+    .gametype-#{$gametype} {
+      color: $color !important;
+    }
+    
+    a.gametype-#{$gametype} {
+      border-color: $color !important;
+    }
+  }
+  
+  // Premium styling
+  .premium-yellow,
+  .premium-yellow a {
+    color: $premium-yellow !important;
+  }
+}
+
+// ====================
+// DYNAMIC GAMETYPE ICONS
+// ====================
+
+// Base styles for gametype signs
+.gametypes .gametype-sign,
+#gamelist .gametype-sign:not(.qual),
+#status .gametype-sign:not(.qual) {
+  background-size: contain !important;
+  margin: 0 0 0 6px !important;
+}
+
+// Mixin for consistent sign styling
+@mixin gametype-sign($bg-var) {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 48px !important;
+  height: 48px !important;
+  background: $bg-var !important;
+  padding-left: 0 !important;
+}
+
+// Generate sign classes dynamically
+@each $gametype, $bg-var in $gametype-icons {
+  .sign-#{$gametype} {
+    @include gametype-sign($bg-var);
+  }
+}
+
+// ====================
+// GAMETYPE TABLE STYLING
+// ====================
+
+#create .gametypes tr.active {
+  background: $deepgray !important;
+}
+
+.gametypes {
+  tr:hover {
+    background: $deepgray !important;
+  }
+  
+  .note {
+    color: $white !important;
+  }
+  
+  td {
+    border-bottom: 1px solid $middlegray !important;
+  }
+  
+  h4 {
+    color: $blue !important;
+  }
+}
+
+// Premium abra styling
+#premium_abra {
+  input {
+    top: 2px !important;
+    left: 2px !important;
+  }
+  
+  label {
+    vertical-align: middle !important;
+    background: none !important;
+  }
+  
+  &,
+  a {
+    color: $blue !important;
+  }
+  
+  a:hover {
+    color: $lightblue !important;
+  }
+}
+
+// ====================
+// UTILITY FUNCTIONS
+// ====================
+
+// Function to get gametype color
+@function get-gametype-color($gametype) {
+  @return map-get($gametypes, $gametype);
+}
+
+// Function to check if gametype exists
+@function gametype-exists($gametype) {
+  @return map-has-key($gametypes, $gametype);
+}
+
+// Mixin to apply gametype styling to any element
+@mixin apply-gametype-style($gametype, $property: color) {
+  @if gametype-exists($gametype) {
+    #{$property}: get-gametype-color($gametype) !important;
+  } @else {
+    @warn "Gametype '#{$gametype}' not found in $gametypes map";
+  }
+}

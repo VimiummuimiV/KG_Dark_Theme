@@ -12,6 +12,7 @@
 @import "recentGames";
 @import "home";
 @import "gamelist";
+@import "gametypes";
 @import "notifications";
 @import "chatlogs";
 @import "chat";
@@ -24,136 +25,6 @@
 @-moz-document domain("klavogonki.ru") {
   /* Custom fonts */
   @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
-  .gametypes .gametype-sign,
-  #gamelist .gametype-sign:not(.qual),
-  #status .gametype-sign:not(.qual) {
-    background-size: contain !important;
-    margin: 0 0 0 6px !important;
-  }
-
-  /* signs img replacement */
-  .sign-normal {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 48px !important;
-    height: 48px !important;
-    background: var(--usual) !important;
-    padding-left: 0 !important;
-    filter: brightness(0.8) !important;
-  }
-
-  .sign-noerror {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 48px !important;
-    height: 48px !important;
-    background: var(--crash) !important;
-    padding-left: 0 !important;
-  }
-
-  .sign-chars {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 48px !important;
-    height: 48px !important;
-    background: var(--letters) !important;
-    padding-left: 0 !important;
-  }
-
-  .sign-marathon {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 48px !important;
-    height: 48px !important;
-    background: var(--marathone) !important;
-    padding-left: 0 !important;
-  }
-
-  .sign-sprint {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 48px !important;
-    height: 48px !important;
-    background: var(--infinity) !important;
-    padding-left: 0 !important;
-  }
-
-  .sign-abra {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 48px !important;
-    height: 48px !important;
-    background: var(--abra) !important;
-    padding-left: 0 !important;
-  }
-
-  .sign-digits {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 48px !important;
-    height: 48px !important;
-    background: var(--digits) !important;
-    padding-left: 0 !important;
-    filter: brightness(0.8) !important;
-  }
-
-  .sign-voc {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 48px !important;
-    height: 48px !important;
-    background: var(--dictionary) !important;
-    padding-left: 0 !important;
-  }
-
-  .sign-referats {
-    display: block !important;
-    box-sizing: border-box !important;
-    width: 48px !important;
-    height: 48px !important;
-    background: var(--yandex) !important;
-    padding-left: 0 !important;
-  }
-
-  #create .gametypes tr.active {
-    background: var(--deepgray) !important;
-  }
-
-  .gametypes tr:hover {
-    background: var(--deepgray) !important;
-  }
-
-  .gametypes .note {
-    color: var(--white) !important;
-  }
-
-  #premium_abra input {
-    top: 2px !important;
-    left: 2px !important;
-  }
-
-  #premium_abra label {
-    vertical-align: middle !important;
-    background: none !important;
-  }
-
-  #premium_abra,
-  #premium_abra a {
-    color: var(--blue) !important;
-  }
-
-  #premium_abra a:hover {
-    color: var(--lightblue) !important;
-  }
-
-  .gametypes td {
-    border-bottom: 1px solid var(--middlegray) !important;
-  }
-
-  .gametypes h4 {
-    color: var(--blue) !important;
-  }
 
   #create .buttons {
     display: flex !important;
