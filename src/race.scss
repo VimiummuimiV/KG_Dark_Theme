@@ -609,66 +609,6 @@ body {
   transition: opacity 0.2s !important;
 }
 
-// Loading animation
-// Invert loading image gif in user popup link hover nickname in race
-img[src*="loading"] {
-  filter: invert(83%) !important;
-}
-
-// Race default game loading hide vosvoiasi
-#gameloading {
-  height: 40px !important;
-  width: 40px !important;
-  background: $deepgray !important;
-  border: none !important;
-}
-
-// Remove text and gif loading img from race loading view block
-.gameloading-content {
-  width: 20px !important;
-  height: 40px !important;
-  background: $darkgray !important;
-  color: $darkgray !important;
-  position: relative !important;
-  top: 0px !important;
-  left: -20px !important;
-  
-  // Create another loading race progress animation
-  &::after {
-    content: "" !important;
-    display: block !important;
-    position: absolute !important;
-    left: -5px !important;
-    top: 0 !important;
-    width: 20px !important;
-    height: 40px !important;
-    background: $blue !important;
-    animation: loading 1s linear infinite !important;
-  }
-  
-  &::before {
-    content: "" !important;
-    display: block !important;
-    position: absolute !important;
-    left: 15px !important;
-    top: 0 !important;
-    width: 20px !important;
-    height: 40px !important;
-    background: $blue !important;
-    animation: loading 1s linear 0.2s infinite !important;
-  }
-}
-
-// Do loading animation
-@keyframes loading {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 // Race virtual keyboard btn
 #keyboard_cont {
   display: flex !important;
