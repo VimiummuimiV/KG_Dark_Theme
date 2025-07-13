@@ -72,35 +72,6 @@
 }
 
 #gamelist {
-  .rang1:after { content: "newbie" !important; }
-  .rang2:after { content: "amateur" !important; }
-  .rang3:after { content: "cabbie" !important; }
-  .rang4:after { content: "profi" !important; }
-  .rang5:after { content: "racer" !important; }
-  .rang6:after { content: "maniac" !important; }
-  .rang7:after { content: "superman" !important; }
-  .rang8:after { content: "cyber" !important; }
-  .rang9:after { content: "extra" !important; }
-
-  .rang1:after,
-  .rang2:after,
-  .rang3:after,
-  .rang4:after,
-  .rang5:after,
-  .rang6:after,
-  .rang7:after,
-  .rang8:after,
-  .rang9:after {
-    display: block;
-    margin-top: 0;
-    font-size: 10px;
-  }
-
-  .item * {
-    padding-bottom: 0 !important;
-    padding-top: 0 !important;
-  }
-
   .tl {
     display: none !important;
   }
@@ -164,10 +135,6 @@
 
   .custominfo {
     color: $white !important;
-  }
-
-  .name a {
-    border-bottom-style: solid !important;
   }
 
   .item td {
