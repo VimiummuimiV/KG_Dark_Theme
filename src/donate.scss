@@ -1,0 +1,139 @@
+@import "variables";
+
+/* fuel */
+.fuel-dlg-pay {
+  /* fuel amount container */
+  .amount {
+    background: $deepgray !important;
+    border: 1px solid $middlegray !important;
+  }
+
+  /* fuel active item */
+  ul.benefit > li {
+    &.active,
+    &:hover {
+      background: $deepgray !important;
+    }
+
+    /* fuel get premium options */
+    .pro-options > li {
+      background: $darkgray !important;
+      border: 1px solid $middlegray !important;
+
+      &.active {
+        background: $darkgray !important;
+      }
+    }
+  }
+
+  /* fuel my name thanks */
+  .bonus.clickable {
+    background: $darkgray !important;
+
+    &:hover {
+      background: $deepgray !important;
+    }
+  }
+}
+
+/* fuel i wanna points count input */
+input.ng-pristine {
+  border: 1px solid $middlegray !important;
+}
+
+.fuel-root {
+  /* hidden fuel about */
+  .faq {
+    height: 0 !important;
+    visibility: hidden !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* fuel bg color top and bottom blocks */
+  .fuel-content,
+  .thankyou {
+    background-color: $darkgray !important;
+  }
+
+  /* fuel dividers */
+  .fuel-content {
+    border-bottom: 1px solid $middlegray !important;
+
+    .left-block {
+      /* donated main value color */
+      .amount {
+        color: $blue !important;
+      }
+
+      /* donate button */
+      .tank-up {
+        background: $btnFuel !important;
+
+        &:hover {
+          background-position: 0 -70px !important;
+        }
+      }
+    }
+
+    .right-block {
+      .goal-list {
+        /* fuel goal more information */
+        .goal {
+          background: $deepgray !important;
+          border-bottom: 1px solid $blue !important;
+
+          /* aim && aim point */
+          h4,
+          h4 .remained {
+            color: $deepgray !important;
+          }
+        }
+
+        /* fuel aim bg img shit remove */
+        .gradient-bottom,
+        .gradient-top {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+  .thankyou {
+    padding: 0 !important;
+
+    .row > div .user > div.avgmore {
+      background: $blue !important;
+
+      /* donated more link colors */
+      a,
+      a:hover,
+      .note {
+        color: $darkgray !important;
+        text-decoration: none !important;
+      }
+    }
+  }
+
+  /* fuel donation word */
+  h2 a.active {
+    color: $orange !important;
+  }
+
+  /* data button select */
+  .month {
+    button {
+      padding: 5px !important;
+      background: $deepgray !important;
+      border-bottom: 1px solid transparent !important;
+
+      &:hover {
+        text-decoration: none !important;
+        border-bottom: 1px solid $blue !important;
+      }
+    }
+
+    span.ng-scope:nth-child(1) {
+      color: $white !important;
+    }
+  }
+}

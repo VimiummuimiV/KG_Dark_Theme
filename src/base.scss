@@ -158,6 +158,18 @@ input {
   }
 }
 
+select {
+  background: $deepgray !important;
+  color: $white !important;
+  border: none !important;
+  
+  &#savemodes {
+    background: $deepgray !important;
+    color: $white !important;
+    border: none !important;
+  }
+}
+
 .search input[name="text"] {
   color: $white !important;
 }

@@ -1,0 +1,103 @@
+@import "variables";
+
+/* about game */
+.trimenu {
+  display: flex !important;
+  justify-content: center !important;
+
+  sub {
+    position: absolute !important;
+    top: -1px !important;
+    width: 150px !important;
+    display: flex !important;
+    height: 20px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    color: $white !important;
+  }
+
+  li {
+    padding: 0 !important;
+    margin: 1px !important;
+
+    &.active {
+      height: 45px !important;
+      width: 150px !important;
+      display: flex !important;
+      text-decoration: none !important;
+      justify-content: center !important;
+      align-items: center !important;
+      background: transparent !important;
+      background-color: $middlegray !important;
+      border: 1px solid $white !important;
+      color: $white !important;
+    }
+
+    /* wtf is dummy */
+    &.dummy {
+      display: none !important;
+    }
+  }
+
+  /* about menu active */
+  > li a {
+    height: 45px !important;
+    width: 150px !important;
+    display: flex !important;
+    text-decoration: none !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: $deepgray !important;
+    color: $middlegray !important;
+    border: 1px solid transparent !important;
+
+    &:hover {
+      background: $black !important;
+      color: $blue !important;
+      border: 1px solid $blue !important;
+    }
+  }
+}
+
+.about {
+  width: 80% !important;
+  font-size: 12px !important;
+
+  /* all images invert for rules, training, all the day questions, vip accaunt */
+  img {
+    filter: invert(83%) !important;
+  }
+
+  /* about premium menu bg under buy button */
+  div[style*="eee"] {
+    background-color: $darkgray !important;
+  }
+}
+
+#about {
+  table#regular {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* rules tab ranges table big border remove */
+  table.cars {
+    border: 1px solid $middlegray !important;
+
+    /* rules tab ranges table bg color */
+    td {
+      background: $darkgray !important;
+      color: $white !important;
+    }
+  }
+}
+
+/* about all the day questions headers text color */
+#faq .question dt {
+  color: $blue !important;
+}
+
+/* training hint what's about vocs bg color */
+#learning .hint {
+  background: $deepgray !important;
+}
