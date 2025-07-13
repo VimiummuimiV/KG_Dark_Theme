@@ -485,46 +485,6 @@ input {
   }
 }
 
-/* Pagination */
-.paginator {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-  position: absolute !important;
-  width: 60px !important;
-  font-size: 0 !important;
-  left: -55px !important;
-  
-  b {
-    display: none !important;
-  }
-}
-
-.pages {
-  opacity: 0.5 !important;
-  color: $deepgray !important;
-  background: transparent !important;
-  padding: 10px !important;
-  position: fixed !important;
-  top: 85px !important;
-  right: 0px !important;
-  z-index: 10 !important;
-  transition: opacity 0.2s !important;
-  display: flex !important;
-  font-size: 5px !important;
-  
-  &:hover {
-    opacity: 1 !important;
-    transition: opacity 0.2s !important;
-  }
-}
-
-/* Special Elements */
-.ctrls {
-  i {
-    display: none !important;
-  }
-}
-
 .quotemain {
   background: rgba(200, 200, 200, 0.05) !important;
   color: $orange !important;

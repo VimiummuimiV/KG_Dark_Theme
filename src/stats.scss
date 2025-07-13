@@ -1,0 +1,48 @@
+@import "variables";
+
+#stats {
+  h4 {
+    color: orange !important;
+  }
+  
+  .statistic-general,
+  .statistic-players-ranks,
+  .statistic-top-15,
+  .statistic-records {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  .statistic-players-ranks {
+    table td {
+      background-color: $darkgray !important;
+      border: 1px solid $deepgray !important;
+    }
+    
+    // Rank-specific styling based on row position
+    tbody tr {
+      &:nth-child(1) td:first-child { color: $rang1 !important; } // Новичок
+      &:nth-child(2) td:first-child { color: $rang2 !important; } // Любитель
+      &:nth-child(3) td:first-child { color: $rang3 !important; } // Таксист
+      &:nth-child(4) td:first-child { color: $rang4 !important; } // Профи
+      &:nth-child(5) td:first-child { color: $rang5 !important; } // Гонщик
+      &:nth-child(6) td:first-child { color: $rang6 !important; } // Маньяк
+      &:nth-child(7) td:first-child { color: $rang7 !important; } // Супермен
+      &:nth-child(8) td:first-child { color: $rang8 !important; } // Кибергонщик
+      &:nth-child(9) td:first-child { color: $rang9 !important; } // Экстракибер
+      &:nth-child(10) td:first-child { color: $rang10 !important; } // Тахион
+      &:nth-child(11) td:first-child { color: $rang11 !important; } // Гиперион
+    }
+
+  }
+  
+  .statistic-general span {
+    color: $lightblue !important;
+  }
+  
+  .statistic-records {
+    #records th::after,
+    #records td::after {
+      background: linear-gradient(to right, transparent, #1b1d20) !important;
+    }
+  }
+}

@@ -1,0 +1,175 @@
+@import "variables";
+
+/* Top list and rating styles */
+
+#toplist {
+  table {
+    width: 100% !important;
+
+    th,
+    tr,
+    td {
+      border: none !important;
+      background: $darkgray !important;
+    }
+
+    th,
+    td.offset_up,
+    td.offset_down,
+    tr.other > td.pos,
+    tr.other > td.highlight,
+    tr.other > td.competitions,
+    tr.other > td.bonuses,
+    tr.other td:nth-child(5),
+    tr.other td:nth-child(6) {
+      text-align: center !important;
+      vertical-align: middle !important;
+    }
+
+    tr.other {
+      &:nth-child(2n) {
+        filter: brightness(0.8) !important;
+      }
+    }
+
+    .pos {
+      text-align: center !important;
+    }
+  }
+
+  td {
+    &.offset_up {
+      color: #61ff39 !important;
+    }
+
+    &.offset_down {
+      color: #fc2727 !important;
+    }
+  }
+
+  .name {
+    a {
+      color: $white !important;
+      border-bottom: none !important;
+      border: 1px solid $middlegray !important;
+      padding: 12px !important;
+      display: flex !important;
+      background: transparent !important;
+      text-align: center !important;
+      align-items: center !important;
+      justify-content: center !important;
+
+      &:hover {
+        color: $blue !important;
+        border: 1px solid $blue !important;
+        background: $deepgray !important;
+      }
+    }
+  }
+
+  .left-col {
+    padding: 0 !important;
+
+    h4 {
+      display: none !important;
+    }
+  }
+
+  ul.mode {
+    margin: 0 !important;
+
+    li {
+      margin-bottom: -1px !important;
+      width: 100% !important;
+
+      &:nth-child(odd) {
+        background-color: rgba(0, 0, 0, 0.2) !important;
+      }
+
+      &:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.3) !important;
+      }
+
+      &.active {
+        display: flex !important;
+        height: 20px !important;
+        width: 100% !important;
+        justify-content: center !important;
+        align-items: center !important;
+        left: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: $blue !important;
+
+        span {
+          padding: 0 !important;
+          margin-right: 0 !important;
+          color: $deepgray !important;
+          background: $blue !important;
+        }
+      }
+
+      a {
+        border: 1px solid transparent !important;
+        display: flex !important;
+        height: 20px !important;
+        width: 100% !important;
+        text-decoration: none !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        &[class="gametype-voc"],
+        &[href*="/top/rating/archive"],
+        &[href*="/top/rating/overall"] {
+          color: $middlegray !important;
+
+          &:hover {
+            color: $blue !important;
+            border: 1px solid $blue !important;
+            background: $deepgray !important;
+          }
+        }
+
+        &:hover {
+          color: $blue !important;
+          border: 1px solid $blue !important;
+          background: $deepgray !important;
+        }
+      }
+    }
+  }
+
+  .gametype-voc {
+    a[href*="/vocs/"] {
+      display: none !important;
+    }
+  }
+}
+
+/* Remove right column info panel */
+.columns {
+  .right-col {
+    display: none !important;
+  }
+
+  .info {
+    opacity: 0.2 !important;
+    background: $deepgray !important;
+    border-bottom: 1px solid $blue !important;
+    transition: 0.1s !important;
+
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+}
+
+body {
+  #toplist {
+    .gametype-voc {
+      a[href*="/vocs/"] {
+        display: none !important;
+      }
+    }
+  }
+}

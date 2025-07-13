@@ -21,52 +21,17 @@
 @import "formatButtons";
 @import "donate";
 @import "about";
+@import "createGame";
+@import "pagination";
+@import "stats";
+@import "toplist";
+@import "search";
+@import "wiki";
+@import "components";
 
 @-moz-document domain("klavogonki.ru") {
   /* Custom fonts */
   @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-
-  #create .buttons {
-    display: flex !important;
-    justify-content: space-between !important;
-  }
-
-  #create .buttons input {
-    transition: all 0.5s !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 235px !important;
-    height: 50px !important;
-  }
-
-  #create .buttons input.create_game {
-    background: var(--createNormal) !important;
-    filter: brightness(0.8) !important;
-  }
-
-  #create .buttons input.create_game:hover {
-    background-position: unset !important;
-    filter: brightness(0.8) hue-rotate(180deg) !important;
-  }
-
-  #create .buttons input.save_game {
-    background: var(--saveNormal) !important;
-    filter: brightness(0.8) !important;
-  }
-
-  #create .buttons input.save_game:hover {
-    background-position: unset !important;
-    filter: brightness(0.8) hue-rotate(180deg) !important;
-  }
-
-  #create * {
-    padding: 2px !important;
-  }
-
-  #create dd .params {
-    background-color: transparent !important;
-    border: 1px solid var(--middlegray) !important;
-  }
 
   /* vocs */
   /* main search container rules */

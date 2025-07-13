@@ -1,0 +1,47 @@
+@import "variables";
+
+#create {
+  * {
+    padding: 2px !important;
+  }
+
+  .buttons {
+    display: flex !important;
+    justify-content: space-between !important;
+
+    input {
+      transition: all 0.5s !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 235px !important;
+      height: 50px !important;
+
+      &.create_game {
+        background: $createNormal !important;
+        filter: brightness(0.8) !important;
+
+        &:hover {
+          background-position: unset !important;
+          filter: brightness(0.8) hue-rotate(180deg) !important;
+        }
+      }
+
+      &.save_game {
+        background: $saveNormal !important;
+        filter: brightness(0.8) !important;
+
+        &:hover {
+          background-position: unset !important;
+          filter: brightness(0.8) hue-rotate(180deg) !important;
+        }
+      }
+    }
+  }
+
+  dd {
+    .params {
+      background-color: transparent !important;
+      border: 1px solid $middlegray !important;
+    }
+  }
+}

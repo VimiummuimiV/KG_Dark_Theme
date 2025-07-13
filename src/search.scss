@@ -1,0 +1,96 @@
+@import "variables";
+
+/* Search functionality styles */
+
+.search {
+  padding: 0 !important;
+  width: 100% !important;
+  background: none !important;
+  border: none !important;
+
+  input {
+    border: none !important;
+    background: $deepgray !important;
+    border-top: 1px solid $middlegray !important;
+    border-bottom: 1px solid $middlegray !important;
+    font-size: 20px !important;
+    height: 50px !important;
+    padding: 0 20px !important;
+    width: 100% !important;
+
+    &:hover[name="text"] {
+      background: $deepgray !important;
+      border-top: 1px solid $middlegray !important;
+      border-bottom: 1px solid $middlegray !important;
+      font-size: 20px !important;
+      height: 50px !important;
+      padding: 0 20px !important;
+      width: 100% !important;
+    }
+
+    &:focus {
+      background: $deepgray !important;
+      border-top: 1px solid $blue !important;
+      border-bottom: 1px solid $blue !important;
+      font-size: 20px !important;
+      height: 50px !important;
+      padding: 0 20px !important;
+      width: 100% !important;
+    }
+
+    &:focus[name="text"] {
+      background: $deepgray !important;
+      border-top: 1px solid $blue !important;
+      border-bottom: 1px solid $blue !important;
+      font-size: 20px !important;
+      height: 50px !important;
+      padding: 0 20px !important;
+      width: 100% !important;
+    }
+  }
+}
+
+.yandexform {
+  padding: 0 !important;
+  width: 100% !important;
+
+  input[name="text"] {
+    background: $deepgray !important;
+    border-top: 1px solid $middlegray !important;
+    border-bottom: 1px solid $middlegray !important;
+    font-size: 20px !important;
+    height: 50px !important;
+    padding: 0 20px !important;
+    width: 100% !important;
+    border: none !important;
+
+    &:focus {
+      background: $deepgray !important;
+      border-top: 1px solid $blue !important;
+      border-bottom: 1px solid $blue !important;
+      font-size: 20px !important;
+      height: 50px !important;
+      padding: 0 20px !important;
+      width: 100% !important;
+    }
+  }
+
+  input[type="submit"] {
+    display: none !important;
+  }
+}
+
+/* Yandex form loading */
+div[style*="/iframe/loader__progress.gif"] {
+  filter: hue-rotate(180deg) !important;
+}
+
+/* Yandex form container everything bg invert */
+iframe[src*='http://yandex.ru'] {
+  filter: invert(90%) !important;
+}
+
+/* Search vocs search bar 100% width */
+div[style*="margin-right: 53px"] {
+  margin-right: 0 !important;
+}

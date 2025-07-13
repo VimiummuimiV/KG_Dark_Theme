@@ -1,0 +1,87 @@
+@import "variables";
+
+/* General UI components */
+
+/* Popup box */
+.popup-box {
+  .c {
+    background: $deepgray !important;
+    border: 1px solid $middlegray !important;
+    padding: 20px !important;
+  }
+
+  .l,
+  .r,
+  .t,
+  .b,
+  .tr,
+  .tl,
+  .bl,
+  .br {
+    display: none !important;
+  }
+}
+
+/* Klavo events */
+#content_KE {
+  .list {
+    width: $container !important;
+    margin: 0 auto !important;
+
+    .item {
+      background: $darkgray !important;
+
+      &.past {
+        background: $darkgray !important;
+      }
+
+      &.soon {
+        background: $deepgray !important;
+      }
+
+      td {
+        border-bottom: 1px solid $middlegray !important;
+        border-top: 1px solid $middlegray !important;
+      }
+    }
+  }
+}
+
+/* Register form */
+#register {
+  .big {
+    background: $orange !important;
+    border: none !important;
+
+    &[style*="error.gif"] {
+      background: red none !important;
+    }
+
+    &[style*="ok.gif"] {
+      background: green none !important;
+    }
+  }
+
+  .note {
+    color: $white !important;
+  }
+}
+
+#register_login,
+#register_pass,
+#register_confirmpass,
+#register_email {
+  color: $white !important;
+  background: #3b3b3b !important;
+
+  &:focus {
+    color: $white !important;
+    background: $deepgray !important;
+  }
+}
+
+#register_submit_button {
+  &:hover {
+    cursor: pointer !important;
+  }
+}
