@@ -1,35 +1,68 @@
+// =============================================================================
+// MAIN SCSS FILE
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// 1. CONFIGURATION & HELPERS
+// -----------------------------------------------------------------------------
 @import "variables";
+
+// -----------------------------------------------------------------------------
+// 2. EXTERNAL DEPENDENCIES
+// -----------------------------------------------------------------------------
+/* Custom fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+// -----------------------------------------------------------------------------
+// 3. BASE & RESET
+// -----------------------------------------------------------------------------
 @import "base";
-@import "cars";
-@import "userPanel";
+
+// -----------------------------------------------------------------------------
+// 4. LAYOUT COMPONENTS
+// -----------------------------------------------------------------------------
 @import "logo";
-@import "login";
+@import "userPanel";
 @import "mainMenu";
+@import "recentGames";
+
+// -----------------------------------------------------------------------------
+// 5. UI COMPONENTS
+// -----------------------------------------------------------------------------
+@import "components";
 @import "modalDialogue";
+@import "formatButtons";
 @import "calendar";
+@import "notifications";
+@import "pagination";
+
+// -----------------------------------------------------------------------------
+// 6. PAGES & SECTIONS
+// -----------------------------------------------------------------------------
+@import "home";
+@import "login";
 @import "profile";
 @import "vocabularies";
-@import "recentGames";
-@import "home";
 @import "gamelist";
 @import "gametypes";
-@import "notifications";
-@import "chatlogs";
-@import "chat";
+@import "createGame";
 @import "race";
 @import "forum";
-@import "formatButtons";
-@import "donate";
-@import "about";
-@import "createGame";
-@import "pagination";
+@import "chatlogs";
+@import "chat";
 @import "stats";
 @import "toplist";
 @import "search";
 @import "wiki";
-@import "components";
+@import "donate";
+@import "about";
 
-@-moz-document domain("klavogonki.ru") {
-  /* Custom fonts */
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-}
+// -----------------------------------------------------------------------------
+// 7. THEME SPECIFIC
+// -----------------------------------------------------------------------------
+@import "cars";
+
+// -----------------------------------------------------------------------------
+// 8. RESPONSIVE & MEDIA QUERIES
+// -----------------------------------------------------------------------------
+@import "mediaQueries";
