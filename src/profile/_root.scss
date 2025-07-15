@@ -62,41 +62,6 @@
         }
       }
     }
-
-    // Stats block positioning and styling
-    .stats {
-      position: fixed !important;
-      width: 185px !important;
-      border: none !important;
-
-      h3 {
-        display: none !important;
-      }
-
-      .content {
-        .stats-block {
-          border-radius: 0 !important;
-          background-color: $blue;
-          margin: 0 !important;
-          border: none !important;
-
-          .title {
-            color: $darkgray !important;
-          }
-
-          .stats-content {
-            background-color: $darkgray !important;
-            border: none !important;
-            color: $blue !important;
-
-            &.clickable:hover {
-              background-color: $deepgray !important;
-              color: $blue !important;
-            }
-          }
-        }
-      }
-    }
   }
 
   // Edit bio form styles

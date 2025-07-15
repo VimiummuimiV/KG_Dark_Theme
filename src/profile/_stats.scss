@@ -1,0 +1,73 @@
+// Compact animation functions
+@function calculateDelay($index) {
+  @return #{0.1 + ($index - 1) * 0.2}s;
+}
+
+@mixin applyAnimation($name, $delay: 0s) {
+  animation: #{$name} 3s linear $delay infinite;
+}
+
+@mixin statsBlockAnimation($index) {
+  $delay: calculateDelay($index);
+  @include applyAnimation(blockAnimation, $delay);
+  
+  .stats-content {
+    .icon-icomoon,
+    span {
+      @include applyAnimation(textAnimation, $delay);
+    }
+  }
+}
+
+// Keyframes (unchanged)
+@keyframes blockAnimation {
+  0%, 100% { background-color: $blue; }
+  50% { background-color: $orange; }
+}
+
+@keyframes textAnimation {
+  0%, 100% { color: $blue; }
+  50% { color: $orange; }
+}
+
+// Stats block positioning and styling
+#content #profile-index .stats {
+  position: fixed !important;
+  width: 185px !important;
+  border: none !important;
+  
+  h3 {
+    display: none !important;
+  }
+  
+  .content {
+    .stats-block {
+      border-radius: 0 !important;
+      background-color: $blue;
+      margin: 0 !important;
+      border: none !important;
+      
+      .title {
+        color: $darkgray !important;
+      }
+      
+      .stats-content {
+        background-color: $darkgray !important;
+        border: none !important;
+        color: $blue !important;
+        
+        &.clickable:hover {
+          background-color: $deepgray !important;
+          color: $blue !important;
+        }
+      }
+      
+      // Apply animations with incremental delays
+      @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+          @include statsBlockAnimation($i);
+        }
+      }
+    }
+  }
+}
