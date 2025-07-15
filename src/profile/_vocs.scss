@@ -1,0 +1,22 @@
+// Vocabulary dialog styles
+.dlg-profile-vocs {
+  .vocs {
+    th,
+    td {
+      border-bottom: 1px solid $middlegray !important;
+      background: $darkgray !important;
+    }
+
+    a {
+      color: $blue !important;
+
+      span {
+        color: $blue !important;
+
+        &:hover {
+          color: $lightblue !important;
+        }
+      }
+    }
+  }
+}

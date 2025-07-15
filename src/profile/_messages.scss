@@ -1,0 +1,60 @@
+// Messages section styles
+.profile-messages {
+  .name {
+    color: $blue !important;
+
+    &:hover {
+      color: $lightblue !important;
+    }
+  }
+
+  .dialog {
+    border: 1px solid $middlegray !important;
+  }
+
+  .message.unread {
+    background-color: $deepgray !important;
+  }
+
+  .messages-contacts {
+    .message.unread {
+      background-color: $blue !important;
+
+      .text {
+        color: $deepgray !important;
+      }
+    }
+
+    .contacts-content {
+      .contact.unread {
+        background-color: $deepgray !important;
+        border-bottom: 1px solid $blue !important;
+      }
+    }
+
+    .contact:hover {
+      background: $deepgray !important;
+    }
+  }
+
+  .deleted {
+    border: 1px solid $blue !important;
+    background-color: $deepgray !important;
+  }
+
+  .dialog-header {
+    background: $darkgray !important;
+    border-bottom: 1px solid $middlegray !important;
+
+    .controls {
+      .btn {
+       legal: $deepgray !important;
+      }
+    }
+  }
+
+  .dialog-write {
+    border-top: 1px solid $middlegray !important;
+    background: $darkgray !important;
+  }
+}

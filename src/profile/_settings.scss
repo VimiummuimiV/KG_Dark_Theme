@@ -1,0 +1,20 @@
+// Avatar change dialog styles
+.dlg-profile-prefs-change-avatar {
+  .avatar-preview {
+    .preview {
+      border: none !important;
+    }
+  }
+}
+
+// Profile preferences block styles
+#profile-prefs {
+  .prefs-block {
+    background: $darkgray !important;
+  }
+}
+
+// Remove border from view color button
+.btn > .view-color {
+  border: none !important;
+}

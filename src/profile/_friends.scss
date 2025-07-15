@@ -1,0 +1,58 @@
+// Friends list styles
+.profile-friends {
+  .friends-list {
+    ul.users {
+      > li {
+        background: none !important;
+        border-bottom: 1px solid transparent !important;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.1) !important;
+          border-bottom: 1px solid $lightblue !important;
+        }
+      }
+    }
+
+    .name {
+      color: $white !important;
+      text-decoration: none !important;
+
+      &:hover {
+        color: $blue !important;
+      }
+    }
+
+    .search-form {
+      .form-control {
+        height: 40px !important;
+      }
+
+      .clear {
+        display: flex;
+        align-items: center !important;
+        justify-content: center !important;
+        top: 0 !important;
+        right: 0 !important;
+        color: $white !important;
+        width: 40px !important;
+        height: 40px !important;
+        transition: color 0.2s ease-in-out !important;
+
+        .glyphicon {
+          top: -1px !important;
+        }
+
+        &:hover {
+          color: $blue !important;
+        }
+      }
+
+      .btn {
+        height: 40px !important;
+        .icon-icomoon {
+          margin-right: unset !important;
+        }
+      }
+    }
+  }
+}

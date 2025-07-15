@@ -1,0 +1,86 @@
+// Car aero dialog styles
+.dlg-profile-car-aero {
+  .aero-canvas {
+    border: none !important;
+
+    .content {
+      background: $middlegray !important;
+    }
+  }
+
+  .warning {
+    background: rgba(225, 20, 0, 0.5) !important;
+    color: $white !important;
+  }
+}
+
+// Toolbar and button styles for car section
+.literally {
+  .toolbar {
+    background: $deepgray !important;
+
+    .toolbar-row {
+      border: none !important;
+    }
+  }
+
+  .button {
+    &.danger {
+      background: rgba(225, 20, 0, 0.5) !important;
+    }
+
+    border: none !important;
+    color: $white !important;
+    background: $darkgray !important;
+
+    &.active,
+    &:hover {
+      border: none !important;
+      color: $darkgray !important;
+      background: $blue !important;
+    }
+  }
+}
+
+#file-input:hover {
+  cursor: pointer !important;
+}
+
+// My car block styles
+.profile-car {
+  .my-car {
+    background: $darkgray !important;
+    border: 1px solid $middlegray !important;
+
+    .car {
+      background: $darkgray !important;
+    }
+
+    .title {
+      color: $orange !important;
+      border-bottom: 1px solid $middlegray !important;
+    }
+  }
+
+  .shop {
+    .no-tuning {
+      color: $white !important;
+    }
+  }
+
+  .car-block {
+    .name {
+      color: $blue !important;
+    }
+  }
+
+  .tuning-category {
+    .tuning-item {
+      border: 1px solid transparent !important;
+
+      &.active {
+        border: 1px solid $blue !important;
+      }
+    }
+  }
+}

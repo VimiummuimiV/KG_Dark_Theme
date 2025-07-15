@@ -1,0 +1,128 @@
+// Global styles for dropdown menus
+.dropdown-menu {
+  > li {
+    > a {
+      color: $white !important;
+      background: $darkgray !important;
+
+      &:hover {
+        background: $blue !important;
+        color: $deepgray !important;
+      }
+    }
+  }
+}
+
+// Styles for insert smiles and preview buttons
+.btn-smilies-insert {
+  background: none !important;
+  color: $white !important;
+
+  &:hover {
+    background: none !important;
+    color: $blue !important;
+  }
+}
+
+.preview-change {
+  background: none !important;
+  color: $white !important;
+
+  &:hover {
+    background: none !important;
+    color: $blue !important;
+  }
+}
+
+// Icon content overrides
+.icon-smiles::before {
+  content: "\e60e" !important;
+}
+
+.preview-change::before {
+  content: "\e093" !important;
+}
+
+// Smilies insert dialog styles
+.dlg-smilies-insert {
+  background: $darkgray !important;
+  border: 1px solid $blue !important;
+
+  img {
+    filter: invert(10%) hue-rotate(330deg) !important;
+  }
+}
+
+// Comment section styles
+.comments {
+  .info {
+    a.name {
+      color: $blue !important;
+    }
+  }
+}
+
+// Profile block styles
+#profile-block {
+  .user-title {
+    margin: 10px 0 !important;
+
+    .btn_fav {
+      filter: invert(100%) !important;
+    }
+
+    .remove {
+      color: $darkgray !important;
+      background: none !important;
+      background-color: $red !important;
+      padding-left: 0 !important;
+      border: 1px solid transparent !important;
+      transition: all 0.1s !important;
+
+      &:hover {
+        background-color: $darkgray !important;
+        background: none !important;
+        border: 1px solid $white !important;
+        color: $white !important;
+        transition: all 0.1s !important;
+      }
+    }
+  }
+
+  .menu {
+    > dd:nth-child(1) {
+      margin: 0 !important;
+    }
+  }
+
+  .right-col {
+    top: 200px !important;
+    right: 0 !important;
+    width: 500px !important;
+    position: absolute !important;
+    padding: 0 !important;
+
+    .comments {
+      background: $darkgray;
+      border: 1px solid $middlegray !important;
+    }
+  }
+}
+
+// User title layout adjustment
+.user-title {
+  > dd:nth-child(1) {
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+
+// Dashed link styles
+.dashed {
+  border-bottom: none !important;
+
+  &:hover {
+    color: $lightblue !important;
+  }
+}

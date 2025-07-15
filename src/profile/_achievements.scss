@@ -1,0 +1,95 @@
+// Achievements section styles
+.profile-achieves {
+  img {
+    opacity: 1 !important;
+  }
+
+  .list {
+    .group {
+      .item {
+        .achieve {
+          .achieve-content {
+            .levels {
+              border-top: 1px solid $middlegray !important;
+              border-left: 1px solid $middlegray !important;
+              border-right: 1px solid $middlegray !important;
+              color: $white !important;
+              opacity: 1 !important;
+
+              &:hover {
+                border-top: 1px solid $blue !important;
+                border-left: 1px solid $blue !important;
+                border-right: 1px solid $blue !important;
+                background: none !important;
+              }
+
+              .level {
+                .icon-icomoon.done {
+                  color: $blue !important;
+                  box-shadow: none !important;
+                  text-shadow: none !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .more-achieves {
+        background: none !important;
+      }
+    }
+  }
+
+  .options {
+    .btn-group {
+      .btn {
+        .toggle-text {
+          b {
+            color: $blue !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.btn-group {
+  .dropdown-menu {
+    a {
+      color: $white !important;
+    }
+  }
+}
+
+.popover * {
+  background: $darkgray !important;
+  border: none !important;
+}
+
+.achieve {
+  &:not(.reduced) {
+    border: 1px solid $middlegray;
+    background: none !important;
+  }
+
+  .achieve-content {
+    .title {
+      color: $white !important;
+    }
+
+    .description {
+      color: $white !important;
+    }
+  }
+
+  .achieve-icon {
+    background: $darkgray !important;
+    border: 1px solid $darkgray !important;
+
+    &:hover {
+      background: $darkgray !important;
+      border: 1px solid $blue !important;
+    }
+  }
+}

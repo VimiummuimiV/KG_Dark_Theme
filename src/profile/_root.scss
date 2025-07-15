@@ -1,0 +1,342 @@
+// Report dialog styles
+#popconfirm-content {
+  textarea {
+    min-width: 500px !important;
+    border: 1px solid $middlegray !important;
+    background: $deepgray !important;
+  }
+}
+
+// Report popup positioning
+.stdpopup.popup_message {
+  .content2 {
+    top: -150px !important;
+  }
+}
+
+// Profile root container styles
+#content .profile-root {
+  // Online user indicator
+  .online {
+    color: lightgreen !important;
+    background-color: #90ee90a0 !important;
+  }
+
+  // Trophy/achievement styles
+  .trophy {
+    .item {
+      .dummy {
+        background: $darkgray !important;
+        border: 1px solid $middlegray !important;
+
+        &:hover {
+          background: $deepgray !important;
+          border: 1px solid $blue !important;
+        }
+
+        &::after {
+          color: $middlegray !important;
+        }
+
+        &:hover::after {
+          color: $blue !important;
+        }
+      }
+    }
+  }
+
+  // Profile bio block adjustments
+  #profile-index {
+    .bio {
+      .content {
+        .clickable {
+          span {
+            display: none !important;
+          }
+        }
+        background: $darkgray !important;
+        border: 1px solid $middlegray !important;
+
+        &:hover {
+          border: 1px solid $blue !important;
+        }
+      }
+    }
+
+    // Stats block positioning and styling
+    .stats {
+      position: fixed !important;
+      width: 185px !important;
+      border: none !important;
+
+      h3 {
+        display: none !important;
+      }
+
+      .content {
+        .stats-block {
+          border-radius: 0 !important;
+          background-color: $blue;
+          margin: 0 !important;
+          border: none !important;
+
+          .title {
+            color: $darkgray !important;
+          }
+
+          .stats-content {
+            background-color: $darkgray !important;
+            border: none !important;
+            color: $blue !important;
+
+            &.clickable:hover {
+              background-color: $deepgray !important;
+              color: $blue !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Edit bio form styles
+  .profile-edit-bio {
+    form {
+      background-color: $darkgray !important;
+      border: 1px solid $middlegray !important;
+    }
+  }
+
+  // Profile header styles
+  .profile-header {
+    background: $darkgray !important;
+    border-bottom: 1px solid $middlegray !important;
+
+    .car {
+      background: $darkgray !important;
+    }
+
+    .username {
+      .history {
+        .history-popup {
+          background-color: $deepgray !important;
+          border: 1px solid $blue !important;
+          top: 30px !important;
+          left: unset !important;
+          right: 5px !important;
+          color: $blue !important;
+
+          ul {
+            padding: 4px 0 !important;
+
+            li {
+              color: $white !important;
+              padding-top: unset !important;
+            }
+          }
+        }
+
+        .caret {
+          background: $deepgray !important;
+          height: 15px !important;
+          width: 15px !important;
+          border-radius: 50% !important;
+          position: relative !important;
+          top: -4px !important;
+          border: 2px solid $blue !important;
+          transition: background 0.2s !important;
+
+          &:hover {
+            background: $blue !important;
+            transition: background 0.2s !important;
+          }
+        }
+      }
+
+      .name {
+        color: $orange !important;
+      }
+    }
+
+    .mini-nav {
+      display: none !important;
+      opacity: 0 !important;
+    }
+  }
+
+  // Navigation buttons for friends section
+  .profile-content .nav-top {
+    border-bottom: none !important;
+
+    a {
+      color: $blue !important;
+      background-color: $darkgray !important;
+      border: 1px solid $blue !important;
+
+      &:hover,
+      &:focus {
+        color: $deepgray !important;
+        background-color: $blue !important;
+        border: 1px solid transparent !important;
+      }
+    }
+
+    .active a {
+      color: $deepgray !important;
+      background-color: $blue !important;
+      border: 1px solid transparent !important;
+
+      &:hover,
+      &:focus {
+        color: $deepgray !important;
+        background-color: $blue !important;
+        border: 1px solid transparent !important;
+      }
+    }
+  }
+
+  // Journal block styles
+  .journal {
+    .write {
+      .placeholder {
+        background: $darkgray !important;
+        border: none !important;
+      }
+      background: $darkgray !important;
+      border: 1px solid $middlegray !important;
+    }
+
+    .post {
+      border: none !important;
+
+      &.post-hidden {
+        background-color: $darkgray !important;
+        border: none !important;
+      }
+
+      .content {
+        .author {
+          a {
+            color: $blue !important;
+
+            &:hover {
+              color: $lightblue !important;
+            }
+          }
+        }
+
+        .text {
+          color: $white !important;
+        }
+
+        .readmore.fade-top {
+          background: $darkgray !important;
+          border-top: 1px solid $middlegray !important;
+        }
+      }
+    }
+
+    .comments {
+      background: none !important;
+
+      .more {
+        background: $middlegray !important;
+        color: $white !important;
+
+        &:hover {
+          background: $deepgray !important;
+          color: $white !important;
+        }
+      }
+    }
+
+    .record-info {
+      .game-text {
+        border: none !important;
+      }
+
+      .stats {
+        .stats-col {
+          * {
+            tr,
+            td,
+            th {
+              border: 1px solid $middlegray !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Scroll to top button styles
+  .scroll-to-top {
+    background-color: $deepgray !important;
+    color: $white !important;
+
+    &:hover {
+      background-color: $deepgray !important;
+      opacity: 0.8 !important;
+    }
+  }
+
+  // Blocked user indicator
+  .profile-hidden {
+    color: $blue !important;
+    background: $darkgray !important;
+    border: 1px solid $blue !important;
+
+    .icon-icomoon {
+      color: $blue !important;
+    }
+  }
+
+  // Options block for filters and sorting
+  .options-block {
+    ul {
+      li {
+        span {
+          color: $white !important;
+
+          &:hover {
+            color: $blue !important;
+          }
+        }
+
+        &:hover {
+          color: white !important;
+        }
+      }
+    }
+
+    .checkbox {
+      .selected::before {
+        color: $white !important;
+      }
+    }
+  }
+
+  // Statistics wheel background
+  rect {
+    fill: $darkgray !important;
+  }
+
+  .options {
+    .date-select {
+      .btn {
+        .icon-icomoon {
+          color: $deepgray !important;
+        }
+      }
+    }
+  }
+}
+
+// Fixed positioning for journal options
+.col-xs-3 {
+  .options {
+    position: fixed !important;
+    width: 170px !important;
+    top: 193px !important;
+  }
+}

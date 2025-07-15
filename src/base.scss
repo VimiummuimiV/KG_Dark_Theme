@@ -180,13 +180,8 @@ select {
 .form-control {
   background: $darkgray !important;
   @include border-style($middlegray);
-  color: $white;
-
-  &:focus {
-    background: $darkgray;
-    @include border-style($blue);
-    color: $white;
-  }
+  color: $white !important;
+  outline: none !important;
 }
 
 textarea {

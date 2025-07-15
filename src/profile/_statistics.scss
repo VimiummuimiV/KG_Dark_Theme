@@ -1,0 +1,217 @@
+// Statistics section styles
+.profile-stats {
+  .profile-stats-details {
+    .top-stats {
+      .best-speed {
+        background-color: $blue !important;
+
+        .title {
+          color: $darkgray !important;
+        }
+
+        .content {
+          background-color: $darkgray !important;
+          border-bottom: 1px solid $white !important;
+          border-top: 1px solid $deepgray !important;
+          color: $blue !important;
+        }
+      }
+
+      .counter {
+        .value {
+          .book-progress {
+            .item {
+              background-color: $blue !important;
+            }
+          }
+        }
+      }
+    }
+
+    .charts {
+      background: $darkgray !important;
+
+      .chart-graph {
+        text:nth-child(1) {
+          stroke: $blue !important;
+          fill: none !important;
+          stroke-width: 1px !important;
+        }
+
+        text:nth-child(2) {
+          fill: none !important;
+        }
+      }
+    }
+  }
+
+  .profile-stats-overview {
+    .chart-table {
+      tr {
+        td {
+          color: $blue !important;
+        }
+      }
+    }
+
+    .recent {
+      background-color: $darkgray !important;
+      border: 1px solid $middlegray !important;
+    }
+  }
+
+  .recent {
+    a {
+      color: $white !important;
+      font-weight: lighter !important;
+
+      &:hover {
+        color: $blue !important;
+        font-weight: lighter !important;
+      }
+    }
+
+    li:hover {
+      background: none !important;
+      color: $blue !important;
+    }
+  }
+
+  .chart-table {
+    color: $darkgray !important;
+  }
+
+  .counter {
+    background-color: $blue !important;
+
+    .title {
+      color: $darkgray !important;
+    }
+
+    .value {
+      border-bottom: 1px solid $lightblue !important;
+      border-top: 1px solid $deepgray !important;
+      color: $blue !important;
+      background-color: $darkgray !important;
+    }
+  }
+}
+
+.chart-graph {
+  div {
+    border: none !important;
+    background: $darkgray !important;
+  }
+}
+
+.dlg-profile-stats-book-parts {
+  .parts {
+    .col-xs-1 {
+      .item {
+        background: $darkgray !important;
+
+        &:hover {
+          background: $blue !important;
+          color: $deepgray !important;
+        }
+
+        &.even {
+          background-color: $deepgray !important;
+
+          &:hover {
+            background-color: $blue !important;
+            color: $deepgray !important;
+          }
+        }
+      }
+      border-right: 1px solid $middlegray !important;
+    }
+  }
+}
+
+.badge {
+  border: 1px solid $darkgray !important;
+  background: $blue !important;
+  color: $deepgray !important;
+}
+
+.stats-empty {
+  background: $darkgray !important;
+
+  .icon-icomoon {
+    color: $blue !important;
+  }
+}
+
+#totalGamesCounter {
+  background-color: $blue !important;
+
+  .value {
+    color: $blue !important;
+    background-color: $darkgray !important;
+
+    .icon-icomoon {
+      color: $blue !important;
+    }
+  }
+}
+
+.dropdown-menu {
+  overflow: hidden !important;
+}
+
+.col-xs-5 {
+  input {
+    border: 1px solid $middlegray !important;
+  }
+}
+
+.col-xs-7 {
+  border-left: 1px solid $middlegray !important;
+
+  a {
+    border: none !important;
+  }
+}
+
+.google-visualization-table-tr-even {
+  background: $darkgray !important;
+}
+
+.google-visualization-table-tr-odd {
+  background: $deepgray !important;
+}
+
+.google-visualization-table-table {
+  th,
+  td {
+    border: none !important;
+  }
+}
+
+.google-visualization-table-tr-head {
+  background-color: $blue !important;
+}
+
+.google-visualization-table {
+  .gradient {
+    background: none !important;
+  }
+}
+
+.google-visualization-table-sortind {
+  color: $darkgray !important;
+}
+
+div.btn-group {
+  .dropdown-toggle {
+    b,
+    span {
+      color: $deepgray !important;
+    }
+
+    .toggle-text {
+      color: $white !important;
+    }
+  }
+}

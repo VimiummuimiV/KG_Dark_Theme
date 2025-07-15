@@ -1,0 +1,43 @@
+// Navigation menu styles
+#content .sidebar {
+  .profile-nav {
+    background-color: transparent !important;
+  }
+  // Base link styles
+  a {
+    color: $white !important;
+    background: $deepgray !important;
+    text-decoration: none !important;
+
+    .icon-icomoon {
+      color: $white !important;
+    }
+
+    span {
+      color: $white !important;
+    }
+
+    &:hover,
+    &:focus {
+      background: $black !important;
+    }
+  }
+
+  // Active state
+  .active > a {
+    background: $blue !important;
+
+    .icon-icomoon {
+      color: $deepgray !important;
+    }
+
+    span {
+      color: $deepgray !important;
+    }
+
+    &:hover,
+    &:focus {
+      background: $blue !important;
+    }
+  }
+}
