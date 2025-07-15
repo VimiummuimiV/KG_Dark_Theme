@@ -1,0 +1,50 @@
+@import "variables";
+@import "loading";
+
+#popup {
+  .l {
+    position: absolute !important;
+    display: flex !important;
+    background-image: url("data:image/svg+xml,#{create-spinner-svg()}") !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border-radius: 50% !important;
+    width: #{$size}px !important;
+    height: #{$size}px !important;
+    top: 10px !important;
+    left: 10px !important;
+  }
+
+  .c {
+    position: relative !important;
+    background-color: transparent !important;
+    z-index: 5 !important;
+
+    .popup_profile {
+      border: 1px solid $middlegray !important;
+      border-radius: 1em !important;
+      background-color: $deepgray !important;
+      box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2) !important;
+      padding: 1em !important;
+
+      .avatar_big{
+        margin: 0 0 1em !important;
+      }
+    }
+
+    img[src="/img/loading.gif"] {
+      display: none !important;
+    }
+  }
+
+  .r,
+  .t,
+  .b,
+  .tr,
+  .tl,
+  .bl,
+  .br {
+    display: none !important;
+  }
+}

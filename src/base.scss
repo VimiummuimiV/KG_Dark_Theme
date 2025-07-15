@@ -30,7 +30,6 @@ $awards: (
 // Mixins
 @mixin reset-styles {
   box-shadow: none !important;
-  border-radius: 0 !important;
   text-shadow: none !important;
 }
 
@@ -315,10 +314,6 @@ div.actions button {
   position: absolute !important;
   top: -4px !important;
   right: -6px !important;
-  @include award-icon(none);
-}
-
-#popup_content .popup_profile a {
   @include award-icon(none);
 }
 

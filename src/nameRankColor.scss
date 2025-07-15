@@ -1,7 +1,7 @@
 @import "variables";
 
 // Rank styles using variables with #content parent selector
-#content {
+#content, #popup {
   .rang1, a.rang1, a.rang1:visited { color: $rang1 !important; border-color: #{$rang1}80 !important; }
   .rang2, a.rang2, a.rang2:visited { color: $rang2 !important; border-color: #{$rang2}80 !important; }
   .rang3, a.rang3, a.rang3:visited { color: $rang3 !important; border-color: #{$rang3}80 !important; }

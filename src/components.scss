@@ -2,26 +2,6 @@
 
 /* General UI components */
 
-/* Popup box */
-.popup-box {
-  .c {
-    background: $deepgray !important;
-    border: 1px solid $middlegray !important;
-    padding: 20px !important;
-  }
-
-  .l,
-  .r,
-  .t,
-  .b,
-  .tr,
-  .tl,
-  .bl,
-  .br {
-    display: none !important;
-  }
-}
-
 /* Klavo events */
 #content_KE {
   .list {

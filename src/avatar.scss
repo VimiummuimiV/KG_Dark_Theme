@@ -1,0 +1,174 @@
+/* Simplified Avatar Component SCSS */
+@import 'variables';
+
+.avatar_big {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  margin: 35px 15px 15px 15px !important;
+  
+  .rang {
+    position: absolute;
+    top: -35px !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $rang1;
+    padding: 6px 16px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid #{$rang1}CC;
+    margin: 0 !important;
+    min-height: 20px;
+    cursor: help;
+    
+    // Different rank colors using SCSS map
+    $rank-colors: (
+      1: $rang1,
+      2: $rang2,
+      3: $rang3,
+      4: $rang4,
+      5: $rang5,
+      6: $rang6,
+      7: $rang7,
+      8: $rang8,
+      9: $rang9,
+      10: $rang10,
+      11: $rang11
+    );
+    
+    @each $rank, $color in $rank-colors {
+      &.rang#{$rank} {
+        background: rgba($color, 0.2);
+        border-color: rgba($color, 0.3);
+        color: $color;
+      }
+    }
+  }
+  
+  // Direct img styling
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.75em;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5) !important;
+    display: block;
+  }
+  
+  .level_icon {
+    position: absolute !important;
+    bottom: -16px !important;
+    right: -16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: #4a3d0f !important;
+    border-radius: 50% !important;
+    border: 2px solid rgba(255, 215, 0, 0.7) !important;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    z-index: 5;
+    padding: 0 !important;
+    cursor: help;
+    
+    i {
+      font: bold 1em "Consolas", monospace !important;
+      color: gold !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      position: unset !important;
+    }
+    
+    // Active state ring
+    &::after {
+      content: '';
+      position: absolute;
+      top: -6px !important;
+      left: -6px !important;
+      right: -6px !important;
+      bottom: -6px !important;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 215, 0, 0.3);
+      z-index: -2;
+      animation: ring 2s linear infinite;
+    }
+  }
+}
+
+// Keyframe animations
+@keyframes ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .avatar_big {
+    width: 100px;
+    height: 100px;
+    margin: 30px 12px 12px 12px !important;
+    
+    .rang {
+      font-size: 10px;
+      padding: 4px 12px;
+      top: -25px;
+      border-radius: 12px;
+    }
+    
+    .level_icon {
+      width: 26px !important;
+      height: 26px !important;
+      bottom: -6px !important;
+      right: -6px !important;
+      border-width: 2px !important;
+      
+      i {
+        font-size: 11px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar_big {
+    width: 80px;
+    height: 80px;
+    margin: 25px 10px 10px 10px !important;
+    
+    .rang {
+      font-size: 9px;
+      padding: 3px 8px;
+      top: -20px;
+    }
+    
+    .level_icon {
+      width: 22px !important;
+      height: 22px !important;
+      bottom: -4px;
+      right: -4px;
+      
+      i {
+        font-size: 9px !important;
+      }
+    }
+  }
+}

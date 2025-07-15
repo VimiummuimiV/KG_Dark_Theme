@@ -163,10 +163,6 @@ input {
       display: flex !important;
       justify-content: center !important;
       border: none !important;
-      
-      .rang {
-        color: $white !important;
-      }
     }
     
     td {
@@ -538,53 +534,6 @@ body .codemain {
 #fast-reply-controls {
   td {
     opacity: 0.8 !important;
-  }
-}
-
-/* Avatar Styling */
-div.avatar_big {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-around !important;
-  width: 80px !important;
-  height: 110px !important;
-  margin-right: 0 !important;
-  
-  .rang {
-    margin: 0 !important;
-  }
-  
-  img {
-    display: block !important;
-    width: 80px !important;
-    height: 80px !important;
-    border-radius: 50% !important;
-    
-    &[src*="dummy"] {
-      filter: invert(83%) !important;
-    }
-  }
-  
-  .level_icon {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
-    width: 23px !important;
-    height: 23px !important;
-    background: #5f5118 !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    border-radius: 50% !important;
-    border: 2px solid gold !important;
-    box-sizing: content-box;
-    
-    i {
-      top: 0 !important;
-      color: gold !important;
-      font-size: 11px;
-      font-weight: normal !important;
-    }
   }
 }
 
