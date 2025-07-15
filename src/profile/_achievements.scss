@@ -2,8 +2,8 @@
 @mixin achieve-icon-base {
   background: linear-gradient(
     135deg,
-    rgba($orange, 0.2) 0%,
-    rgba($blue, 0.2) 100%
+    rgba($orange, 0.7) 0%,
+    rgba($blue, 0.7) 100%
   ) !important;
   border: 1px solid transparent !important;
 
@@ -15,8 +15,8 @@
 @mixin achieve-icon-hover {
   background: linear-gradient(
     135deg,
-    rgba($orange, 0.3) 0%,
-    rgba($blue, 0.3) 100%
+    rgba($orange, 1) 0%,
+    rgba($blue, 1) 100%
   ) !important;
   border: 1px solid transparent !important;
 }
@@ -31,6 +31,9 @@
 }
 
 @mixin achieve-content-base {
+  background-color: $deepgray !important;
+  border-radius: 30px !important;
+
   .title {
     color: $orange !important;
   }
@@ -66,10 +69,13 @@
       }
 
       .level {
-        .icon-icomoon.done {
-          color: $blue !important;
+        .icon-icomoon {
           box-shadow: none !important;
           text-shadow: none !important;
+          color: $white !important;
+        }
+        .icon-icomoon.done {
+          color: gold !important;
         }
       }
     }
@@ -137,6 +143,58 @@
 
 // Achievement popover
 .popover {
-  background-color: $darkgray !important;
+  background-color: $deepgray !important;
   border: 1px solid $middlegray !important;
+
+  .popover-content {
+    background-color: $deepgray !important;
+
+    .title {
+      color: $orange !important;
+    }
+
+    .description {
+      color: $white !important;
+
+      span {
+        color: $blue !important;
+
+        span {
+          color: $lightblue !important;
+        }
+      }
+    }
+  }
+
+  // Top arrow (popover below trigger - arrow points up)
+  &.top .arrow {
+    border-top-color: $middlegray !important;
+    &:after {
+      border-top-color: $deepgray !important;
+    }
+  }
+
+  // Right arrow (popover to the right of trigger - arrow points left)
+  &.right .arrow {
+    border-right-color: $middlegray !important;
+    &:after {
+      border-right-color: $deepgray !important;
+    }
+  }
+
+  // Bottom arrow (popover above trigger - arrow points down)
+  &.bottom .arrow {
+    border-bottom-color: $middlegray !important;
+    &:after {
+      border-bottom-color: $deepgray !important;
+    }
+  }
+
+  // Left arrow (popover to the left of trigger - arrow points right)
+  &.left .arrow {
+    border-left-color: $middlegray !important;
+    &:after {
+      border-left-color: $deepgray !important;
+    }
+  }
 }
