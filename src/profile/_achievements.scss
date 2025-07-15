@@ -1,45 +1,118 @@
-// Achievements section styles
-.profile-achieves {
+// Mixins for reusable styles
+@mixin achieve-icon-base {
+  background: linear-gradient(
+    135deg,
+    rgba($orange, 0.2) 0%,
+    rgba($blue, 0.2) 100%
+  ) !important;
+  border: 1px solid transparent !important;
+
   img {
     opacity: 1 !important;
   }
+}
 
-  .list {
-    .group {
+@mixin achieve-icon-hover {
+  background: linear-gradient(
+    135deg,
+    rgba($orange, 0.3) 0%,
+    rgba($blue, 0.3) 100%
+  ) !important;
+  border: 1px solid transparent !important;
+}
+
+@mixin achieve-levels-base {
+  color: $white !important;
+  opacity: 1 !important;
+}
+
+@mixin achieve-levels-hover {
+  background: none !important;
+}
+
+@mixin achieve-content-base {
+  .title {
+    color: $orange !important;
+  }
+
+  .description {
+    color: $white !important;
+
+    span {
+      color: $blue !important;
+
+      span {
+        color: $lightblue !important;
+      }
+    }
+  }
+}
+
+// Base achieve styles that apply everywhere
+.achieve {
+  &:not(.reduced) {
+    border: 1px solid transparent;
+    background: transparent !important;
+  }
+
+  .achieve-content {
+    @include achieve-content-base;
+
+    .levels {
+      @include achieve-levels-base;
+
+      &:hover {
+        @include achieve-levels-hover;
+      }
+
+      .level {
+        .icon-icomoon.done {
+          color: $blue !important;
+          box-shadow: none !important;
+          text-shadow: none !important;
+        }
+      }
+    }
+  }
+
+  .achieve-icon {
+    @include achieve-icon-base;
+
+    &:hover {
+      @include achieve-icon-hover;
+    }
+  }
+}
+
+// Specific overrides only where needed
+.dlg-set-index-achieve {
+  .modal2-body {
+    .list {
       .item {
         .achieve {
-          .achieve-content {
-            .levels {
-              border-top: 1px solid $middlegray !important;
-              border-left: 1px solid $middlegray !important;
-              border-right: 1px solid $middlegray !important;
-              color: $white !important;
-              opacity: 1 !important;
-
-              &:hover {
-                border-top: 1px solid $blue !important;
-                border-left: 1px solid $blue !important;
-                border-right: 1px solid $blue !important;
-                background: none !important;
-              }
-
-              .level {
-                .icon-icomoon.done {
-                  color: $blue !important;
-                  box-shadow: none !important;
-                  text-shadow: none !important;
-                }
-              }
-            }
+          &.reduced {
+            border: 1px solid transparent;
+            background: transparent !important;
+            overflow: hidden;
+            // achieve-icon styles inherited from base
           }
         }
       }
 
       .more-achieves {
-        background: none !important;
+        background: transparent !important;
       }
     }
+
+    .empty {
+      color: $white !important;
+    }
   }
+}
+
+// Profile achievements - only specific overrides
+.profile-achieves {
+  // Most styles inherited from base .achieve
 
   .options {
     .btn-group {
@@ -52,44 +125,18 @@
       }
     }
   }
-}
 
-.btn-group {
-  .dropdown-menu {
-    a {
-      color: $white !important;
+  .list {
+    .group {
+      .more-achieves {
+        background: transparent !important;
+      }
     }
   }
 }
 
-.popover * {
-  background: $darkgray !important;
-  border: none !important;
-}
-
-.achieve {
-  &:not(.reduced) {
-    border: 1px solid $middlegray;
-    background: none !important;
-  }
-
-  .achieve-content {
-    .title {
-      color: $white !important;
-    }
-
-    .description {
-      color: $white !important;
-    }
-  }
-
-  .achieve-icon {
-    background: $darkgray !important;
-    border: 1px solid $darkgray !important;
-
-    &:hover {
-      background: $darkgray !important;
-      border: 1px solid $blue !important;
-    }
-  }
+// Achievement popover
+.popover {
+  background-color: $darkgray !important;
+  border: 1px solid $middlegray !important;
 }
