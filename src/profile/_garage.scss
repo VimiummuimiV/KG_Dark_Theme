@@ -57,8 +57,8 @@
     }
 
     .title {
-      color: $orange !important;
-      border-bottom: 1px solid $middlegray !important;
+      color: gold !important;
+      border-bottom: 1px solid transparent !important;
     }
   }
 
@@ -75,8 +75,18 @@
   }
 
   .tuning-category {
+
     .tuning-item {
       border: 1px solid transparent !important;
+
+      .price {
+        color: $white !important;
+        
+        .scores {
+          color: lightgreen !important;
+          background: transparent !important;
+        }
+      }
 
       &.active {
         border: 1px solid $blue !important;

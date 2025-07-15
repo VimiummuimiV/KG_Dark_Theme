@@ -54,10 +54,9 @@
 
 // Base achieve styles that apply everywhere
 .achieve {
-  &:not(.reduced) {
     border: 1px solid transparent;
     background: transparent !important;
-  }
+    border-radius: 10px !important;
 
   .achieve-content {
     @include achieve-content-base;
@@ -101,7 +100,6 @@
             border: 1px solid transparent;
             background: transparent !important;
             overflow: hidden;
-            // achieve-icon styles inherited from base
           }
         }
       }
@@ -135,6 +133,12 @@
 
   .list {
     .group {
+      .item {
+        .achieve {
+          background: transparent !important;
+        }
+      }
+
       .more-achieves {
         background: transparent !important;
       }
@@ -145,6 +149,7 @@
 // Specific fix for nested popover structure: .achieve .achieve-content .levels .level .popover .achieve
 body .achieve .achieve-content .levels .level .popover .achieve {
   background: $deepgray !important;
+  border-radius: 10px !important;
 }
 
 // Achievement popover
