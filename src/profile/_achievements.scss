@@ -6,6 +6,7 @@
     rgba($blue, 0.7) 100%
   ) !important;
   border: 1px solid transparent !important;
+  border-radius: 10px !important;
 
   img {
     opacity: 1 !important;
@@ -32,7 +33,7 @@
 
 @mixin achieve-content-base {
   background-color: $deepgray !important;
-  border-radius: 30px !important;
+  border-radius: 10px !important;
 
   .title {
     color: $orange !important;
@@ -141,12 +142,19 @@
   }
 }
 
+// Specific fix for nested popover structure: .achieve .achieve-content .levels .level .popover .achieve
+body .achieve .achieve-content .levels .level .popover .achieve {
+  background: $deepgray !important;
+}
+
 // Achievement popover
 .popover {
   background-color: $deepgray !important;
   border: 1px solid $middlegray !important;
+  border-radius: 10px !important;
 
   .popover-content {
+    border-radius: 10px !important;
     background-color: $deepgray !important;
 
     .title {
