@@ -9,7 +9,8 @@
     "webpack-cli": "^6.0.1"
   },
   "scripts": {
+    "dev": "webpack --watch --mode development",
     "build": "webpack --mode production",
-    "dev": "webpack --watch --mode development"
+    "build:version": "node increment-version.js && webpack --mode production"
   }
 }

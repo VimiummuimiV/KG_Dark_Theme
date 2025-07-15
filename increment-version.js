@@ -7,12 +7,15 @@ function incrementVersion(versionString) {
   return `${parts[0]}.${parts[1]}.${patch}`;
 }
 
-function updateVersionInFile(filePath, isStylish = false) {
+function updateVersionInFile(filePath) {
+  if (!fs.existsSync(filePath)) {
+    console.error(`File not found: ${filePath}`);
+    return;
+  }
+  
   const content = fs.readFileSync(filePath, 'utf8');
   
-  const versionRegex = isStylish 
-    ? /@version\s+(.+)/
-    : /@version\s+(.+)/;
+  const versionRegex = /@version\s+(.+)/;
   
   const match = content.match(versionRegex);
   if (!match) {
@@ -23,6 +26,7 @@ function updateVersionInFile(filePath, isStylish = false) {
   const currentVersion = match[1].trim();
   const newVersion = incrementVersion(currentVersion);
   
+  // Always use 6 spaces for consistent formatting
   const updatedContent = content.replace(versionRegex, `@version        ${newVersion}`);
   
   fs.writeFileSync(filePath, updatedContent);
@@ -33,7 +37,7 @@ function updateVersionInFile(filePath, isStylish = false) {
 const stylishHeaderPath = path.resolve('src', 'header-stylish.js');
 const tampermonkeyHeaderPath = path.resolve('src', 'header-tampermonkey.js');
 
-updateVersionInFile(stylishHeaderPath, true);
-updateVersionInFile(tampermonkeyHeaderPath, false);
+updateVersionInFile(stylishHeaderPath);
+updateVersionInFile(tampermonkeyHeaderPath);
 
 console.log('✅ Version increment completed!');
