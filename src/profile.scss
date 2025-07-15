@@ -17,6 +17,21 @@
   }
 }
 
+// Dropdown menu styling
+.dropdown-menu {
+  > li {
+    > a {
+      color: $white !important;
+      background: $darkgray !important;
+
+      &:hover {
+        background: $blue !important;
+        color: $deepgray !important;
+      }
+    }
+  }
+}
+
 // Profile everything form insert smiles button && preview button
 .btn-smilies-insert {
   background: none !important;
@@ -38,26 +53,38 @@
   }
 }
 
-// Profile loading text top mini popup box
-.console.log-warning {
-  font-weight: lighter !important;
-  background-color: $blue !important;
-  color: $darkgray !important;
-  border-radius: 0px !important;
-  border: none !important;
-  border-bottom: 1px solid $blue !important;
-  transition: all 0.5s !important;
-}
-
 // Profile root styles
-.profile-root {
+#content .profile-root {
   // Online user mark
   .online {
-    color: $darkgray !important;
-    background-color: $blue !important;
+    color: lightgreen !important;
+    background-color: #90ee90a0 !important;
   }
 
-  // Remove inscription click here to open bio content
+  // Profile achievements under the bio block
+  .trophy {
+    .item {
+      .dummy {
+        background: $darkgray !important;
+        border: 1px solid $middlegray !important;
+
+        &:hover {
+          background: $deepgray !important;
+          border: 1px solid $blue !important;
+        }
+
+        &::after {
+          color: $middlegray !important;
+        }
+
+        &:hover::after {
+          color: $blue !important;
+        }
+      }
+    }
+  }
+
+  // Remove the profile bio block text that pushes to the edit form
   #profile-index {
     .bio {
       .content {
@@ -75,29 +102,6 @@
       }
     }
 
-    // Profile root achievements + place button styles
-    .trophy {
-      .item {
-        .dummy {
-          background: $darkgray !important;
-          border: 1px solid $middlegray !important;
-
-          &:hover {
-            background: $deepgray !important;
-            border: 1px solid $blue !important;
-          }
-
-          &::after {
-            color: $middlegray !important;
-          }
-
-          &:hover::after {
-            color: $blue !important;
-          }
-        }
-      }
-    }
-
     // Remove border near the blocks
     .stats {
       position: fixed !important;
@@ -110,6 +114,7 @@
 
       .content {
         .stats-block {
+          border-radius: 0 !important;
           background-color: $blue;
           margin: 0 !important;
           border: none !important;
@@ -133,7 +138,7 @@
     }
   }
 
-  // Profile root bio edit form && preview
+  // Edit profile bio block
   .profile-edit-bio {
     form {
       background-color: $darkgray !important;
@@ -141,10 +146,15 @@
     }
   }
 
-  // Profile root header popup history changed nicknames
+  // Usernames history popup
   .profile-header {
     background: $darkgray !important;
     border-bottom: 1px solid $middlegray !important;
+
+    // Avoid default white background for the car block
+    .car {
+      background: $darkgray !important;
+    }
 
     .username {
       .history {
@@ -157,8 +167,11 @@
           color: $blue !important;
 
           ul {
+            padding: 4px 0 !important;
+
             li {
               color: $white !important;
+              padding-top: unset !important;
             }
           }
         }
@@ -191,50 +204,40 @@
     }
   }
 
-  // Profile friends navigation menu
-  .profile-content {
-    .nav-top {
-      border-bottom: none !important;
+  // Friends navigation buttons
+  .profile-content .nav-top {
+    border-bottom: none !important;
 
-      li {
-        a {
-          color: $blue !important;
-        }
+    // Base styles for all links
+    a {
+      color: $blue !important;
+      background-color: $darkgray !important;
+      border: 1px solid $blue !important;
 
-        &.active {
-          a {
-            color: $deepgray !important;
-            background-color: $blue !important;
-            border: 1px solid transparent !important;
-
-            &:hover,
-            &:focus {
-              color: $deepgray !important;
-              background-color: $blue !important;
-              border: 1px solid transparent !important;
-            }
-          }
-        }
+      &:hover,
+      &:focus {
+        color: $deepgray !important;
+        background-color: $blue !important;
+        border: 1px solid transparent !important;
       }
+    }
 
-      > li {
-        > a {
-          color: $blue !important;
-          background-color: $darkgray !important;
-          border: 1px solid $blue !important;
+    // Active state overrides
+    .active a {
+      color: $deepgray !important;
+      background-color: $blue !important;
+      border: 1px solid transparent !important;
 
-          &:hover,
-          &:focus {
-            color: $deepgray !important;
-            background-color: $blue !important;
-            border: 1px solid transparent !important;
-          }
-        }
+      &:hover,
+      &:focus {
+        color: $deepgray !important;
+        background-color: $blue !important;
+        border: 1px solid transparent !important;
       }
     }
   }
 
-  // Profile journal
+  // Journal block
   .journal {
     .write {
       .placeholder {

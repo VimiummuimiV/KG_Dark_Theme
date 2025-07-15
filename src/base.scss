@@ -95,6 +95,10 @@ body {
   color: $white !important;
 }
 
+#content {
+  padding: 50px 30px 0px 30px !important;
+}
+
 // Universal Reset
 * {
   @extend %reset-base;
