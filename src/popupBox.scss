@@ -3,42 +3,53 @@
 
 /* POPUP BOX STYLES */
 #popup {
-  .l {
-    position: absolute !important;
-    display: flex !important;
-    background-image: url("data:image/svg+xml,#{create-spinner-svg()}") !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    border-radius: 50% !important;
-    width: #{$size}px !important;
-    height: #{$size}px !important;
-    top: 10px !important;
-    left: 10px !important;
-  }
-
   .c {
     position: relative !important;
-    background-color: transparent !important;
+    border-radius: 1em !important;
+    background-color: $deepgray !important;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2) !important;
+    padding: 1em !important;
     z-index: 5 !important;
 
-    .popup_profile {
-      border: 1px solid $middlegray !important;
-      border-radius: 1em !important;
-      background-color: $deepgray !important;
-      box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2) !important;
-      padding: 1em !important;
+    .preerror {
+      color: #808080 !important;
+    }
 
-      .avatar_big{
+    s.trackerror {
+      color: hsl(0, 80%, 70%) !important;
+    }
+
+    span.trackerror {
+      color: hsl(0, 80%, 50%) !important;
+    }
+
+    
+    .popup_profile {
+      .avatar_big {
         margin: 0 0 1em !important;
       }
     }
-
+    
+    // Hide the original loading.gif image
     img[src="/img/loading.gif"] {
-      display: none !important;
+      min-height: #{$size}px !important;
+      min-width: #{$size}px !important;
+      visibility: hidden !important;
     }
+    
+    // Add SVG background when loading.gif is present
+    &:has(img[src="/img/loading.gif"]) {
+      background-image: url("data:image/svg+xml,#{create-spinner-svg()}") !important;
+      background-size: #{$size}px #{$size}px !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      min-height: #{$size}px !important;
+      min-width: #{$size}px !important;
+    }
+    
   }
-
+  
+  .l,
   .r,
   .t,
   .b,

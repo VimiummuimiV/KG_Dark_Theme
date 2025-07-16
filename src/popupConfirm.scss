@@ -9,6 +9,11 @@
   .c {
     background: $black !important;
     padding: 1em !important;
+
+    b,
+    strong {
+      color: $lightblue !important;
+    }
   }
 
   .r,

@@ -9,11 +9,11 @@
 // Race remove margin to do more space around
 #play-overall .gameblock {
   margin: 0 !important;
-  
+
   .people {
     display: none !important;
   }
-  
+
   .rc .handle,
   .handle {
     margin-left: -5px !important;
@@ -22,7 +22,7 @@
     height: 10px !important;
     width: 10px !important;
     background: $middlegray !important;
-    
+
     &:hover {
       background: $blue !important;
     }
@@ -33,15 +33,15 @@
 #status {
   padding: 0 !important;
   background: $darkgray !important;
-  
+
   table {
     width: 100% !important;
-    
+
     tr:nth-child(1) {
       display: block !important;
       width: 75% !important;
     }
-    
+
     tr:nth-child(2) {
       display: flex !important;
       width: 100% !important;
@@ -56,24 +56,24 @@ body {
     #host_start {
       border-bottom: 1px solid $blue !important;
     }
-    
+
     #gamedesc {
       vertical-align: middle !important;
       padding-bottom: 0 !important;
     }
   }
-  
+
   #status-inner {
     display: flex !important;
     width: 100% !important;
     align-items: center !important;
     justify-content: center;
-    
+
     #waiting {
       &[style="none"] {
         display: none !important;
       }
-      
+
       position: absolute !important;
       color: transparent !important;
       display: flex !important;
@@ -82,45 +82,45 @@ body {
       flex-direction: row-reverse !important;
       animation: wait 1s infinite ease-in-out;
     }
-    
+
     #racing {
       &[style="display: none"] {
         display: none !important;
       }
-      
+
       position: absolute !important;
       display: flex !important;
       justify-content: center !important;
       align-items: center !important;
     }
-    
+
     #paused {
       width: 100% !important;
       margin-left: 70px !important;
     }
   }
-  
+
   #params {
     order: 1 !important;
     width: 270px !important;
-    
+
     // Race settings links styles
     a {
       text-decoration: underline !important;
       border-bottom: none !important;
     }
-    
+
     .slider {
       &.off {
         background: $darkgray !important;
       }
     }
   }
-  
+
   #players-block .handle {
     top: -5px !important;
   }
-  
+
   #play-right {
     display: flex !important;
     flex-direction: column !important;
@@ -131,48 +131,48 @@ body {
     left: 0 !important;
     transform: translate(0) !important;
     transition: opacity 1s ease-in-out, 0.3s ease-in-out !important;
-    
+
     &[style*="margin-right: 0"] #invite {
       right: 1058px !important;
     }
-    
+
     &[style*="position: absolute"] #invite,
     &[style*="margin-right: -"] #invite {
       right: 1363px !important;
     }
-    
+
     > div.play-right-toggle {
       background: $middlegray !important;
       color: $deepgray !important;
       transition: all 0.2s !important;
       top: 325px !important;
-      
+
       &:hover {
         background: $blue !important;
       }
-      
+
       .glyphicon {
         top: 0 !important;
       }
     }
-    
+
     #invite {
       order: 0 !important;
       width: 270px !important;
-      
+
       a {
         color: $blue !important;
-        
+
         &:hover {
           color: $lightblue !important;
         }
       }
-      
+
       #friends-list {
         background: $darkgray !important;
         border: none !important;
       }
-      
+
       #select-all {
         border-bottom: none !important;
         text-decoration: underline !important;
@@ -228,7 +228,7 @@ body {
   .name {
     color: $white !important;
   }
-  
+
   .car_rating {
     color: $white !important;
   }
@@ -240,7 +240,7 @@ body {
   border: 2px solid $middlegray !important;
   border-radius: 10px !important;
   box-sizing: content-box !important;
-  
+
   // Slider handle
   .handle {
     background: $white !important;
@@ -250,7 +250,7 @@ body {
     width: 14px !important;
     margin: 1px !important;
     transition: all 0.2s !important;
-    
+
     &:hover {
       background: $middlegray !important;
     }
@@ -288,23 +288,28 @@ body {
   background: none !important;
   padding: 10px 0 10px 0 !important;
   border-bottom: 1px solid $middlegray !important;
-  
+
+  // Error tracking (car bolt detail)
+  .error-on-track-img {
+    background: lighten($orange, 30%) !important;
+  }
+
   .divider {
     display: none !important;
   }
-  
+
   .rating {
     display: flex !important;
     width: 70% !important;
     align-items: center !important;
     justify-content: space-between !important;
     height: 30px !important;
-    
+
     div {
       color: $white !important;
       margin-right: 0 !important;
     }
-    
+
     .stats {
       color: $middlegray !important;
       left: 135px !important;
@@ -314,7 +319,7 @@ body {
       justify-content: space-around !important;
       gap: 1em !important;
     }
-    
+
     .rating_gained {
       background: none !important;
       background: $orange !important;
@@ -332,7 +337,7 @@ body {
 #players-count-lbl {
   float: unset !important;
   font-size: 13px !important;
-  
+
   // Race label point % count
   b {
     color: $darkgray !important;
@@ -353,11 +358,11 @@ body {
   #errors-label {
     color: #bbe4ff !important;
   }
-  
+
   #speed-label {
     top: 60px !important;
   }
-  
+
   #errors-label {
     top: 35px !important;
   }
@@ -375,7 +380,7 @@ body {
 
 #errors_tab {
   background: none !important;
-  
+
   a {
     text-decoration: underline !important;
     border-bottom: none !important;
@@ -386,23 +391,23 @@ body {
   p {
     background-color: $deepgray !important;
     color: $white !important;
-    
+
     &.premium_abra_errors {
       a {
         color: $blue !important;
-        
+
         &:hover {
           color: $lightblue !important;
         }
       }
-      
+
       // Most difficult typing letters style
       span {
         color: $blue !important;
         background: none !important;
         border-bottom: 1px solid $blue !important;
       }
-      
+
       sup {
         color: $white !important;
       }
@@ -413,7 +418,7 @@ body {
 // Remove how to play
 #report {
   display: none !important;
-  
+
   // Race how to race && report to text links rules
   a {
     border-bottom: 1px solid $blue !important;
@@ -434,7 +439,7 @@ body {
 #typeblock {
   background: $darkgray !important;
   border: none !important;
-  
+
   // Race typeblock darken around
   .tl,
   .tr,
@@ -442,7 +447,7 @@ body {
   .br {
     background: none !important;
   }
-  
+
   // Race hidden text before the game starts bg color && text color
   #hiddentext {
     background-color: $darkgray !important;
@@ -450,7 +455,7 @@ body {
     color: $blue !important;
     font-weight: lighter !important;
   }
-  
+
   // Race typeblock input when you can't type yet
   .disabled {
     color: $middlegray !important;
@@ -458,18 +463,19 @@ body {
     border: none !important;
     border-bottom: 1px solid $middlegray !important;
   }
-  
+
   // Qualification correct error text bg
   .correct_errors_text {
     background: $darkgray !important;
     color: $white !important;
   }
-  
+
   // Qualification race img adjustments
   img[src*="tmp/text/"] {
-    filter: invert(0.9) brightness(0.83) sepia(1) hue-rotate(200deg) saturate(0.4) !important;
+    filter: invert(0.9) brightness(0.83) sepia(1) hue-rotate(200deg)
+      saturate(0.4) !important;
   }
-  
+
   // Race typeblock input text default color
   #inputtext {
     color: $white;
@@ -477,7 +483,7 @@ body {
     border: none !important;
     padding: 8px;
     box-sizing: border-box;
-    
+
     // Race typeblock input text when error text color && bg color
     &[class="error"] {
       background: #f06c6c !important;
@@ -486,61 +492,61 @@ body {
       border-bottom: 1px solid $middlegray !important;
     }
   }
-  
+
   .disabled {
     color: transparent !important;
   }
-  
+
   // Race typeblock rm text decoration
   #typetext {
     .highlight {
       text-decoration: none !important;
     }
-    
+
     // Race typeblock never do opacity with js
     opacity: 1 !important;
   }
-  
+
   // Race typeblock typed text color
   #beforefocus {
     color: $middlegray !important;
   }
-  
+
   // Race typeblock typing word or letter color
   #typefocus {
     color: lightgreen !important;
   }
-  
+
   // Race typeblock not typed text yet color
   #afterfocus {
     color: $white !important;
   }
-  
+
   // Race typeblock voc name && to list game && play another game links color
   #bookinfo {
     a {
       color: $blue !important;
-      
+
       &:hover {
         color: $lightblue !important;
       }
     }
-    
+
     #again {
       a {
         color: $blue !important;
-        
+
         &:hover {
           color: $lightblue !important;
         }
       }
-      
+
       // Race typeblock you typed this && < ctrl ctrl > color
       .hotkey {
         color: $middlegray !important;
       }
     }
-    
+
     div {
       color: $middlegray !important;
     }
@@ -594,7 +600,7 @@ body {
     font-size: 10px !important;
     margin-right: 8px !important;
   }
-  
+
   #spectrumCanvas {
     margin: 10px 0 10px !important;
   }
@@ -613,11 +619,11 @@ body {
 #keyboard_cont {
   display: flex !important;
   justify-content: center !important;
-  
+
   &[style*="display: none"] {
     display: none !important;
   }
-  
+
   #param_keyboard {
     font-size: 0 !important;
     position: absolute !important;
@@ -629,7 +635,7 @@ body {
     display: block;
     transition: all 0.2s !important;
     animation: keyboard 10s linear infinite !important;
-    
+
     &:hover {
       filter: brightness(0.7) !important;
     }
@@ -638,7 +644,7 @@ body {
 
 #keyboard {
   margin: 30px auto 0 auto !important;
-  
+
   // Race virtual keyboard img invert
   filter: invert(1) sepia(0) hue-rotate(40deg) grayscale(0.3) !important;
 }
@@ -676,7 +682,7 @@ body {
   margin-right: unset !important;
   left: 95px !important;
   bottom: unset !important;
-  
+
   a {
     border: 1px solid $blue !important;
     display: flex !important;
@@ -685,12 +691,12 @@ body {
     height: 30px !important;
     width: 30px !important;
     background: #343442 !important;
-    
+
     &:hover {
       filter: hue-rotate(180deg) !important;
     }
   }
-  
+
   img {
     box-sizing: border-box !important;
     background: $close !important;
@@ -709,14 +715,14 @@ body {
       width: 60px !important;
       padding-top: 20px !important;
     }
-    
+
     div[style*="float: left"] {
       display: flex !important;
       justify-content: center !important;
       align-items: center !important;
       width: 175px !important;
       text-align: center !important;
-      
+
       label,
       input {
         margin: 0 !important;
@@ -738,7 +744,7 @@ body {
   color: $white !important;
   background: $darkgray !important;
   border: 1px solid $middlegray !important;
-  
+
   span {
     color: $blue !important;
   }
@@ -755,7 +761,7 @@ label[for="autosort"] {
 #errors,
 #rating {
   color: $blue !important;
-  
+
   &:hover {
     color: $lightblue !important;
   }

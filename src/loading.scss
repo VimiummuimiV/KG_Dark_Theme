@@ -1,10 +1,10 @@
 @import "variables";
 
 // Configuration
-$size: 40;
+$size: 50;
 $color: #ff8c00;
 $lines: 8;
-$margin: 5; // Distance from corners (makes lines shorter)
+$margin: 10; // Distance from corners (makes lines shorter)
 
 // Calculate positions
 $start: $margin;

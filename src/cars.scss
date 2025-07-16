@@ -85,7 +85,7 @@ $car-groups: (
 }
 
 .profile-car .shop.tuning .car .imgcont {
-  background: #777777 !important;
+  background: $middlegray !important;
 }
 
 /* ===== STANDARD CARS ===== */
@@ -143,10 +143,10 @@ $standard-cars: (
     background: $car-variable;
   }
 }
-
-// Special case for car1 with additional selectors
+// Special case for car1 with specific background-color - use middlegray
 .car1[style*="background-color: #777"] {
   background: $car1;
+  background-color: $middlegray !important;
 }
 
 /* ===== CAR POSITION PRIORITIES FIX ===== */
