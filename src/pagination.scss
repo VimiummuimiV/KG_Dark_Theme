@@ -3,7 +3,7 @@
 /* Pagination controls styles - unified for all pages */
 .pages {
   opacity: 0.5 !important;
-  color: $deepgray !important;
+  color: black !important;
   background: transparent !important;
   padding: 10px !important;
   position: fixed !important;
@@ -12,8 +12,8 @@
   z-index: 10 !important;
   transition: opacity 0.2s !important;
   display: flex !important;
-  font-size: 5px !important;
-  
+  gap: 5px !important;
+
   &:hover {
     opacity: 1 !important;
     transition: opacity 0.2s !important;
@@ -21,13 +21,8 @@
 
   /* Nested paginator controls */
   .paginator {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    position: absolute !important;
-    width: 60px !important;
     font-size: 0 !important;
-    left: -55px !important;
-    
+
     b {
       display: none !important;
     }
@@ -36,7 +31,7 @@
     .ctrls {
       margin: 0 !important;
       display: flex !important;
-      
+
       /* Hide icons in forum pagination */
       i {
         display: none !important;
@@ -47,34 +42,30 @@
       margin: 0 !important;
       width: 30px !important;
       height: 30px !important;
-      
-      &.na {
-        display: none !important;
-      }
 
       a {
         display: inline-block !important;
         height: 30px !important;
         background-color: $middlegray !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
         text-decoration: none !important;
         color: $darkgray !important;
         padding: 0 !important;
         width: 100% !important;
         text-align: center !important;
         transition: all 0.1s !important;
-        
+
         /* Next button icon */
         &:nth-child(1) {
           background-image: $pagination-next-icon !important;
-          background-position: center !important;
-          background-repeat: no-repeat !important;
+          border-radius: 0 5px 5px 0 !important;
         }
-        
+
         /* Previous button icon */
         &:nth-child(2) {
           background-image: $pagination-prev-icon !important;
-          background-position: center !important;
-          background-repeat: no-repeat !important;
+          border-radius: 5px 0 0 5px !important;
         }
 
         &:hover {
@@ -91,13 +82,14 @@
     justify-content: center !important;
     align-items: center !important;
     margin-top: 0 !important;
-    font-size: 13px !important;
     height: 30px !important;
     width: 30px !important;
     display: inline-flex !important;
   }
 
   .selected {
+    font: bold 14px "Montserrat", sans-serif !important;
+    border-radius: 5px !important;
     background: $white !important;
     color: $darkgray !important;
   }
@@ -109,18 +101,19 @@
     }
 
     a {
+      font: bold 14px "Montserrat", sans-serif !important;
       display: inline-flex !important;
       width: 30px !important;
       height: 30px !important;
       justify-content: center !important;
       align-items: center !important;
-      color: $darkgray !important;
+      color: $deepgray !important;
       padding: 0 !important;
       background: $middlegray !important;
       text-decoration: none !important;
       transition: all 0.1s !important;
       margin-top: 0 !important;
-      
+
       &:hover {
         background: $blue !important;
         transition: all 0.1s !important;
