@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           KG_Dark_Theme
 // @namespace      klavogonki
-// @version        1.0.0
+// @version        1.0.1
 // @description    Load dark theme CSS
 // @author         Patcher
 // @match          *://klavogonki.ru/*

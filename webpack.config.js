@@ -58,9 +58,6 @@ class CombineHeaderPlugin {
       
       fs.writeFileSync(path.join(distDir, 'KG_Dark_Theme.js'), tampermonkeyContent);
       
-      // Clean up temporary CSS file
-      fs.unlinkSync(cssPath);
-      
       console.log('✅ Generated KG_Dark_Theme.css for Stylish');
       console.log('✅ Generated KG_Dark_Theme.js for Tampermonkey');
     });
@@ -71,7 +68,7 @@ export default {
   entry: './src/main.scss',
   output: {
     path: _resolve(fileURLToPath(import.meta.url), '..', 'dist'),
-    clean: true,
+    clean: false,
   },
   module: {
     rules: [

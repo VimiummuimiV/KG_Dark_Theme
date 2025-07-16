@@ -138,8 +138,7 @@ $no: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 $pin: transparent url('https://i.imgur.com/XolL9Tj.png') no-repeat 1px 1px;
 
 // warning qualification
-$qualificationNoneHover: url('https://i.imgur.com/gBMuws8.png') no-repeat;
-$qualificationHover: url('https://i.imgur.com/5IOFgWg.png') no-repeat;
+$qualificationMark: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="24px" height="24px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 24 24"><g id="qualification"><!-- background circle --><path id="background" d="M12 1c6.08,0 11,4.92 11,11 0,6.08 -4.92,11 -11,11 -6.08,0 -11,-4.92 -11,-11 0,-6.08 4.92,-11 11,-11z" fill="%23695C0E" stroke="%23CCAA00" stroke-width="1.2" stroke-miterlimit="2"/><!-- award inner circle --><path id="award-circle" d="M16.35 9.51c0,-2.42 -1.96,-4.37 -4.38,-4.37 -2.42,0 -4.37,1.95 -4.37,4.37 0,2.42 1.95,4.38 4.37,4.38 2.42,0 4.38,-1.96 4.38,-4.38z" fill="none" stroke="%23FFD401" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2"/><!-- award ribbon --><polyline id="award-line" points="9.6,13.19 8.85,18.88 11.97,17.01 15.1,18.88 14.34,13.18" fill="none" stroke="%23FFD401" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2"/></g></svg>') bottom right no-repeat;
 
 // wishes img
 $reformalTabDefault: url('https://i.imgur.com/YWgo8Ox.png') no-repeat;
