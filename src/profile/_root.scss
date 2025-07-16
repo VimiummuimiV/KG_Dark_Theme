@@ -49,11 +49,17 @@
   #profile-index {
     .bio {
       .content {
+        border-radius: 5px !important;
+
         .clickable {
+          box-shadow: inset 0 0 10px rgba(darken($blue, 50%), 0.3) !important;
+
           span {
-            display: none !important;
+            color: $lightblue !important;
+            text-shadow: 0 0 5px darken($blue, 30%) !important;
           }
         }
+
         background: $darkgray !important;
         border: 1px solid $middlegray !important;
 

@@ -4,10 +4,12 @@
   &.green-back {
     background: transparent !important;
   }
+
   .right {
     position: relative !important;
     width: 100% !important;
     padding: 0 !important;
+
     .menu {
       width: auto !important;
       position: fixed !important;
@@ -16,23 +18,31 @@
       transform: translateX(50%) !important;
       display: flex !important;
       justify-content: center !important;
-      flex-direction: row-reverse !important;
       padding: 0 !important;
       margin: 0 !important;
       transition: all 0.2s !important;
       opacity: 0.5 !important;
       z-index: 110 !important;
+
       &:hover {
         opacity: 1 !important;
       }
+
+      a:first-child {
+        border-bottom-left-radius: 5px !important;
+      }
+
+      a:last-child {
+        border-bottom-right-radius: 5px !important;
+      }
+
       a {
-        width: 100px !important;
+        width: 110px !important;
         height: 45px !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
-        font-size: 12px !important;
-        font-family: Arial !important;
+        font: 700 11px "Montserrat", sans-serif !important;
         text-transform: uppercase !important;
         text-decoration: none !important;
         color: $black !important;
@@ -40,18 +50,26 @@
         border-right: 1px solid $darkgray !important;
         border-bottom: 1px solid transparent !important;
         transition: all 0.2s !important;
+
         &:hover,
         &.active {
           text-decoration: none !important;
-          background: $middlegray !important;
           color: $black !important;
           border-right: 1px solid $darkgray !important;
-          border-bottom: 1px solid $white !important;
           transition: all 0.2s !important;
           padding: 0 !important;
           margin: 0 !important;
           filter: brightness(1.1) !important;
         }
+
+        &:hover:not(.active) {
+          background: lighten($blue, 5%) !important;
+        }
+
+        &.active {
+          background: darken($blue, 5%) !important;
+        }
+
         &[href="/wiki/"] {
           display: none !important;
         }
@@ -62,5 +80,4 @@
 
 .bar {
   background: none !important;
-  border: none !important;
 }

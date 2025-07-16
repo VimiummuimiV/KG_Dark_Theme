@@ -120,7 +120,18 @@
   // Most styles inherited from base .achieve
 
   .options {
+    min-height: unset !important;
+    display: inline-flex !important;
+    width: 100% !important;
+    justify-content: right !important;
+
     .btn-group {
+      float: unset !important;
+      display: inline-flex !important;
+      margin-left: 5px !important;
+      gap: 5px !important;
+      order: 2 !important;
+
       .btn {
         .toggle-text {
           b {
