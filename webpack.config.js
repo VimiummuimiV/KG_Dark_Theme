@@ -17,8 +17,9 @@ class CombineHeaderPlugin {
       const tampermonkeyHeader = fs.readFileSync(tampermonkeyHeaderPath, 'utf8');
       const cssContent = fs.readFileSync(cssPath, 'utf8');
       
-      // Create stylish version (CSS with UserStyle header)
-      const stylishContent = stylishHeader + '\n\n' + cssContent;
+      // Create stylish version (CSS with UserStyle header and @-moz-document wrapper)
+      const wrappedCssContent = `@-moz-document domain("klavogonki.ru") {\n\n${cssContent}\n}`;
+      const stylishContent = stylishHeader + '\n\n' + wrappedCssContent;
       fs.writeFileSync(path.join(distDir, 'KG_Dark_Theme.css'), stylishContent);
       
       // Create tampermonkey version (JS with UserScript header that injects CSS)
