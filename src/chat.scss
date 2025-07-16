@@ -131,19 +131,8 @@
   .userlist {
     background: $darkgray !important;
 
-    .userListCnt {
-      display: flex !important;
-      height: 16px !important;
-      width: 32px !important;
-      background: $deepgray !important;
-      justify-content: center !important;
-      position: absolute !important;
-      top: 0 !important;
-      right: 35px !important;
-      align-items: center !important;
-      font: 12px Consolas;
-      border: 1px solid $blue !important;
-      color: $blue !important;
+    .smile-content {
+      margin: 14px 0px 0px 0px !important;
     }
 
     ins {
@@ -209,18 +198,27 @@
     }
 
     a[data-user="474104"] {
-      color: white !important;
+      color: white !important; // Owner
     }
 
     .smile-groups {
       background: $darkgray !important;
 
       &-action {
-        color: $white !important;
+        font: bold 12px "Montserrat", sans-serif !important;
+        color: $darkgray !important;
+        background-color: $blue;
+        border-top-left-radius: unset !important;
+        border-top-right-radius: unset !important;
+        padding: 4px 10px !important;
+        border-radius: 0 0 4px 4px !important;
+        border: none !important;
+        opacity: 0.6 !important;
 
         &.active {
-          background-color: $middlegray !important;
           color: $deepgray !important;
+          background-color: $lightblue !important;
+          opacity: 1 !important;
         }
       }
     }

@@ -171,6 +171,10 @@ input {
     }
     
     .post-opts {
+      a {
+        border-bottom: unset !important;
+      }
+
       a[onclick*="edit"] {
         display: inline-flex !important;
         font-size: 0 !important;
