@@ -1,0 +1,23 @@
+/* POPUP BOX CONFIRMATION STYLES */
+#popconfirm {
+  .popup-box {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    border: 1px solid $middlegray !important;
+  }
+
+  .c {
+    background: $black !important;
+    padding: 1em !important;
+  }
+
+  .r,
+  .t,
+  .b,
+  .tr,
+  .tl,
+  .bl,
+  .br {
+    display: none !important;
+  }
+}
