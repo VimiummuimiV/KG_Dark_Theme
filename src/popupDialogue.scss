@@ -1,5 +1,5 @@
 /* POPUP BOX CONFIRMATION STYLES */
-#popconfirm, #popalert, #newrecord  {
+.popup_message {
   .popup-box {
     border-radius: 10px !important;
     overflow: hidden !important;
@@ -24,5 +24,13 @@
   .bl,
   .br {
     display: none !important;
+  }
+
+  textarea {
+    width: 100% !important;
+    resize: vertical !important;
+    background-color: $black !important;
+    padding: 0.5em !important;
+    border-radius: 5px !important;
   }
 }
