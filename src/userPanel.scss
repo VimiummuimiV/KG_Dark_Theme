@@ -1,22 +1,23 @@
 @import "variables";
-@import "scoreIcon"; // Import the dynamic score icon component
+@import "scoreIcon";
 
-// Mixins
+/* MIXINS - COMPLEX REUSABLE STYLES ONLY */
+
+@mixin daily-task-icon($bg-color) {
+  box-sizing: border-box;
+  padding-left: 45px;
+  height: 45px;
+  width: 45px;
+  background: $bg-color !important;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
 @mixin flex-center {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-}
-
-@mixin daily-task-icon($bg-color) {
-  box-sizing: border-box;
-  padding-left: 32px;
-  height: 32px;
-  width: 32px;
-  background: $bg-color !important;
-  position: relative;
-  top: 6px;
-  left: -9px;
 }
 
 @mixin pin-style($has-border: false) {
@@ -29,9 +30,11 @@
   z-index: 1 !important;
 
   @if $has-border {
-    border: 1px solid $white !important;
+    border: 1px solid $middlegray !important;
   }
 }
+
+/* MAIN USERPANEL COMPONENT */
 
 .userpanel {
   font-family: "Montserrat", sans-serif !important;
@@ -39,37 +42,61 @@
   background: $deepgray !important;
   color: $middlegray !important;
 
-  // User block styles
+  /* USER BLOCK CONTAINER */
+
   .user-block {
-    .daily-task {
-      border-left: 1px solid $middlegray !important;
-      border-right: 1px solid $middlegray !important;
-      width: 50px !important;
-      height: 44px !important;
+    /* DAILY TASK ICONS */
 
-      .icon {
-        &[src*="active"] {
-          @include daily-task-icon($no);
-        }
+    td {
+      padding: 0 !important;
 
-        &[src*="completed"] {
-          @include daily-task-icon($yes);
+      .scores-table {
+        height: 45px !important;
+        margin-right: 8px !important;
+        @include flex-center;
+      }
+    }
+
+    .user-dropdown {
+      .daily-task {
+        border: 1px solid $middlegray !important;
+        border-top: none !important;
+        border-bottom: none !important;
+        width: 45px !important;
+        height: 45px !important;
+        @include flex-center;
+
+        .icon {
+          &[src*="active"] {
+            @include daily-task-icon($no);
+          }
+
+          &[src*="completed"] {
+            @include daily-task-icon($yes);
+          }
         }
       }
     }
 
-    // User dropdown styles
+    /* USER DROPDOWN MENU */
+
     .user-dropdown {
       border: none !important;
       z-index: 1 !important;
 
-      .active .name {
-        background: $deepgray !important;
-        border-right: 1px solid $middlegray !important;
+      .active {
+        .name {
+          background: $deepgray !important;
+          border-right: 1px solid $middlegray !important;
+        }
       }
 
-      .drop-btn:hover {
-        background: $darkgray !important;
+      .drop-btn {
+        transition: all 0.2s ease !important;
+
+        &:hover {
+          background: $darkgray !important;
+        }
       }
 
       .dropmenu {
@@ -84,6 +111,7 @@
             border: none !important;
             border-radius: 3px !important;
             font-weight: lighter !important;
+            transition: all 0.2s ease !important;
 
             &:hover {
               background: $blue !important;
@@ -95,14 +123,21 @@
             li {
               color: $white !important;
 
-              &.unread_mail a:hover {
-                background-color: $black !important;
+              &.unread_mail {
+                a {
+                  transition: all 0.2s ease !important;
+
+                  &:hover {
+                    background-color: $black !important;
+                  }
+                }
               }
             }
           }
 
           a.note {
             color: $white !important;
+            transition: all 0.2s ease !important;
 
             &:hover {
               color: $lightblue !important;
@@ -114,9 +149,15 @@
           ul {
             border-left: 1px solid $middlegray !important;
 
-            li a:hover {
-              background: $blue !important;
-              color: $deepgray !important;
+            li {
+              a {
+                transition: all 0.2s ease !important;
+
+                &:hover {
+                  background: $blue !important;
+                  color: $deepgray !important;
+                }
+              }
             }
           }
         }
@@ -127,14 +168,11 @@
       }
     }
 
-    // Name styles
-    .name {
-      img {
-        opacity: 0.8 !important;
-      }
+    /* USER NAME DISPLAY */
 
+    .name {
       span {
-        color: $blue !important;
+        color: $lightblue !important;
       }
 
       .caret {
@@ -143,184 +181,143 @@
     }
   }
 
-  // Theme change button
+  /* THEME CONTROLS */
+
   #change_theme {
     display: none !important;
   }
 
-  // Level container styles - improved positioning and sizing
+  /* USER LEVEL DISPLAY */
+
   #userpanel-level-container {
+    @include flex-center;
     background: none !important;
     height: 45px !important;
     width: 45px !important;
+    margin-right: 8px !important;
     position: relative !important;
     top: unset !important;
   }
 
   #userpanel-level-value {
+    @include flex-center;
     margin: 0 !important;
     height: 45px !important;
-    @include flex-center;
     width: 45px !important;
-    color: #fff3b1 !important;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8) !important; // Enhanced text shadow
+    color: #ffff00 !important;
+    text-shadow: 0 0 3px #5f5f00 !important;
     z-index: 2 !important;
-    margin-left: -1px !important;
-    font-weight: 600 !important; // Slightly bolder for better readability
+    font-weight: 500 !important;
     font-size: 14px !important;
     position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-  }
 
-  #userpanel-level-value-shadow {
-    display: none !important;
+    &-shadow {
+      display: none !important;
+    }
   }
 
   #userpanel-level {
+    width: 45px !important;
     border-right: none !important;
-    padding-left: 8px !important;
-    padding-right: 8px !important;
-    padding-top: 0 !important;
-  }
 
-  // Score level progress styles - using dynamic SVG icons
-  #userpanel-level-progress {
-    &[style*="0.png"] {
-      @include score-level-style(0);
-      width: 47px !important;
-    }
-
-    &[style*="1.png"] {
-      @include score-level-style(1);
-    }
-
-    &[style*="2.png"] {
-      @include score-level-style(2);
-    }
-
-    &[style*="3.png"] {
-      @include score-level-style(3);
-    }
-
-    &[style*="4.png"] {
-      @include score-level-style(4);
-    }
-
-    &[style*="5.png"] {
-      @include score-level-style(5);
-    }
-
-    &[style*="6.png"] {
-      @include score-level-style(6);
-    }
-
-    &[style*="7.png"] {
-      @include score-level-style(7);
-    }
-
-    &[style*="8.png"] {
-      @include score-level-style(8);
-    }
-
-    &[style*="9.png"] {
-      @include score-level-style(9);
-    }
-
-    &[style*="10.png"] {
-      @include score-level-style(10);
-    }
-
-    &[style*="11.png"] {
-      @include score-level-style(11);
+    &-progress {
+      @for $i from 0 through 11 {
+        &[style*="#{$i}.png"] {
+          @include score-level-style($i);
+        }
+      }
     }
   }
 
-  // Game type styles
-  #gametype-select {
-    font-weight: 400 !important;
-    font-size: 11px !important;
+  /* GAME TYPE SELECTOR */
+
+  #gametype {
+    &-loading {
+      filter: invert(1) !important;
+    }
+
+    &-select {
+      border: 1px solid $middlegray !important;
+      height: 80vh !important;
+      font-size: 12px !important;
+      font-weight: 400 !important;
+    }
+
+    &-mdash {
+      color: transparent !important;
+    }
+
+    &-voc {
+      border: none !important;
+    }
   }
 
-  #gametype-mdash {
-    color: transparent !important;
-  }
+  /* STATISTICS BLOCK */
 
-  // Statistics block styles
   #stats-block {
     .value {
-      color: $blue !important;
+      color: $lightblue !important;
     }
 
     .title,
     .rating {
       color: $white !important;
+
+      a {
+        color: $lightblue !important;
+      }
     }
   }
 
-  // General text styles
+  /* TYPOGRAPHY SYSTEM */
+
   .value,
   a,
-  #userpanel-scores-container,
+  #userpanel-scores,
   #userpanel-bonuses {
+    margin-left: 4px !important;
+    font-size: 12px !important;
+    color: $blue !important;
     font-weight: 500 !important;
   }
 
-  .value,
-  a {
-    font-size: 11px !important;
-    color: $blue !important;
+  #userpanel-scores,
+  #userpanel-bonuses {
+    display: flex !important;
+    font-weight: bold !important;
+  }
+
+  #userpanel-scores {
+    color: gold !important;
+  }
+
+  #userpanel-bonuses {
+    color: lightblue !important;
   }
 
   .title,
   .rating,
   .scores-table {
-    font-size: 9px !important;
+    font-size: 10px !important;
     color: $white !important;
+    font-weight: 400 !important;
   }
 
-  // Vocabulary selector
+  /* VOCABULARY SELECTOR */
+
   a.gametype-voc {
     border: none !important;
     text-decoration: none !important;
+    color: $white !important;
   }
 
-  .gametype-voc {
-    color: $blue !important;
-  }
+  /* PIN FUNCTIONALITY */
 
-  // Pin styles
   #pin {
     @include pin-style(false);
 
     &.active {
       @include pin-style(true);
     }
-  }
-}
-
-// Additional improvements for better visual consistency
-.userpanel {
-  // Add smooth transitions for hover effects
-  .user-dropdown .drop-btn,
-  .user-dropdown .dropmenu .col1 a.btn,
-  .user-dropdown .dropmenu .col1 ul li.logout a,
-  .user-dropdown .dropmenu .col2 ul li a,
-  .user-dropdown .dropmenu .col1 a.note {
-    transition: all 0.2s ease !important;
-  }
-
-  // Ensure consistent spacing and alignment
-  #userpanel-level-container {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  // Improve readability of level text
-  #userpanel-level-value {
-    font-family: "Montserrat", sans-serif !important;
-    letter-spacing: 0.5px !important;
-    color: #FFFF00 !important;
   }
 }

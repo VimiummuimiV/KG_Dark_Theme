@@ -38,7 +38,7 @@ $gametype-icons: (
 // DYNAMIC GAMETYPE COLORS
 // ====================
 
-#content, #popup {
+#gametype-select, #content, #popup {
   // Generate gametype color classes dynamically
   @each $gametype, $color in $gametypes {
     .gametype-#{$gametype} {
