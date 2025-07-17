@@ -1,13 +1,17 @@
 @import "variables";
 @import "scoreIcon";
 
+// Variables
+$buttonWidth: 45px;
+$buttonHeight: 44px;
+
 /* MIXINS - COMPLEX REUSABLE STYLES ONLY */
 
 @mixin daily-task-icon($bg-color) {
   box-sizing: border-box;
-  padding-left: 45px;
-  height: 44px;
-  width: 45px;
+  padding-left: $buttonWidth;
+  height: $buttonHeight;
+  width: $buttonWidth;
   background: $bg-color !important;
   position: relative;
   top: 0;
@@ -26,7 +30,6 @@
   width: 20px !important;
   height: 20px !important;
   background: transparent url($pin) center no-repeat !important;
-  padding-left: 16px !important;
   z-index: 1 !important;
 
   @if $has-border {
@@ -47,12 +50,11 @@
   .user-block {
     /* DAILY TASK ICONS */
 
-    td {
-      padding: 0 !important;
+    td:not(:has(.name)):not(:has(.mail-content)) {
+      padding: 0 0 0 8px !important;
 
       .scores-table {
-        height: 44px !important;
-        margin-right: 8px !important;
+        height: $buttonHeight !important;
         @include flex-center;
       }
     }
@@ -62,8 +64,8 @@
         border: 1px solid $middlegray !important;
         border-top: none !important;
         border-bottom: none !important;
-        width: 45px !important;
-        height: 44px !important;
+        width: $buttonWidth !important;
+        height: $buttonHeight !important;
         @include flex-center;
 
         .icon {
@@ -123,7 +125,6 @@
             padding: 5px 10px !important;
             width: fit-content !important;
           }
-
 
           ul {
             li {
@@ -189,9 +190,8 @@
   }
 
   /* THEME CONTROLS */
-
-  #change_theme {
-    display: none !important;
+  td.user-dropdown:has(#change_theme) {
+    display: none;
   }
 
   /* USER LEVEL DISPLAY */
@@ -199,9 +199,8 @@
   #userpanel-level-container {
     @include flex-center;
     background: none !important;
-    height: 44px !important;
-    width: 45px !important;
-    margin-right: 8px !important;
+    height: $buttonHeight !important;
+    width: $buttonWidth !important;
     position: relative !important;
     top: unset !important;
   }
@@ -209,8 +208,8 @@
   #userpanel-level-value {
     @include flex-center;
     margin: 0 !important;
-    height: 44px !important;
-    width: 45px !important;
+    height: $buttonHeight !important;
+    width: $buttonWidth !important;
     color: #ffff00 !important;
     text-shadow: 0 0 3px #5f5f00 !important;
     z-index: 2 !important;
@@ -224,7 +223,7 @@
   }
 
   #userpanel-level {
-    width: 45px !important;
+    width: $buttonWidth !important;
     border-right: none !important;
 
     &-progress {
@@ -282,7 +281,6 @@
   a,
   #userpanel-scores,
   #userpanel-bonuses {
-    margin-left: 4px !important;
     font-size: 12px !important;
     color: $blue !important;
     font-weight: 500 !important;
