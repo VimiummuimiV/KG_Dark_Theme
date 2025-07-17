@@ -1,20 +1,11 @@
 @import "variables";
+@import "scoreIcon"; // Import the dynamic score icon component
 
 // Mixins
 @mixin flex-center {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-}
-
-@mixin score-level-style($bg-color) {
-  display: block !important;
-  box-sizing: border-box !important;
-  width: 45px !important;
-  height: 44px !important;
-  background: $bg-color !important;
-  padding-left: 46px !important;
-  position: relative !important;
 }
 
 @mixin daily-task-icon($bg-color) {
@@ -154,22 +145,16 @@
 
   // Theme change button
   #change_theme {
-    width: 50px !important;
-    height: 44px !important;
-    border-right: 1px solid $middlegray !important;
-
-    img {
-      width: 50px !important;
-      height: 44px !important;
-    }
+    display: none !important;
   }
 
-  // Level container styles
+  // Level container styles - improved positioning and sizing
   #userpanel-level-container {
     background: none !important;
     height: 45px !important;
     width: 45px !important;
-    top: -5px !important;
+    position: relative !important;
+    top: unset !important;
   }
 
   #userpanel-level-value {
@@ -178,11 +163,14 @@
     @include flex-center;
     width: 45px !important;
     color: #fff3b1 !important;
-    text-shadow: 0 0 1px !important;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8) !important; // Enhanced text shadow
     z-index: 2 !important;
     margin-left: -1px !important;
-    font-weight: normal !important;
+    font-weight: 600 !important; // Slightly bolder for better readability
     font-size: 14px !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
   }
 
   #userpanel-level-value-shadow {
@@ -191,57 +179,60 @@
 
   #userpanel-level {
     border-right: none !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    padding-top: 0 !important;
   }
 
-  // Score level progress styles
+  // Score level progress styles - using dynamic SVG icons
   #userpanel-level-progress {
     &[style*="0.png"] {
-      @include score-level-style($score0);
+      @include score-level-style(0);
       width: 47px !important;
     }
 
     &[style*="1.png"] {
-      @include score-level-style($score1);
+      @include score-level-style(1);
     }
 
     &[style*="2.png"] {
-      @include score-level-style($score2);
+      @include score-level-style(2);
     }
 
     &[style*="3.png"] {
-      @include score-level-style($score3);
+      @include score-level-style(3);
     }
 
     &[style*="4.png"] {
-      @include score-level-style($score4);
+      @include score-level-style(4);
     }
 
     &[style*="5.png"] {
-      @include score-level-style($score5);
+      @include score-level-style(5);
     }
 
     &[style*="6.png"] {
-      @include score-level-style($score6);
+      @include score-level-style(6);
     }
 
     &[style*="7.png"] {
-      @include score-level-style($score7);
+      @include score-level-style(7);
     }
 
     &[style*="8.png"] {
-      @include score-level-style($score8);
+      @include score-level-style(8);
     }
 
     &[style*="9.png"] {
-      @include score-level-style($score9);
+      @include score-level-style(9);
     }
 
     &[style*="10.png"] {
-      @include score-level-style($score10);
+      @include score-level-style(10);
     }
 
     &[style*="11.png"] {
-      @include score-level-style($score11);
+      @include score-level-style(11);
     }
   }
 
@@ -305,5 +296,31 @@
     &.active {
       @include pin-style(true);
     }
+  }
+}
+
+// Additional improvements for better visual consistency
+.userpanel {
+  // Add smooth transitions for hover effects
+  .user-dropdown .drop-btn,
+  .user-dropdown .dropmenu .col1 a.btn,
+  .user-dropdown .dropmenu .col1 ul li.logout a,
+  .user-dropdown .dropmenu .col2 ul li a,
+  .user-dropdown .dropmenu .col1 a.note {
+    transition: all 0.2s ease !important;
+  }
+
+  // Ensure consistent spacing and alignment
+  #userpanel-level-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  // Improve readability of level text
+  #userpanel-level-value {
+    font-family: "Montserrat", sans-serif !important;
+    letter-spacing: 0.5px !important;
+    color: #FFFF00 !important;
   }
 }
