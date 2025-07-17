@@ -76,7 +76,7 @@ body {
 
       position: absolute !important;
       color: transparent !important;
-      display: flex !important;
+      display: flex;
       justify-content: center !important;
       align-items: center !important;
       flex-direction: row-reverse !important;
@@ -95,6 +95,7 @@ body {
     }
 
     #paused {
+      color: darken($white, 20%) !important;
       width: 100% !important;
       margin-left: 70px !important;
     }
@@ -450,10 +451,11 @@ body {
 
   // Race hidden text before the game starts bg color && text color
   #hiddentext {
+    background: $hiddenGameText !important;
     background-color: $darkgray !important;
     border: none !important;
-    color: $blue !important;
-    font-weight: lighter !important;
+    color: transparent !important;
+    font-size: 0 !important;
   }
 
   // Race typeblock input when you can't type yet
