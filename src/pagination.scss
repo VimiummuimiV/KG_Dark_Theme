@@ -3,9 +3,9 @@
 /* Pagination controls styles - unified for all pages */
 .pages {
   opacity: 0.5 !important;
-  color: black !important;
+  color: $white !important;
   background: transparent !important;
-  padding: 10px !important;
+  margin: 10px !important;
   position: fixed !important;
   top: 85px !important;
   right: 0px !important;
@@ -13,6 +13,7 @@
   transition: opacity 0.2s !important;
   display: flex !important;
   gap: 5px !important;
+  padding-top: unset !important;
 
   &:hover {
     opacity: 1 !important;
@@ -22,6 +23,7 @@
   /* Nested paginator controls */
   .paginator {
     font-size: 0 !important;
+    margin-bottom: unset !important;
 
     b {
       display: none !important;
@@ -59,13 +61,13 @@
         /* Next button icon */
         &:nth-child(1) {
           background-image: $pagination-next-icon !important;
-          border-radius: 0 5px 5px 0 !important;
+          border-radius: 0 3px 3px 0 !important;
         }
 
         /* Previous button icon */
         &:nth-child(2) {
           background-image: $pagination-prev-icon !important;
-          border-radius: 5px 0 0 5px !important;
+          border-radius: 3px 0 0 3px !important;
         }
 
         &:hover {
@@ -89,7 +91,7 @@
 
   .selected {
     font: bold 14px "Montserrat", sans-serif !important;
-    border-radius: 5px !important;
+    border-radius: 3px !important;
     background: $white !important;
     color: $darkgray !important;
   }
