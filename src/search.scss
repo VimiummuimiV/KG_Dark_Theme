@@ -1,96 +1,57 @@
 @import "variables";
 
-/* Search functionality styles */
-
-.search {
+/* Search containers */
+.search, .yandexform {
   padding: 0 !important;
   width: 100% !important;
   background: none !important;
   border: none !important;
-
-  input {
-    border: none !important;
-    background: $deepgray !important;
-    border-top: 1px solid $middlegray !important;
-    border-bottom: 1px solid $middlegray !important;
-    font-size: 20px !important;
-    height: 50px !important;
-    padding: 0 20px !important;
-    width: 100% !important;
-
-    &:hover[name="text"] {
-      background: $deepgray !important;
-      border-top: 1px solid $middlegray !important;
-      border-bottom: 1px solid $middlegray !important;
-      font-size: 20px !important;
-      height: 50px !important;
-      padding: 0 20px !important;
-      width: 100% !important;
-    }
-
-    &:focus {
-      background: $deepgray !important;
-      border-top: 1px solid $blue !important;
-      border-bottom: 1px solid $blue !important;
-      font-size: 20px !important;
-      height: 50px !important;
-      padding: 0 20px !important;
-      width: 100% !important;
-    }
-
-    &:focus[name="text"] {
-      background: $deepgray !important;
-      border-top: 1px solid $blue !important;
-      border-bottom: 1px solid $blue !important;
-      font-size: 20px !important;
-      height: 50px !important;
-      padding: 0 20px !important;
-      width: 100% !important;
-    }
-  }
 }
 
-.yandexform {
-  padding: 0 !important;
+/* Reset inline spacing */
+[style*="padding-left"], [style*="margin-right"] { 
+  padding-left: 0 !important; 
+  margin-right: 0 !important; 
+}
+
+/* All search inputs */
+.search input[type="text"], 
+.search input[name="text"],
+.yandexform input[type="text"], 
+.yandexform input[name="text"],
+#search_form input[type="text"],
+#search_form input[name="searchtext"] {
+  background: $deepgray !important;
+  color: $middlegray !important;
+  border: 1px solid $middlegray !important;
+  border-radius: 5px !important;
+  font-size: 20px !important;
+  height: 50px !important;
+  padding: 0 20px !important;
   width: 100% !important;
-
-  input[name="text"] {
-    background: $deepgray !important;
-    border-top: 1px solid $middlegray !important;
-    border-bottom: 1px solid $middlegray !important;
-    font-size: 20px !important;
-    height: 50px !important;
-    padding: 0 20px !important;
-    width: 100% !important;
-    border: none !important;
-
-    &:focus {
-      background: $deepgray !important;
-      border-top: 1px solid $blue !important;
-      border-bottom: 1px solid $blue !important;
-      font-size: 20px !important;
-      height: 50px !important;
-      padding: 0 20px !important;
-      width: 100% !important;
-    }
+  box-sizing: border-box !important;
+  transition: border-color 0.15s ease !important;
+  
+  &:hover {
+    color: $blue !important;
+    border-color: $blue !important;
   }
 
-  input[type="submit"] {
-    display: none !important;
+  &:focus {
+    color: $lightblue !important;
+    border-color: $lightblue !important;
   }
 }
 
-/* Yandex form loading */
-div[style*="/iframe/loader__progress.gif"] {
-  filter: hue-rotate(180deg) !important;
-}
+/* Override inline width */
+.yandexform input[name="text"][style*="width"], 
+.yandexform input[name="text"] { width: 100% !important; }
 
-/* Yandex form container everything bg invert */
-iframe[src*='http://yandex.ru'] {
-  filter: invert(90%) !important;
-}
+/* Hide submit buttons */
+.search input[type="submit"], 
+.yandexform input[type="submit"], 
+#search_form input[type="submit"] { display: none !important; }
 
-/* Search vocs search bar 100% width */
-div[style*="margin-right: 53px"] {
-  margin-right: 0 !important;
-}
+/* Yandex styles */
+div[style*="/iframe/loader__progress.gif"] { filter: hue-rotate(180deg) !important; }
+iframe[src*='http://yandex.ru'] { filter: invert(90%) !important; }

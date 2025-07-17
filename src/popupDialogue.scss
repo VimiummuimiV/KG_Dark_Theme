@@ -1,5 +1,5 @@
 /* POPUP BOX CONFIRMATION STYLES */
-.popup_message {
+.popup_message, #drop_message {
   .popup-box {
     border-radius: 10px !important;
     overflow: hidden !important;
@@ -32,5 +32,17 @@
     background-color: $black !important;
     padding: 0.5em !important;
     border-radius: 5px !important;
+  }
+
+  h4,
+  h5 {
+    color: $orange !important;
+    margin: 1em 0 !important;
+  }
+
+  .btn {
+    margin: 0 0.5em !important;
+    height: 30px !important;
+    line-height: 15px !important;
   }
 }

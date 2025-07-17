@@ -142,6 +142,10 @@ input {
     display: inline-grid;
     place-content: center;
 
+    &:checked {
+      border-color: $orange;
+    }
+
     &::before {
       content: "";
       width: 0.65em;
