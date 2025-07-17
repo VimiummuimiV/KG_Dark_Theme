@@ -105,7 +105,7 @@
 
         .col1 {
           a.btn,
-          ul li.logout a {
+          .logout a {
             background: $middlegray !important;
             color: $black !important;
             border: none !important;
@@ -118,6 +118,12 @@
               color: $black !important;
             }
           }
+
+          .logout a {
+            padding: 5px 10px !important;
+            width: fit-content !important;
+          }
+
 
           ul {
             li {
@@ -147,15 +153,16 @@
 
         .col2 {
           ul {
-            border-left: 1px solid $middlegray !important;
+            border-left: 1px solid transparent !important;
 
             li {
               a {
-                transition: all 0.2s ease !important;
+                transition: all 0.15s ease !important;
+                border-radius: 3px 0 0 3px !important;
 
                 &:hover {
-                  background: $blue !important;
-                  color: $deepgray !important;
+                  background: darken($blue, 30%) !important;
+                  color: lighten($blue, 30%) !important;
                 }
               }
             }
