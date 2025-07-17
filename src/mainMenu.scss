@@ -11,6 +11,7 @@
     padding: 0 !important;
 
     .menu {
+      flex-direction: row-reverse !important;
       width: auto !important;
       position: fixed !important;
       top: 45px !important;
@@ -29,11 +30,11 @@
       }
 
       a:first-child {
-        border-bottom-left-radius: 5px !important;
+        border-bottom-right-radius: 5px !important;
       }
 
       a:last-child {
-        border-bottom-right-radius: 5px !important;
+        border-bottom-left-radius: 5px !important;
       }
 
       a {
