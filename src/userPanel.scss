@@ -6,7 +6,7 @@
 @mixin daily-task-icon($bg-color) {
   box-sizing: border-box;
   padding-left: 45px;
-  height: 45px;
+  height: 44px;
   width: 45px;
   background: $bg-color !important;
   position: relative;
@@ -51,7 +51,7 @@
       padding: 0 !important;
 
       .scores-table {
-        height: 45px !important;
+        height: 44px !important;
         margin-right: 8px !important;
         @include flex-center;
       }
@@ -63,7 +63,7 @@
         border-top: none !important;
         border-bottom: none !important;
         width: 45px !important;
-        height: 45px !important;
+        height: 44px !important;
         @include flex-center;
 
         .icon {
@@ -92,10 +92,10 @@
       }
 
       .drop-btn {
-        transition: all 0.2s ease !important;
+        transition: background 0.15s ease !important;
 
         &:hover {
-          background: $darkgray !important;
+          background: $black !important;
         }
       }
 
@@ -199,7 +199,7 @@
   #userpanel-level-container {
     @include flex-center;
     background: none !important;
-    height: 45px !important;
+    height: 44px !important;
     width: 45px !important;
     margin-right: 8px !important;
     position: relative !important;
@@ -209,7 +209,7 @@
   #userpanel-level-value {
     @include flex-center;
     margin: 0 !important;
-    height: 45px !important;
+    height: 44px !important;
     width: 45px !important;
     color: #ffff00 !important;
     text-shadow: 0 0 3px #5f5f00 !important;
