@@ -32,14 +32,31 @@
   box-sizing: border-box !important;
   transition: border-color 0.15s ease !important;
   
+  /* Default text selection */
+  &::selection {
+    background: $middlegray !important;
+    color: $deepgray !important;
+  }
+  
   &:hover {
     color: $blue !important;
     border-color: $blue !important;
+    
+    /* Hover text selection */
+    &::selection {
+      background: $blue !important;
+      color: $deepgray !important;
+    }
   }
-
   &:focus {
     color: $lightblue !important;
     border-color: $lightblue !important;
+    
+    /* Focus text selection */
+    &::selection {
+      background: $lightblue !important;
+      color: $deepgray !important;
+    }
   }
 }
 
