@@ -79,9 +79,23 @@ $gametype-icons: (
   padding-left: 0 !important;
 }
 
+// ====================
+// DEFAULT GAMETYPE STYLING
+// ====================
+
+// Default gametype-sign styling (normal gametype)
+.gametype-sign {
+  @include gametype-sign($usual);
+  
+  // Override with specific gametype if class is present
+  &.sign-normal {
+    @include gametype-sign($usual);
+  }
+}
+
 // Generate sign classes dynamically
 @each $gametype, $bg-var in $gametype-icons {
-  .sign-#{$gametype} {
+  .gametype-sign.sign-#{$gametype} {
     @include gametype-sign($bg-var);
   }
 }
