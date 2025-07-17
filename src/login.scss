@@ -79,11 +79,11 @@
   background-color: rgba(0, 0, 0, 0.5) !important;
 
   .c {
-    background: #484a4e !important;
+    background: darken($middlegray, 20%) !important;
     padding: 0 !important;
     height: 300px !important;
     width: 250px !important;
-    border: none !important;
+    border-radius: 5px !important;
 
     form {
       margin-top: 45px;
@@ -92,8 +92,16 @@
     }
   }
 
-  dt {
-    display: none;
+  dt,
+  .tl,
+  .t,
+  .tr,
+  .l,
+  .r,
+  .bl,
+  .b,
+  .br {
+    display: none !important;
   }
 
   dt,
