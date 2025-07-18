@@ -2,7 +2,7 @@
 
 // Race nickname block width
 .name_content {
-  width: 150px !important;
+  width: fit-content !important;
   overflow: visible !important;
 }
 
@@ -291,9 +291,23 @@ body {
   padding: 10px 0 10px 0 !important;
   border-bottom: 1px solid $middlegray !important;
 
-  // Error tracking (car bolt detail)
-  .error-on-track-img {
-    background: lighten($orange, 30%) !important;
+  // Error tracking
+  .error-on-track {
+    // Bolt SVG as mark for errors
+    .error-on-track-img {
+      background: $errorOnTrackBolt !important;
+      background-position: center !important;
+      background-size: contain !important;
+      mask-image: unset !important;
+    }
+    // Errors count on the same word
+    span {
+      left: 4px !important;
+      top: 14px !important;
+      color: silver !important;
+      padding: 2px !important;
+      font: 600 6pt "Montserrat", sans-serif !important;
+    }
   }
 
   .divider {
