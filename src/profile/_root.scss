@@ -152,80 +152,6 @@
     }
   }
 
-  // Journal block styles
-  .journal {
-    .write {
-      .placeholder {
-        background: $darkgray !important;
-        border: none !important;
-      }
-      background: $darkgray !important;
-      border: 1px solid $middlegray !important;
-    }
-
-    .post {
-      border: none !important;
-
-      &.post-hidden {
-        background-color: $darkgray !important;
-        border: none !important;
-      }
-
-      .content {
-        .author {
-          a {
-            color: $blue !important;
-
-            &:hover {
-              color: $lightblue !important;
-            }
-          }
-        }
-
-        .text {
-          color: $white !important;
-        }
-
-        .readmore.fade-top {
-          background: $darkgray !important;
-          border-top: 1px solid $middlegray !important;
-        }
-      }
-    }
-
-    .comments {
-      background: none !important;
-
-      .more {
-        background: $middlegray !important;
-        color: $white !important;
-
-        &:hover {
-          background: $deepgray !important;
-          color: $white !important;
-        }
-      }
-    }
-
-    .record-info {
-      .game-text {
-        border: none !important;
-      }
-
-      .stats {
-        .stats-col {
-          * {
-            tr,
-            td,
-            th {
-              border: 1px solid $middlegray !important;
-            }
-          }
-        }
-      }
-    }
-  }
-
   // Scroll to top button styles
   .scroll-to-top {
     background-color: $deepgray !important;
@@ -324,6 +250,84 @@
 
     span {
       color: $deepgray !important;
+    }
+  }
+}
+
+// Journal block styles (Global component)
+.journal,
+.fade .journal {
+  .write {
+    .placeholder {
+      background: $darkgray !important;
+      border: none !important;
+    }
+    background: $darkgray !important;
+    border: 1px solid $middlegray !important;
+  }
+
+  .post {
+    border-top: 1px solid $middlegray !important;
+
+    &.post-hidden {
+      background-color: $darkgray !important;
+    }
+
+    .content {
+      .author {
+        a {
+          color: $blue !important;
+
+          &:hover {
+            color: $lightblue !important;
+          }
+        }
+      }
+
+      .text {
+        color: $white !important;
+      }
+
+      .readmore.fade-top {
+        background: $darkgray !important;
+        border-top: 1px solid $middlegray !important;
+      }
+    }
+  }
+
+  .comments {
+    background: none !important;
+
+    .post {
+      border-top: 1px solid transparent !important;
+    }
+
+    .more {
+      background: $middlegray !important;
+      color: $white !important;
+
+      &:hover {
+        background: $deepgray !important;
+        color: $white !important;
+      }
+    }
+  }
+
+  .record-info {
+    .game-text {
+      border: none !important;
+    }
+
+    .stats {
+      .stats-col {
+        * {
+          tr,
+          td,
+          th {
+            border: 1px solid $middlegray !important;
+          }
+        }
+      }
     }
   }
 }
