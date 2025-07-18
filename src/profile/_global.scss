@@ -45,11 +45,30 @@
 
 // Smilies insert dialog styles
 .dlg-smilies-insert {
-  background: $darkgray !important;
-  border: 1px solid $blue !important;
+  background: $black !important;
 
-  img {
-    filter: invert(10%) hue-rotate(330deg) !important;
+  .smile-tabs {
+    display: inline-flex !important;
+    background-color: transparent !important;
+    height: 24px !important;
+
+    .tab {
+      padding: 12px !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      color: $lightblue !important;
+      background-color: transparent !important;
+
+      &.active {
+        color: $black !important;
+        background-color: $blue !important;
+      }
+    }
+  }
+
+  .arrow {
+    border-top: 10px solid $black !important;
   }
 }
 
