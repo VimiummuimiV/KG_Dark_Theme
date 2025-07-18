@@ -643,6 +643,7 @@ body {
 
 #keyboard {
   margin: 30px auto 0 auto !important;
+  filter: unset !important; // Dominate wide typeblock script
 
   #back_keyboard {
     background-image: $backRussianKeyboard;
