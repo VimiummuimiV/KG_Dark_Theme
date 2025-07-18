@@ -4,6 +4,25 @@
 body .fade {
   overflow: auto !important;
   overflow-y: auto !important;
+
+  .close {
+    top: -30px !important;
+    right: -10px !important;
+    z-index: 10 !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-bottom-left-radius: 5px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: $black $close !important;
+    font-size: 0 !important;
+    transition: all 0.15s ease !important;
+
+    &:hover {
+      filter: brightness(0.8) !important;
+    }
+  }
 }
 
 .modal2-dialog,

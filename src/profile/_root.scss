@@ -255,7 +255,7 @@
 }
 
 // Journal block styles (Global component)
-.journal,
+#content .journal,
 .fade .journal {
   .write {
     .placeholder {
@@ -266,8 +266,14 @@
     border: 1px solid $middlegray !important;
   }
 
+  .post:not(:has(textarea)) {
+    margin: 10px 0 !important;
+    border-radius: 0 0 5px 5px !important;
+    box-shadow: 0 0 4px rgba(darken($blue, 50%), 0.3) !important;
+  }
+
   .post:not(:has(.post-hidden)) {
-    border-top: 1px solid $middlegray !important;
+    border-top: 1px solid transparent !important;
 
     &.post-hidden {
       background-color: $darkgray !important;
@@ -281,7 +287,6 @@
           color: $black !important;
         }
       }
-
     }
 
     .content {
@@ -327,6 +332,16 @@
   .record-info {
     .game-text {
       border: none !important;
+      border-radius: unset !important;
+      color: darken($white, 10%) !important;
+      background-color: $black !important;
+
+      .error-incorrect {
+        color: lightcoral !important;
+      }
+      .error-correct {
+        color: lightgreen !important;
+      }
     }
 
     .stats {
