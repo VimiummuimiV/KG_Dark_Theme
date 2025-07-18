@@ -60,6 +60,7 @@ body {
     #gamedesc {
       vertical-align: middle !important;
       padding-bottom: 0 !important;
+      color: $white !important;
     }
   }
 
@@ -372,11 +373,6 @@ body {
 // Race book bg white bg border remove
 .imobilco-book .imobilco-cover .co {
   background: none !important;
-}
-
-// Race game description color
-#gamedesc {
-  color: $white !important;
 }
 
 #errors_tab {
