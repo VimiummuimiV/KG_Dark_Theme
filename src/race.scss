@@ -1,9 +1,19 @@
 @import "variables";
 
 // Race nickname block width
-.name_content {
-  width: fit-content !important;
-  overflow: visible !important;
+#content .car .name {
+  min-width: 168px !important; // Make cars vertically aligned
+
+  .name_content {
+    overflow: visible !important; // Make award fully visible
+    width: 100% !important;
+
+    .top-award {
+      .numbers {
+        transition: width 0.15s !important;
+      }
+    }
+  }
 }
 
 // Race remove margin to do more space around
@@ -223,17 +233,6 @@ body {
 // Race advertisement remove
 #playads {
   display: none !important;
-}
-
-// Car styles
-.car {
-  .name {
-    color: $white !important;
-  }
-
-  .car_rating {
-    color: $white !important;
-  }
 }
 
 // Race settings panel sliders styles
@@ -580,13 +579,14 @@ body {
 
 // Race record mini popup note
 #play-overall #players .player .newrecord a {
-  height: 23px !important;
-  margin-top: -5px !important;
-  padding: 3px !important;
-  background: $orange !important;
-  border: none !important;
-  font-weight: bold !important;
-  color: $darkgray !important;
+  display: inline-flex !important;
+  margin-top: -10px !important;
+  border-radius: 5px !important;
+  padding: 6px !important;
+  background: hsl(40, 85%, 20%) !important;
+  border: 1px solid hsl(40, 85%, 35%) !important;
+  color: hsl(40, 85%, 80%) !important;
+  font: bold 10pt "Montserrat", sans-serif !important;
 }
 
 // Race with this we do width for all right side blocks
