@@ -6,6 +6,8 @@ body .fade {
   overflow-y: auto !important;
 
   .close {
+    position: absolute !important; // Set globally
+    margin-top: unset !important; // Garbage
     top: -30px !important;
     right: -10px !important;
     z-index: 10 !important;
