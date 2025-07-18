@@ -648,8 +648,32 @@ body {
 #keyboard {
   margin: 30px auto 0 auto !important;
 
-  // Race virtual keyboard img invert
-  filter: invert(1) sepia(0) hue-rotate(40deg) grayscale(0.3) !important;
+  #back_keyboard {
+    background-image: $backRussianKeyboard;
+    background-size: 546px 202px !important;
+    background-repeat: no-repeat !important;
+    #fore_keyboard {
+      background-image: $foreRussianKeyboard;
+      background-size: 546px 172px !important;
+      background-repeat: no-repeat !important;
+      filter: brightness(1.2) !important;
+      #shift_keyboard {
+        background-image: $shiftKey !important;
+        background-size: 546px 172px !important;
+        background-repeat: no-repeat !important;
+      }
+    }
+  }
+
+  // English keyboard styles when #keyboard has .en class - should dominate
+  &.en {
+    #back_keyboard {
+      background-image: $backEnglishKeyboard !important;
+      #fore_keyboard {
+        background-image: $foreEnglishKeyboard !important;
+      }
+    }
+  }
 }
 
 @keyframes keyboard {
