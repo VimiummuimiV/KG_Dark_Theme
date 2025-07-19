@@ -1,4 +1,4 @@
-@import "variables";
+@import "../variables";
 
 #head {
   &.green-back {
@@ -82,3 +82,5 @@
 .bar {
   background: none !important;
 }
+
+@import "adaptivity";
