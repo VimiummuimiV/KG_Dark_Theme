@@ -1,0 +1,31 @@
+// Chat Section Styles
+/* chat width */
+#chat-container {
+  @media only screen and (max-width: 1075px) {
+    left: 0 !important;
+    right: 0 !important;
+  }
+}
+
+.chat .messages {
+  @media only screen and (max-width: 840px) {
+    .time[style*="background-color: yellow"] {
+      width: 50% !important;
+      margin-left: 25% !important;
+      margin-right: 25% !important;
+    }
+
+    p,
+    .time,
+    .username,
+    .room.private {
+      width: 100% !important;
+      text-align: center !important;
+      display: block !important;
+    }
+
+    .time {
+      margin-top: 10px !important;
+    }
+  }
+}
