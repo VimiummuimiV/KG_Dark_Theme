@@ -63,8 +63,8 @@ $gametype-icons: (
 
 // Base styles for gametype signs
 #howtoplay .gametype-sign,
-.gametypes .gametype-sign,
-#gamelist .gametype-sign:not(.qual),
+#content .gametype-sign,
+#content .gametype-sign:not(.qual),
 #status .gametype-sign:not(.qual) {
   background-size: contain !important;
   margin: 0 0 0 6px !important;
