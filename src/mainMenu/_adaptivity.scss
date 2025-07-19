@@ -77,66 +77,14 @@
   }
 }
 
-// Medium mobile - grid layout
+// Mobile breakpoint - hide menu and show menu button
 @media (max-width: 480px) {
-  #head.green-back {
-    .right {
-      .menu {
-        justify-content: space-between !important;
-        
-        a {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
-          height: 40px !important;
-          font-size: 9px !important;
-        }
-      }
-    }
-  }
-}
-
-// Small mobile - 3 per row
-@media (max-width: 400px) {
-  #head.green-back {
-    .right {
-      .menu {
-        padding: 0 5px !important;
-        
-        a {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
-          height: 35px !important;
-        }
-      }
-    }
-  }
-}
-
-// Very small mobile - more compact
-@media (max-width: 360px) {
-  #head.green-back {
-    .right {
-      .menu {
-        padding: 0 5px !important;
-        
-        a {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
-          height: 38px !important;
-        }
-      }
-    }
-  }
-}
-
-// Extra small - hide menu but show on hover/interaction
-@media (max-width: 320px) {
   #head.green-back {
     .right {
       // Create a hover trigger area
       position: relative !important;
       
-      // Add a pseudo-element as trigger area
+      // Add a pseudo-element as trigger area (menu button)
       &:before {
         content: "" !important;
         width: 45px !important;
@@ -166,6 +114,18 @@
         right: 0 !important;
         top: 100% !important;
         margin-top: 5px !important;
+        max-width: 100% !important;
+        flex-wrap: wrap !important;
+        gap: 5px !important;
+        
+        a {
+          flex: 1 1 auto !important;
+          min-width: 0 !important;
+          height: 40px !important;
+          font-size: 9px !important;
+          border-right: none !important;
+          border-radius: 5px !important;
+        }
       }
       
       // Show menu when hovering the right section
@@ -174,6 +134,63 @@
         visibility: visible !important;
         transform: translateY(0) !important;
         pointer-events: auto !important;
+      }
+      
+      // Hide menu button when menu is visible
+      &:hover:before {
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+    }
+  }
+}
+
+// Small mobile - more compact dropdown
+@media (max-width: 400px) {
+  #head.green-back {
+    .right {
+      .menu {
+        
+        a {
+          flex: 1 1 auto !important;
+          min-width: 0 !important;
+          height: 35px !important;
+          font-size: 8px !important;
+        }
+      }
+    }
+  }
+}
+
+// Very small mobile - even more compact
+@media (max-width: 360px) {
+  #head.green-back {
+    .right {
+      .menu {
+        
+        a {
+          flex: 1 1 auto !important;
+          min-width: 0 !important;
+          height: 35px !important;
+          font-size: 8px !important;
+        }
+      }
+    }
+  }
+}
+
+// Extra small - maintain dropdown behavior
+@media (max-width: 320px) {
+  #head.green-back {
+    .right {
+      .menu {
+        
+        a {
+          flex: 1 1 auto !important;
+          min-width: 0 !important;
+          height: 32px !important;
+          font-size: 7px !important;
+        }
       }
     }
   }
