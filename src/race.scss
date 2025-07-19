@@ -1,138 +1,529 @@
 @import "variables";
 
-// Race nickname block width
-#content .car .name {
-  min-width: 168px !important; // Make cars vertically aligned
+// Main wrapper container
+#content .play-wrapper {
+  // Play overall table container
+  .play-overall-table {
+    // Main game area - play-overall
+    #play-overall {
+      // Status block (speedpanel and game status) - consolidates .gameblock and #status-block styles
+      #status-block {
+        // Remove margin to do more space around
+        margin: 0 !important;
 
-  .name_content {
-    overflow: visible !important; // Make award fully visible
-    width: 100% !important;
+        // Speedpanel styling
+        #speedpanel {
+          // Change img speedpanel night mode
+          #speedpanel-canvas {
+            box-sizing: border-box !important;
+            padding-left: 262px !important;
+            height: 87px !important;
+            width: 262px !important;
+            background: $speed !important;
+          }
 
-    .top-award {
-      .numbers {
-        transition: width 0.15s !important;
+          #speed-label,
+          #errors-label {
+            color: $lightblue !important;
+          }
+
+          #speed-label {
+            top: 60px !important;
+          }
+
+          #errors-label {
+            top: 35px !important;
+          }
+
+          // Remove unused elements
+          #speedpanel-back,
+          #speedpanel-top,
+          #speedpanel-arrow {
+            display: none !important;
+          }
+        }
+
+        // Race status block under typeblock bg color
+        #status {
+          padding: 0 !important;
+          background: $darkgray !important;
+
+          table {
+            width: 100% !important;
+
+            tr:nth-child(1) {
+              // gametype-sign and gamedesc parent
+              display: inline-flex !important;
+              width: calc(100% - 260px) !important;
+              .gametype-sign-wrapper {
+                height: unset !important;
+              }
+            }
+
+            tr:nth-child(2) {
+              // status-inner parent
+              display: flex !important;
+              width: 100% !important;
+              justify-content: center !important;
+              align-items: center !important;
+            }
+          }
+
+          #host_start {
+            border-bottom: 1px solid $blue !important;
+          }
+
+          #gamedesc {
+            vertical-align: middle !important;
+            padding-bottom: 0 !important;
+            color: $white !important;
+          }
+
+          #status-inner {
+            display: flex !important;
+            width: 100% !important;
+            align-items: center !important;
+            justify-content: center;
+
+            #waiting {
+              &[style="none"] {
+                display: none !important;
+              }
+
+              position: absolute !important;
+              color: transparent !important;
+              display: flex;
+              justify-content: center !important;
+              align-items: center !important;
+              flex-direction: row-reverse !important;
+              animation: wait 1s infinite ease-in-out;
+            }
+
+            #racing {
+              &[style="display: none"] {
+                display: none !important;
+              }
+
+              position: absolute !important;
+              display: flex !important;
+              justify-content: center !important;
+              align-items: center !important;
+            }
+
+            #paused {
+              color: darken($white, 20%) !important;
+              width: 100% !important;
+              margin-left: 70px !important;
+            }
+          }
+        }
       }
-    }
-  }
-}
 
-// Race remove margin to do more space around
-#play-overall .gameblock {
-  margin: 0 !important;
+      // Main typeblock container
+      #main-block {
+        // Race main typeblock bg color and border around
+        #typeblock {
+          background: $darkgray !important;
+          border: none !important;
 
-  .people {
-    display: none !important;
-  }
+          // Race typeblock weird image based corners
+          .tl,
+          .tr,
+          .bl,
+          .br {
+            background: none !important;
+          }
 
-  .rc .handle,
-  .handle {
-    margin-left: -5px !important;
-    opacity: 0.5 !important;
-    border-radius: 50% !important;
-    height: 10px !important;
-    width: 10px !important;
-    background: $middlegray !important;
+          // Race hidden text before the game starts bg color && text color
+          #hiddentext {
+            background: $hiddenGameText !important;
+            background-color: $darkgray !important;
+            border: none !important;
+            color: transparent !important;
+            font-size: 0 !important;
+          }
 
-    &:hover {
-      background: $blue !important;
-    }
-  }
-}
+          #typetext {
+            // Race typeblock typed text color
+            #beforefocus {
+              color: $middlegray !important;
+            }
 
-// Race status block under typeblock bg color
-#status {
-  padding: 0 !important;
-  background: $darkgray !important;
+            // Race typeblock typing word or letter color
+            #typefocus {
+              color: hsl(120, 70%, 70%) !important;
+              text-decoration: none !important;
 
-  table {
-    width: 100% !important;
+              &.highlight_error {
+                color: hsl(0, 85%, 70%) !important;
+              }
+            }
 
-    tr:nth-child(1) {
-      display: block !important;
-      width: 75% !important;
-    }
+            // Race typeblock not typed text yet color
+            #afterfocus {
+              color: $white !important;
+            }
 
-    tr:nth-child(2) {
-      display: flex !important;
-      width: 100% !important;
-      justify-content: center !important;
-      align-items: center !important;
-    }
-  }
-}
+            // Keep text without opacity
+            opacity: 1 !important;
+          }
 
-body {
-  #status {
-    #host_start {
-      border-bottom: 1px solid $blue !important;
-    }
+          // Qualification correct error text bg
+          .correct_errors_text {
+            background: $darkgray !important;
+            color: $white !important;
+          }
 
-    #gamedesc {
-      vertical-align: middle !important;
-      padding-bottom: 0 !important;
-      color: $white !important;
-    }
-  }
+          // Qualification race img adjustments
+          img[src*="tmp/text/"] {
+            filter: invert(0.9) brightness(0.83) sepia(1) hue-rotate(200deg)
+              saturate(0.4) !important;
+          }
 
-  #status-inner {
-    display: flex !important;
-    width: 100% !important;
-    align-items: center !important;
-    justify-content: center;
+          // Race typeblock input text color on different states
+          #inputtext {
+            color: hsl(120, 15%, 75%) !important; // text color
+            background: hsl(120, 15%, 25%) !important; // background color
+            caret-color: hsl(120, 15%, 75%) !important; // caret color
+            border: none !important;
+            padding: 8px;
+            border-radius: 8px !important;
+            width: 100% !important;
+            box-sizing: border-box;
 
-    #waiting {
-      &[style="none"] {
+            // Selection styles
+            &::selection {
+              background: hsl(120, 15%, 75%) !important; // selection background
+              color: hsl(120, 15%, 25%) !important; // selection text
+            }
+
+            // Race typeblock input text when error text color && bg color
+            &[class="error"] {
+              color: hsl(350, 80%, 20%) !important; // error text color
+              background: hsl(
+                350,
+                80%,
+                50%
+              ) !important; // error background color
+              caret-color: hsl(350, 80%, 20%) !important; // error caret color
+
+              &::selection {
+                background: hsl(
+                  350,
+                  80%,
+                  20%
+                ) !important; // error selection background
+                color: hsl(350, 80%, 50%) !important; // error selection text
+              }
+            }
+
+            &.disabled {
+              color: transparent !important; // disabled text (transparent as specified)
+              background: $deepgray !important; // disabled background (keeping your variable)
+              caret-color: transparent !important; // disabled caret
+
+              &::selection {
+                background: transparent !important; // disabled selection background
+                color: transparent !important; // disabled selection text
+              }
+            }
+          }
+
+          #bookinfo {
+            // < >
+            .hotkey {
+              color: $middlegray !important;
+            }
+          }
+
+          div {
+            color: $middlegray !important;
+          }
+        }
+
+        // Race virtual keyboard btn
+        #keyboard_cont {
+          display: flex !important;
+          justify-content: center !important;
+
+          &[style*="display: none"] {
+            display: none !important;
+          }
+
+          #param_keyboard {
+            font-size: 0 !important;
+            position: absolute !important;
+            border: none !important;
+            background: $virtualKeyboard;
+            color: transparent !important;
+            height: 12px;
+            width: 26px;
+            display: block;
+            transition: all 0.15s !important;
+            animation: keyboard 10s linear infinite !important;
+
+            &:hover {
+              filter: brightness(0.7) !important;
+            }
+          }
+        }
+
+        #keyboard {
+          margin: 30px auto 0 auto !important;
+          filter: unset !important; // Dominate wide typeblock script
+
+          #back_keyboard {
+            background-image: $backRussianKeyboard;
+            background-size: 546px 202px !important;
+            background-repeat: no-repeat !important;
+            #fore_keyboard {
+              background-image: $foreRussianKeyboard;
+              background-size: 546px 172px !important;
+              background-repeat: no-repeat !important;
+              #shift_keyboard {
+                background-image: $shiftKey !important;
+                background-size: 546px 172px !important;
+                background-repeat: no-repeat !important;
+              }
+            }
+          }
+
+          // English keyboard styles when #keyboard has .en class - should dominate
+          &.en {
+            #back_keyboard {
+              background-image: $backEnglishKeyboard !important;
+              #fore_keyboard {
+                background-image: $foreEnglishKeyboard !important;
+              }
+            }
+          }
+        }
+      }
+
+      // Race book bg white bg border remove
+      .imobilco-book .imobilco-cover .co {
+        background: none !important;
+      }
+
+      #errors_text {
+        border-radius: 5px !important;
+        overflow: hidden !important;
+
+        p {
+          margin: 0 !important;
+          background-color: $deepgray !important;
+          color: $white !important;
+
+          s.error {
+            color: hsl(0, 90%, 60%) !important;
+          }
+          span.error {
+            color: hsl(0, 90%, 50%) !important;
+          }
+
+          &.premium_abra_errors {
+            span {
+              background-color: coral !important;
+              color: $black !important;
+            }
+
+            a {
+              color: gold !important;
+
+              &:hover {
+                color: darken(gold, 10%) !important;
+              }
+            }
+
+            sup {
+              color: $lightblue !important;
+              font-weight: bold !important;
+            }
+          }
+        }
+      }
+
+      #errors_tab,
+      #errorwork {
+        background: none !important;
+
+        a {
+          text-decoration: underline !important;
+          border-bottom: none !important;
+        }
+      }
+
+      // Remove how to play
+      #report {
         display: none !important;
       }
 
-      position: absolute !important;
-      color: transparent !important;
-      display: flex;
-      justify-content: center !important;
-      align-items: center !important;
-      flex-direction: row-reverse !important;
-      animation: wait 1s infinite ease-in-out;
-    }
-
-    #racing {
-      &[style="display: none"] {
+      // Remove notification about mistype
+      #fixtypo {
         display: none !important;
       }
 
-      position: absolute !important;
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-    }
-
-    #paused {
-      color: darken($white, 20%) !important;
-      width: 100% !important;
-      margin-left: 70px !important;
-    }
-  }
-
-  #params {
-    order: 1 !important;
-    width: 270px !important;
-
-    // Race settings links styles
-    a {
-      text-decoration: underline !important;
-      border-bottom: none !important;
-    }
-
-    .slider {
-      &.off {
+      // Race report text textarea
+      #report_reason_input {
         background: $darkgray !important;
+        border: 1px solid $middlegray !important;
+      }
+    }
+
+    // Players block
+    #players-block {
+      // Kill them all
+      .people {
+        display: none !important;
+      }
+
+      .handle {
+        top: -5px !important;
+      }
+
+      #players-count-lbl {
+        float: unset !important;
+        font-size: 13px !important;
+
+        // Race label point % count
+        b {
+          color: $darkgray !important;
+          background: $blue !important;
+        }
+      }
+
+      // Now set color to road normal to be
+      #players {
+        overflow: visible !important;
+        background-color: $darkgray !important;
+
+        // Remove road user bg color
+        .player {
+          background: none !important;
+          padding: 10px 0 10px 0 !important;
+          border-bottom: 1px solid $middlegray !important;
+
+          // Error tracking
+          .error-on-track {
+            // Bolt SVG as mark for errors
+            .error-on-track-img {
+              background: $errorOnTrackBolt !important;
+              background-position: center !important;
+              background-size: contain !important;
+              mask-image: unset !important;
+            }
+            // Errors count on the same word
+            span {
+              left: 4px !important;
+              top: 14px !important;
+              color: silver !important;
+              padding: 2px !important;
+              font: 600 6pt "Montserrat", sans-serif !important;
+            }
+          }
+
+          .divider {
+            display: none !important;
+          }
+
+          .rating {
+            display: flex !important;
+            width: 70% !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            height: 30px !important;
+
+            div {
+              color: $white !important;
+              margin-right: 0 !important;
+            }
+
+            .stats {
+              color: $middlegray !important;
+              left: 135px !important;
+              height: 30px !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: space-around !important;
+              gap: 1em !important;
+            }
+
+            .rating_gained {
+              background: none !important;
+              background: $orange !important;
+              color: $darkgray !important;
+            }
+          }
+
+          // Race record mini popup note
+          .newrecord a {
+            margin-top: -10px !important;
+            border-radius: 5px !important;
+            padding: 6px !important;
+            background: hsl(40, 85%, 20%) !important;
+            border: 1px solid hsl(40, 85%, 35%) !important;
+            color: hsl(40, 85%, 80%) !important;
+            font: bold 10pt "Montserrat", sans-serif !important;
+          }
+
+          // Race delete result button
+          .delresult {
+            left: 95px !important;
+            bottom: unset !important;
+
+            a {
+              border: 1px solid $blue !important;
+              border-radius: 5px !important;
+              display: flex !important;
+              justify-content: center !important;
+              align-items: center !important;
+              height: 30px !important;
+              width: 30px !important;
+              background: $black !important;
+
+              &:hover {
+                filter: hue-rotate(180deg) !important;
+              }
+            }
+
+            img {
+              box-sizing: border-box !important;
+              background: $close !important;
+              width: 16px !important;
+              height: 16px !important;
+              padding-left: 16px !important;
+            }
+          }
+        }
+
+        // Race nickname block width
+        .car .name {
+          min-width: 168px !important; // Make cars vertically aligned
+
+          .name_content {
+            overflow: visible !important; // Make award fully visible
+            width: 100% !important;
+
+            .top-award {
+              .numbers {
+                transition: width 0.15s !important;
+              }
+            }
+          }
+        }
+      }
+
+      #rating_loading {
+        background: none !important;
+        bottom: 45px !important;
+        left: -50px !important;
+        font-size: 12px !important;
+        color: $blue !important;
       }
     }
   }
 
-  #players-block .handle {
-    top: -5px !important;
-  }
-
+  // Right side panel - play-right
   #play-right {
     display: flex !important;
     flex-direction: column !important;
@@ -168,9 +559,73 @@ body {
       }
     }
 
+    // Race advertisement remove
+    #playads {
+      display: none !important;
+    }
+
+    // Race settings panel
+    #params {
+      order: 1 !important;
+      width: 270px !important;
+      background: $darkgray !important;
+      border: 1px solid $middlegray !important;
+      color: $white !important;
+      opacity: 0.2 !important;
+      transition: opacity 0.2s !important;
+
+      &:hover {
+        opacity: 1 !important;
+        transition: opacity 0.2s !important;
+      }
+
+      // Race settings links styles
+      a {
+        text-decoration: underline !important;
+        border-bottom: none !important;
+      }
+
+      .slider {
+        background: $deepgray !important;
+        border: 2px solid $middlegray !important;
+        border-radius: 10px !important;
+        box-sizing: content-box !important;
+
+        &.off {
+          background: $darkgray !important;
+        }
+
+        // Slider handle
+        .handle {
+          background: $white !important;
+          border: 2px solid $white !important;
+          border-radius: 50% !important;
+          height: 14px !important;
+          width: 14px !important;
+          margin: 1px !important;
+          transition: all 0.2s !important;
+
+          &:hover {
+            background: $middlegray !important;
+          }
+        }
+      }
+    }
+
+    // Invite friends panel
     #invite {
       order: 0 !important;
       width: 270px !important;
+      background: $darkgray !important;
+      border: 1px solid $middlegray !important;
+      color: $white !important;
+      opacity: 0.2 !important;
+      transition: opacity 0.2s !important;
+
+      &:hover {
+        opacity: 1 !important;
+        transition: opacity 0.2s !important;
+      }
 
       a {
         color: $blue !important;
@@ -190,9 +645,67 @@ body {
         text-decoration: underline !important;
       }
     }
+
+    // Invite friends input styles
+    #invite-link {
+      color: $blue !important;
+      border: none !important;
+      border-bottom: 1px solid $middlegray !important;
+      background: none !important;
+    }
   }
 }
 
+// GLOBAL ASSIGNMENTS
+#waiting_timeout,
+#racing_time {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-size: 18px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 110px !important;
+  height: 40px !important;
+  position: absolute !important;
+}
+
+// External elements that might be positioned outside the wrapper
+#waiting_timeout {
+  color: lightcoral !important;
+  background: #693333 !important;
+  border: 1px solid red !important;
+}
+
+#racing_time {
+  color: lightgreen !important;
+  background: #2c482c !important;
+  border: 1px solid green !important;
+}
+
+// Race typeblock quotes
+#howtoplay,
+#content {
+  .quoteleft,
+  .quoteright {
+    filter: brightness(0.3) !important;
+  }
+}
+
+#content .handle {
+  margin-left: -5px !important;
+  opacity: 0.5 !important;
+  border-radius: 50% !important;
+  height: 10px !important;
+  width: 10px !important;
+  background: $middlegray !important;
+
+  &:hover {
+    background: $blue !important;
+  }
+}
+
+// Animations
 @keyframes wait {
   0% {
     opacity: 1;
@@ -202,487 +715,6 @@ body {
   }
   100% {
     opacity: 1;
-  }
-}
-
-#waiting_timeout {
-  position: absolute !important;
-  color: lightcoral !important;
-  font-size: 25px !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  height: 40px !important;
-  width: 100px !important;
-  background: #693333 !important;
-  border: 1px solid red !important;
-}
-
-#racing_time {
-  color: lightgreen !important;
-  font-size: 25px !important;
-  background: #2c482c !important;
-  height: 40px !important;
-  width: 100px !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  border: 1px solid green !important;
-}
-
-// Race advertisement remove
-#playads {
-  display: none !important;
-}
-
-// Race settings panel sliders styles
-.slider {
-  background: $deepgray !important;
-  border: 2px solid $middlegray !important;
-  border-radius: 10px !important;
-  box-sizing: content-box !important;
-
-  // Slider handle
-  .handle {
-    background: $white !important;
-    border: 2px solid $white !important;
-    border-radius: 50% !important;
-    height: 14px !important;
-    width: 14px !important;
-    margin: 1px !important;
-    transition: all 0.2s !important;
-
-    &:hover {
-      background: $middlegray !important;
-    }
-  }
-}
-
-// Race settings && friends online panel styles
-#params,
-#play-right #invite {
-  background: $darkgray !important;
-  border: 1px solid $middlegray !important;
-  color: $white !important;
-}
-
-#play-right #invite {
-  order: 0 !important;
-  width: 270px !important;
-}
-
-// Invite friends input styles
-#invite-link {
-  color: $blue !important;
-  border: none !important;
-  border-bottom: 1px solid $middlegray !important;
-  background: none !important;
-}
-
-// Destroy race humans
-.people img {
-  display: none !important;
-}
-
-// Remove road user bg color
-.player {
-  background: none !important;
-  padding: 10px 0 10px 0 !important;
-  border-bottom: 1px solid $middlegray !important;
-
-  // Error tracking
-  .error-on-track {
-    // Bolt SVG as mark for errors
-    .error-on-track-img {
-      background: $errorOnTrackBolt !important;
-      background-position: center !important;
-      background-size: contain !important;
-      mask-image: unset !important;
-    }
-    // Errors count on the same word
-    span {
-      left: 4px !important;
-      top: 14px !important;
-      color: silver !important;
-      padding: 2px !important;
-      font: 600 6pt "Montserrat", sans-serif !important;
-    }
-  }
-
-  .divider {
-    display: none !important;
-  }
-
-  .rating {
-    display: flex !important;
-    width: 70% !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    height: 30px !important;
-
-    div {
-      color: $white !important;
-      margin-right: 0 !important;
-    }
-
-    .stats {
-      color: $middlegray !important;
-      left: 135px !important;
-      height: 30px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: space-around !important;
-      gap: 1em !important;
-    }
-
-    .rating_gained {
-      background: none !important;
-      background: $orange !important;
-      color: $darkgray !important;
-    }
-  }
-}
-
-// Now set color to road normal to be
-#players {
-  overflow: visible !important;
-  background-color: $darkgray !important;
-}
-
-#players-count-lbl {
-  float: unset !important;
-  font-size: 13px !important;
-
-  // Race label point % count
-  b {
-    color: $darkgray !important;
-    background: $blue !important;
-  }
-}
-
-#rating_loading {
-  background: none !important;
-  bottom: 45px !important;
-  left: -50px !important;
-  font-size: 12px !important;
-  color: $blue !important;
-}
-
-#speedpanel {
-  #speed-label,
-  #errors-label {
-    color: #bbe4ff !important;
-  }
-
-  #speed-label {
-    top: 60px !important;
-  }
-
-  #errors-label {
-    top: 35px !important;
-  }
-}
-
-// Race book bg white bg border remove
-.imobilco-book .imobilco-cover .co {
-  background: none !important;
-}
-
-#errors_tab {
-  background: none !important;
-
-  a {
-    text-decoration: underline !important;
-    border-bottom: none !important;
-  }
-}
-
-#errors_text {
-  p {
-    background-color: $deepgray !important;
-    color: $white !important;
-
-    &.premium_abra_errors {
-      a {
-        color: $blue !important;
-
-        &:hover {
-          color: $lightblue !important;
-        }
-      }
-
-      // Most difficult typing letters style
-      span {
-        color: $blue !important;
-        background: none !important;
-        border-bottom: 1px solid $blue !important;
-      }
-
-      sup {
-        color: $white !important;
-      }
-    }
-  }
-}
-
-// Remove how to play
-#report {
-  display: none !important;
-
-  // Race how to race && report to text links rules
-  a {
-    border-bottom: 1px solid $blue !important;
-  }
-}
-
-// Remove notification about mistype
-#fixtypo {
-  display: none !important;
-}
-
-// Race normal voc name color white
-.gametype-normal {
-  color: $white !important;
-}
-
-// Race main typeblock bg color and border around
-#typeblock {
-  background: $darkgray !important;
-  border: none !important;
-
-  // Race typeblock darken around
-  .tl,
-  .tr,
-  .bl,
-  .br {
-    background: none !important;
-  }
-
-  // Race hidden text before the game starts bg color && text color
-  #hiddentext {
-    background: $hiddenGameText !important;
-    background-color: $darkgray !important;
-    border: none !important;
-    color: transparent !important;
-    font-size: 0 !important;
-  }
-
-  // Race typeblock input when you can't type yet
-  .disabled {
-    color: $middlegray !important;
-    background: $darkgray !important;
-    border: none !important;
-    border-bottom: 1px solid $middlegray !important;
-  }
-
-  // Qualification correct error text bg
-  .correct_errors_text {
-    background: $darkgray !important;
-    color: $white !important;
-  }
-
-  // Qualification race img adjustments
-  img[src*="tmp/text/"] {
-    filter: invert(0.9) brightness(0.83) sepia(1) hue-rotate(200deg)
-      saturate(0.4) !important;
-  }
-
-  // Race typeblock input text default color
-  #inputtext {
-    color: $white;
-    background: $deepgray !important;
-    border: none !important;
-    padding: 8px;
-    width: 100% !important;
-    box-sizing: border-box;
-
-    // Race typeblock input text when error text color && bg color
-    &[class="error"] {
-      background: #f06c6c !important;
-      border: none !important;
-      color: $deepgray !important;
-      border-bottom: 1px solid $middlegray !important;
-    }
-  }
-
-  .disabled {
-    color: transparent !important;
-  }
-
-  // Race typeblock rm text decoration
-  #typetext {
-    .highlight {
-      text-decoration: none !important;
-    }
-
-    // Race typeblock never do opacity with js
-    opacity: 1 !important;
-  }
-
-  // Race typeblock typed text color
-  #beforefocus {
-    color: $middlegray !important;
-  }
-
-  // Race typeblock typing word or letter color
-  #typefocus {
-    color: lightgreen !important;
-  }
-
-  // Race typeblock not typed text yet color
-  #afterfocus {
-    color: $white !important;
-  }
-
-  // Race typeblock voc name && to list game && play another game links color
-  #bookinfo {
-    a {
-      color: $blue !important;
-
-      &:hover {
-        color: $lightblue !important;
-      }
-    }
-
-    #again {
-      a {
-        color: $blue !important;
-
-        &:hover {
-          color: $lightblue !important;
-        }
-      }
-
-      // Race typeblock you typed this && < ctrl ctrl > color
-      .hotkey {
-        color: $middlegray !important;
-      }
-    }
-
-    div {
-      color: $middlegray !important;
-    }
-  }
-}
-
-// Race typeblock quotes
-.quoteleft,
-.quoteright {
-  filter: brightness(0.3) !important;
-}
-
-// Race report text textarea
-#report_reason_input {
-  background: $darkgray !important;
-  border: 1px solid $middlegray !important;
-}
-
-// Race record mini popup note
-#play-overall #players .player .newrecord a {
-  display: inline-flex !important;
-  margin-top: -10px !important;
-  border-radius: 5px !important;
-  padding: 6px !important;
-  background: hsl(40, 85%, 20%) !important;
-  border: 1px solid hsl(40, 85%, 35%) !important;
-  color: hsl(40, 85%, 80%) !important;
-  font: bold 10pt "Montserrat", sans-serif !important;
-}
-
-// Race with this we do width for all right side blocks
-#invite {
-  width: 270px !important;
-}
-
-// Opacity for race settings && invite friends blocks
-#invite,
-#params {
-  opacity: 0.2 !important;
-  transition: opacity 0.2s !important;
-}
-
-// Opacity for klavotools complexity && statistics blocks
-#complexity-panel,
-#statistics {
-  opacity: 0.7 !important;
-  transition: opacity 0.2s !important;
-}
-
-#complexity-panel {
-  label {
-    font-size: 10px !important;
-    margin-right: 8px !important;
-  }
-
-  #spectrumCanvas {
-    margin: 10px 0 10px !important;
-  }
-}
-
-// Disabled opacity for all right side race blocks on hover
-#invite:hover,
-#params:hover,
-#complexity-panel:hover,
-#statistics:hover {
-  opacity: 1 !important;
-  transition: opacity 0.2s !important;
-}
-
-// Race virtual keyboard btn
-#keyboard_cont {
-  display: flex !important;
-  justify-content: center !important;
-
-  &[style*="display: none"] {
-    display: none !important;
-  }
-
-  #param_keyboard {
-    font-size: 0 !important;
-    position: absolute !important;
-    border: none !important;
-    background: $virtualKeyboard;
-    color: transparent !important;
-    height: 12px;
-    width: 26px;
-    display: block;
-    transition: all 0.2s !important;
-    animation: keyboard 10s linear infinite !important;
-
-    &:hover {
-      filter: brightness(0.7) !important;
-    }
-  }
-}
-
-#keyboard {
-  margin: 30px auto 0 auto !important;
-  filter: unset !important; // Dominate wide typeblock script
-
-  #back_keyboard {
-    background-image: $backRussianKeyboard;
-    background-size: 546px 202px !important;
-    background-repeat: no-repeat !important;
-    #fore_keyboard {
-      background-image: $foreRussianKeyboard;
-      background-size: 546px 172px !important;
-      background-repeat: no-repeat !important;
-      #shift_keyboard {
-        background-image: $shiftKey !important;
-        background-size: 546px 172px !important;
-        background-repeat: no-repeat !important;
-      }
-    }
-  }
-
-  // English keyboard styles when #keyboard has .en class - should dominate
-  &.en {
-    #back_keyboard {
-      background-image: $backEnglishKeyboard !important;
-      #fore_keyboard {
-        background-image: $foreEnglishKeyboard !important;
-      }
-    }
   }
 }
 
@@ -698,53 +730,8 @@ body {
   }
 }
 
-// Change img speedpanel night mode
-#speedpanel-canvas {
-  box-sizing: border-box !important;
-  padding-left: 262px !important;
-  height: 87px !important;
-  width: 262px !important;
-  background: $speed !important;
-}
-
-// Remove unused elements
-#speedpanel-back,
-#speedpanel-top,
-#speedpanel-arrow {
-  display: none !important;
-}
-
-// Race delete result button
-.delresult {
-  margin-right: unset !important;
-  left: 95px !important;
-  bottom: unset !important;
-
-  a {
-    border: 1px solid $blue !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    height: 30px !important;
-    width: 30px !important;
-    background: #343442 !important;
-
-    &:hover {
-      filter: hue-rotate(180deg) !important;
-    }
-  }
-
-  img {
-    box-sizing: border-box !important;
-    background: $close !important;
-    width: 16px !important;
-    height: 16px !important;
-    padding-left: 16px !important;
-  }
-}
-
-// START KLAVOTOOLS OPTIONS
-body {
+// KLAVOTOOLS SCRIPTS
+#content {
   // Klavotools sort btn's
   #sort-panel {
     .sort-button {
@@ -766,41 +753,67 @@ body {
       }
     }
   }
-}
 
-// Klavotools race statistics
-#spectrumcanvas {
-  background: $deepgray !important;
-  filter: contrast(2) !important;
-}
+  // Klavotools race sort block label color && links sort color
+  label[for="autosort"] {
+    color: $white !important;
+  }
 
-#statistics {
-  width: 270px !important;
-  margin-top: 10px !important;
-  margin-bottom: 0 !important;
-  color: $white !important;
-  background: $darkgray !important;
-  border: 1px solid $middlegray !important;
-
-  span {
+  #position,
+  #nickname,
+  #errorscount,
+  #errors,
+  #rating {
     color: $blue !important;
+
+    &:hover {
+      color: $lightblue !important;
+    }
+  }
+
+  // Klavotools statistics panel (external)
+  #spectrumcanvas {
+    background: $deepgray !important;
+    filter: contrast(2) !important;
+  }
+
+  #statistics {
+    width: 270px !important;
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+    color: $white !important;
+    background: $darkgray !important;
+    border: 1px solid $middlegray !important;
+    opacity: 0.7 !important;
+    transition: opacity 0.2s !important;
+
+    &:hover {
+      opacity: 1 !important;
+      transition: opacity 0.2s !important;
+    }
+
+    span {
+      color: $blue !important;
+    }
+  }
+
+  // Klavotools complexity panel (external)
+  #complexity-panel {
+    opacity: 0.7 !important;
+    transition: opacity 0.2s !important;
+
+    &:hover {
+      opacity: 1 !important;
+      transition: opacity 0.2s !important;
+    }
+
+    label {
+      font-size: 10px !important;
+      margin-right: 8px !important;
+    }
+
+    #spectrumCanvas {
+      margin: 10px 0 10px !important;
+    }
   }
 }
-
-// Klavotools race sort block label color && links sort color
-label[for="autosort"] {
-  color: $white !important;
-}
-
-#position,
-#nickname,
-#errorscount,
-#errors,
-#rating {
-  color: $blue !important;
-
-  &:hover {
-    color: $lightblue !important;
-  }
-}
-// END KLAVOTOOLS OPTIONS
