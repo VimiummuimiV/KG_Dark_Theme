@@ -234,6 +234,14 @@
             .hotkey {
               color: $middlegray !important;
             }
+
+            #book {
+              .imobilco-container {
+                img {
+                  border-radius: 5px !important;
+                }
+              }
+            }
           }
 
           div {
@@ -657,30 +665,32 @@
 }
 
 // GLOBAL ASSIGNMENTS
-#waiting_timeout,
-#racing_time {
-  font-family: "Press Start 2P", system-ui;
-  font-weight: 400;
-  font-size: 18px !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  width: 110px !important;
-  height: 40px !important;
-  position: absolute !important;
-}
+#content {
+  #waiting_timeout,
+  #racing_time {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-size: 18px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 110px !important;
+    height: 40px !important;
+    position: absolute !important;
+  }
 
-// External elements that might be positioned outside the wrapper
-#waiting_timeout {
-  color: lightcoral !important;
-  background: #693333 !important;
-  border: 1px solid red !important;
-}
+  // External elements that might be positioned outside the wrapper
+  #waiting_timeout {
+    color: lightcoral !important;
+    background: #693333 !important;
+    border: 1px solid red !important;
+  }
 
-#racing_time {
-  color: lightgreen !important;
-  background: #2c482c !important;
-  border: 1px solid green !important;
+  #racing_time {
+    color: lightgreen !important;
+    background: #2c482c !important;
+    border: 1px solid green !important;
+  }
 }
 
 // Race typeblock quotes
