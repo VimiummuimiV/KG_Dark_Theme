@@ -1,0 +1,12 @@
+@media (max-width: 920px) {
+  #head #logo {
+    width: 55px !important;
+    a {
+      width: 55px !important;
+      &::after {
+        mask: $keysLogoSmall no-repeat center / 30px !important;
+        width: 55px !important;
+      }
+    }
+  }
+}

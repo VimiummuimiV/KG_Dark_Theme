@@ -1,0 +1,54 @@
+// ─── Configuration (unitless unless noted) ────────────────────────────────
+$cell-size: 30 !default;       // total slot size: block + gap
+$gap-size: 0 !default;       // spacing between cells
+$cols: 15 !default;
+$rows: 6 !default;
+$unit: px !default;            // units like 'px', 'em', 'rem', etc.
+$offset-x: 0 !default;         // global horizontal shift
+$offset-y: 0 !default;         // global vertical shift
+
+// ─── HSL palette of popular keyboard-style hues ───────────────────────────
+$lightness: 70%;
+$saturation: 50%;
+
+$palette: (
+  hsl(0,   $saturation, $lightness),
+  hsl(30,  $saturation, $lightness),
+  hsl(60,  $saturation, $lightness),
+  hsl(120, $saturation, $lightness),
+  hsl(180, $saturation, $lightness),
+  hsl(240, $saturation, $lightness),
+  hsl(273, $saturation, $lightness),
+  hsl(328, $saturation, $lightness)
+) !default;
+
+// ─── Checkerboard Mixin ───────────────────────────────────────────────────
+@mixin checkerboard {
+  $n: length($palette);
+  $block: $cell-size - $gap-size; // actual block size
+  $images: ();
+  $positions: ();
+
+  // container size
+  width: #{$cols * $cell-size}#{$unit};
+  height: #{$rows * $cell-size}#{$unit};
+
+  // generate background layers
+  @for $y from 0 through $rows - 1 {
+    @for $x from 0 through $cols - 1 {
+      $i: (($x + $y * $cols) % $n) + 1;
+      $color: nth($palette, $i);
+
+      $pos-x: ($x * $cell-size) + ($gap-size / 2) + $offset-x;
+      $pos-y: ($y * $cell-size) + ($gap-size / 2) + $offset-y;
+
+      $images: append($images, unquote("linear-gradient(#{$color}, #{$color})"), comma);
+      $positions: append($positions, unquote("#{$pos-x}#{$unit} #{$pos-y}#{$unit}"), comma);
+    }
+  }
+
+  background-image:    $images;
+  background-position: $positions;
+  background-size:     #{$block}#{$unit} #{$block}#{$unit};
+  background-repeat:   no-repeat;
+}

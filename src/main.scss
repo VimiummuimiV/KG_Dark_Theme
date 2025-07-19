@@ -23,9 +23,9 @@
 // -----------------------------------------------------------------------------
 // 4. LAYOUT COMPONENTS
 // -----------------------------------------------------------------------------
-@import "logo";
+@import "./logo/logo";
 @import "avatar";
-@import "userPanel";
+@import "./userPanel/userPanel";
 @import "./mainMenu/mainMenu";
 @import "recentGames";
 

@@ -1,5 +1,5 @@
-@import "variables";
-@import "scoreIcon";
+@import "../variables";
+@import "../scoreIcon";
 
 // Variables
 $buttonWidth: 45px;
@@ -341,3 +341,5 @@ $buttonHeight: 44px;
   font: bold 1.5em "Montserrat", sans-serif !important;
   color: gold !important;
 }
+
+@import "userPanel-adaptive";

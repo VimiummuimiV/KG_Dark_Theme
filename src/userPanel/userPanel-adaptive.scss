@@ -1,0 +1,295 @@
+// Responsive adaptations for user panel
+
+// Responsive breakpoints
+$tablet: 1000px;
+$small-tablet: 768px;
+$mobile: 480px;
+$small-mobile: 320px;
+
+/* TABLET AND BELOW - LAYOUT RESTRUCTURING */
+@media screen and (max-width: $tablet) {
+  .userpanel {
+    // Restructure layout - stats on top, user-block below
+    display: flex !important;
+    flex-direction: column !important;
+    
+    // Stats block moves to top
+    #stats-block {
+      order: -1 !important;
+      width: 100% !important;
+      padding: 10px !important;
+      border-bottom: 1px solid $middlegray !important;
+      
+      // Make stats horizontal on tablet
+      display: flex !important;
+      justify-content: space-around !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      
+      .value, .title, .rating {
+        font-size: 11px !important;
+      }
+    }
+    
+    // User block moves below
+    .user-block {
+      width: 100% !important;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 8px !important;
+      
+      // Scale down button dimensions
+      td:not(:has(.name)):not(:has(.mail-content)) {
+        .scores-table {
+          height: #{$buttonHeight * 0.9} !important;
+        }
+      }
+      
+      .user-dropdown .daily-task {
+        width: #{$buttonWidth * 0.9} !important;
+        height: #{$buttonHeight * 0.9} !important;
+      }
+    }
+    
+    // Level container scaling
+    #userpanel-level-container {
+      height: #{$buttonHeight * 0.9} !important;
+      width: #{$buttonWidth * 0.9} !important;
+    }
+    
+    #userpanel-level-value {
+      height: #{$buttonHeight * 0.9} !important;
+      width: #{$buttonWidth * 0.9} !important;
+      font-size: 13px !important;
+    }
+    
+    #userpanel-level {
+      width: #{$buttonWidth * 0.9} !important;
+    }
+    
+    // Daily remaining races scaling
+    #daily-remaining-races {
+      width: #{$buttonWidth * 0.9} !important;
+      height: #{$buttonHeight * 0.9} !important;
+      font-size: 1.3em !important;
+    }
+  }
+}
+
+/* SMALL TABLET - FURTHER SCALING */
+@media screen and (max-width: $small-tablet) {
+  .userpanel {
+    #stats-block {
+      padding: 8px !important;
+      
+      .value, .title, .rating {
+        font-size: 10px !important;
+      }
+    }
+    
+    .user-block {
+      padding: 6px !important;
+      
+      // Scale down further
+      td:not(:has(.name)):not(:has(.mail-content)) {
+        .scores-table {
+          height: #{$buttonHeight * 0.8} !important;
+        }
+      }
+      
+      .user-dropdown .daily-task {
+        width: #{$buttonWidth * 0.8} !important;
+        height: #{$buttonHeight * 0.8} !important;
+      }
+      
+      // User dropdown menu scaling
+      .user-dropdown .dropmenu {
+        font-size: 11px !important;
+        
+        .col1, .col2 {
+          ul li {
+            font-size: 10px !important;
+          }
+        }
+      }
+    }
+    
+    // Level container further scaling
+    #userpanel-level-container {
+      height: #{$buttonHeight * 0.8} !important;
+      width: #{$buttonWidth * 0.8} !important;
+    }
+    
+    #userpanel-level-value {
+      height: #{$buttonHeight * 0.8} !important;
+      width: #{$buttonWidth * 0.8} !important;
+      font-size: 12px !important;
+    }
+    
+    #userpanel-level {
+      width: #{$buttonWidth * 0.8} !important;
+    }
+    
+    // Typography scaling
+    .value, a, #userpanel-scores, #userpanel-bonuses {
+      font-size: 11px !important;
+    }
+    
+    .title, .rating, .scores-table {
+      font-size: 9px !important;
+    }
+    
+    // Daily remaining races
+    #daily-remaining-races {
+      width: #{$buttonWidth * 0.8} !important;
+      height: #{$buttonHeight * 0.8} !important;
+      font-size: 1.2em !important;
+    }
+  }
+}
+
+/* MOBILE - COMPACT LAYOUT */
+@media screen and (max-width: $mobile) {
+  .userpanel {
+    #stats-block {
+      padding: 6px !important;
+      flex-direction: column !important;
+      
+      .value, .title, .rating {
+        font-size: 9px !important;
+      }
+    }
+    
+    .user-block {
+      padding: 4px !important;
+      flex-direction: column !important;
+      gap: 5px !important;
+      
+      // Mobile scaling
+      td:not(:has(.name)):not(:has(.mail-content)) {
+        padding: 0 0 0 4px !important;
+        
+        .scores-table {
+          height: #{$buttonHeight * 0.7} !important;
+        }
+      }
+      
+      .user-dropdown .daily-task {
+        width: #{$buttonWidth * 0.7} !important;
+        height: #{$buttonHeight * 0.7} !important;
+        border-left: none !important;
+        border-right: none !important;
+      }
+      
+      // Stack user info vertically
+      .name {
+        margin-bottom: 5px !important;
+        
+        span {
+          font-size: 11px !important;
+        }
+      }
+    }
+    
+    // Level container mobile scaling
+    #userpanel-level-container {
+      height: #{$buttonHeight * 0.7} !important;
+      width: #{$buttonWidth * 0.7} !important;
+    }
+    
+    #userpanel-level-value {
+      height: #{$buttonHeight * 0.7} !important;
+      width: #{$buttonWidth * 0.7} !important;
+      font-size: 11px !important;
+    }
+    
+    #userpanel-level {
+      width: #{$buttonWidth * 0.7} !important;
+    }
+    
+    // Mobile typography
+    .value, a, #userpanel-scores, #userpanel-bonuses {
+      font-size: 10px !important;
+    }
+    
+    .title, .rating, .scores-table {
+      font-size: 8px !important;
+    }
+    
+    // Game type selector mobile
+    #gametype-select {
+      height: 60vh !important;
+      font-size: 11px !important;
+    }
+    
+    // Daily remaining races
+    #daily-remaining-races {
+      width: #{$buttonWidth * 0.7} !important;
+      height: #{$buttonHeight * 0.7} !important;
+      font-size: 1.1em !important;
+    }
+  }
+}
+
+/* SMALL MOBILE - MINIMAL LAYOUT */
+@media screen and (max-width: $small-mobile) {
+  .userpanel {
+    #stats-block {
+      padding: 4px !important;
+      
+      .value, .title, .rating {
+        font-size: 8px !important;
+      }
+    }
+    
+    .user-block {
+      padding: 3px !important;
+      
+      // Minimal scaling
+      td:not(:has(.name)):not(:has(.mail-content)) {
+        .scores-table {
+          height: #{$buttonHeight * 0.6} !important;
+        }
+      }
+      
+      .user-dropdown .daily-task {
+        width: #{$buttonWidth * 0.6} !important;
+        height: #{$buttonHeight * 0.6} !important;
+      }
+    }
+    
+    // Level container minimal scaling
+    #userpanel-level-container {
+      height: #{$buttonHeight * 0.6} !important;
+      width: #{$buttonWidth * 0.6} !important;
+    }
+    
+    #userpanel-level-value {
+      height: #{$buttonHeight * 0.6} !important;
+      width: #{$buttonWidth * 0.6} !important;
+      font-size: 10px !important;
+    }
+    
+    #userpanel-level {
+      width: #{$buttonWidth * 0.6} !important;
+    }
+    
+    // Minimal typography
+    .value, a, #userpanel-scores, #userpanel-bonuses {
+      font-size: 9px !important;
+    }
+    
+    .title, .rating, .scores-table {
+      font-size: 7px !important;
+    }
+    
+    // Daily remaining races minimal
+    #daily-remaining-races {
+      width: #{$buttonWidth * 0.6} !important;
+      height: #{$buttonHeight * 0.6} !important;
+      font-size: 1em !important;
+    }
+  }
+}

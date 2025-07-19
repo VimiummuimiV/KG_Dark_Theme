@@ -1,8 +1,18 @@
+// Max-width variables
+$large-desktop: 1200px;
+$medium-desktop: 1024px;
+$tablet-portrait: 768px;
+$large-mobile: 600px;
+$mobile: 480px;
+$small-mobile: 400px;
+$very-small-mobile: 360px;
+$extra-small: 320px;
+
 // Responsive breakpoints for menu adaptivity
 // Using higher specificity to override existing !important styles
 
 // Large desktop - reduce button width slightly
-@media (max-width: 1200px) {
+@media (max-width: $large-desktop) {
   #head.green-back {
     .right {
       .menu {
@@ -16,7 +26,7 @@
 }
 
 // Medium desktop/tablet landscape - further reduction
-@media (max-width: 1024px) {
+@media (max-width: $medium-desktop) {
   #head.green-back {
     .right {
       .menu {
@@ -31,7 +41,7 @@
 }
 
 // Tablet portrait - wrap to two rows, remove border-right, add gap and border-radius
-@media (max-width: 768px) {
+@media (max-width: $tablet-portrait) {
   #head.green-back {
     .right {
       .menu {
@@ -54,7 +64,7 @@
 }
 
 // Large mobile - switch to static positioning, smaller buttons, keep two rows
-@media (max-width: 600px) {
+@media (max-width: $large-mobile) {
   #head.green-back {
     .right {
       .menu {
@@ -78,7 +88,7 @@
 }
 
 // Mobile breakpoint - hide menu and show menu button
-@media (max-width: 480px) {
+@media (max-width: $mobile) {
   #head.green-back {
     .right {
       // Create a hover trigger area
@@ -146,7 +156,7 @@
 }
 
 // Small mobile - more compact dropdown
-@media (max-width: 400px) {
+@media (max-width: $small-mobile) {
   #head.green-back {
     .right {
       .menu {
@@ -163,7 +173,7 @@
 }
 
 // Very small mobile - even more compact
-@media (max-width: 360px) {
+@media (max-width: $very-small-mobile) {
   #head.green-back {
     .right {
       .menu {
@@ -180,7 +190,7 @@
 }
 
 // Extra small - maintain dropdown behavior
-@media (max-width: 320px) {
+@media (max-width: $extra-small) {
   #head.green-back {
     .right {
       .menu {
