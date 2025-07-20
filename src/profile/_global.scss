@@ -1,9 +1,19 @@
 // Global styles for dropdown menus
 .dropdown-menu {
+  background: $black !important;
+  max-height: 500px !important;
+
+  input {
+    background: $blue !important;
+    color: $black !important;
+    border: none !important;
+    border-radius: 3px !important;
+  }
+
   > li {
     > a {
       color: $white !important;
-      background: $darkgray !important;
+      background: $black !important;
 
       &:hover {
         background: $blue !important;

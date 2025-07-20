@@ -271,23 +271,6 @@ pre {
   }
 }
 
-// Dropdown
-div.btn-group .dropdown-menu {
-  background: $darkgray !important;
-  @include border-style($middlegray);
-}
-
-// Actions
-div.actions button {
-  background-color: $darkgray !important;
-  @include border-style($middlegray);
-
-  &:hover {
-    background-color: $darkgray !important;
-    @include border-style($blue);
-  }
-}
-
 // Profile Components
 .profile-root {
   .empty {

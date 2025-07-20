@@ -1,38 +1,194 @@
 @import "variables";
 
+$fontFamily: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+
+// Main calendar container
 .calendar {
-  *:not(.ui-icon) {
-    border: none !important;
-    background: none !important;
+  // Reset jQuery UI default styles
+  .ui-datepicker-inline {
+    width: fit-content !important;
+    background: $black !important;
+    overflow: hidden;
   }
 
-  * a {
-    text-align: center !important;
+  // Header styling
+  .ui-datepicker-header {
+    background: transparent !important;
     color: $white !important;
-  }
+    border: none !important;
+    border-radius: 0;
+    padding: 5px;
 
-  td.ui-state-disabled,
-  span.ui-state-default {
-    border: 1px solid transparent !important;
-    background: $darkgray !important;
-  }
+    .ui-datepicker-title {
+      line-height: 40px !important;
+      height: 40px !important;
+      text-align: center;
+      font-weight: 600;
+      font-size: 16px;
+      font-family: $fontFamily !important;
 
-  td[data-handler="selectDay"] {
-    background-color: $darkgray !important;
-    border-bottom: 1px solid transparent !important;
+      .ui-datepicker-month {
+        color: $white !important;
+      }
 
-    &:hover {
-      background-color: $deepgray !important;
-      border-bottom: 1px solid $blue !important;
+      .ui-datepicker-year {
+        color: $lightblue !important;
+      }
+    }
+
+    // Navigation buttons
+    // Change their icons
+    .ui-datepicker-prev {
+      top: 0.2em !important;
+      left: 0.2em !important;
+
+      .ui-icon {
+        background: $arrowLeft !important;
+        background-size: 18px !important;
+      }
+    }
+
+    .ui-datepicker-next {
+      top: 0.2em !important;
+      right: 0.2em !important;
+
+      .ui-icon {
+        background: $arrowRight !important;
+        background-size: 18px !important;
+      }
+    }
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      background: $darkgray !important;
+      border: 2px solid transparent !important;
+      border-radius: 6px;
+      width: 40px;
+      height: 40px;
+
+      &:hover:not(.ui-state-disabled) {
+        background: $black !important;
+        border-color: $lightblue !important;
+      }
+
+      &.ui-state-disabled {
+        display: none !important;
+      }
     }
   }
 
-  .ui-datepicker-header {
-    background: $blue !important;
-    color: $darkgray !important;
+  // Calendar table
+  .ui-datepicker-calendar {
+    background: $black !important;
+    border: none !important;
+    width: 100%;
+    border-spacing: 2px;
+
+    // Header row (days of week)
+    thead {
+      th {
+        background: transparent;
+        border: none !important;
+        padding: 12px 8px;
+
+        span {
+          color: $lightblue !important;
+          font-weight: 600;
+          font-size: 14px;
+          font-family: $fontFamily !important;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+
+    tbody {
+      // All table cells
+      td {
+        border: none !important;
+        padding: 2px;
+        font-family: $fontFamily !important;
+
+        // Clickable day cells
+        &[data-handler="selectDay"] {
+          background: transparent !important;
+
+          a.ui-state-default {
+            display: flex;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 40px;
+            height: 40px;
+            color: $white !important;
+            background: $darkgray !important;
+            border: 2px solid transparent !important;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-weight: 500;
+
+            &:hover {
+              background: $black !important;
+              color: $lightblue !important;
+              border: 2px solid $lightblue !important;
+            }
+
+            // Today's date
+            &.ui-state-highlight {
+              background: $blue !important;
+              color: $black !important;
+              border-color: $blue !important;
+
+              &:hover {
+                background: lighten($blue, 10%) !important;
+                border-color: lighten($blue, 10%) !important;
+              }
+            }
+
+            // Selected/active date
+            &.ui-state-active {
+              background: $blue !important;
+              color: $black !important;
+            }
+          }
+        }
+
+        // Disabled dates
+        &.ui-state-disabled {
+          span.ui-state-default {
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: rgba($white, 0.4) !important;
+            background: transparent !important;
+            border: 1px solid transparent !important;
+            border-radius: 8px;
+            cursor: not-allowed;
+          }
+        }
+
+        // Other month dates (empty cells)
+        &.ui-datepicker-other-month {
+          visibility: hidden;
+        }
+      }
+    }
   }
 
-  .ui-datepicker-calendar span {
-    color: $blue !important;
+  // Weekend styling (optional enhancement)
+  .ui-datepicker-week-end {
+    &[data-handler="selectDay"] a.ui-state-default {
+      color: lighten($blue, 20%) !important;
+    }
+  }
+
+  // Focus states for accessibility
+  .ui-datepicker-calendar {
+    a:focus,
+    span:focus {
+      outline: 2px solid $blue;
+      outline-offset: 2px;
+    }
   }
 }
