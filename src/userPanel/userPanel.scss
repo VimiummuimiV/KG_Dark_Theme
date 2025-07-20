@@ -40,6 +40,7 @@ $buttonHeight: 44px;
 /* MAIN USERPANEL COMPONENT */
 
 .userpanel {
+  display: flex !important;
   font-family: "Montserrat", sans-serif !important;
   border-bottom: 1px solid $middlegray !important;
   background: $deepgray !important;
@@ -260,6 +261,12 @@ $buttonHeight: 44px;
   /* STATISTICS BLOCK */
 
   #stats-block {
+    top: unset !important;
+    height: $buttonHeight !important;
+    display: flex !important;
+    justify-content: left !important;
+    align-items: center !important;
+
     .value {
       color: $lightblue !important;
     }

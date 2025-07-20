@@ -1,6 +1,6 @@
 // Max-width variables
 $large-desktop: 1200px;
-$medium-desktop: 1024px;
+$medium-desktop: 1000px;
 $tablet-portrait: 768px;
 $large-mobile: 600px;
 $mobile: 480px;
@@ -30,6 +30,7 @@ $extra-small: 320px;
   #head.green-back {
     .right {
       .menu {
+        top: 88px !important;
         a {
           width: 85px !important;
           height: 40px !important;
