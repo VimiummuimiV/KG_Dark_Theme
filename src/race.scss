@@ -668,14 +668,15 @@
 #content {
   #waiting_timeout,
   #racing_time {
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-size: 18px !important;
+    font-family: "Lekton", monospace;
+    font-weight: 600;
+    font-size: 28px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     width: 110px !important;
     height: 40px !important;
+    padding-top: 4px !important;
     position: absolute !important;
   }
 
