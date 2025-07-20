@@ -201,13 +201,13 @@
 
             // Race typeblock input text when error text color && bg color
             &[class="error"] {
-              color: hsl(350, 80%, 20%) !important; // error text color
+              color: hsl(350, 60%, 20%) !important; // error text color
               background: hsl(
                 350,
-                80%,
-                50%
+                60%,
+                45%
               ) !important; // error background color
-              caret-color: hsl(350, 80%, 20%) !important; // error caret color
+              caret-color: hsl(350, 60%, 20%) !important; // error caret color
 
               &::selection {
                 background: hsl(
@@ -215,7 +215,7 @@
                   80%,
                   20%
                 ) !important; // error selection background
-                color: hsl(350, 80%, 50%) !important; // error selection text
+                color: hsl(350, 60%, 45%) !important; // error selection text
               }
             }
 
