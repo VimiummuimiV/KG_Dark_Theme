@@ -680,19 +680,20 @@
     height: 40px !important;
     padding-top: 4px !important;
     position: absolute !important;
+    border-radius: 5px !important;
   }
 
   // External elements that might be positioned outside the wrapper
   #waiting_timeout {
-    color: lightcoral !important;
-    background: #693333 !important;
-    border: 1px solid red !important;
+    color: hsl(10, 70%, 75%) !important;
+    background: hsl(10, 50%, 25%) !important;
+    border: 1px solid hsl(10, 50%, 40%) !important;
   }
 
   #racing_time {
-    color: lightgreen !important;
-    background: #2c482c !important;
-    border: 1px solid green !important;
+    color: hsl(100, 70%, 45%) !important;
+    background: hsl(100, 50%, 15%) !important;
+    border: 1px solid hsl(100, 50%, 30%) !important;
   }
 }
 
