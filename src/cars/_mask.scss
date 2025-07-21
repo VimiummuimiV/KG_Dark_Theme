@@ -1,69 +1,6 @@
 @import "../variables";
-@import "data";
-
-$car4: transparent url("https://i.imgur.com/uZ3rMfO.png") no-repeat !important;
-$car5: transparent url("https://i.imgur.com/bIDJiCM.png") no-repeat !important;
-$car6: transparent url("https://i.imgur.com/H81bdnR.png") no-repeat !important;
-$car7: transparent url("https://i.imgur.com/tChyLsQ.png") no-repeat !important;
-$car8: transparent url("https://i.ibb.co/PxLCw7j/8.png") no-repeat !important;
-$car9: transparent url("https://i.imgur.com/jzhpPYu.png") no-repeat !important;
-$car10: transparent url("https://i.imgur.com/izRB1FS.png") no-repeat !important;
-$car11: transparent url("https://i.imgur.com/d7Ev18i.png") no-repeat !important;
-$car12: transparent url("https://i.imgur.com/ne8Z9ik.png") no-repeat !important;
-$car13: transparent url("https://i.imgur.com/tO7DgE6.png") no-repeat !important;
-$car14: transparent url("https://i.imgur.com/nsOmDce.png") no-repeat !important;
-$car15: transparent url("https://i.imgur.com/Mj57DXC.png") no-repeat !important;
-$car16: transparent url("https://i.imgur.com/uiYztrv.png") no-repeat !important;
-$car17: transparent url("https://i.imgur.com/vBeeRS7.png") no-repeat !important;
-$car18: transparent url("https://i.imgur.com/awvJgeH.png") no-repeat !important;
-$car19: transparent url("https://i.imgur.com/Dh3ioZS.png") no-repeat !important;
-$car20: transparent url("https://i.imgur.com/qu1EHaB.png") no-repeat !important;
-$car22: transparent url("https://i.imgur.com/XjAdCEu.png") no-repeat !important;
-$car23: transparent url("https://i.imgur.com/ivw7DJ6.png") no-repeat !important;
-$car24: transparent url("https://i.ibb.co/w6nKw0L/24.png") no-repeat !important;
-$car25: transparent url("https://i.imgur.com/iheYOvs.png") no-repeat !important;
-$car26: transparent url("https://i.imgur.com/HVdv2ZL.png") no-repeat !important;
-$car27: transparent url("https://i.imgur.com/RLn2dy9.png") no-repeat !important;
-$car28: transparent url("https://i.imgur.com/tQSm6kB.png") no-repeat !important;
-$car29: transparent url("https://i.imgur.com/8wS5O6W.png") no-repeat !important;
-$car30: transparent url("https://i.imgur.com/KHiwTpI.png") no-repeat !important;
-$car31: transparent url("https://i.imgur.com/9jEat54.png") no-repeat !important;
-$car32: transparent url("https://i.imgur.com/W2E7EvL.png") no-repeat !important;
-$car33: transparent url("https://i.imgur.com/Qwucafx.png") no-repeat !important;
-$car34: transparent url("https://i.imgur.com/6DBBR8Y.png") no-repeat !important;
-$car35: transparent url("https://i.imgur.com/iaeOOWq.png") no-repeat !important;
-$car36: transparent url("https://i.imgur.com/iMe92ys.png") no-repeat !important;
-$car37: transparent url("https://i.imgur.com/LXzxKGK.png") no-repeat !important;
-$car38: transparent url("https://i.imgur.com/xNJbSQF.png") no-repeat !important;
-$car39: transparent url("https://i.imgur.com/0hs1xKA.png") no-repeat !important;
-$car40: transparent url("https://i.imgur.com/9hBedtu.png") no-repeat !important;
-$car41: transparent url("https://i.imgur.com/DD8a1m8.png") no-repeat !important;
-$car42: transparent url("https://i.imgur.com/hjtensL.png") no-repeat !important;
-$car43: transparent url("https://i.imgur.com/v8Mdsse.png") no-repeat !important;
-$car44: transparent url("https://i.imgur.com/o45oF5p.png") no-repeat !important;
-
-// exclusive cars
-$batman: transparent url("https://i.imgur.com/xodN8FZ.png") no-repeat !important;
-$car1000-1: transparent url("https://i.imgur.com/JHQidUp.png") no-repeat !important;
-$car1001-1: transparent url("https://i.imgur.com/w1IKisn.png") no-repeat !important;
-$car1002-1: transparent url("https://i.imgur.com/nx2wjJN.png") no-repeat !important;
-$car1003-1: transparent url("https://i.imgur.com/fyHwPsb.png") no-repeat !important;
-$car1006-1: transparent url("https://i.imgur.com/ioGn0t2.png") no-repeat !important;
-$car1008-1: transparent url("https://i.imgur.com/ywycywz.png") no-repeat !important;
-$car1009-1: transparent url("https://i.imgur.com/tfM0o3z.png") no-repeat !important;
-$car1010-1: transparent url("https://i.imgur.com/lneE69t.png") no-repeat !important;
-$car1012-3: transparent url("https://i.imgur.com/WD7jFw4.png") no-repeat !important;
-$car1013-3: transparent url("https://i.imgur.com/Oz22rno.png") no-repeat !important;
-$car1015-1: transparent url("https://i.imgur.com/e5Hmfk9.png") no-repeat !important;
-$car1016-1: transparent url("https://i.imgur.com/sWHgUmT.png") no-repeat !important;
-$car1017: transparent url("https://i.imgur.com/uigPeya.png") no-repeat !important;
-$car1018: transparent url("https://i.imgur.com/dAG2QAF.png") no-repeat !important;
-$car1019: transparent url("https://i.imgur.com/BiFcab1.png") no-repeat !important;
-$car1020: transparent url("https://i.imgur.com/BnU9NGH.png") no-repeat !important;
-$car1021-1: transparent url("https://i.imgur.com/mzXJiCW.png") no-repeat !important;
-$car1022: transparent url("https://i.imgur.com/BkFXr6O.png") no-repeat !important;
-$car1023-1: transparent url("https://i.imgur.com/Dk9aRDa.png") no-repeat !important;
-$car1024: transparent url("https://i.imgur.com/rMPLyU8.png") no-repeat !important;
+@import "data/defaults";
+@import "data/exclusive";
 
 // ===============================================
 // SVG Stroke Inset System - Simple & Working
@@ -71,72 +8,25 @@ $car1024: transparent url("https://i.imgur.com/rMPLyU8.png") no-repeat !importan
 
 // Global inset configuration
 $default-stroke-width: 0.5 !default; // Stroke width controls inset depth
-$default-inset-fill: $darkgray !default; // Default fill color
+$default-color: $darkgray !default; // Default fill/stroke color
 
-// String replacement helper
+// String replacement helper (non-recursive)
 @function str-replace($string, $search, $replace: "") {
-  $index: str-index($string, $search);
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace +
-      str-replace(
-        str-slice($string, $index + str-length($search)),
-        $search,
-        $replace
-      );
+  $result: $string;
+  @while str-index($result, $search) {
+    $index: str-index($result, $search);
+    $result: str-slice($result, 1, $index - 1) +
+      $replace +
+      str-slice($result, $index + str-length($search));
   }
-  @return $string;
+  @return $result;
 }
 
-// Extract fill color from SVG path
-@function extract-fill-color($svg) {
-  $fill-start: str-index($svg, 'fill="');
-  @if $fill-start {
-    $color-start: $fill-start + 6; // Length of 'fill="'
-    $remaining: str-slice($svg, $color-start);
-    $color-end: str-index($remaining, '"');
-    @if $color-end {
-      @return str-slice($remaining, 1, $color-end - 1);
-    }
-  }
-  @return $default-inset-fill; // Fallback to global default
-}
+// ...removed extract-fill-color function...
 
-// Encode SVG symbols for data URL
-@function encode-svg($svg) {
-  $replacements: (
-    "#": "%23",
-    '"': "%22",
-    "<": "%3C",
-    ">": "%3E",
-    " ": "%20",
-    "&": "%26",
-    "=": "%3D",
-    "/": "%2F",
-    "?": "%3F",
-    ":": "%3A",
-    ";": "%3B",
-    "@": "%40",
-    "[": "%5B",
-    "]": "%5D",
-    "{": "%7B",
-    "}": "%7D",
-    "|": "%7C",
-    "^": "%5E",
-    "`": "%60",
-    "\\":"%5C",
-  );
-
-  @each $char, $esc in $replacements {
-    $svg: str-replace($svg, $char, $esc);
-  }
-
-  @return $svg;
-}
-
-// Convert SVG to data URL with encoding
+// Convert SVG to data URL directly (no encoding)
 @function svg-url($svg) {
-  $encoded: encode-svg($svg);
-  @return url("data:image/svg+xml,#{$encoded}");
+  @return url("data:image/svg+xml;utf8,#{$svg}");
 }
 
 // Add stroke to SVG paths
@@ -145,19 +35,12 @@ $default-inset-fill: $darkgray !default; // Default fill color
   $stroke-width: $default-stroke-width,
   $fill-color: null
 ) {
-  // Extract or use provided fill color
-  $color: $fill-color;
-  @if not $color {
-    $color: extract-fill-color($svg);
-  }
+  // Use provided fill color or default
+  $color: if($fill-color != null, $fill-color, $default-color);
 
-  // Simply add stroke and fill with same color to all paths
-  $result: str-replace(
-    $svg,
-    "<path",
-    '<path fill="#{$color}" stroke="#{$color}" stroke-width="#{$stroke-width}"'
-  );
-
+  // Add fill, stroke, and stroke-width attributes compactly
+  $attrs: 'fill="#{$color}" stroke="#{$color}" stroke-width="#{$stroke-width}"';
+  $result: str-replace($svg, "<path", "<path #{$attrs}");
   @return $result;
 }
 
@@ -177,24 +60,20 @@ $default-inset-fill: $darkgray !default; // Default fill color
 }
 
 // ============== PROCESS ==============
-$car1: car($car1);
-$car2: car($car2);
-$car3: car($car3);
+// Define a map of car SVGs (example, extend as needed)
+$cars: (
+  car1: $car1,
+  car2: $car2,
+  car3: $car3,
+);
 
-// Batch process multiple SVGs
-@function process-car-svgs(
-  $svgs,
-  $stroke-width: $default-stroke-width,
-  $fill-color: null
-) {
-  $result: ();
-  @each $name, $svg in $svgs {
-    $result: map-merge(
-      $result,
-      (
-        $name: car($svg, $stroke-width, $fill-color),
-      )
-    );
-  }
-  @return $result;
+// Batch process all cars in the map
+$processed-cars: ();
+@each $name, $svg in $cars {
+  $processed-cars: map-merge(
+    $processed-cars,
+    (
+      $name: car($svg),
+    )
+  );
 }
