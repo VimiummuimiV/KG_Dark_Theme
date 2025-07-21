@@ -133,12 +133,8 @@ $car-sizes: (
 }
 
 /* ===== FIXES ===== */
-.profile-car .shop .tuning-category .tuning-item .car.light .car-base_ {
-  opacity: 1 !important;
-}
-
 .profile-car .shop.tuning .car .imgcont {
-  background: $middlegray !important;
+  background: $darkgray !important;
 }
 
 // Global z-index for car tuning elements
