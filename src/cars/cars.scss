@@ -141,6 +141,11 @@ $car-sizes: (
   background: $middlegray !important;
 }
 
+// Global z-index for car tuning elements
+.car .car-tuning {
+  z-index: 10 !important;
+}
+
 /* ===== STANDARD CARS ===== */
 // Merge SVG car maps from defaults and exclusive
 $svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);

@@ -49,6 +49,7 @@
 // My car block styles
 .profile-car {
   .my-car {
+    z-index: 15 !important;
     background: $darkgray !important;
     border: 1px solid $middlegray !important;
 
