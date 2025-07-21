@@ -1,0 +1,279 @@
+@import "../variables";
+@import "mask";
+
+// Shadow configuration
+$shadow-fade-width: 20%; // Controls the fade width on each side (affects shadow length)
+$shadow-opacity: 0.3; // Controls the darkness of the shadow (affects smoothness)
+
+// Map of car background sizes
+$car-sizes: (
+  3: (
+    size: 1000px 500px,
+  ),
+);
+
+// Function to get car data
+@function get-car-data($car-key) {
+  @return map-get($car-sizes, $car-key);
+}
+
+// Mixin for mask positions
+@mixin mask-position($base-num) {
+  .car .car-base_#{$base-num} {
+    &::before {
+      background-position: #{-100px * ($base-num + 1)} 0 !important;
+      background-repeat: no-repeat !important;
+      background-size: auto !important;
+    }
+  }
+}
+
+// Mixin for car shadow (uniform for all cars)
+@mixin car-shadow {
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    background: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0.5) 0%,
+          transparent 70%
+        )
+        no-repeat 10% 100% / 50px 20px,
+      radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%)
+        no-repeat 90% 100% / 50px 20px,
+      linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(0, 0, 0, $shadow-opacity) $shadow-fade-width,
+          rgba(0, 0, 0, $shadow-opacity) calc(100% - #{$shadow-fade-width}),
+          transparent 100%
+        )
+        no-repeat 0 0 / 100% 100%;
+    z-index: 1;
+  }
+}
+
+// Mixin for creating car styles with pseudo elements
+@mixin car-style($car-class, $variable-name, $car-key: null) {
+  $car-data: null;
+  @if $car-key {
+    $car-data: get-car-data($car-key);
+  } @else {
+    $car-data: get-car-data($car-class);
+  }
+
+  $size: 500px 200px; // Default size
+  @if type-of($car-data) == map {
+    $size: map-get($car-data, size);
+  } @else if $car-data {
+    $size: $car-data;
+  }
+
+  div[class*="car-base"].#{$car-class} {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $variable-name;
+      background-repeat: no-repeat !important;
+      background-size: $size !important;
+      background-position: center center !important;
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
+}
+
+// Mixin for creating car styles with multiple classes
+@mixin car-group($car-classes, $variable-name, $car-key: null) {
+  @each $class in $car-classes {
+    $car-data: null;
+    @if $car-key {
+      $car-data: get-car-data($car-key);
+    } @else {
+      $car-data: get-car-data($class);
+    }
+
+    $size: 500px 250px; // Default size
+    @if type-of($car-data) == map {
+      $size: map-get($car-data, size);
+    } @else if $car-data {
+      $size: $car-data;
+    }
+
+    div[class*="car-base"].#{$class} {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $variable-name;
+        background-repeat: no-repeat !important;
+        background-size: $size !important;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+/* ===== EXCLUSIVE CARS SET ===== */
+$exclusive-cars: (
+  car1000-1: $car1000-1,
+  car1001-1: $car1001-1,
+  car1002-1: $car1002-1,
+  car1003-1: $car1003-1,
+  car1006-1: $car1006-1,
+  car1008-1: $car1008-1,
+  car1009-1: $car1009-1,
+  car1010-1: $car1010-1,
+  car1012-3: $car1012-3,
+  car1015-1: $car1015-1,
+  car1016-1: $car1016-1,
+  car1023-1: $car1023-1,
+);
+
+@each $car-class, $variable in $exclusive-cars {
+  @include car-style($car-class, $variable);
+}
+
+/* ===== SPECIAL CARS ===== */
+// Grouped cars with their variables
+$car-groups: (
+  (car1013-3, car1013, car1014): $car1013-3,
+  (car1019, car45): $car1019,
+  (car1021-1, car1021): $car1021-1,
+  (car1022, car1004): $car1022,
+);
+
+@each $classes, $variable in $car-groups {
+  @include car-group($classes, $variable);
+}
+
+// Single special cars
+@include car-style(car1017, $car1017);
+@include car-style(car1018, $car1018);
+@include car-style(car1020, $car1020);
+@include car-style(car1024, $car1024);
+
+/* ===== BATMAN CAR ===== */
+@include car-style(car1011, $batman, "1011");
+
+/* ===== FIXES ===== */
+.profile-car .shop .tuning-category .tuning-item .car.light .car-base_ {
+  opacity: 1 !important;
+}
+
+.profile-car .shop.tuning .car .imgcont {
+  background: $middlegray !important;
+}
+
+/* ===== STANDARD CARS ===== */
+$standard-cars: (
+  1: $car1,
+  2: $car2,
+  3: $car3,
+  // belarus_922
+  4: $car4,
+  5: $car5,
+  6: $car6,
+  7: $car7,
+  8: $car8,
+  9: $car9,
+  10: $car10,
+  11: $car11,
+  12: $car12,
+  13: $car13,
+  14: $car14,
+  15: $car15,
+  16: $car16,
+  17: $car17,
+  18: $car18,
+  19: $car19,
+  20: $car20,
+  22: $car22,
+  23: $car23,
+  24: $car24,
+  25: $car25,
+  26: $car26,
+  27: $car27,
+  28: $car28,
+  29: $car29,
+  30: $car30,
+  31: $car31,
+  32: $car32,
+  33: $car33,
+  34: $car34,
+  35: $car35,
+  36: $car36,
+  37: $car37,
+  38: $car38,
+  39: $car39,
+  40: $car40,
+  41: $car41,
+  42: $car42,
+  43: $car43,
+  44: $car44,
+);
+
+@each $car-num, $car-variable in $standard-cars {
+  $car-data: get-car-data($car-num);
+  $size: 500px 200px;
+  @if type-of($car-data) == map {
+    $size: map-get($car-data, size);
+  } @else if $car-data {
+    $size: $car-data;
+  }
+
+  div[class*="car-base"].car#{$car-num} {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $car-variable;
+      background-repeat: no-repeat !important;
+      background-size: $size !important;
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
+}
+
+// Apply uniform shadow to all cars
+div[class*="car-base"] {
+  @include car-shadow;
+}
+
+// Special case for car1 with specific background-color
+.car1[style*="background-color: #777"] {
+  &::before {
+    background: $car1;
+    background-repeat: no-repeat !important;
+    background-size: 500px 200px !important;
+    background-position: center center !important;
+  }
+  background-color: $middlegray !important;
+}
+
+/* ===== CAR POSITION PRIORITIES FIX ===== */
+@for $i from 0 through 13 {
+  @include mask-position($i);
+}

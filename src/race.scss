@@ -519,6 +519,11 @@
                 transition: width 0.15s !important;
               }
             }
+
+            .nick_content {
+              // Fix none accessible nickname by cursor to show profile popup
+              z-index: 100 !important;
+            }
           }
         }
       }
@@ -722,11 +727,21 @@
 // Animations
 
 /* Bounce Animation Variables */
-$bounce-intensity: 0.6 !default;  // Multiplier for bounce heights (0.5 = half height, 2 = double height)
+$bounce-intensity: 0.6 !default; // Multiplier for bounce heights (0.5 = half height, 2 = double height)
 $rotation-intensity: 0.1 !default; // Multiplier for rotation degrees
-$ease-up: cubic-bezier(0.25, 0.46, 0.45, 0.94) !default;      // Going up timing
-$ease-down: cubic-bezier(0.55, 0.055, 0.675, 0.19) !default;  // Coming down timing
-$rotation-snap: cubic-bezier(0.68, -0.55, 0.265, 1.55) !default; // Aggressive rotation timing
+$ease-up: cubic-bezier(0.25, 0.46, 0.45, 0.94) !default; // Going up timing
+$ease-down: cubic-bezier(
+  0.55,
+  0.055,
+  0.675,
+  0.19
+) !default; // Coming down timing
+$rotation-snap: cubic-bezier(
+  0.68,
+  -0.55,
+  0.265,
+  1.55
+) !default; // Aggressive rotation timing
 
 @keyframes wait {
   0% {
@@ -734,7 +749,8 @@ $rotation-snap: cubic-bezier(0.68, -0.55, 0.265, 1.55) !default; // Aggressive r
     animation-timing-function: $ease-up;
   }
   10% {
-    transform: translateY(#{-30px * $bounce-intensity}) rotate(#{-30deg * $rotation-intensity});
+    transform: translateY(#{-30px * $bounce-intensity})
+      rotate(#{-30deg * $rotation-intensity});
     animation-timing-function: $ease-down;
   }
   20% {
@@ -746,7 +762,8 @@ $rotation-snap: cubic-bezier(0.68, -0.55, 0.265, 1.55) !default; // Aggressive r
     animation-timing-function: $ease-up;
   }
   27% {
-    transform: translateY(#{-18px * $bounce-intensity}) rotate(#{35deg * $rotation-intensity});
+    transform: translateY(#{-18px * $bounce-intensity})
+      rotate(#{35deg * $rotation-intensity});
     animation-timing-function: $ease-down;
   }
   35% {
@@ -758,7 +775,8 @@ $rotation-snap: cubic-bezier(0.68, -0.55, 0.265, 1.55) !default; // Aggressive r
     animation-timing-function: $ease-up;
   }
   40% {
-    transform: translateY(#{-8px * $bounce-intensity}) rotate(#{-25deg * $rotation-intensity});
+    transform: translateY(#{-8px * $bounce-intensity})
+      rotate(#{-25deg * $rotation-intensity});
     animation-timing-function: $ease-down;
   }
   47% {
@@ -770,7 +788,8 @@ $rotation-snap: cubic-bezier(0.68, -0.55, 0.265, 1.55) !default; // Aggressive r
     animation-timing-function: $ease-up;
   }
   50% {
-    transform: translateY(#{-3px * $bounce-intensity}) rotate(#{12deg * $rotation-intensity});
+    transform: translateY(#{-3px * $bounce-intensity})
+      rotate(#{12deg * $rotation-intensity});
     animation-timing-function: $ease-down;
   }
   55% {
