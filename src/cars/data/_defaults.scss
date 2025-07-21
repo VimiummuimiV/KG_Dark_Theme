@@ -24,6 +24,7 @@ $car17: transparent url("https://i.imgur.com/vBeeRS7.png") no-repeat !important;
 $car18: transparent url("https://i.imgur.com/awvJgeH.png") no-repeat !important;
 $car19: transparent url("https://i.imgur.com/Dh3ioZS.png") no-repeat !important;
 $car20: transparent url("https://i.imgur.com/qu1EHaB.png") no-repeat !important;
+$car21: transparent url("https://i.imgur.com/1b0c2a3.png") no-repeat !important; // Fake
 $car22: transparent url("https://i.imgur.com/XjAdCEu.png") no-repeat !important;
 $car23: transparent url("https://i.imgur.com/ivw7DJ6.png") no-repeat !important;
 $car24: transparent url("https://i.ibb.co/w6nKw0L/24.png") no-repeat !important;
@@ -47,3 +48,9 @@ $car41: transparent url("https://i.imgur.com/DD8a1m8.png") no-repeat !important;
 $car42: transparent url("https://i.imgur.com/hjtensL.png") no-repeat !important;
 $car43: transparent url("https://i.imgur.com/v8Mdsse.png") no-repeat !important;
 $car44: transparent url("https://i.imgur.com/o45oF5p.png") no-repeat !important;
+
+$svg-cars-defaults: (
+  "car1": $car1,
+  "car2": $car2,
+  "car3": $car3,
+);

@@ -1,6 +1,6 @@
 @import "../variables";
-@import "data/defaults";
-@import "data/exclusive";
+@import "./data/defaults";
+@import "./data/exclusive";
 
 // ===============================================
 // SVG Stroke Inset System - Simple & Working
@@ -10,23 +10,37 @@
 $default-stroke-width: 0.5 !default; // Stroke width controls inset depth
 $default-color: $darkgray !default; // Default fill/stroke color
 
-// String replacement helper (non-recursive)
+// String replacement helper
 @function str-replace($string, $search, $replace: "") {
-  $result: $string;
-  @while str-index($result, $search) {
-    $index: str-index($result, $search);
-    $result: str-slice($result, 1, $index - 1) +
-      $replace +
-      str-slice($result, $index + str-length($search));
+  @if str-length($search) == 0 { @return $string; }
+  $out: "";
+  $len: str-length($search);
+  $pos: str-index($string, $search);
+
+  @while $pos {
+    $out: $out + str-slice($string, 1, $pos - 1) + $replace;
+    $string: str-slice($string, $pos + $len);
+    $pos: str-index($string, $search);
   }
-  @return $result;
+
+  @return $out + $string;
 }
 
-// ...removed extract-fill-color function...
+
+// No need to extract fill color, always use $default-color
 
 // Convert SVG to data URL directly (no encoding)
+// Encode SVG for data URL
+@function svg-encode($svg) {
+  $svg: str-replace($svg, '#', '%23');
+  $svg: str-replace($svg, '<', '%3C');
+  $svg: str-replace($svg, '>', '%3E');
+  $svg: str-replace($svg, '"', "'");
+  @return $svg;
+}
+
 @function svg-url($svg) {
-  @return url("data:image/svg+xml;utf8,#{$svg}");
+  @return url("data:image/svg+xml;utf8,#{svg-encode($svg)}");
 }
 
 // Add stroke to SVG paths
@@ -60,20 +74,16 @@ $default-color: $darkgray !default; // Default fill/stroke color
 }
 
 // ============== PROCESS ==============
-// Define a map of car SVGs (example, extend as needed)
-$cars: (
-  car1: $car1,
-  car2: $car2,
-  car3: $car3,
-);
+// Merge SVG car maps from defaults and exclusive
+$svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);
 
-// Batch process all cars in the map
-$processed-cars: ();
-@each $name, $svg in $cars {
-  $processed-cars: map-merge(
-    $processed-cars,
+// Batch process all SVG cars
+$processed-svg-cars: ();
+@each $name, $svg in $svg-cars {
+  $processed-svg-cars: map-merge(
+    $processed-svg-cars,
     (
       $name: car($svg),
     )
-  );
+  ) !global;
 }
