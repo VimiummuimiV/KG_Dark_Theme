@@ -211,6 +211,15 @@ $car1: map-get($processed-svg-cars, "car1");
   @include car-shadow;
 }
 
+// Assign processed SVG to $car5 for correct background
+$car5: map-get($processed-svg-cars, "car5");
+
+// Apply car5 SVG background to .car .car5.car-tuning2_0
+.car .car5.car-tuning2_0 {
+  mask: $car5 no-repeat 0px -100px / 500px 200px, linear-gradient(#000 0 0) !important;
+  mask-composite: exclude !important;
+}
+
 /* ===== CAR POSITION PRIORITIES FIX ===== */
 @for $i from 0 through 13 {
   @include mask-position($i);
