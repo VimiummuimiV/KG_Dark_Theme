@@ -1,0 +1,210 @@
+// Simplified centralized configuration for all car properties
+
+// Unified car configuration map - only specify what you want to override
+$car-configs: (
+  // ZAZ 965
+  "car1": (
+    shadow-width: 70%,
+    shadow-space: 30%
+  ),
+  // VAZ 2104
+  "car2": (
+    shadow-width: 95%,
+    shadow-space: 30%
+  ),
+  // Belarus 922
+  "car3": (
+    size: 1000px 500px,
+    shadow-width: 90%,
+    shadow-space: 40%
+  ),
+  // Peugeot Boxer
+  "car4": (
+    shadow-width: 100%,
+    shadow-space: 20%
+  ),
+  // Fiat Strada
+  "car5": (
+    shadow-width: 90%,
+    shadow-space: 40%
+  ),
+  // Daewoo Matiz
+  "car7": (
+    shadow-width: 80%,
+    shadow-space: 40%
+  ),
+  // Volkswagen Passat B3
+  "car10": (
+    shadow-width: 90%,
+    shadow-space: 35%
+  ),
+  // Audi TT
+  "car13": (
+    shadow-width: 90%,
+    shadow-space: 35%
+  ),
+  // Bolid F1
+  "car15": (
+    size: 1000px 300px,
+    shadow-width: 95%,
+    shadow-space: null, // Continuous shadow
+  ),
+  // NLO - no center space needed
+  "car20": (
+    shadow-height: 30%,
+    shadow-width: 55%,
+    shadow-space: null, // Continuous shadow
+    shadow-opacity: 0.15
+  ),
+  // Smart Fortwo
+  "car23": (
+    shadow-width: 75%,
+  ),
+  // Volkswagen Beetle
+  "car26": (
+    shadow-width: 80%,
+  ),
+  // UAZ 3151 Hunter
+  "car38": (
+    shadow-width: 90%,
+  ),
+  // LM Rally Fighter
+  "car41": (
+    shadow-height: 30%,
+    shadow-width: 100%,
+    shadow-space: 35%
+  ),
+);
+
+// Default values - used when properties are missing from car configs
+$default-car-config: (
+  size: 500px 200px,
+  shadow-height: 15%,
+  shadow-width: 80%, // Default shadow covers 80% of car width
+  shadow-smoothness: 10%, // Default smoothness for all transitions
+  shadow-space: 35%, // Default space between wheel shadows (center area width)
+  shadow-opacity: 0.3, // Base shadow opacity (controls overall intensity)
+  shadow-wheel-multiplier: 1.5, // Wheel areas are 1.5x the base opacity
+  shadow-center-multiplier: 0.5 // Center area is 0.5x the base opacity
+);
+
+// Function to get car configuration with automatic fallback to defaults
+@function get-car-config($car-key, $property: null) {
+  $user-config: map-get($car-configs, $car-key);
+  
+  // If specific property requested
+  @if $property {
+    // Try to get from user config first
+    @if $user-config {
+      $user-value: map-get($user-config, $property);
+      // Check for null explicitly - don't fallback to default if user set null
+      @if $user-value != null {
+        @return $user-value;
+      } @else if map-has-key($user-config, $property) {
+        // User explicitly set null
+        @return null;
+      }
+    }
+    // Fallback to default
+    @return map-get($default-car-config, $property);
+  }
+  
+  // If returning full config, merge user config with defaults
+  @if $user-config {
+    @return map-merge($default-car-config, $user-config);
+  }
+  
+  @return $default-car-config;
+}
+
+// Enhanced mixin for car shadow with conditional center area
+@mixin car-shadow($car-key: null) {
+  $shadow-height: get-car-config($car-key, shadow-height);
+  $shadow-width: get-car-config($car-key, shadow-width);
+  $shadow-smoothness: get-car-config($car-key, shadow-smoothness);
+  $shadow-space: get-car-config($car-key, shadow-space);
+  $shadow-opacity: get-car-config($car-key, shadow-opacity);
+  $shadow-wheel-multiplier: get-car-config($car-key, shadow-wheel-multiplier);
+  $shadow-center-multiplier: get-car-config($car-key, shadow-center-multiplier);
+
+  // Calculate actual opacity values based on base opacity
+  $fade-opacity: $shadow-opacity; // Fade areas use base opacity
+  $wheel-opacity: $shadow-opacity * $shadow-wheel-multiplier; // Wheel areas are multiplied
+  $center-opacity: $shadow-opacity * $shadow-center-multiplier; // Center area is multiplied
+
+  // Clamp opacities to valid range (0-1)
+  $fade-opacity: min(max($fade-opacity, 0), 1);
+  $wheel-opacity: min(max($wheel-opacity, 0), 1);
+  $center-opacity: min(max($center-opacity, 0), 1);
+
+  // Calculate common shadow positioning
+  $shadow-offset: calc((100% - #{$shadow-width}) / 2); // Center the shadow
+  $fade-in-end: calc(#{$shadow-offset} + #{$shadow-smoothness});
+  $fade-out-start: calc(100% - #{$shadow-offset} - #{$shadow-smoothness});
+  $shadow-end: calc(100% - #{$shadow-offset});
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $shadow-height;
+    
+    // Build gradient stops dynamically
+    $gradient-stops: (
+      // Initial transparent areas and fade-in
+      transparent 0%,
+      transparent $shadow-offset,
+      rgba(0, 0, 0, $fade-opacity) $fade-in-end
+    );
+    
+    @if $shadow-space == null {
+      // Continuous shadow - simple uniform shadow across the width
+      $content-start: calc(#{$fade-in-end} + 2%);
+      $content-end: calc(#{$fade-out-start} - 2%);
+      
+      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $content-start, comma);
+      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $content-end, comma);
+    } @else {
+      // Wheel-based shadow - add left wheel, center, and right wheel areas
+      $wheel-area: calc((#{$shadow-width} - #{$shadow-space}) / 2);
+      $left-wheel-end: calc(#{$shadow-offset} + #{$wheel-area} - #{$shadow-smoothness});
+      $center-start: calc(#{$shadow-offset} + #{$wheel-area} + #{$shadow-smoothness});
+      $center-end: calc(100% - #{$shadow-offset} - #{$wheel-area} - #{$shadow-smoothness});
+      $right-wheel-start: calc(#{$center-end} + #{$shadow-smoothness});
+      
+      $content-start: calc(#{$fade-in-end} + 2%);
+      $content-end: calc(#{$fade-out-start} - 2%);
+      
+      // Left wheel area
+      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $content-start, comma);
+      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $left-wheel-end, comma);
+      
+      // Center transition and area
+      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $center-opacity) $center-start, comma);
+      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $center-opacity) $center-end, comma);
+      
+      // Right wheel area
+      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $right-wheel-start, comma);
+      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $content-end, comma);
+    }
+    
+    // Final fade out and transparent areas
+    $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $fade-opacity) $fade-out-start, comma);
+    $gradient-stops: append($gradient-stops, transparent $shadow-end, comma);
+    $gradient-stops: append($gradient-stops, transparent 100%, comma);
+    
+    background: linear-gradient(to right, $gradient-stops) no-repeat 0 0 / 100% 100%;
+    
+    // Automatic 50/50 perspective fade mask
+    mask: 
+      linear-gradient(
+        to top,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0) 50%
+      );
+    
+    z-index: 1;
+  }
+}

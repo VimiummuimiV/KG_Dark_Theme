@@ -2,25 +2,7 @@
 @import "data/defaults";
 @import "data/exclusive";
 @import "mask";
-
-// Shadow configuration
-$shadow-fade-width: 20%; // Controls the fade width on each side (affects shadow length)
-$shadow-opacity: 0.3; // Controls the darkness of the shadow (affects smoothness)
-
-// Map of car background sizes
-$car-sizes: (
-  "car3": (
-    size: 1000px 500px,
-  ),
-  "car15": (
-    size: 1000px 300px,
-  ),
-);
-
-// Function to get car data
-@function get-car-data($car-key) {
-  @return map-get($car-sizes, $car-key);
-}
+@import "car-config";
 
 // Mixin for mask positions
 @mixin mask-position($base-num) {
@@ -33,50 +15,10 @@ $car-sizes: (
   }
 }
 
-// Mixin for car shadow (uniform for all cars)
-@mixin car-shadow {
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5%;
-    background: radial-gradient(
-          ellipse at center,
-          rgba(0, 0, 0, 0.5) 0%,
-          transparent 70%
-        )
-        no-repeat 10% 100% / 50px 20px,
-      radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, transparent 70%)
-        no-repeat 90% 100% / 50px 20px,
-      linear-gradient(
-          to right,
-          transparent 0%,
-          rgba(0, 0, 0, $shadow-opacity) $shadow-fade-width,
-          rgba(0, 0, 0, $shadow-opacity) calc(100% - #{$shadow-fade-width}),
-          transparent 100%
-        )
-        no-repeat 0 0 / 100% 100%;
-    z-index: 1;
-  }
-}
-
 // Mixin for creating car styles with pseudo elements
 @mixin car-style($car-class, $variable-name, $car-key: null) {
-  $car-data: null;
-  @if $car-key {
-    $car-data: get-car-data($car-key);
-  } @else {
-    $car-data: get-car-data($car-class);
-  }
-
-  $size: 500px 200px; // Default size
-  @if type-of($car-data) == map {
-    $size: map-get($car-data, size);
-  } @else if $car-data {
-    $size: $car-data;
-  }
+  $config-key: if($car-key, $car-key, $car-class);
+  $size: get-car-config($config-key, size);
 
   div[class*="car-base"].#{$car-class} {
     position: relative;
@@ -95,25 +37,17 @@ $car-sizes: (
       pointer-events: none;
       z-index: 1;
     }
+    
+    // Apply shadow with automatic fallback to defaults
+    @include car-shadow($config-key);
   }
 }
 
 // Mixin for creating car styles with multiple classes
 @mixin car-group($car-classes, $variable-name, $car-key: null) {
   @each $class in $car-classes {
-    $car-data: null;
-    @if $car-key {
-      $car-data: get-car-data($car-key);
-    } @else {
-      $car-data: get-car-data($class);
-    }
-
-    $size: 500px 250px; // Default size
-    @if type-of($car-data) == map {
-      $size: map-get($car-data, size);
-    } @else if $car-data {
-      $size: $car-data;
-    }
+    $config-key: if($car-key, $car-key, $class);
+    $size: get-car-config($config-key, size);
 
     div[class*="car-base"].#{$class} {
       position: relative;
@@ -131,6 +65,9 @@ $car-sizes: (
         pointer-events: none;
         z-index: 1;
       }
+      
+      // Apply shadow with automatic fallback to defaults
+      @include car-shadow($config-key);
     }
   }
 }
@@ -153,12 +90,7 @@ $svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);
 @each $car-key, $svg in $svg-cars {
   // Determine class name: if key is number, use car#{$car-key}; else use key as-is
   $class-name: if(type-of($car-key) == "number", "car#{$car-key}", $car-key);
-  $car-size-data: map-get($car-sizes, $car-key);
-  $size: if(
-    type-of($car-size-data) == map and map-has-key($car-size-data, size),
-    map-get($car-size-data, size),
-    500px 200px
-  );
+  $size: get-car-config($car-key, size);
 
   div[class*="car-base"].#{$class-name} {
     position: relative;
@@ -179,12 +111,10 @@ $svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);
       pointer-events: none;
       z-index: 1;
     }
+    
+    // Apply shadow with automatic property fallback
+    @include car-shadow($car-key);
   }
-}
-
-// Apply uniform shadow to all cars
-div[class*="car-base"] {
-  @include car-shadow;
 }
 
 // Assign processed SVG to $car1 for correct background
@@ -204,11 +134,11 @@ $car1: map-get($processed-svg-cars, "car1");
     height: 100%;
     background: $car1 !important;
     background-repeat: no-repeat !important;
-    background-size: 500px 200px !important;
+    background-size: get-car-config("car1", size) !important;
     z-index: 1;
   }
 
-  @include car-shadow;
+  @include car-shadow("car1");
 }
 
 // Assign processed SVG to $car5 for correct background
@@ -216,7 +146,8 @@ $car5: map-get($processed-svg-cars, "car5");
 
 // Apply car5 SVG background to .car .car5.car-tuning2_0
 .car .car5.car-tuning2_0 {
-  mask: $car5 no-repeat 0px -100px / 500px 200px, linear-gradient(#000 0 0) !important;
+  $car5-size: get-car-config("car5", size);
+  mask: $car5 no-repeat 0px -100px / #{$car5-size}, linear-gradient(#000 0 0) !important;
   mask-composite: exclude !important;
 }
 
