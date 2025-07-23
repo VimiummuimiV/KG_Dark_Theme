@@ -68,6 +68,13 @@ $car-configs: (
   "car38": (
     shadow-width: 90%,
   ),
+  // Chevrolet EN-V
+  "car40": (
+    shadow-height: 20%,
+    shadow-width: 50%,
+    shadow-space: null, // Continuous shadow
+    shadow-opacity: 0.2 // Lower opacity for smaller car
+  ),
   // LM Rally Fighter
   "car41": (
     shadow-height: 30%,

@@ -6,10 +6,11 @@
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
     "webpack": "^5.100.1",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   },
   "scripts": {
-    "dev": "webpack --watch --mode development",
+    "dev": "webpack serve --mode development",
     "build": "webpack --mode production",
     "build:version": "node increment-version.js && webpack --mode production"
   }

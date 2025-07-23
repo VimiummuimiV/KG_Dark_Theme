@@ -111,7 +111,7 @@ $svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);
       pointer-events: none;
       z-index: 1;
     }
-    
+
     // Apply shadow with automatic property fallback
     @include car-shadow($car-key);
   }
@@ -155,3 +155,4 @@ $car5: map-get($processed-svg-cars, "car5");
 @for $i from 0 through 13 {
   @include mask-position($i);
 }
+    
