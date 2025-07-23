@@ -7,8 +7,9 @@
 // ===============================================
 
 // Global inset configuration
-$default-stroke-width: 0.3 !default; // Stroke width controls inset depth
+$default-stroke-width: 0.6 !default; // Stroke width controls inset depth
 $default-color: $darkgray !default; // Default fill/stroke color
+$default-stroke-opacity: 30 !default; // Default full opacity (0-100)
 
 // String replacement helper
 @function str-replace($string, $search, $replace: "") {
@@ -16,20 +17,14 @@ $default-color: $darkgray !default; // Default fill/stroke color
   $out: "";
   $len: str-length($search);
   $pos: str-index($string, $search);
-
   @while $pos {
     $out: $out + str-slice($string, 1, $pos - 1) + $replace;
     $string: str-slice($string, $pos + $len);
     $pos: str-index($string, $search);
   }
-
   @return $out + $string;
 }
 
-
-// No need to extract fill color, always use $default-color
-
-// Convert SVG to data URL directly (no encoding)
 // Encode SVG for data URL
 @function svg-encode($svg) {
   $svg: str-replace($svg, '#', '%23');
@@ -43,37 +38,33 @@ $default-color: $darkgray !default; // Default fill/stroke color
   @return url("data:image/svg+xml;utf8,#{svg-encode($svg)}");
 }
 
-// Add stroke to SVG paths
-@function add-stroke(
-  $svg,
-  $stroke-width: $default-stroke-width,
-  $fill-color: null
-) {
-  // Use provided fill color or default
-  $color: if($fill-color != null, $fill-color, $default-color);
+// Convert 0-100 opacity to hex
+@function opacity-to-hex($o) {
+  $v: round(if($o < 0, 0, if($o > 100, 100, $o)) * 2.55);
+  $h: "0123456789ABCDEF";
+  @return str-slice($h, floor($v / 16) + 1, floor($v / 16) + 1) + str-slice($h, ($v % 16) + 1, ($v % 16) + 1);
+}
 
-  // Add fill, stroke, and stroke-width attributes compactly
-  $attrs: 'fill="#{$color}" stroke="#{$color}" stroke-width="#{$stroke-width}"';
-  $result: str-replace($svg, "<path", "<path #{$attrs}");
-  @return $result;
+// Add stroke to SVG paths with opacity support
+@function add-stroke($svg, $stroke-width: $default-stroke-width, $fill-color: null, $stroke-opacity: $default-stroke-opacity) {
+  $color: if($fill-color != null, $fill-color, $default-color);
+  $fill: inspect($color);
+  $stroke: inspect($color) + opacity-to-hex($stroke-opacity);
+  @return str-replace($svg, "<path", "<path fill=\"#{$fill}\" stroke=\"#{$stroke}\" stroke-width=\"#{$stroke-width}\"");
 }
 
 // Main function: process SVG and return CSS background URL
-@function svg-stroke(
-  $svg,
-  $stroke-width: $default-stroke-width,
-  $fill-color: null
-) {
-  $processed: add-stroke($svg, $stroke-width, $fill-color);
-  @return svg-url($processed);
+@function svg-stroke($svg, $stroke-width: $default-stroke-width, $fill-color: null, $stroke-opacity: $default-stroke-opacity) {
+  @return svg-url(add-stroke($svg, $stroke-width, $fill-color, $stroke-opacity));
 }
 
 // Short function name for convenience
-@function car($svg, $stroke-width: $default-stroke-width, $fill-color: null) {
-  @return svg-stroke($svg, $stroke-width, $fill-color);
+@function car($svg, $stroke-width: $default-stroke-width, $fill-color: null, $stroke-opacity: $default-stroke-opacity) {
+  @return svg-stroke($svg, $stroke-width, $fill-color, $stroke-opacity);
 }
 
 // ============== PROCESS ==============
+
 // Merge SVG car maps from defaults and exclusive
 $svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);
 
