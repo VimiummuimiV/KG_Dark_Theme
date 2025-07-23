@@ -1,7 +1,8 @@
 // Simplified centralized configuration for all car properties
 
 // Unified car configuration map - only specify what you want to override
-$car-configs: (
+
+$car-configs-defaults: (
   // ZAZ 965
   "car1": (
     shadow-width: 70%,
@@ -82,6 +83,22 @@ $car-configs: (
     shadow-space: 35%
   ),
 );
+
+$car-configs-exclusive: (
+  // Batpod
+  "car1011": (
+    shadow-width: 100%,
+    shadow-space: 40%
+  ),
+  // Tumbler
+  "car1023": (
+    shadow-width: 95%,
+    shadow-height: 30%,
+    shadow-space: null, // Continuous shadow
+  ),
+);
+
+$car-configs: map-merge($car-configs-defaults, $car-configs-exclusive);
 
 // Default values - used when properties are missing from car configs
 $default-car-config: (

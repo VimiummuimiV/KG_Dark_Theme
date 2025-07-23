@@ -20,7 +20,7 @@
   $config-key: if($car-key, $car-key, $car-class);
   $size: get-car-config($config-key, size);
 
-  div[class*="car-base"].#{$car-class} {
+  .car .#{$car-class}:not(.car-tuning) {
     position: relative;
 
     &::before {
@@ -37,7 +37,7 @@
       pointer-events: none;
       z-index: 1;
     }
-    
+
     // Apply shadow with automatic fallback to defaults
     @include car-shadow($config-key);
   }
@@ -49,7 +49,7 @@
     $config-key: if($car-key, $car-key, $class);
     $size: get-car-config($config-key, size);
 
-    div[class*="car-base"].#{$class} {
+    .car .#{$class}:not(.car-tuning) {
       position: relative;
 
       &::before {
@@ -65,7 +65,7 @@
         pointer-events: none;
         z-index: 1;
       }
-      
+
       // Apply shadow with automatic fallback to defaults
       @include car-shadow($config-key);
     }
@@ -88,11 +88,11 @@ $svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);
 
 // Dynamically generate car selectors and backgrounds from $svg-cars
 @each $car-key, $svg in $svg-cars {
-  // Determine class name: if key is number, use car#{$car-key}; else use key as-is
-  $class-name: if(type-of($car-key) == "number", "car#{$car-key}", $car-key);
+  // Use key as class name for both default and exclusive cars
+  $class-name: $car-key;
   $size: get-car-config($car-key, size);
 
-  div[class*="car-base"].#{$class-name} {
+  .car .#{$class-name}:not(.car-tuning) {
     position: relative;
     &::before {
       content: "";
@@ -101,11 +101,7 @@ $svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);
       left: 0;
       width: 100%;
       height: 100%;
-      background: if(
-        type-of(map-get($processed-svg-cars, $car-key)) == "string",
-        map-get($processed-svg-cars, $car-key),
-        map-get($svg-cars, $car-key)
-      );
+      background: map-get($processed-svg-cars, $car-key);
       background-repeat: no-repeat !important;
       background-size: #{$size} !important;
       pointer-events: none;
@@ -151,8 +147,19 @@ $car5: map-get($processed-svg-cars, "car5");
   mask-composite: exclude !important;
 }
 
+// Assign processed SVG to $car17 for correct background
+$car17: map-get($processed-svg-cars, "car17");
+
+// Apply car17 SVG background to .car .car17.car-tuning1_0
+.car .car17.car-tuning1_0 {
+  $car17-size: get-car-config("car17", size);
+  mask: $car17 no-repeat 0px -50px / #{$car17-size}, linear-gradient(#000 0 0) !important;
+  mask-composite: exclude !important;
+}
+
+
+
 /* ===== CAR POSITION PRIORITIES FIX ===== */
 @for $i from 0 through 13 {
   @include mask-position($i);
 }
-    

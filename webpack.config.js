@@ -71,6 +71,11 @@ export default {
     path: _resolve(fileURLToPath(import.meta.url), '..', 'dist'),
     clean: false,
   },
+  devServer: {
+    devMiddleware: {
+      writeToDisk: true 
+    }
+  },
   module: {
     rules: [
       {
