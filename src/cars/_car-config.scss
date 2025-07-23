@@ -3,100 +3,140 @@
 // Unified car configuration map - only specify what you want to override
 
 $car-configs-defaults: (
-  // ZAZ 965
-  "car1": (
-    shadow-width: 70%,
-    shadow-space: 30%
-  ),
-  // VAZ 2104
-  "car2": (
-    shadow-width: 95%,
-    shadow-space: 30%
-  ),
-  // Belarus 922
-  "car3": (
-    size: 1000px 500px,
-    shadow-width: 90%,
-    shadow-space: 40%
-  ),
-  // Peugeot Boxer
-  "car4": (
-    shadow-width: 100%,
-    shadow-space: 20%
-  ),
-  // Fiat Strada
-  "car5": (
-    shadow-width: 90%,
-    shadow-space: 40%
-  ),
-  // Daewoo Matiz
-  "car7": (
-    shadow-width: 80%,
-    shadow-space: 40%
-  ),
-  // Volkswagen Passat B3
-  "car10": (
-    shadow-width: 90%,
-    shadow-space: 35%
-  ),
-  // Audi TT
-  "car13": (
-    shadow-width: 90%,
-    shadow-space: 35%
-  ),
-  // Bolid F1
-  "car15": (
-    size: 1000px 300px,
-    shadow-width: 95%,
-    shadow-space: null, // Continuous shadow
-  ),
-  // NLO - no center space needed
-  "car20": (
-    shadow-height: 30%,
-    shadow-width: 55%,
-    shadow-space: null, // Continuous shadow
-    shadow-opacity: 0.15
-  ),
-  // Smart Fortwo
-  "car23": (
-    shadow-width: 75%,
-  ),
-  // Volkswagen Beetle
-  "car26": (
-    shadow-width: 80%,
-  ),
-  // UAZ 3151 Hunter
-  "car38": (
-    shadow-width: 90%,
-  ),
-  // Chevrolet EN-V
-  "car40": (
-    shadow-height: 20%,
-    shadow-width: 50%,
-    shadow-space: null, // Continuous shadow
-    shadow-opacity: 0.2 // Lower opacity for smaller car
-  ),
-  // LM Rally Fighter
-  "car41": (
-    shadow-height: 35%,
-    shadow-width: 100%,
-    shadow-space: 50%,
-    shadow-offset-y: 1px
-  ),
+  // ZAZ_965
+  "car1":
+    (
+      shadow-width: 70%,
+      shadow-space: 30%,
+    ),
+  // VAZ_2104
+  "car2":
+    (
+      shadow-width: 95%,
+      shadow-space: 30%,
+    ),
+  // Belarus_922
+  "car3":
+    (
+      size: 1000px 500px,
+      shadow-width: 90%,
+      shadow-space: 40%,
+    ),
+  // Peugeot_Boxer
+  "car4":
+    (
+      shadow-width: 100%,
+      shadow-space: 40%,
+    ),
+  // Fiat_Strada
+  "car5":
+    (
+      shadow-width: 90%,
+      shadow-space: 40%,
+    ),
+  // Daewoo_Matiz
+  "car7":
+    (
+      shadow-width: 80%,
+      shadow-space: 40%,
+    ),
+  // Ford_Focus_Mk2
+  "car8":
+    (
+      shadow-width: 95%,
+      shadow-space: 40%,
+      shadow-offset-y: 1px,
+    ),
+  // Volkswagen_Passat_B3
+  "car10":
+    (
+      shadow-width: 90%,
+      shadow-space: 35%,
+    ),
+  // Mitsubishi_Lancer_X
+  "car11":
+    (
+      shadow-width: 95%,
+      shadow-space: 40%,
+      shadow-offset-y: 2px,
+    ),
+  // Audi_TT
+  "car13":
+    (
+      shadow-width: 90%,
+      shadow-space: 35%,
+    ),
+  // Bolid_F1
+  "car15":
+    (
+      size: 1000px 300px,
+      shadow-width: 95%,
+      shadow-space: null,
+      // Continuous shadow
+    ),
+  // NLO
+  "car20":
+    (
+      shadow-height: 30%,
+      shadow-width: 55%,
+      shadow-space: null,
+      // Continuous shadow
+      shadow-opacity: 0.15,
+    ),
+  // Smart_Fortwo
+  "car23":
+    (
+      shadow-width: 75%,
+    ),
+  // Volkswagen_Beetle
+  "car26":
+    (
+      shadow-width: 80%,
+    ),
+  // Nissan_Round_Box
+  "car37":
+    (
+      shadow-offset-x: -4px
+    ),
+  // UAZ_3151_Hunter
+  "car38":
+    (
+      shadow-width: 90%,
+    ),
+  // Chevrolet_EN-V
+  "car40":
+    (
+      shadow-height: 20%,
+      shadow-width: 50%,
+      shadow-space: null,
+      // Continuous shadow
+      shadow-opacity: 0.2 // Lower opacity for smaller car,,,,
+    ),
+  // LM_Rally_Fighter
+  "car41":
+    (
+      shadow-height: 35%,
+      shadow-width: 100%,
+      shadow-space: 60%,
+      shadow-offset-y: 1px,
+    )
 );
 
 $car-configs-exclusive: (
   // Batpod
-  "car1011": (
-    shadow-width: 100%,
-    shadow-space: 40%
-  ),
+  "car1011":
+    (
+      shadow-width: 100%,
+      shadow-space: 40%,
+    ),
   // Tumbler
-  "car1023": (
-    shadow-width: 95%,
-    shadow-height: 30%,
-    shadow-space: null, // Continuous shadow
-  ),
+  "car1023":
+    (
+      shadow-width: 95%,
+      shadow-height: 30%,
+      shadow-space: null,
+      // Continuous shadow
+    )
 );
 
 $car-configs: map-merge($car-configs-defaults, $car-configs-exclusive);
@@ -105,20 +145,27 @@ $car-configs: map-merge($car-configs-defaults, $car-configs-exclusive);
 $default-car-config: (
   size: 500px 200px,
   shadow-height: 15%,
-  shadow-width: 80%, // Default shadow covers 80% of car width
-  shadow-smoothness: 10%, // Default smoothness for all transitions
-  shadow-space: 35%, // Default space between wheel shadows (center area width)
-  shadow-opacity: 0.3, // Base shadow opacity (controls overall intensity)
-  shadow-wheel-multiplier: 1.5, // Wheel areas are 1.5x the base opacity
-  shadow-center-multiplier: 0.5, // Center area is 0.5x the base opacity
-  shadow-offset-x: 0px, // Horizontal offset (positive = right, negative = left)
-  shadow-offset-y: 0px  // Vertical offset (positive = down, negative = up)
+  shadow-width: 80%,
+  // Default shadow covers 80% of car width
+  shadow-smoothness: 10%,
+  // Default smoothness for all transitions
+  shadow-space: 35%,
+  // Default space between wheel shadows (center area width)
+  shadow-opacity: 0.3,
+  // Base shadow opacity (controls overall intensity)
+  shadow-wheel-multiplier: 1.5,
+  // Wheel areas are 1.5x the base opacity
+  shadow-center-multiplier: 0.5,
+  // Center area is 0.5x the base opacity
+  shadow-offset-x: 0px,
+  // Horizontal offset (positive = right, negative = left)
+  shadow-offset-y: 0px // Vertical offset (positive = down, negative = up),,,,
 );
 
 // Function to get car configuration with automatic fallback to defaults
 @function get-car-config($car-key, $property: null) {
   $user-config: map-get($car-configs, $car-key);
-  
+
   // If specific property requested
   @if $property {
     // Try to get from user config first
@@ -135,12 +182,12 @@ $default-car-config: (
     // Fallback to default
     @return map-get($default-car-config, $property);
   }
-  
+
   // If returning full config, merge user config with defaults
   @if $user-config {
     @return map-merge($default-car-config, $user-config);
   }
-  
+
   @return $default-car-config;
 }
 
@@ -175,14 +222,14 @@ $default-car-config: (
   &::after {
     content: "";
     position: absolute;
-    
+
     // Apply offsets to positioning
     bottom: #{$shadow-offset-y};
     left: #{$shadow-offset-x};
-    
+
     width: 100%;
     height: $shadow-height;
-    
+
     // Build gradient stops dynamically
     $gradient-stops: (
       // Initial transparent areas and fade-in
@@ -190,53 +237,95 @@ $default-car-config: (
       transparent $shadow-offset,
       rgba(0, 0, 0, $fade-opacity) $fade-in-end
     );
-    
+
     @if $shadow-space == null {
       // Continuous shadow - simple uniform shadow across the width
       $content-start: calc(#{$fade-in-end} + 2%);
       $content-end: calc(#{$fade-out-start} - 2%);
-      
-      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $content-start, comma);
-      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $content-end, comma);
+
+      $gradient-stops: append(
+        $gradient-stops,
+        rgba(0, 0, 0, $wheel-opacity) $content-start,
+        comma
+      );
+      $gradient-stops: append(
+        $gradient-stops,
+        rgba(0, 0, 0, $wheel-opacity) $content-end,
+        comma
+      );
     } @else {
       // Wheel-based shadow - add left wheel, center, and right wheel areas
       $wheel-area: calc((#{$shadow-width} - #{$shadow-space}) / 2);
-      $left-wheel-end: calc(#{$shadow-offset} + #{$wheel-area} - #{$shadow-smoothness});
-      $center-start: calc(#{$shadow-offset} + #{$wheel-area} + #{$shadow-smoothness});
-      $center-end: calc(100% - #{$shadow-offset} - #{$wheel-area} - #{$shadow-smoothness});
+      $left-wheel-end: calc(
+        #{$shadow-offset} + #{$wheel-area} - #{$shadow-smoothness}
+      );
+      $center-start: calc(
+        #{$shadow-offset} + #{$wheel-area} + #{$shadow-smoothness}
+      );
+      $center-end: calc(
+        100% - #{$shadow-offset} - #{$wheel-area} - #{$shadow-smoothness}
+      );
       $right-wheel-start: calc(#{$center-end} + #{$shadow-smoothness});
-      
+
       $content-start: calc(#{$fade-in-end} + 2%);
       $content-end: calc(#{$fade-out-start} - 2%);
-      
+
       // Left wheel area
-      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $content-start, comma);
-      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $left-wheel-end, comma);
-      
+      $gradient-stops: append(
+        $gradient-stops,
+        rgba(0, 0, 0, $wheel-opacity) $content-start,
+        comma
+      );
+      $gradient-stops: append(
+        $gradient-stops,
+        rgba(0, 0, 0, $wheel-opacity) $left-wheel-end,
+        comma
+      );
+
       // Center transition and area
-      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $center-opacity) $center-start, comma);
-      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $center-opacity) $center-end, comma);
-      
+      $gradient-stops: append(
+        $gradient-stops,
+        rgba(0, 0, 0, $center-opacity) $center-start,
+        comma
+      );
+      $gradient-stops: append(
+        $gradient-stops,
+        rgba(0, 0, 0, $center-opacity) $center-end,
+        comma
+      );
+
       // Right wheel area
-      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $right-wheel-start, comma);
-      $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $wheel-opacity) $content-end, comma);
+      $gradient-stops: append(
+        $gradient-stops,
+        rgba(0, 0, 0, $wheel-opacity) $right-wheel-start,
+        comma
+      );
+      $gradient-stops: append(
+        $gradient-stops,
+        rgba(0, 0, 0, $wheel-opacity) $content-end,
+        comma
+      );
     }
-    
+
     // Final fade out and transparent areas
-    $gradient-stops: append($gradient-stops, rgba(0, 0, 0, $fade-opacity) $fade-out-start, comma);
+    $gradient-stops: append(
+      $gradient-stops,
+      rgba(0, 0, 0, $fade-opacity) $fade-out-start,
+      comma
+    );
     $gradient-stops: append($gradient-stops, transparent $shadow-end, comma);
     $gradient-stops: append($gradient-stops, transparent 100%, comma);
-    
-    background: linear-gradient(to right, $gradient-stops) no-repeat 0 0 / 100% 100%;
-    
+
+    background: linear-gradient(to right, $gradient-stops) no-repeat 0 0 / 100%
+      100%;
+
     // Automatic 50/50 perspective fade mask
-    mask: 
-      linear-gradient(
-        to top,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0) 50%
-      );
-    
+    mask: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0) 50%
+    );
+
     z-index: 1;
   }
 }
