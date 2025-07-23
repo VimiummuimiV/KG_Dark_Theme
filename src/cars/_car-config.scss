@@ -78,9 +78,10 @@ $car-configs-defaults: (
   ),
   // LM Rally Fighter
   "car41": (
-    shadow-height: 30%,
+    shadow-height: 35%,
     shadow-width: 100%,
-    shadow-space: 35%
+    shadow-space: 50%,
+    shadow-offset-y: 1px
   ),
 );
 
@@ -109,7 +110,9 @@ $default-car-config: (
   shadow-space: 35%, // Default space between wheel shadows (center area width)
   shadow-opacity: 0.3, // Base shadow opacity (controls overall intensity)
   shadow-wheel-multiplier: 1.5, // Wheel areas are 1.5x the base opacity
-  shadow-center-multiplier: 0.5 // Center area is 0.5x the base opacity
+  shadow-center-multiplier: 0.5, // Center area is 0.5x the base opacity
+  shadow-offset-x: 0px, // Horizontal offset (positive = right, negative = left)
+  shadow-offset-y: 0px  // Vertical offset (positive = down, negative = up)
 );
 
 // Function to get car configuration with automatic fallback to defaults
@@ -141,7 +144,7 @@ $default-car-config: (
   @return $default-car-config;
 }
 
-// Enhanced mixin for car shadow with conditional center area
+// Enhanced mixin for car shadow with conditional center area and X/Y offset support
 @mixin car-shadow($car-key: null) {
   $shadow-height: get-car-config($car-key, shadow-height);
   $shadow-width: get-car-config($car-key, shadow-width);
@@ -150,6 +153,8 @@ $default-car-config: (
   $shadow-opacity: get-car-config($car-key, shadow-opacity);
   $shadow-wheel-multiplier: get-car-config($car-key, shadow-wheel-multiplier);
   $shadow-center-multiplier: get-car-config($car-key, shadow-center-multiplier);
+  $shadow-offset-x: get-car-config($car-key, shadow-offset-x);
+  $shadow-offset-y: get-car-config($car-key, shadow-offset-y);
 
   // Calculate actual opacity values based on base opacity
   $fade-opacity: $shadow-opacity; // Fade areas use base opacity
@@ -170,8 +175,11 @@ $default-car-config: (
   &::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
+    
+    // Apply offsets to positioning
+    bottom: #{$shadow-offset-y};
+    left: #{$shadow-offset-x};
+    
     width: 100%;
     height: $shadow-height;
     

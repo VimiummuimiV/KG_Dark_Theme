@@ -10,7 +10,7 @@
     "webpack-dev-server": "^5.2.2"
   },
   "scripts": {
-    "dev": "webpack serve --mode development",
+    "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "build:version": "node increment-version.js && webpack --mode production"
   }
