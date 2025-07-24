@@ -167,6 +167,11 @@ $car-configs-defaults: (
       shadow-width: 100%,
       shadow-space: 60%,
       shadow-offset-y: 1px,
+    ),
+  // Caravelle
+  "car45":
+    (
+      shadow-offset-y: -7px,
     )
 );
 
@@ -207,7 +212,7 @@ $default-car-config: (
   shadow-offset-x: 0px,
   // Horizontal offset (positive = right, negative = left)
   shadow-offset-y: 0px
-    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,,,
+    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,,,,,,
 );
 
 // Function to get car configuration with automatic fallback to defaults
