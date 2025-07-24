@@ -34,6 +34,13 @@ $car-configs-defaults: (
       shadow-width: 90%,
       shadow-space: 40%,
     ),
+  // Hummer_H3
+  "car6":
+    (
+      shadow-width: 90%,
+      shadow-space: 50%,
+      shadow-offset-x: 4px,
+    ),
   // Daewoo_Matiz
   "car7":
     (
@@ -46,6 +53,13 @@ $car-configs-defaults: (
       shadow-width: 95%,
       shadow-space: 40%,
       shadow-offset-y: 1px,
+    ),
+  // Toyota_Land_Cruiser
+  "car9":
+    (
+      shadow-width: 90%,
+      shadow-space: 45%,
+      shadow-offset-x: 4px,
     ),
   // Volkswagen_Passat_B3
   "car10":
@@ -79,6 +93,13 @@ $car-configs-defaults: (
       size: 1000px 300px,
       shadow-width: 95%,
       shadow-space: null,
+    ),
+  // Lamborghini_Murcielago
+  "car16":
+    (
+      shadow-width: 88%,
+      shadow-space: 40%,
+      shadow-offset-y: 1px,
     ),
   // Batmobile
   "car17":
@@ -118,16 +139,23 @@ $car-configs-defaults: (
       shadow-width: 95%,
       shadow-space: null,
     ),
+  // Citroen_Hypnos
+  "car28":
+    (
+      shadow-width: 90%,
+      shadow-space: 40%,
+      shadow-offset-x: 2px,
+    ),
   // Renault_Megane
   "car29":
     (
       shadow-width: 90%,
       shadow-space: 40%,
     ),
-  // Insecator
-  "car32":
+  // Subaru_Tourer
+  "car30":
     (
-      shadow-width: 100%,
+      shadow-width: 95%,
       shadow-space: null,
     ),
   // Tram
@@ -135,6 +163,24 @@ $car-configs-defaults: (
     (
       shadow-width: 100%,
       shadow-space: null,
+    ),
+  // Insecator
+  "car32":
+    (
+      shadow-width: 100%,
+      shadow-space: null,
+    ),
+  // Bugatti_Galibier
+  "car33":
+    (
+      shadow-width: 100%,
+      shadow-space: null,
+    ),
+  // Chevrolet_Orlando
+  "car34":
+    (
+      shadow-width: 95%,
+      shadow-space: 40%,
     ),
   // Nissan_Round_Box
   "car37":
@@ -167,6 +213,14 @@ $car-configs-defaults: (
       shadow-width: 100%,
       shadow-space: 60%,
       shadow-offset-y: 1px,
+    ),
+  // Porsche_Cayenne_S
+  "car43":
+    (
+      size: 900px 500px,
+      shadow-width: 95%,
+      shadow-space: 50%,
+      shadow-offset-x: 2px,
     ),
   // Caravelle
   "car45":
@@ -213,7 +267,7 @@ $default-car-config: (
   shadow-offset-x: 0px,
   // Horizontal offset (positive = right, negative = left)
   shadow-offset-y: 0px
-    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,,,,,,
+    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,,,,,,,,,,,,,
 );
 
 // Function to get car configuration with automatic fallback to defaults
