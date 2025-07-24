@@ -60,6 +60,13 @@ $car-configs-defaults: (
       shadow-space: 40%,
       shadow-offset-y: 2px,
     ),
+  // BMW_X6
+  "car12":
+    (
+      shadow-width: 98%,
+      shadow-space: 50%,
+      shadow-offset-x: 2.5px,
+    ),
   // Audi_TT
   "car13":
     (
@@ -72,7 +79,6 @@ $car-configs-defaults: (
       size: 1000px 300px,
       shadow-width: 95%,
       shadow-space: null,
-      // Continuous shadow
     ),
   // NLO
   "car20":
@@ -80,7 +86,6 @@ $car-configs-defaults: (
       shadow-height: 30%,
       shadow-width: 55%,
       shadow-space: null,
-      // Continuous shadow
       shadow-opacity: 0.15,
     ),
   // Smart_Fortwo
@@ -88,20 +93,52 @@ $car-configs-defaults: (
     (
       shadow-width: 75%,
     ),
+  // SS-1
+  "car25":
+    (
+      shadow-width: 90%,
+      shadow-height: 25%,
+      shadow-space: null,
+      shadow-opacity: 0.2,
+    ),
   // Volkswagen_Beetle
   "car26":
     (
       shadow-width: 80%,
     ),
+  // Dodge_Viper
+  "car27":
+    (
+      shadow-width: 95%,
+      shadow-space: null,
+    ),
+  // Renault_Megane
+  "car29":
+    (
+      shadow-width: 90%,
+      shadow-space: 40%,
+    ),
+  // Insecator
+  "car32":
+    (
+      shadow-width: 100%,
+      shadow-space: null,
+    ),
   // Nissan_Round_Box
   "car37":
     (
-      shadow-offset-x: -4px
+      shadow-offset-x: -4px,
     ),
   // UAZ_3151_Hunter
   "car38":
     (
       shadow-width: 90%,
+    ),
+  // Danny_Chhang_Concept
+  "car39":
+    (
+      shadow-width: 95%,
+      shadow-space: null,
     ),
   // Chevrolet_EN-V
   "car40":
@@ -109,8 +146,7 @@ $car-configs-defaults: (
       shadow-height: 20%,
       shadow-width: 50%,
       shadow-space: null,
-      // Continuous shadow
-      shadow-opacity: 0.2 // Lower opacity for smaller car,,,,
+      shadow-opacity: 0.2,
     ),
   // LM_Rally_Fighter
   "car41":
@@ -159,7 +195,8 @@ $default-car-config: (
   // Center area is 0.5x the base opacity
   shadow-offset-x: 0px,
   // Horizontal offset (positive = right, negative = left)
-  shadow-offset-y: 0px // Vertical offset (positive = down, negative = up),,,,
+  shadow-offset-y: 0px
+    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,
 );
 
 // Function to get car configuration with automatic fallback to defaults
