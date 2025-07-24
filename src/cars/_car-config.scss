@@ -80,6 +80,12 @@ $car-configs-defaults: (
       shadow-width: 95%,
       shadow-space: null,
     ),
+  // Batmobile
+  "car17":
+    (
+      shadow-width: 95%,
+      shadow-space: 40%,
+    ),
   // NLO
   "car20":
     (
@@ -171,7 +177,6 @@ $car-configs-exclusive: (
       shadow-width: 95%,
       shadow-height: 30%,
       shadow-space: null,
-      // Continuous shadow
     )
 );
 
@@ -196,7 +201,7 @@ $default-car-config: (
   shadow-offset-x: 0px,
   // Horizontal offset (positive = right, negative = left)
   shadow-offset-y: 0px
-    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,
+    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,,
 );
 
 // Function to get car configuration with automatic fallback to defaults
