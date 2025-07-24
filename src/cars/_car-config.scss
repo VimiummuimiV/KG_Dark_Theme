@@ -130,6 +130,12 @@ $car-configs-defaults: (
       shadow-width: 100%,
       shadow-space: null,
     ),
+  // Tram
+  "car31":
+    (
+      shadow-width: 100%,
+      shadow-space: null,
+    ),
   // Nissan_Round_Box
   "car37":
     (
@@ -201,7 +207,7 @@ $default-car-config: (
   shadow-offset-x: 0px,
   // Horizontal offset (positive = right, negative = left)
   shadow-offset-y: 0px
-    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,,
+    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,,,
 );
 
 // Function to get car configuration with automatic fallback to defaults
