@@ -266,56 +266,66 @@
     border: 1px solid $middlegray !important;
   }
 
-  .post:not(:has(textarea)) {
-    margin: 10px 0 !important;
-    border-radius: 0 0 5px 5px !important;
-    box-shadow: 0 0 4px rgba(darken($blue, 50%), 0.3) !important;
-  }
-
-  .post:not(:has(.post-hidden)) {
-    border-top: 1px solid transparent !important;
-
-    &.post-hidden {
-      background-color: $darkgray !important;
-      border-top: 1px solid gold !important; // Gold border for hidden posts
-
-      .hidden-mark {
-        margin-left: -7px !important;
-
-        span {
-          background-color: gold !important;
-          color: $black !important;
-        }
-      }
+  .post-container {
+    .post:not(:has(textarea)) {
+      margin: 10px 0 !important;
+      border-radius: 0 0 5px 5px !important;
+      box-shadow: 0 0 4px rgba(darken($blue, 50%), 0.3) !important;
     }
 
-    .content {
-      .author {
-        a {
-          color: $blue !important;
+    .post:not(:has(.post-hidden)) {
+      border-top: 1px solid transparent !important;
 
-          &:hover {
-            color: $lightblue !important;
+      &.post-hidden {
+        background-color: $darkgray !important;
+        border-top: 1px solid gold !important; // Gold border for hidden posts
+
+        .hidden-mark {
+          margin-left: -7px !important;
+
+          span {
+            background-color: gold !important;
+            color: $black !important;
           }
         }
       }
 
-      .text {
-        color: $white !important;
-      }
+      .content {
+        .author {
+          a {
+            color: $blue !important;
 
-      .readmore.fade-top {
-        background: $darkgray !important;
-        border-top: 1px solid $middlegray !important;
+            &:hover {
+              color: $lightblue !important;
+            }
+          }
+        }
+
+        .text {
+          color: $white !important;
+        }
+
+        .readmore.fade-top {
+          background: $darkgray !important;
+          border-top: 1px solid $middlegray !important;
+        }
       }
+    }
+
+    .deleted {
+      background-color: $black !important;
+      border: 1px solid $blue !important;
+      margin: 5px 0 !important;
     }
   }
 
   .comments {
     background: none !important;
 
-    .post {
-      border-top: 1px solid transparent !important;
+    .post-container {
+      .post {
+        border-top: 1px solid transparent !important;
+      }
     }
 
     .more {
