@@ -3,45 +3,7 @@
 @import "data/exclusive";
 @import "mask";
 @import "car-config";
-
-// Mixin for creating car styles with multiple classes
-@mixin car-group($car-classes, $variable-name, $car-key: null) {
-  @each $class in $car-classes {
-    $config-key: if($car-key, $car-key, $class);
-    $size: get-car-config($config-key, size);
-
-    .car .#{$class}:not(.car-tuning) {
-      position: relative;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: $variable-name;
-        background-repeat: no-repeat !important;
-        background-size: $size !important;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      // Apply shadow with automatic fallback to defaults
-      @include car-shadow($config-key);
-    }
-  }
-}
-
-/* ===== FIXES ===== */
-.profile-car .shop.tuning .car .imgcont {
-  background: $darkgray !important;
-}
-
-// Global z-index for car tuning elements
-.car .car-tuning {
-  z-index: 10 !important;
-}
+@import "fix";
 
 /* ===== STANDARD CARS ===== */
 // Merge SVG car maps from defaults and exclusive
@@ -72,49 +34,5 @@ $svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);
     // Apply shadow with automatic property fallback
     @include car-shadow($car-key);
   }
-}
-
-// Assign processed SVG to $car1 for correct background
-$car1: map-get($processed-svg-cars, "car1");
-
-// Apply car1 SVG background to .imgcont containing .car1[style*="background-color: #777"]
-.imgcont:has(.car1[style*="background-color: #777"]) {
-  position: relative;
-  background-color: $middlegray !important;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: $car1 !important;
-    background-repeat: no-repeat !important;
-    background-size: get-car-config("car1", size) !important;
-    z-index: 1;
-  }
-
-  @include car-shadow("car1");
-}
-
-// Assign processed SVG to $car5 for correct background
-$car5: map-get($processed-svg-cars, "car5");
-
-// Apply car5 SVG background to .car .car5.car-tuning2_0
-.car .car5.car-tuning2_0 {
-  $car5-size: get-car-config("car5", size);
-  mask: $car5 no-repeat 0px -100px / #{$car5-size}, linear-gradient(#000 0 0) !important;
-  mask-composite: exclude !important;
-}
-
-// Assign processed SVG to $car17 for correct background
-$car17: map-get($processed-svg-cars, "car17");
-
-// Apply car17 SVG background to .car .car17.car-tuning1_0
-.car .car17.car-tuning1_0 {
-  $car17-size: get-car-config("car17", size);
-  mask: $car17 no-repeat 0px -50px / #{$car17-size}, linear-gradient(#000 0 0) !important;
-  mask-composite: exclude !important;
 }
 

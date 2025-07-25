@@ -1,0 +1,67 @@
+@import "../variables";
+@import "data/defaults";
+@import "data/exclusive";
+@import "car-config";
+@import "mask";
+
+// Assign processed SVG to $car1 for correct background
+$car1: map-get($processed-svg-cars, "car1");
+
+// Newbie car adjustment
+.imgcont:has(.car1[style*="background-color: #777"]) {
+  position: relative;
+  background-color: $middlegray !important;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $car1 !important;
+    background-repeat: no-repeat !important;
+    background-size: get-car-config("car1", size) !important;
+    z-index: 1;
+  }
+
+  @include car-shadow("car1");
+}
+
+/* ===== CAR TUNING MASKS ===== */
+$car-tuning-masks: (
+  // Fiat_Strada
+  "car5":
+    (
+      "class": "car-tuning2_0",
+      "offset": -100px,
+    ),
+  // Batmobile
+  "car17":
+    (
+      "class": "car-tuning1_0",
+      "offset": -50px,
+    )
+);
+
+@each $car, $props in $car-tuning-masks {
+  $svg: map-get($processed-svg-cars, $car);
+  $size: get-car-config($car, size);
+  $tuning-class: map-get($props, "class");
+  $offset: map-get($props, "offset");
+
+  .car .#{$car}.#{$tuning-class} {
+    mask: #{$svg} no-repeat 0px #{$offset} / #{$size}, linear-gradient(#000 0 0) !important;
+    mask-composite: exclude !important;
+  }
+}
+
+/* ===== FIXES ===== */
+.profile-car .shop.tuning .car .imgcont {
+  background: $darkgray !important;
+}
+
+// Global z-index for car tuning elements
+.car .car-tuning {
+  z-index: 10 !important;
+}
