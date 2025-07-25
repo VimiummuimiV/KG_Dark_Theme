@@ -36,3 +36,19 @@ $svg-cars: map-merge($svg-cars-defaults, $svg-cars-exclusive);
   }
 }
 
+/* ===== CAR POSITION PRIORITIES ===== */
+// Mixin for mask positions
+@mixin mask-position($base-num) {
+  .car .car-base_#{$base-num} {
+    &::before {
+      background-position: #{-100px * ($base-num + 1)} 0 !important;
+      background-repeat: no-repeat !important;
+      background-size: auto !important;
+    }
+  }
+}
+
+// Generate mask positions for car bases 0 to 5
+@for $i from 0 through 5 {
+  @include mask-position($i);
+}
