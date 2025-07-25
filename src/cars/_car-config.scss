@@ -107,6 +107,16 @@ $car-configs-defaults: (
       shadow-width: 95%,
       shadow-space: 40%,
     ),
+  // Aeroglisser
+  "car18":
+    (
+      size: 1000px 300px,
+      shadow-width: 80%,
+      shadow-space: null,
+      shadow-height: 20%,
+      shadow-opacity: 0.2,
+      shadow-offset-y: 4px,
+    ),
   // NLO
   "car20":
     (
@@ -114,6 +124,13 @@ $car-configs-defaults: (
       shadow-width: 55%,
       shadow-space: null,
       shadow-opacity: 0.15,
+    ),
+  // Ferrari_FX_Concept
+  "car22":
+    (
+      shadow-width: 95%,
+      shadow-space: null,
+      shadow-offset-y: 2.5px,
     ),
   // Smart_Fortwo
   "car23":
@@ -214,6 +231,14 @@ $car-configs-defaults: (
       shadow-space: 60%,
       shadow-offset-y: 1px,
     ),
+  // SS-X
+  "car42":
+    (
+      shadow-width: 70%,
+      shadow-height: 25%,
+      shadow-space: null,
+      shadow-opacity: 0.2,
+    ),
   // Porsche_Cayenne_S
   "car43":
     (
@@ -221,6 +246,14 @@ $car-configs-defaults: (
       shadow-width: 95%,
       shadow-space: 50%,
       shadow-offset-x: 2px,
+    ),
+  // Honda_CBR_1000RR
+  "car44":
+    (
+      shadow-width: 60%,
+      shadow-space: 30%,
+      shadow-offset-y: 4px,
+      shadow-offset-x: -4px
     ),
   // Caravelle
   "car45":
@@ -252,22 +285,22 @@ $car-configs: map-merge($car-configs-defaults, $car-configs-exclusive);
 $default-car-config: (
   size: 500px 200px,
   shadow-height: 15%,
-  shadow-width: 80%,
   // Default shadow covers 80% of car width
-  shadow-smoothness: 10%,
+  shadow-width: 80%,
   // Default smoothness for all transitions
-  shadow-space: 35%,
+  shadow-smoothness: 10%,
   // Default space between wheel shadows (center area width)
-  shadow-opacity: 0.3,
+  shadow-space: 35%,
   // Base shadow opacity (controls overall intensity)
-  shadow-wheel-multiplier: 1.5,
+  shadow-opacity: 0.3,
   // Wheel areas are 1.5x the base opacity
-  shadow-center-multiplier: 0.5,
+  shadow-wheel-multiplier: 1.5,
   // Center area is 0.5x the base opacity
-  shadow-offset-x: 0px,
+  shadow-center-multiplier: 0.5,
   // Horizontal offset (positive = right, negative = left)
-  shadow-offset-y: 0px
-    // Vertical offset (positive = down, negative = up),,,,,,,,,,,,,,,,,,,,,,,,,,
+  shadow-offset-x: 0px,
+  // Vertical offset (positive = down, negative = up)
+  shadow-offset-y: 0px,
 );
 
 // Function to get car configuration with automatic fallback to defaults
