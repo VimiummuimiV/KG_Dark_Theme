@@ -11,7 +11,6 @@ $car1: map-get($processed-svg-cars, "car1");
 .imgcont:has(.car1[style*="background-color: #777"]) {
   position: relative;
   background-color: $middlegray !important;
-
   &::before {
     content: "";
     position: absolute;
@@ -24,35 +23,66 @@ $car1: map-get($processed-svg-cars, "car1");
     background-size: get-car-config("car1", size) !important;
     z-index: 1;
   }
-
   @include car-shadow("car1");
+}
+
+/* ===== TUNING OFFSET MAP ===== */
+$tuning-offsets: (
+  "car-tuning1": -50px,
+  "car-tuning2": -100px,
+  "car-tuning3": -150px,
+  "car-tuning4": -200px,
+  "car-tuning5": -250px,
+  "car-tuning6": -300px,
+  "car-tuning7": -350px,
+  "car-tuning8": -400px,
+  "car-tuning9": -450px,
+  "car-tuning10": -500px,
+  "car-tuning11": -550px,
+  "car-tuning12": -600px,
+  "car-tuning13": -650px,
+);
+
+@function get-tuning-offset($class-name) {
+  @each $prefix, $offset in $tuning-offsets {
+    @if str-index($class-name, $prefix) == 1 {
+      @return $offset;
+    }
+  }
+  @return -100px;
 }
 
 /* ===== CAR TUNING MASKS ===== */
 $car-tuning-masks: (
-  // Fiat_Strada
-  "car5":
-    (
-      "class": "car-tuning2_0",
-      "offset": -100px,
-    ),
-  // Batmobile
-  "car17":
-    (
-      "class": "car-tuning1_0",
-      "offset": -50px,
-    )
+  "car5": (
+    "class": "car-tuning2_0",
+  ),
+  "car17": (
+    "class": "car-tuning1_0",
+  ),
+  "car42": (
+    "class":
+      "car-tuning2_0, car-tuning2_1, car-tuning2_2, car-tuning2_3, car-tuning2_4, car-tuning1_0, car-tuning1_1, car-tuning1_2, car-tuning1_3, car-tuning1_4",
+  ),
 );
 
 @each $car, $props in $car-tuning-masks {
   $svg: map-get($processed-svg-cars, $car);
   $size: get-car-config($car, size);
-  $tuning-class: map-get($props, "class");
-  $offset: map-get($props, "offset");
+  $classes: str-replace(map-get($props, "class"), " ", "");
 
-  .car .#{$car}.#{$tuning-class} {
-    mask: #{$svg} no-repeat 0px #{$offset} / #{$size}, linear-gradient(#000 0 0) !important;
-    mask-composite: exclude !important;
+  $remaining: $classes;
+  @while str-index($remaining, ",") or str-length($remaining) > 0 {
+    $comma: str-index($remaining, ",");
+    $class: if($comma, str-slice($remaining, 1, $comma - 1), $remaining);
+
+    .car .#{$car}.#{$class} {
+      mask: #{$svg} no-repeat 0px #{get-tuning-offset($class)} / #{$size},
+        linear-gradient(#000 0 0) !important;
+      mask-composite: exclude !important;
+    }
+
+    $remaining: if($comma, str-slice($remaining, $comma + 1), "");
   }
 }
 
@@ -60,8 +90,6 @@ $car-tuning-masks: (
 .profile-car .shop.tuning .car .imgcont {
   background: $darkgray !important;
 }
-
-// Global z-index for car tuning elements
 .car .car-tuning {
   z-index: 10 !important;
 }
