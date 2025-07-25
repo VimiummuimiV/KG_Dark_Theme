@@ -87,6 +87,13 @@ $car-configs-defaults: (
       shadow-width: 90%,
       shadow-space: 35%,
     ),
+  // Bugatti_Veyron
+  "car14":
+    (
+      shadow-width: 95%,
+      shadow-space: null,
+      shadow-offset-y: 1px,
+    ),
   // Bolid_F1
   "car15":
     (
@@ -116,6 +123,13 @@ $car-configs-defaults: (
       shadow-height: 20%,
       shadow-opacity: 0.2,
       shadow-offset-y: 4px,
+    ),
+  // Duesenberg_Speedster
+  "car19":
+    (
+      shadow-width: 100%,
+      shadow-space: 50%,
+      shadow-offset-x: 4px,
     ),
   // NLO
   "car20":
@@ -199,6 +213,18 @@ $car-configs-defaults: (
       shadow-width: 95%,
       shadow-space: 40%,
     ),
+  // Ferrari_250_Testa_Rossa
+  "car35":
+    (
+      shadow-width: 83%,
+      shadow-space: 50%,
+    ),
+  // Ferrari_Zobin
+  "car36":
+    (
+      shadow-width: 90%,
+      shadow-space: null,
+    ),
   // Nissan_Round_Box
   "car37":
     (
@@ -253,7 +279,7 @@ $car-configs-defaults: (
       shadow-width: 60%,
       shadow-space: 30%,
       shadow-offset-y: 4px,
-      shadow-offset-x: -4px
+      shadow-offset-x: -4px,
     ),
   // Caravelle
   "car45":
