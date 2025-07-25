@@ -1,0 +1,39 @@
+// global colors
+$black: #101010;
+$deepgray: #1A1A1A;
+$darkgray: #282828;
+$white: #B2B2B2;
+$blue: hsl(200, 20%, 50%);
+$lightblue: hsl(200, 40%, 60%);
+$red: #AA7788;
+$middlegray: #676c71;
+$orange: hsl(30, 65%, 40%);
+
+// Rank Color Variables
+$rang1: #cccccc;
+$rang2: #76e4e0;
+$rang3: #2cd42c;
+$rang4: #ccbc00;
+$rang5: #ff8b22;
+$rang6: #ff1b6b;
+$rang7: #ba81e7;
+$rang8: #9ea0ff;
+$rang9: #73c8ef;
+$rang10: #c441c4;
+$rang11: #ffd700;
+
+// Game type colors for background #282B2F (original colors adjusted for contrast)
+$gametype-normal: #b8b8b8;
+$gametype-quote: #B688D4;
+$gametype-sprint: #D4746E;
+$gametype-marathon: #F564A0;
+$gametype-noerror: #70A3CC;
+$gametype-noerrorcnt: #70A3CC;
+$gametype-abra: #8A9AB8;
+$gametype-abra-premium: #E6C033;
+$gametype-digits: #AAAAAA;
+$gametype-referats: #90B857;
+$gametype-voc: $blue;
+$gametype-chars: #E6912B;
+$gametype-qual: #FF5555;
+$premium-yellow: #E6C033;

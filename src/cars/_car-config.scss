@@ -8,12 +8,14 @@ $car-configs-defaults: (
     (
       shadow-width: 70%,
       shadow-space: 30%,
+      shadow-offset-x: 2px,
     ),
   // VAZ_2104
   "car2":
     (
-      shadow-width: 95%,
-      shadow-space: 30%,
+      shadow-width: 80%,
+      shadow-space: 45%,
+      shadow-offset-x: 3.5px,
     ),
   // Belarus_922
   "car3":
@@ -64,8 +66,9 @@ $car-configs-defaults: (
   // Volkswagen_Passat_B3
   "car10":
     (
-      shadow-width: 90%,
-      shadow-space: 35%,
+      shadow-width: 80%,
+      shadow-space: 55%,
+      shadow-offset-x: 1px,
     ),
   // Mitsubishi_Lancer_X
   "car11":
