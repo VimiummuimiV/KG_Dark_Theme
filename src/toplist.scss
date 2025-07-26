@@ -51,7 +51,7 @@
     a {
       color: $white !important;
       border-bottom: none !important;
-      border: 1px solid $middlegray !important;
+      border: 1px solid $gray !important;
       padding: 12px !important;
       display: flex !important;
       background: transparent !important;
@@ -121,7 +121,7 @@
         &[class="gametype-voc"],
         &[href*="/top/rating/archive"],
         &[href*="/top/rating/overall"] {
-          color: $middlegray !important;
+          color: $gray !important;
 
           &:hover {
             color: $blue !important;

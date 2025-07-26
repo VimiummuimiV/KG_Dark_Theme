@@ -5,7 +5,7 @@
   /* fuel amount container */
   .amount {
     background: $deepgray !important;
-    border: 1px solid $middlegray !important;
+    border: 1px solid $gray !important;
   }
 
   /* fuel active item */
@@ -18,7 +18,7 @@
     /* fuel get premium options */
     .pro-options > li {
       background: $darkgray !important;
-      border: 1px solid $middlegray !important;
+      border: 1px solid $gray !important;
 
       &.active {
         background: $darkgray !important;
@@ -38,7 +38,7 @@
 
 /* fuel i wanna points count input */
 input.ng-pristine {
-  border: 1px solid $middlegray !important;
+  border: 1px solid $gray !important;
 }
 
 .fuel-root {
@@ -57,7 +57,7 @@ input.ng-pristine {
 
   /* fuel dividers */
   .fuel-content {
-    border-bottom: 1px solid $middlegray !important;
+    border-bottom: 1px solid $gray !important;
 
     .left-block {
       /* donated main value color */

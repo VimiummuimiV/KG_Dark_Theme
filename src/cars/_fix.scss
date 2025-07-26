@@ -10,7 +10,7 @@ $car1: map-get($processed-svg-cars, "car1");
 // Newbie car adjustment
 .imgcont:has(.car1[style*="background-color: #777"]) {
   position: relative;
-  background-color: $middlegray !important;
+  background-color: $gray !important;
   &::before {
     content: "";
     position: absolute;

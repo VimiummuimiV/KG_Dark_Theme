@@ -6,50 +6,52 @@
 
 // Define all gametypes in a map for easy maintenance
 $gametypes: (
-  'normal': $gametype-normal,
-  'quote': $gametype-quote,
-  'sprint': $gametype-sprint,
-  'marathon': $gametype-marathon,
-  'noerror': $gametype-noerror,
-  'noerrorcnt': $gametype-noerrorcnt,
-  'abra': $gametype-abra,
-  'abra-premium': $gametype-abra-premium,
-  'digits': $gametype-digits,
-  'referats': $gametype-referats,
-  'voc': $gametype-voc,
-  'chars': $gametype-chars,
-  'qual': $gametype-qual
+  "normal": $gametype-normal,
+  "quote": $gametype-quote,
+  "sprint": $gametype-sprint,
+  "marathon": $gametype-marathon,
+  "noerror": $gametype-noerror,
+  "noerrorcnt": $gametype-noerrorcnt,
+  "abra": $gametype-abra,
+  "abra-premium": $gametype-abra-premium,
+  "digits": $gametype-digits,
+  "referats": $gametype-referats,
+  "voc": $gametype-voc,
+  "chars": $gametype-chars,
+  "qual": $gametype-qual,
 );
 
 // Define icon mappings
 $gametype-icons: (
-  'normal': $usual,
-  'noerror': $crash,
-  'chars': $letters,
-  'marathon': $marathone,
-  'sprint': $infinity,
-  'abra': $abra,
-  'digits': $digits,
-  'voc': $dictionary,
-  'referats': $yandex
+  "normal": $usual,
+  "noerror": $crash,
+  "chars": $letters,
+  "marathon": $marathone,
+  "sprint": $infinity,
+  "abra": $abra,
+  "digits": $digits,
+  "voc": $dictionary,
+  "referats": $yandex,
 );
 
 // ====================
 // DYNAMIC GAMETYPE COLORS
 // ====================
 
-#gametype-select, #content, #popup {
+#gametype-select,
+#content,
+#popup {
   // Generate gametype color classes dynamically
   @each $gametype, $color in $gametypes {
     .gametype-#{$gametype} {
       color: $color !important;
     }
-    
+
     a.gametype-#{$gametype} {
       border-color: $color !important;
     }
   }
-  
+
   // Premium styling
   .premium-yellow,
   .premium-yellow a {
@@ -87,7 +89,7 @@ $gametype-icons: (
 // Default gametype-sign styling (normal gametype)
 .gametype-sign {
   @include gametype-sign($usual);
-  
+
   // Override with specific gametype if class is present
   &.sign-normal {
     @include gametype-sign($usual);
@@ -145,15 +147,15 @@ $gametype-icons: (
   tr:hover {
     background: $deepgray !important;
   }
-  
+
   .note {
     color: $white !important;
   }
-  
+
   td {
-    border-bottom: 1px solid $middlegray !important;
+    border-bottom: 1px solid $gray !important;
   }
-  
+
   h4 {
     color: $blue !important;
   }
@@ -165,17 +167,17 @@ $gametype-icons: (
     top: 2px !important;
     left: 2px !important;
   }
-  
+
   label {
     vertical-align: middle !important;
     background: none !important;
   }
-  
+
   &,
   a {
     color: $blue !important;
   }
-  
+
   a:hover {
     color: $lightblue !important;
   }

@@ -33,7 +33,7 @@ $buttonHeight: 44px;
   z-index: 1 !important;
 
   @if $has-border {
-    border: 1px solid $middlegray !important;
+    border: 1px solid $gray !important;
   }
 }
 
@@ -42,9 +42,9 @@ $buttonHeight: 44px;
 .userpanel {
   display: flex !important;
   font-family: "Montserrat", sans-serif !important;
-  border-bottom: 1px solid $middlegray !important;
+  border-bottom: 1px solid $gray !important;
   background: $deepgray !important;
-  color: $middlegray !important;
+  color: $gray !important;
 
   /* USER BLOCK CONTAINER */
 
@@ -62,7 +62,7 @@ $buttonHeight: 44px;
 
     .user-dropdown {
       .daily-task {
-        border: 1px solid $middlegray !important;
+        border: 1px solid $gray !important;
         border-top: none !important;
         border-bottom: none !important;
         width: $buttonWidth !important;
@@ -89,7 +89,7 @@ $buttonHeight: 44px;
       .active {
         .name {
           background: $deepgray !important;
-          border-right: 1px solid $middlegray !important;
+          border-right: 1px solid $gray !important;
         }
       }
 
@@ -103,12 +103,12 @@ $buttonHeight: 44px;
 
       .dropmenu {
         background: $deepgray !important;
-        border: 1px solid $middlegray !important;
+        border: 1px solid $gray !important;
 
         .col1 {
           a.btn,
           .logout a {
-            background: $middlegray !important;
+            background: $gray !important;
             color: $black !important;
             border: none !important;
             border-radius: 3px !important;
@@ -243,7 +243,7 @@ $buttonHeight: 44px;
     }
 
     &-select {
-      border: 1px solid $middlegray !important;
+      border: 1px solid $gray !important;
       height: 80vh !important;
       font-size: 12px !important;
       font-weight: 400 !important;

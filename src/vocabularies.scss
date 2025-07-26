@@ -5,53 +5,53 @@
   input[type="submit"] {
     display: none !important;
   }
-  
+
   td.popularity {
     background: none !important;
   }
-  
+
   table {
     margin-bottom: 10px !important;
     display: block !important;
-    
+
     tbody {
       display: block !important;
       width: 100% !important;
       column-count: 3 !important;
       column-gap: 5px !important;
       align-items: center !important;
-      
+
       tr {
         padding-left: 10px !important;
         display: block !important;
         -webkit-column-break-inside: avoid;
         page-break-inside: avoid;
         break-inside: avoid;
-        
+
         &:nth-child(even) {
           background: rgba(255, 255, 255, 0.05) !important;
         }
-        
+
         &:nth-child(odd) {
           background: rgba(0, 0, 0, 0.3) !important;
         }
-        
+
         td {
           &.title {
             width: 60% !important;
             display: inline-block !important;
-            
+
             .author {
               a {
                 color: $blue !important;
-                
+
                 &:hover {
                   color: $lightblue !important;
                 }
               }
             }
           }
-          
+
           &.symbols,
           &.popularity {
             width: 18% !important;
@@ -62,11 +62,11 @@
         }
       }
     }
-    
+
     td {
       border-bottom: none !important;
     }
-    
+
     .symbols {
       strong {
         color: $white !important;
@@ -74,12 +74,12 @@
       }
     }
   }
-  
+
   .content-col {
     margin: 0 !important;
     padding: 0 !important;
   }
-  
+
   .left-col {
     position: absolute !important;
     left: -160px !important;
@@ -91,12 +91,12 @@
     flex-direction: column !important;
     margin: 0 !important;
     padding: 25px 0 5px 0 !important;
-    
+
     > h4 {
       display: none !important;
     }
   }
-  
+
   .remove {
     background: #622020 $rmvoc no-repeat 5px 4px !important;
     color: $red !important;
@@ -104,7 +104,7 @@
     border: 1px solid $red !important;
     transition: all 0.2s !important;
     background-size: 9px !important;
-    
+
     &:hover {
       filter: hue-rotate(60deg) !important;
     }
@@ -119,7 +119,7 @@
     align-items: center !important;
     width: 150px !important;
     margin: 0 !important;
-    
+
     li {
       width: 100% !important;
       margin: 0 !important;
@@ -128,7 +128,7 @@
       justify-content: center !important;
       align-items: center !important;
       height: 20px !important;
-      
+
       &.active {
         width: 100% !important;
         left: 0 !important;
@@ -139,7 +139,7 @@
         align-items: center !important;
         height: 20px !important;
         background: $blue !important;
-        
+
         span {
           background: $blue !important;
           margin: 0 !important;
@@ -147,7 +147,7 @@
           color: $darkgray !important;
         }
       }
-      
+
       a {
         display: flex !important;
         justify-content: center !important;
@@ -158,7 +158,7 @@
         background: $darkgray !important;
         color: $blue !important;
         transition: all 0.1s !important;
-        
+
         &:hover {
           background: $blue !important;
           color: $darkgray !important;
@@ -171,11 +171,11 @@
 /* Vocabulary view block */
 .vocview-block {
   .words {
-    border: 1px solid $middlegray !important;
+    border: 1px solid $gray !important;
     width: 100% !important;
     height: 700px !important;
   }
-  
+
   #toplist {
     dt {
       ul.mode {
@@ -185,7 +185,7 @@
       }
     }
   }
-  
+
   .editfor-title {
     i {
       background: $showHistory !important;
@@ -203,7 +203,7 @@
 /* Button styles */
 .btn80 {
   background: $blue !important;
-  
+
   &:hover {
     background: $orange !important;
   }
@@ -223,16 +223,16 @@
   &.vocview-block .user-title .btn_play {
     filter: hue-rotate(90deg) !important;
   }
-  
+
   #toplist {
     width: 100% !important;
     display: block !important;
     margin: 0 !important;
-    
+
     dt {
       display: block !important;
     }
-    
+
     > dd:nth-child(2) {
       margin: 0 !important;
     }
@@ -243,17 +243,17 @@
 body {
   .columns {
     top: 20px !important;
-    
+
     .content-col {
       padding-left: 0 !important;
       padding-right: 0 !important;
     }
-    
+
     h3 {
       display: none !important;
     }
   }
-  
+
   .voclist {
     .remove {
       background: #622020 $rmvoc no-repeat 5px 4px !important;
@@ -262,37 +262,37 @@ body {
       border: 1px solid $red !important;
       transition: all 0.2s !important;
       background-size: 9px !important;
-      
+
       &:hover {
         filter: hue-rotate(60deg) !important;
       }
     }
   }
-  
+
   .voc_popularity {
     background: $vocPopularity;
   }
-  
+
   .popularity0 {
     background-position: 0px -96px !important;
   }
-  
+
   .popularity1 {
     background-position: 0px -72px !important;
   }
-  
+
   .popularity2 {
     background-position: 0px -48px !important;
   }
-  
+
   .popularity3 {
     background-position: 0px -24px !important;
   }
-  
+
   .popularity4 {
     background-position: 0px 0px !important;
   }
-  
+
   .create_voc {
     position: absolute !important;
     margin: 0 !important;
@@ -301,7 +301,7 @@ body {
     border: 1px solid $orange !important;
     transition: all 0.1s !important;
     filter: invert(1) !important;
-    
+
     &:hover {
       border: 1px solid $blue !important;
     }

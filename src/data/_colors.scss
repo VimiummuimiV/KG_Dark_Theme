@@ -1,39 +1,73 @@
-// global colors
-$black: #101010;
-$deepgray: #1A1A1A;
-$darkgray: #282828;
-$white: #B2B2B2;
-$blue: hsl(200, 20%, 50%);
+// Global colors
+// Race typeblock
+$typeblock-typefocus-text: hsl(120, 70%, 70%);
+$typeblock-typefocus-error-text: hsl(0, 85%, 70%);
+// Race typeblock input text
+$typeblock-inputtext-text: hsl(120, 15%, 75%);
+$typeblock-inputtext-bg: hsl(120, 15%, 25%);
+$typeblock-inputtext-caret: hsl(120, 15%, 75%);
+$typeblock-inputtext-selection-bg: hsl(120, 15%, 75%);
+$typeblock-inputtext-selection-text: hsl(120, 15%, 25%);
+$typeblock-inputtext-error-text: hsl(350, 60%, 20%);
+$typeblock-inputtext-error-bg: hsl(350, 60%, 45%);
+$typeblock-inputtext-error-caret: hsl(350, 60%, 20%);
+$typeblock-inputtext-error-selection-bg: hsl(350, 80%, 20%);
+$typeblock-inputtext-error-selection-text: hsl(350, 60%, 45%);
+
+// Error on track
+$error-on-track-text: hsl(0, 90%, 60%);
+$error-on-track-span-text: hsl(0, 90%, 50%);
+
+// Race record popup
+$record-popup-bg: hsl(40, 85%, 20%);
+$record-popup-border: hsl(40, 85%, 35%);
+$record-popup-text: hsl(40, 85%, 80%);
+
+// Waiting/racing time
+$waiting-time-text: hsl(10, 70%, 75%);
+$waiting-time-bg: hsl(10, 50%, 25%);
+$waiting-time-border: hsl(10, 50%, 40%);
+$racing-time-text: hsl(100, 70%, 45%);
+$racing-time-bg: hsl(100, 50%, 15%);
+$racing-time-border: hsl(100, 50%, 30%);
+
+$black: hsl(0, 0%, 5%);
+$deepgray: hsl(0, 0%, 10%);
+$darkgray: hsl(0, 0%, 15%);
 $lightblue: hsl(200, 40%, 60%);
-$red: #AA7788;
-$middlegray: #676c71;
-$orange: hsl(30, 65%, 40%);
+$gray: hsl(210, 5%, 40%);
+$white: hsl(0, 0%, 70%);
+$blue: hsl(200, 20%, 50%);
+$red: hsl(340, 50%, 60%);
+$orange: hsl(30, 65%, 50%);
+$yellow: hsl(50, 80%, 50%);
+$green: hsl(120, 50%, 50%);
 
 // Rank Color Variables
-$rang1: #cccccc;
-$rang2: #76e4e0;
-$rang3: #2cd42c;
-$rang4: #ccbc00;
-$rang5: #ff8b22;
-$rang6: #ff1b6b;
-$rang7: #ba81e7;
-$rang8: #9ea0ff;
-$rang9: #73c8ef;
-$rang10: #c441c4;
-$rang11: #ffd700;
+$rang1: hsl(0, 0%, 80%);
+$rang2: hsl(180, 70%, 70%);
+$rang3: hsl(120, 70%, 50%);
+$rang4: hsl(55, 100%, 40%);
+$rang5: hsl(30, 100%, 60%);
+$rang6: hsl(340, 100%, 55%);
+$rang7: hsl(275, 70%, 70%);
+$rang8: hsl(240, 100%, 80%);
+$rang9: hsl(200, 80%, 70%);
+$rang10: hsl(300, 55%, 50%);
+$rang11: hsl(50, 100%, 50%);
 
-// Game type colors for background #282B2F (original colors adjusted for contrast)
-$gametype-normal: #b8b8b8;
-$gametype-quote: #B688D4;
-$gametype-sprint: #D4746E;
-$gametype-marathon: #F564A0;
-$gametype-noerror: #70A3CC;
-$gametype-noerrorcnt: #70A3CC;
-$gametype-abra: #8A9AB8;
-$gametype-abra-premium: #E6C033;
-$gametype-digits: #AAAAAA;
-$gametype-referats: #90B857;
+// Game type colors
+$gametype-normal: hsl(0, 0%, 70%);
+$gametype-quote: hsl(280, 50%, 70%);
+$gametype-sprint: hsl(5, 55%, 65%);
+$gametype-marathon: hsl(335, 90%, 70%);
+$gametype-noerror: hsl(210, 50%, 65%);
+$gametype-noerrorcnt: hsl(210, 50%, 65%);
+$gametype-abra: hsl(220, 25%, 65%);
+$gametype-abra-premium: hsl(50, 80%, 55%);
+$gametype-digits: hsl(0, 0%, 70%);
+$gametype-referats: hsl(85, 40%, 55%);
 $gametype-voc: $blue;
-$gametype-chars: #E6912B;
-$gametype-qual: #FF5555;
-$premium-yellow: #E6C033;
+$gametype-chars: hsl(35, 80%, 55%);
+$gametype-qual: hsl(0, 100%, 70%);
+$premium-yellow: hsl(50, 80%, 55%);

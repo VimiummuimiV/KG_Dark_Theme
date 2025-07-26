@@ -149,16 +149,16 @@
           #typetext {
             // Race typeblock typed text color
             #beforefocus {
-              color: $middlegray !important;
+              color: $gray !important;
             }
 
             // Race typeblock typing word or letter color
             #typefocus {
-              color: hsl(120, 70%, 70%) !important;
+              color: $typeblock-typefocus-text !important;
               text-decoration: none !important;
 
               &.highlight_error {
-                color: hsl(0, 85%, 70%) !important;
+                color: $typeblock-typefocus-error-text !important;
               }
             }
 
@@ -185,9 +185,9 @@
 
           // Race typeblock input text color on different states
           #inputtext {
-            color: hsl(120, 15%, 75%) !important; // text color
-            background: hsl(120, 15%, 25%) !important; // background color
-            caret-color: hsl(120, 15%, 75%) !important; // caret color
+            color: $typeblock-inputtext-text !important; // text color
+            background: $typeblock-inputtext-bg !important; // background color
+            caret-color: $typeblock-inputtext-caret !important; // caret color
             border: none !important;
             padding: 8px;
             border-radius: 8px !important;
@@ -196,27 +196,19 @@
 
             // Selection styles
             &::selection {
-              background: hsl(120, 15%, 75%) !important; // selection background
-              color: hsl(120, 15%, 25%) !important; // selection text
+              background: $typeblock-inputtext-selection-bg !important; // selection background
+              color: $typeblock-inputtext-selection-text !important; // selection text
             }
 
             // Race typeblock input text when error text color && bg color
             &[class="error"] {
-              color: hsl(350, 60%, 20%) !important; // error text color
-              background: hsl(
-                350,
-                60%,
-                45%
-              ) !important; // error background color
-              caret-color: hsl(350, 60%, 20%) !important; // error caret color
+              color: $typeblock-inputtext-error-text !important; // error text color
+              background: $typeblock-inputtext-error-bg !important; // error background color
+              caret-color: $typeblock-inputtext-error-caret !important; // error caret color
 
               &::selection {
-                background: hsl(
-                  350,
-                  80%,
-                  20%
-                ) !important; // error selection background
-                color: hsl(350, 60%, 45%) !important; // error selection text
+                background: $typeblock-inputtext-error-selection-bg !important; // error selection background
+                color: $typeblock-inputtext-error-selection-text !important; // error selection text
               }
             }
 
@@ -235,7 +227,7 @@
           #bookinfo {
             // < >
             .hotkey {
-              color: $middlegray !important;
+              color: $gray !important;
             }
 
             #book {
@@ -248,7 +240,7 @@
           }
 
           div {
-            color: $middlegray !important;
+            color: $gray !important;
           }
         }
 
@@ -326,10 +318,10 @@
           color: $white !important;
 
           s.error {
-            color: hsl(0, 90%, 60%) !important;
+            color: $error-on-track-text !important;
           }
           span.error {
-            color: hsl(0, 90%, 50%) !important;
+            color: $error-on-track-span-text !important;
           }
 
           &.premium_abra_errors {
@@ -377,7 +369,7 @@
       // Race report text textarea
       #report_reason_input {
         background: $darkgray !important;
-        border: 1px solid $middlegray !important;
+        border: 1px solid $gray !important;
       }
     }
 
@@ -412,7 +404,7 @@
         .player {
           background: none !important;
           padding: 10px 0 10px 0 !important;
-          border-bottom: 1px solid $middlegray !important;
+          border-bottom: 1px solid $gray !important;
 
           // Error tracking
           .error-on-track {
@@ -450,7 +442,7 @@
             }
 
             .stats {
-              color: $middlegray !important;
+              color: $gray !important;
               left: 135px !important;
               height: 30px !important;
               display: flex !important;
@@ -471,9 +463,9 @@
             margin-top: -10px !important;
             border-radius: 5px !important;
             padding: 6px !important;
-            background: hsl(40, 85%, 20%) !important;
-            border: 1px solid hsl(40, 85%, 35%) !important;
-            color: hsl(40, 85%, 80%) !important;
+            background: $record-popup-bg !important;
+            border: 1px solid $record-popup-border !important;
+            color: $record-popup-text !important;
             font: bold 10pt "Montserrat", sans-serif !important;
           }
 
@@ -561,7 +553,7 @@
     }
 
     > div.play-right-toggle {
-      background: $middlegray !important;
+      background: $gray !important;
       color: $deepgray !important;
       transition: all 0.2s !important;
       top: 325px !important;
@@ -585,7 +577,7 @@
       order: 1 !important;
       width: 270px !important;
       background: $darkgray !important;
-      border: 1px solid $middlegray !important;
+      border: 1px solid $gray !important;
       color: $white !important;
       opacity: 0.2 !important;
       transition: opacity 0.2s !important;
@@ -603,7 +595,7 @@
 
       .slider {
         background: $deepgray !important;
-        border: 2px solid $middlegray !important;
+        border: 2px solid $gray !important;
         border-radius: 10px !important;
         box-sizing: content-box !important;
 
@@ -622,7 +614,7 @@
           transition: all 0.2s !important;
 
           &:hover {
-            background: $middlegray !important;
+            background: $gray !important;
           }
         }
       }
@@ -633,7 +625,7 @@
       order: 0 !important;
       width: 270px !important;
       background: $darkgray !important;
-      border: 1px solid $middlegray !important;
+      border: 1px solid $gray !important;
       color: $white !important;
       opacity: 0.2 !important;
       transition: opacity 0.2s !important;
@@ -666,7 +658,7 @@
     #invite-link {
       color: $blue !important;
       border: none !important;
-      border-bottom: 1px solid $middlegray !important;
+      border-bottom: 1px solid $gray !important;
       background: none !important;
     }
   }
@@ -691,15 +683,15 @@
 
   // External elements that might be positioned outside the wrapper
   #waiting_timeout {
-    color: hsl(10, 70%, 75%) !important;
-    background: hsl(10, 50%, 25%) !important;
-    border: 1px solid hsl(10, 50%, 40%) !important;
+    color: $waiting-time-text !important;
+    background: $waiting-time-bg !important;
+    border: 1px solid $waiting-time-border !important;
   }
 
   #racing_time {
-    color: hsl(100, 70%, 45%) !important;
-    background: hsl(100, 50%, 15%) !important;
-    border: 1px solid hsl(100, 50%, 30%) !important;
+    color: $racing-time-text !important;
+    background: $racing-time-bg !important;
+    border: 1px solid $racing-time-border !important;
   }
 }
 
@@ -718,7 +710,7 @@
   border-radius: 50% !important;
   height: 10px !important;
   width: 10px !important;
-  background: $middlegray !important;
+  background: $gray !important;
 
   &:hover {
     background: $blue !important;
@@ -870,7 +862,7 @@ $rotation-snap: cubic-bezier(
     margin-bottom: 0 !important;
     color: $white !important;
     background: $darkgray !important;
-    border: 1px solid $middlegray !important;
+    border: 1px solid $gray !important;
     opacity: 0.7 !important;
     transition: opacity 0.2s !important;
 

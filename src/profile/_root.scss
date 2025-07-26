@@ -11,7 +11,7 @@
     .item {
       .dummy {
         background: $darkgray !important;
-        border: 1px solid $middlegray !important;
+        border: 1px solid $gray !important;
 
         &:hover {
           background: $deepgray !important;
@@ -19,7 +19,7 @@
         }
 
         &::after {
-          color: $middlegray !important;
+          color: $gray !important;
         }
 
         &:hover::after {
@@ -45,7 +45,7 @@
         }
 
         background: $darkgray !important;
-        border: 1px solid $middlegray !important;
+        border: 1px solid $gray !important;
 
         &:hover {
           border: 1px solid $blue !important;
@@ -58,14 +58,14 @@
   .profile-edit-bio {
     form {
       background-color: $darkgray !important;
-      border: 1px solid $middlegray !important;
+      border: 1px solid $gray !important;
     }
   }
 
   // Profile header styles
   .profile-header {
     background: $darkgray !important;
-    border-bottom: 1px solid $middlegray !important;
+    border-bottom: 1px solid $gray !important;
 
     .car {
       background: $darkgray !important;
@@ -263,7 +263,7 @@
       border: none !important;
     }
     background: $darkgray !important;
-    border: 1px solid $middlegray !important;
+    border: 1px solid $gray !important;
   }
 
   .post-container {
@@ -307,7 +307,7 @@
 
         .readmore.fade-top {
           background: $darkgray !important;
-          border-top: 1px solid $middlegray !important;
+          border-top: 1px solid $gray !important;
         }
       }
     }
@@ -329,7 +329,7 @@
     }
 
     .more {
-      background: $middlegray !important;
+      background: $gray !important;
       color: $white !important;
 
       &:hover {
@@ -360,7 +360,7 @@
           tr,
           td,
           th {
-            border: 1px solid $middlegray !important;
+            border: 1px solid $gray !important;
           }
         }
       }

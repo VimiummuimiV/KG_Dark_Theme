@@ -1,6 +1,10 @@
 @import "./data/variables";
 
 #create {
+  h3 {
+    margin: 0 5px 15px !important;
+  }
+
   * {
     padding: 2px !important;
   }
@@ -10,7 +14,7 @@
     justify-content: space-between !important;
 
     input {
-      transition: all 0.5s !important;
+      transition: filter 0.5s !important;
       padding: 0 !important;
       margin: 0 !important;
       width: 235px !important;
@@ -41,7 +45,7 @@
   dd {
     .params {
       background-color: transparent !important;
-      border: 1px solid $middlegray !important;
+      border: 1px solid $gray !important;
     }
   }
 }

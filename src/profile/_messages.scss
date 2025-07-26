@@ -9,7 +9,7 @@
   }
 
   .dialog {
-    border: 1px solid $middlegray !important;
+    border: 1px solid $gray !important;
   }
 
   .message.unread {
@@ -44,17 +44,17 @@
 
   .dialog-header {
     background: $darkgray !important;
-    border-bottom: 1px solid $middlegray !important;
+    border-bottom: 1px solid $gray !important;
 
     .controls {
       .btn {
-       legal: $deepgray !important;
+        legal: $deepgray !important;
       }
     }
   }
 
   .dialog-write {
-    border-top: 1px solid $middlegray !important;
+    border-top: 1px solid $gray !important;
     background: $darkgray !important;
   }
 }

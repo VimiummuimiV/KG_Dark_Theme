@@ -1,7 +1,8 @@
 @import "./data/variables";
 
 /* Search containers */
-.search, .yandexform {
+.search,
+.yandexform {
   padding: 0 !important;
   width: 100% !important;
   background: none !important;
@@ -9,20 +10,20 @@
 }
 
 /* Reset inline spacing */
-#search_form [style*="margin-right"] { 
-  margin-right: 0 !important; 
+#search_form [style*="margin-right"] {
+  margin-right: 0 !important;
 }
 
 /* All search inputs */
-.search input[type="text"], 
+.search input[type="text"],
 .search input[name="text"],
-.yandexform input[type="text"], 
+.yandexform input[type="text"],
 .yandexform input[name="text"],
 #search_form input[type="text"],
 #search_form input[name="searchtext"] {
   background: $deepgray !important;
-  color: $middlegray !important;
-  border: 1px solid $middlegray !important;
+  color: $gray !important;
+  border: 1px solid $gray !important;
   border-radius: 5px !important;
   font-size: 20px !important;
   height: 50px !important;
@@ -30,17 +31,17 @@
   width: 100% !important;
   box-sizing: border-box !important;
   transition: border-color 0.15s ease !important;
-  
+
   /* Default text selection */
   &::selection {
-    background: $middlegray !important;
+    background: $gray !important;
     color: $deepgray !important;
   }
-  
+
   &:hover {
     color: $blue !important;
     border-color: $blue !important;
-    
+
     /* Hover text selection */
     &::selection {
       background: $blue !important;
@@ -50,7 +51,7 @@
   &:focus {
     color: $lightblue !important;
     border-color: $lightblue !important;
-    
+
     /* Focus text selection */
     &::selection {
       background: $lightblue !important;
@@ -60,14 +61,23 @@
 }
 
 /* Override inline width */
-.yandexform input[name="text"][style*="width"], 
-.yandexform input[name="text"] { width: 100% !important; }
+.yandexform input[name="text"][style*="width"],
+.yandexform input[name="text"] {
+  width: 100% !important;
+}
 
 /* Hide submit buttons */
-.search input[type="submit"], 
-.yandexform input[type="submit"], 
-#search_form input[type="submit"] { display: none !important; }
+.search input[type="submit"],
+.yandexform input[type="submit"],
+#search_form input[type="submit"] {
+  display: none !important;
+}
 
 /* Yandex styles */
-div[style*="/iframe/loader__progress.gif"] { filter: hue-rotate(180deg) !important; }
-iframe[src*='http://yandex.ru'] { filter: invert(90%) !important; }
+div[style*="/iframe/loader__progress.gif"] {
+  filter: hue-rotate(180deg) !important;
+}
+iframe[src*='http://yandex.ru']
+{
+  filter: invert(90%) !important;
+}

@@ -4,7 +4,7 @@
     border: none !important;
 
     .content {
-      background: $middlegray !important;
+      background: $gray !important;
     }
   }
 
@@ -51,7 +51,7 @@
   .my-car {
     z-index: 15 !important;
     background: $darkgray !important;
-    border: 1px solid $middlegray !important;
+    border: 1px solid $gray !important;
 
     .car {
       background: $darkgray !important;
@@ -76,13 +76,12 @@
   }
 
   .tuning-category {
-
     .tuning-item {
       border: 1px solid transparent !important;
 
       .price {
         color: $white !important;
-        
+
         .scores {
           color: lightgreen !important;
           background: transparent !important;

@@ -56,7 +56,7 @@
 
     .recent {
       background-color: $darkgray !important;
-      border: 1px solid $middlegray !important;
+      border: 1px solid $gray !important;
     }
   }
 
@@ -124,7 +124,7 @@
           }
         }
       }
-      border-right: 1px solid $middlegray !important;
+      border-right: 1px solid $gray !important;
     }
   }
 }
@@ -162,12 +162,12 @@
 
 .col-xs-5 {
   input {
-    border: 1px solid $middlegray !important;
+    border: 1px solid $gray !important;
   }
 }
 
 .col-xs-7 {
-  border-left: 1px solid $middlegray !important;
+  border-left: 1px solid $gray !important;
 
   a {
     border: none !important;

@@ -1,4 +1,4 @@
-@import './data/variables';
+@import "./data/variables";
 
 // Configuration Maps
 $rang-colors: (
@@ -10,21 +10,54 @@ $rang-colors: (
   6: $rang6,
   7: $rang7,
   8: $rang8,
-  9: $rang9
+  9: $rang9,
 );
 
 $awards: (
-  1: ($medal-award, "awards"),
-  2: ($star-award, "10px 0"),
-  3: ($trophy-award, "20px 0"),
-  4: ($crown-award, "30px 0"),
-  5: ($gold-helmet-award, "40px 0"),
-  6: ($platinum-helmet-award, "50px 0"),
-  7: ($black-helmet-award, "60px 0"),
-  8: ($wheel-award, "70px 0"),
-  '1b': ($bronze-book-award, "80px 0"),
-  '2b': ($silver-book-award, "90px 0"),
-  '3b': ($gold-book-award, "100px 0")
+  1: (
+    $medal-award,
+    "awards",
+  ),
+  2: (
+    $star-award,
+    "10px 0",
+  ),
+  3: (
+    $trophy-award,
+    "20px 0",
+  ),
+  4: (
+    $crown-award,
+    "30px 0",
+  ),
+  5: (
+    $gold-helmet-award,
+    "40px 0",
+  ),
+  6: (
+    $platinum-helmet-award,
+    "50px 0",
+  ),
+  7: (
+    $black-helmet-award,
+    "60px 0",
+  ),
+  8: (
+    $wheel-award,
+    "70px 0",
+  ),
+  "1b": (
+    $bronze-book-award,
+    "80px 0",
+  ),
+  "2b": (
+    $silver-book-award,
+    "90px 0",
+  ),
+  "3b": (
+    $gold-book-award,
+    "100px 0",
+  ),
 );
 
 // Mixins
@@ -74,15 +107,15 @@ $awards: (
 // Base Elements
 %reset-base {
   @include reset-styles;
-  
+
   &:focus {
     outline: none !important;
   }
 }
 
 %button-base {
-  @include button-style($middlegray, $deepgray);
-  
+  @include button-style($gray, $deepgray);
+
   &:hover {
     @include button-style($blue, $deepgray);
   }
@@ -90,11 +123,12 @@ $awards: (
 
 %input-base {
   color: $white !important;
-  @include border-style($middlegray);
+  @include border-style($gray);
 }
 
 // Global Styles
-html, body {
+html,
+body {
   background: $darkgray !important;
 }
 
@@ -112,14 +146,19 @@ body {
 }
 
 // Typography
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $orange !important;
 }
 
 // Links
 a {
   color: $blue !important;
-  
+
   &:hover {
     color: $lightblue !important;
   }
@@ -129,12 +168,12 @@ a {
 input {
   &[type="text"] {
     @extend %input-base;
-    
+
     &.blur {
       color: $deepgray !important;
     }
   }
-  
+
   &[type="radio"] {
     -webkit-appearance: none;
     appearance: none;
@@ -142,7 +181,7 @@ input {
     margin: 0;
     width: 1.15em;
     height: 1.15em;
-    border: 0.15em solid $middlegray;
+    border: 0.15em solid $gray;
     border-radius: 50% !important;
     transform: translateY(-0.075em) !important;
     display: inline-grid;
@@ -172,7 +211,7 @@ select {
   background: $deepgray !important;
   color: $white !important;
   border: none !important;
-  
+
   &#savemodes {
     background: $deepgray !important;
     color: $white !important;
@@ -186,13 +225,13 @@ select {
 
 .form-control {
   background: $darkgray !important;
-  @include border-style($middlegray);
+  @include border-style($gray);
   color: $white !important;
   outline: none !important;
 }
 
 textarea {
-  @include border-style($middlegray);
+  @include border-style($gray);
   background-color: $darkgray !important;
   color: $white !important;
 }
@@ -204,7 +243,7 @@ body .btn {
 
 body .close {
   background: none !important;
-  color: $middlegray !important;
+  color: $gray !important;
   opacity: 1 !important;
 
   &:hover {
@@ -228,8 +267,11 @@ blockquote {
 }
 
 // Border Elements
-hr, th, tr, td {
-  border-color: $middlegray !important;
+hr,
+th,
+tr,
+td {
+  border-color: $gray !important;
 }
 
 pre {
@@ -260,7 +302,7 @@ pre {
 ::-webkit-scrollbar {
   width: 10px !important;
   background: $deepgray !important;
-  
+
   &-track {
     @include border-style($deepgray);
     background-color: $darkgray !important;
@@ -276,7 +318,7 @@ pre {
   .empty {
     color: $red !important;
   }
-  
+
   textarea {
     border: none !important;
   }
@@ -288,7 +330,7 @@ pre {
 
 .resolve-failed {
   background: $darkgray !important;
-  @include border-style($middlegray);
+  @include border-style($gray);
 }
 
 // Rang Colors - Generated with loops
@@ -311,7 +353,7 @@ pre {
 @each $class, $props in $awards {
   $image: nth($props, 1);
   $selector: nth($props, 2);
-  
+
   .award#{$class},
   body .popup_profile a[style*="#{$selector}"] {
     @include award-icon($image);
@@ -321,7 +363,8 @@ pre {
 // Reformal Widget
 #reformal_widget {
   @include reset-styles;
-  filter: invert(0.95) brightness(1.2) grayscale(0.6) contrast(0.8) hue-rotate(-30deg) !important;
+  filter: invert(0.95) brightness(1.2) grayscale(0.6) contrast(0.8)
+    hue-rotate(-30deg) !important;
 }
 
 // Reformal Tab

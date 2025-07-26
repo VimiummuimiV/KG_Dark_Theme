@@ -37,7 +37,7 @@ body .fade {
 }
 
 .modal {
-  border: 1px solid $middlegray !important;
+  border: 1px solid $gray !important;
   background: $darkgray !important;
 }
 
@@ -53,17 +53,17 @@ body .fade {
 }
 
 .modal-footer {
-  border-top: 1px solid $middlegray !important;
+  border-top: 1px solid $gray !important;
 }
 
 .modal-header,
 .modal2-header {
-  border-bottom: 1px solid $middlegray !important;
+  border-bottom: 1px solid $gray !important;
 }
 
 .modal2-dialog {
   font-weight: lighter;
-  border: 1px solid $middlegray !important;
+  border: 1px solid $gray !important;
   .progress-label {
     position: fixed !important;
     top: 3px !important;
@@ -73,7 +73,7 @@ body .fade {
   }
   .progress-striped {
     margin: 0 !important;
-    background: $middlegray !important;
+    background: $gray !important;
   }
   span {
     color: $white !important;
@@ -103,7 +103,7 @@ body .fade {
 .preview {
   background: $darkgray !important;
   color: $white !important;
-  border: 1px solid $middlegray !important;
+  border: 1px solid $gray !important;
 }
 
 .gametype-icons {

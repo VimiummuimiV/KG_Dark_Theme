@@ -21,7 +21,7 @@ $small-mobile: 320px;
       justify-content: center !important;
       left: 0 !important;
       width: 100vw !important;
-      border-bottom: 1px solid $middlegray !important;
+      border-bottom: 1px solid $gray !important;
     }
 
     // User block moves below
@@ -38,15 +38,12 @@ $small-mobile: 320px;
 
 /* SMALL TABLET - FURTHER SCALING */
 @media screen and (max-width: $small-tablet) {
-
 }
 
 /* MOBILE - COMPACT LAYOUT */
 @media screen and (max-width: $mobile) {
-
 }
 
 /* SMALL MOBILE - MINIMAL LAYOUT */
 @media screen and (max-width: $small-mobile) {
-
 }

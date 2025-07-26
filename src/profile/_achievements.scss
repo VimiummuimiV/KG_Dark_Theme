@@ -54,9 +54,9 @@
 
 // Base achieve styles that apply everywhere
 .achieve {
-    border: 1px solid transparent;
-    background: transparent !important;
-    border-radius: 10px !important;
+  border: 1px solid transparent;
+  background: transparent !important;
+  border-radius: 10px !important;
 
   .achieve-content {
     @include achieve-content-base;
@@ -166,7 +166,7 @@ body .achieve .achieve-content .levels .level .popover .achieve {
 // Achievement popover
 .popover {
   background-color: $deepgray !important;
-  border: 1px solid $middlegray !important;
+  border: 1px solid $gray !important;
   border-radius: 10px !important;
 
   .popover-content {
@@ -192,7 +192,7 @@ body .achieve .achieve-content .levels .level .popover .achieve {
 
   // Top arrow (popover below trigger - arrow points up)
   &.top .arrow {
-    border-top-color: $middlegray !important;
+    border-top-color: $gray !important;
     &:after {
       border-top-color: $deepgray !important;
     }
@@ -200,7 +200,7 @@ body .achieve .achieve-content .levels .level .popover .achieve {
 
   // Right arrow (popover to the right of trigger - arrow points left)
   &.right .arrow {
-    border-right-color: $middlegray !important;
+    border-right-color: $gray !important;
     &:after {
       border-right-color: $deepgray !important;
     }
@@ -208,7 +208,7 @@ body .achieve .achieve-content .levels .level .popover .achieve {
 
   // Bottom arrow (popover above trigger - arrow points down)
   &.bottom .arrow {
-    border-bottom-color: $middlegray !important;
+    border-bottom-color: $gray !important;
     &:after {
       border-bottom-color: $deepgray !important;
     }
@@ -216,7 +216,7 @@ body .achieve .achieve-content .levels .level .popover .achieve {
 
   // Left arrow (popover to the left of trigger - arrow points right)
   &.left .arrow {
-    border-left-color: $middlegray !important;
+    border-left-color: $gray !important;
     &:after {
       border-left-color: $deepgray !important;
     }
