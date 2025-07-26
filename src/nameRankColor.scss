@@ -12,17 +12,17 @@ $rank-colors: (
   8: $rang8,
   9: $rang9,
   10: $rang10,
-  11: $rang11
+  11: $rang11,
 );
 
 // Generate rank styles using a loop
-#content, #popup {
+#content,
+#popup {
   @each $rank, $color in $rank-colors {
-    .rang#{$rank}, 
-    a.rang#{$rank}, 
+    .rang#{$rank},
+    a.rang#{$rank},
     a.rang#{$rank}:visited {
       color: $color !important;
-      border: 2px solid darken($color, 10%) !important;
     }
   }
 }
