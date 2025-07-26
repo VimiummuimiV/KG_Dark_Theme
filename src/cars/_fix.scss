@@ -54,6 +54,10 @@ $tuning-offsets: (
 
 /* ===== CAR TUNING MASKS ===== */
 $car-tuning-masks: (
+  "car1": (
+    "class":
+      "car-tuning1_0, car-tuning1_1, car-tuning1_2, car-tuning1_3, car-tuning1_4, car-tuning2_0, car-tuning2_1, car-tuning2_2",
+  ),
   "car5": (
     "class": "car-tuning2_0",
   ),

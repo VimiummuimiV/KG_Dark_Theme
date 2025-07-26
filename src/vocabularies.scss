@@ -121,43 +121,37 @@
     margin: 0 !important;
 
     li {
-      width: 100% !important;
-      margin: 0 !important;
+      left: 0 !important;
       padding: 0 !important;
+      margin: 2px !important;
+      width: 100% !important;
       display: flex !important;
-      justify-content: center !important;
       align-items: center !important;
       height: 20px !important;
 
       &.active {
-        width: 100% !important;
-        left: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        height: 20px !important;
-        background: $blue !important;
+        background: transparent !important;
 
         span {
-          background: $blue !important;
+          color: $orange !important;
+          background: darken($orange, 30%) !important;
+          padding: 2px 5px !important;
           margin: 0 !important;
-          padding: 0 !important;
-          color: $darkgray !important;
+          width: fit-content !important;
+          border-radius: 3px !important;
         }
       }
 
       a {
+        padding: 2px 5px !important;
         display: flex !important;
-        justify-content: center !important;
         align-items: center !important;
-        height: 20px !important;
         width: 100% !important;
         text-decoration: none !important;
         background: $darkgray !important;
         color: $blue !important;
         transition: all 0.1s !important;
+        border-radius: 3px !important;
 
         &:hover {
           background: $blue !important;
