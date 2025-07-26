@@ -1,16 +1,28 @@
 @import "./data/variables";
 
-// Rank styles using variables with #content parent selector
+// Define your rank colors in a map
+$rank-colors: (
+  1: $rang1,
+  2: $rang2,
+  3: $rang3,
+  4: $rang4,
+  5: $rang5,
+  6: $rang6,
+  7: $rang7,
+  8: $rang8,
+  9: $rang9,
+  10: $rang10,
+  11: $rang11
+);
+
+// Generate rank styles using a loop
 #content, #popup {
-  .rang1, a.rang1, a.rang1:visited { color: $rang1 !important; border-color: #{$rang1}80 !important; }
-  .rang2, a.rang2, a.rang2:visited { color: $rang2 !important; border-color: #{$rang2}80 !important; }
-  .rang3, a.rang3, a.rang3:visited { color: $rang3 !important; border-color: #{$rang3}80 !important; }
-  .rang4, a.rang4, a.rang4:visited { color: $rang4 !important; border-color: #{$rang4}80 !important; }
-  .rang5, a.rang5, a.rang5:visited { color: $rang5 !important; border-color: #{$rang5}80 !important; }
-  .rang6, a.rang6, a.rang6:visited { color: $rang6 !important; border-color: #{$rang6}80 !important; }
-  .rang7, a.rang7, a.rang7:visited { color: $rang7 !important; border-color: #{$rang7}80 !important; }
-  .rang8, a.rang8, a.rang8:visited { color: $rang8 !important; border-color: #{$rang8}80 !important; }
-  .rang9, a.rang9, a.rang9:visited { color: $rang9 !important; border-color: #{$rang9}80 !important; }
-  .rang10, a.rang10, a.rang10:visited { color: $rang10 !important; border-color: #{$rang10}80 !important; }
-  .rang11, a.rang11, a.rang11:visited { color: $rang11 !important; border-color: #{$rang11}80 !important; }
+  @each $rank, $color in $rank-colors {
+    .rang#{$rank}, 
+    a.rang#{$rank}, 
+    a.rang#{$rank}:visited {
+      color: $color !important;
+      border: 2px solid darken($color, 10%) !important;
+    }
+  }
 }
