@@ -2,6 +2,7 @@
 
 /* Chat Styles */
 #chat-fixed-placeholder {
+  // Prevent selecting all except paragraph and anchor elements
   table {
     user-select: none !important;
   }
