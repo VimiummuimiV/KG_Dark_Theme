@@ -28,19 +28,19 @@ $car1: map-get($processed-svg-cars, "car1");
 
 /* ===== TUNING OFFSET MAP ===== */
 $tuning-offsets: (
-  "car-tuning1": -50px,
-  "car-tuning2": -100px,
-  "car-tuning3": -150px,
-  "car-tuning4": -200px,
-  "car-tuning5": -250px,
-  "car-tuning6": -300px,
-  "car-tuning7": -350px,
-  "car-tuning8": -400px,
-  "car-tuning9": -450px,
-  "car-tuning10": -500px,
-  "car-tuning11": -550px,
-  "car-tuning12": -600px,
-  "car-tuning13": -650px,
+  "1": -50px,
+  "2": -100px,
+  "3": -150px,
+  "4": -200px,
+  "5": -250px,
+  "6": -300px,
+  "7": -350px,
+  "8": -400px,
+  "9": -450px,
+  "10": -500px,
+  "11": -550px,
+  "12": -600px,
+  "13": -650px,
 );
 
 @function get-tuning-offset($class-name) {
@@ -57,39 +57,57 @@ $car-tuning-masks: (
   // ZAZ_965
   "car1":
     (
-      "class":
-        "car-tuning1_1, car-tuning1_2, car-tuning1_3, car-tuning1_4, car-tuning2_0, car-tuning2_1, car-tuning2_2",
+      "class": "1_1, 1_2, 1_3, 1_4, 2_0, 2_1, 2_2",
     ),
   // VAZ_2104
   "car2":
     (
-      "class": "car-tuning1_1",
+      "class": "1_1",
     ),
   // Fiat_Strada
   "car5":
     (
-      "class": "car-tuning2_0",
+      "class": "2_0",
+    ),
+  // Hummer_H3
+  "car6":
+    (
+      "class": "1_2, 1_3",
     ),
   // Ford_Focus_Mk2
   "car8":
     (
-      "class": "car-tuning1_1, car-tuning1_2, car-tuning1_3",
+      "class": "1_1, 1_2, 1_3",
     ),
   // Mitsubishi_Lancer_X
   "car11":
     (
-      "class": "car-tuning2_0, car-tuning2_1, car-tuning2_2",
+      "class": "2_0, 2_1, 2_2",
+    ),
+  // Lamborghini_Murcielago
+  "car16":
+    (
+      "class": "1_2, 1_3",
     ),
   // Batmobile
   "car17":
     (
-      "class": "car-tuning1_0",
+      "class": "1_0",
+    ),
+  // Smart_Fortwo
+  "car23":
+    (
+      "class": "1_0",
+    ),
+  // Bugatti_Galibier
+  "car33":
+    (
+      "class": "1_0, 1_1, 1_2, 1_3, 1_4",
     ),
   // SS-X
   "car42":
     (
-      "class":
-        "car-tuning2_0, car-tuning2_1, car-tuning2_2, car-tuning2_3, car-tuning2_4, car-tuning1_0, car-tuning1_1, car-tuning1_2, car-tuning1_3, car-tuning1_4",
+      "class": "2_0, 2_1, 2_2, 2_3, 2_4, 1_0, 1_1, 1_2, 1_3, 1_4",
     )
 );
 
@@ -99,11 +117,12 @@ $car-tuning-masks: (
   $classes: str-replace(map-get($props, "class"), " ", "");
 
   $remaining: $classes;
+
   @while str-index($remaining, ",") or str-length($remaining) > 0 {
     $comma: str-index($remaining, ",");
     $class: if($comma, str-slice($remaining, 1, $comma - 1), $remaining);
 
-    .car .#{$car}.#{$class} {
+    .car .#{$car}.car-tuning#{$class} {
       mask: #{$svg} no-repeat 0px #{get-tuning-offset($class)} / #{$size},
         linear-gradient(#000 0 0) !important;
       mask-composite: exclude !important;
@@ -117,6 +136,7 @@ $car-tuning-masks: (
 .profile-car .shop.tuning .car .imgcont {
   background: $darkgray !important;
 }
+
 .car .car-tuning {
   z-index: 10 !important;
 }
