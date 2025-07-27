@@ -42,7 +42,9 @@
             }
 
             .remove {
-              color: $red !important;
+              color: $lightblue !important;
+              background: $close-icon no-repeat left center / contain !important;
+              filter: hue-rotate(150deg) !important;
             }
           }
 
@@ -105,8 +107,13 @@
     margin: 0 !important;
     padding: 25px 0 5px 0 !important;
 
-    > h4 {
-      display: none !important;
+    h4 {
+      color: $orange !important;
+      background: darken($orange, 30%) !important;
+      padding: 2px 5px !important;
+      margin: 15px 0 5px !important;
+      border-radius: 3px !important;
+      text-align: center !important;
     }
   }
 }
@@ -133,11 +140,11 @@
         background: transparent !important;
 
         span {
-          color: $orange !important;
-          background: darken($orange, 30%) !important;
+          color: $lightblue !important;
+          background: darken($lightblue, 40%) !important;
           padding: 2px 5px !important;
           margin: 0 !important;
-          width: fit-content !important;
+          width: 100% !important;
           border-radius: 3px !important;
         }
       }
@@ -154,8 +161,8 @@
         border-radius: 3px !important;
 
         &:hover {
-          background: $blue !important;
-          color: $darkgray !important;
+          color: $lightblue !important;
+          background: darken($lightblue, 40%) !important;
         }
       }
     }

@@ -54,20 +54,43 @@ $tuning-offsets: (
 
 /* ===== CAR TUNING MASKS ===== */
 $car-tuning-masks: (
-  "car1": (
-    "class":
-      "car-tuning1_0, car-tuning1_1, car-tuning1_2, car-tuning1_3, car-tuning1_4, car-tuning2_0, car-tuning2_1, car-tuning2_2",
-  ),
-  "car5": (
-    "class": "car-tuning2_0",
-  ),
-  "car17": (
-    "class": "car-tuning1_0",
-  ),
-  "car42": (
-    "class":
-      "car-tuning2_0, car-tuning2_1, car-tuning2_2, car-tuning2_3, car-tuning2_4, car-tuning1_0, car-tuning1_1, car-tuning1_2, car-tuning1_3, car-tuning1_4",
-  ),
+  // ZAZ_965
+  "car1":
+    (
+      "class":
+        "car-tuning1_1, car-tuning1_2, car-tuning1_3, car-tuning1_4, car-tuning2_0, car-tuning2_1, car-tuning2_2",
+    ),
+  // VAZ_2104
+  "car2":
+    (
+      "class": "car-tuning1_1",
+    ),
+  // Fiat_Strada
+  "car5":
+    (
+      "class": "car-tuning2_0",
+    ),
+  // Ford_Focus_Mk2
+  "car8":
+    (
+      "class": "car-tuning1_1, car-tuning1_2, car-tuning1_3",
+    ),
+  // Mitsubishi_Lancer_X
+  "car11":
+    (
+      "class": "car-tuning2_0, car-tuning2_1, car-tuning2_2",
+    ),
+  // Batmobile
+  "car17":
+    (
+      "class": "car-tuning1_0",
+    ),
+  // SS-X
+  "car42":
+    (
+      "class":
+        "car-tuning2_0, car-tuning2_1, car-tuning2_2, car-tuning2_3, car-tuning2_4, car-tuning1_0, car-tuning1_1, car-tuning1_2, car-tuning1_3, car-tuning1_4",
+    )
 );
 
 @each $car, $props in $car-tuning-masks {
