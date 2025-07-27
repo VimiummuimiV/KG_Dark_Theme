@@ -1,4 +1,4 @@
-@import "./data/variables";
+@import "../data/variables";
 
 /* Main content container */
 #content {
@@ -13,9 +13,9 @@
 
     /* Left column navigation - appears first in HTML */
     .left-col {
+      float: none !important;
       display: flex !important;
       flex-direction: column !important;
-      float: none !important;
       width: 150px !important;
       margin: 0 !important;
       padding: 0 !important;
@@ -51,6 +51,7 @@
           display: flex !important;
           align-items: center !important;
           height: 20px !important;
+          white-space: nowrap !important;
 
           &.active {
             background: transparent !important;
@@ -182,3 +183,5 @@
     }
   }
 }
+
+@import "vocabularies-adaptive";
