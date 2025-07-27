@@ -1,0 +1,64 @@
+#content .menu {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+
+  dd {
+    margin: 0 !important;
+
+    .trimenu {
+      font: 700 11px "Montserrat", sans-serif !important;
+      text-transform: uppercase !important;
+      display: inline-flex !important;
+
+      li {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 45px !important;
+        width: 140px !important;
+        float: none !important;
+        display: flex;
+        align-items: center !important;
+        justify-content: center !important;
+        background: $gray !important;
+        border-right: 1px solid $darkgray !important;
+
+        &.active {
+          background: darken($blue, 5%) !important;
+          color: $black !important;
+        }
+
+        &:hover:not(.active) {
+          background: lighten($blue, 5%) !important;
+        }
+
+        // Move the first-child and last-child selectors here
+        &:first-child {
+          border-radius: 5px 0 0 5px !important;
+        }
+
+        &:last-child {
+          border-radius: 0 5px 5px 0 !important;
+          border-right: none !important;
+        }
+
+        a {
+          text-decoration: none !important;
+          height: 100% !important;
+          width: 100% !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          color: $black !important;
+        }
+
+        sub {
+          position: absolute !important;
+          top: 10px !important;
+          font-size: 0.8em !important;
+          color: $darkgray !important;
+        }
+      }
+    }
+  }
+}
