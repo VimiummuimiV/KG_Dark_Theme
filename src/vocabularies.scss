@@ -1,287 +1,184 @@
 @import "./data/variables";
 
-/* Vocabularies section styles */
-.voclist {
-  input[type="submit"] {
-    display: none !important;
-  }
-
-  td.popularity {
-    background: none !important;
-  }
-
-  table {
-    tbody {
-      display: grid !important;
-      width: 100% !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 5px !important;
-      align-items: center !important;
-
-      tr {
-        border-radius: 5px !important;
-        border: 1px solid darken($gray, 15%) !important;
-        padding: 10px !important;
-        display: block !important;
-        height: 100% !important;
-        background-color: darken($darkgray, 2%) !important;
-
-        td {
-          &.title {
-            width: 100% !important;
-            padding: 5px 0 !important;
-
-            .btn_play,
-            .btn_fav,
-            .remove {
-              width: 80px !important;
-            }
-
-            .btn_fav {
-              filter: invert(0.8) !important;
-            }
-
-            .remove {
-              color: $lightblue !important;
-              background: $close-icon no-repeat left center / contain !important;
-              filter: hue-rotate(150deg) !important;
-            }
-          }
-
-          &.symbols {
-            width: calc(100% - 30px) !important;
-            padding: 5px 0 !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            color: $lightblue !important;
-
-            strong {
-              color: $orange !important;
-              background-color: darken($orange, 30%) !important;
-              padding: 2px 5px !important;
-              margin-right: 10px !important;
-              border-radius: 3px !important;
-            }
-
-            i {
-              color: $gray !important;
-              margin-right: 2px !important;
-            }
-          }
-
-          &.popularity {
-            display: inline-flex !important;
-            width: 24px !important;
-            height: 24px !important;
-          }
-        }
-      }
-    }
-
-    td {
-      border-bottom: none !important;
-    }
-
-    .symbols {
-      strong {
-        color: $white !important;
-        font-weight: lighter !important;
-      }
-    }
-  }
-
-  .content-col {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .left-col {
-    position: absolute !important;
-    left: -160px !important;
-    top: 22px !important;
-    justify-content: center !important;
-    display: flex !important;
-    float: none !important;
-    width: 150px !important;
-    flex-direction: column !important;
-    margin: 0 !important;
-    padding: 25px 0 5px 0 !important;
-
-    h4 {
-      color: $orange !important;
-      background: darken($orange, 30%) !important;
-      padding: 2px 5px !important;
-      margin: 15px 0 5px !important;
-      border-radius: 3px !important;
-      text-align: center !important;
-    }
-  }
-}
-
-/* Left column menu for vocs */
-.left-col {
-  ul.left-menu {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 150px !important;
-    margin: 0 !important;
-
-    li {
-      left: 0 !important;
-      padding: 0 !important;
-      margin: 2px !important;
-      width: 100% !important;
-      display: flex !important;
-      align-items: center !important;
-      height: 20px !important;
-
-      &.active {
-        background: transparent !important;
-
-        span {
-          color: $lightblue !important;
-          background: darken($lightblue, 40%) !important;
-          padding: 2px 5px !important;
-          margin: 0 !important;
-          width: 100% !important;
-          border-radius: 3px !important;
-        }
-      }
-
-      a {
-        padding: 2px 5px !important;
-        display: flex !important;
-        align-items: center !important;
-        width: 100% !important;
-        text-decoration: none !important;
-        background: $darkgray !important;
-        color: $blue !important;
-        transition: all 0.1s !important;
-        border-radius: 3px !important;
-
-        &:hover {
-          color: $lightblue !important;
-          background: darken($lightblue, 40%) !important;
-        }
-      }
-    }
-  }
-}
-
-/* Vocabulary view block */
-.vocview-block {
-  .words {
-    border: 1px solid $gray !important;
-    width: 100% !important;
-    height: 700px !important;
-  }
-
-  #toplist {
-    dt {
-      ul.mode {
-        li.active {
-          padding: 0 !important;
-        }
-      }
-    }
-  }
-
-  .editfor-title {
-    i {
-      background: $showHistory !important;
-    }
-  }
-}
-
-/* User content styles */
-.user-content {
-  dd:nth-child(2) {
-    background-color: $darkgray !important;
-  }
-}
-
-/* Button styles */
-.play {
-  background: $orange !important;
-}
-
-/* Vocabulary popularity styles */
-.voc_popularity {
-  background: $vocPopularity;
-}
-
-/* Profile block styles */
-#profile-block {
-  &.vocview-block .user-title .btn_play {
-    filter: hue-rotate(90deg) !important;
-  }
-
-  #toplist {
-    width: 100% !important;
-    display: block !important;
-    margin: 0 !important;
-
-    dt {
-      display: block !important;
-    }
-
-    > dd:nth-child(2) {
-      margin: 0 !important;
-    }
-  }
-}
-
-/* Body layout styles */
-body {
-  .columns {
-    top: 20px !important;
-
-    .content-col {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
+/* Main content container */
+#content {
+  /* Vocabularies section */
+  .voclist {
+    display: inline-flex !important;
+    gap: 10px !important;
 
     h3 {
       display: none !important;
     }
-  }
 
-  .voc_popularity {
-    background: $vocPopularity;
-  }
+    /* Left column navigation - appears first in HTML */
+    .left-col {
+      display: flex !important;
+      flex-direction: column !important;
+      float: none !important;
+      width: 150px !important;
+      margin: 0 !important;
+      padding: 0 !important;
 
-  .popularity0 {
-    background-position: 0px -96px !important;
-  }
+      a.create_voc {
+        margin: 0 !important;
+        border-radius: 5px !important;
+        transition: all 0.1s !important;
+        filter: invert(1) !important;
+      }
 
-  .popularity1 {
-    background-position: 0px -72px !important;
-  }
+      h4 {
+        color: $orange !important;
+        background: darken($orange, 30%) !important;
+        padding: 2px 5px !important;
+        margin: 15px 0 5px !important;
+        border-radius: 3px !important;
+        text-align: center !important;
+      }
 
-  .popularity2 {
-    background-position: 0px -48px !important;
-  }
+      ul.left-menu {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 150px !important;
+        margin: 0 !important;
 
-  .popularity3 {
-    background-position: 0px -24px !important;
-  }
+        li {
+          left: 0 !important;
+          padding: 0 !important;
+          margin: 2px !important;
+          width: 100% !important;
+          display: flex !important;
+          align-items: center !important;
+          height: 20px !important;
 
-  .popularity4 {
-    background-position: 0px 0px !important;
-  }
+          &.active {
+            background: transparent !important;
 
-  .create_voc {
-    position: absolute !important;
-    margin: 0 !important;
-    top: -17px !important;
-    border-radius: 5px !important;
-    border: 1px solid $orange !important;
-    transition: all 0.1s !important;
-    filter: invert(1) !important;
+            span {
+              color: $lightblue !important;
+              background: darken($lightblue, 40%) !important;
+              padding: 2px 5px !important;
+              margin: 0 !important;
+              width: 100% !important;
+              border-radius: 3px !important;
+            }
+          }
 
-    &:hover {
-      border: 1px solid $blue !important;
+          a {
+            padding: 2px 5px !important;
+            display: flex !important;
+            align-items: center !important;
+            width: 100% !important;
+            text-decoration: none !important;
+            background: $darkgray !important;
+            color: $blue !important;
+            transition: all 0.1s !important;
+            border-radius: 3px !important;
+
+            &:hover {
+              color: $lightblue !important;
+              background: darken($lightblue, 40%) !important;
+            }
+          }
+        }
+      }
+    }
+
+    /* Content column - appears second in HTML */
+    .content-col {
+      margin: 0 !important;
+      padding: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+
+      input[type="submit"] {
+        display: none !important;
+      }
+
+      table {
+        tbody {
+          display: grid !important;
+          width: 100% !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 5px !important;
+          align-items: center !important;
+
+          tr {
+            border-radius: 5px !important;
+            border: 1px solid darken($gray, 15%) !important;
+            padding: 10px !important;
+            display: block !important;
+            height: 100% !important;
+            background-color: darken($darkgray, 2%) !important;
+
+            td {
+              border-bottom: none !important;
+
+              &.title {
+                width: 100% !important;
+                padding: 5px 0 !important;
+
+                .btn_play,
+                .btn_fav,
+                .remove {
+                  width: 80px !important;
+                }
+
+                .btn_fav {
+                  filter: invert(0.8) !important;
+                }
+
+                .remove {
+                  color: $lightblue !important;
+                  background: $close-icon no-repeat left center / contain !important;
+                  filter: hue-rotate(150deg) !important;
+                }
+              }
+
+              &.symbols {
+                width: calc(100% - 30px) !important;
+                padding: 5px 0 !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                color: $lightblue !important;
+
+                strong {
+                  color: $orange !important;
+                  background-color: darken($orange, 30%) !important;
+                  padding: 2px 5px !important;
+                  margin-right: 10px !important;
+                  border-radius: 3px !important;
+                  font-weight: lighter !important;
+                }
+
+                i {
+                  color: $gray !important;
+                  margin-right: 2px !important;
+                }
+              }
+
+              &.popularity {
+                display: inline-flex !important;
+                width: 24px !important;
+                height: 24px !important;
+                background: none !important;
+
+                .voc_popularity {
+                  background: $vocPopularity;
+
+                  // Dynamic popularity positioning
+                  @for $i from 0 through 4 {
+                    &.popularity#{$i} {
+                      background-position: 0px (-24px * (4 - $i)) !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
