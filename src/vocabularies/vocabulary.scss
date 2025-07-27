@@ -1,0 +1,107 @@
+#content #profile-block {
+  dl {
+    margin: 10px 0 !important;
+  }
+
+  .user-title {
+    dd {
+      margin: 0 !important;
+    }
+
+    .remove {
+      color: $lightblue !important;
+      background: $close-icon no-repeat left center / contain !important;
+      filter: hue-rotate(150deg) !important;
+    }
+  }
+
+  .right-col {
+    padding: 0 0 0 10px !important;
+    width: 50% !important;
+
+    .comments {
+      background: $black !important;
+      border: 1px solid $blue !important;
+      overflow: hidden !important;
+
+      .rss {
+        top: 0 !important;
+        background: $rss-icon !important;
+
+        img {
+          visibility: hidden !important;
+        }
+      }
+
+      .link {
+        width: 50% !important;
+        height: 32px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-decoration: none !important;
+        color: $black !important;
+        background-color: $gray !important;
+        bottom: 0 !important;
+        transition: background-color 0.15s ease !important;
+
+        &:hover {
+          background-color: $blue !important;
+        }
+
+        i {
+          margin: 0 !important;
+          left: 15px !important;
+        }
+      }
+
+      .write {
+        left: 0 !important;
+        border-right: 1px solid $black !important;
+
+        i {
+          background: $write-comment-icon !important;
+        }
+      }
+
+      .other {
+        left: 50% !important;
+
+        i {
+          background: $show-comments-icon !important;
+        }
+      }
+    }
+  }
+
+  .user-content {
+    dt {
+      width: 100px !important;
+    }
+
+    dd {
+      margin-left: 120px !important;
+      background-color: transparent !important;
+
+      .words {
+        border: 1px solid $blue !important;
+        background-color: $black !important;
+
+        tr {
+          .num,
+          .text {
+            background: transparent !important;
+          }
+
+          .num {
+            color: $blue !important;
+          }
+
+          .text {
+            color: $white !important;
+          }
+        }
+      }
+    }
+  }
+}
