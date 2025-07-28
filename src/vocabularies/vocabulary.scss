@@ -8,6 +8,10 @@
   }
 
   .user-title {
+    .btn_fav {
+      filter: invert(1) !important;
+    }
+
     .remove {
       color: $lightblue !important;
       background: $close-icon no-repeat left center / contain !important;
