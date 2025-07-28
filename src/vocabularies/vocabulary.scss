@@ -21,6 +21,8 @@
   .user-title {
     grid-area: title;
     width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
 
     .btn_fav {
       filter: invert(1) !important;
@@ -36,7 +38,7 @@
   .right-col {
     grid-area: right;
     width: 100% !important;
-    padding: 0 !important;
+    padding: 0 0 0 10px !important;
 
     .comments {
       background: $black !important;
@@ -135,6 +137,8 @@
   .menu {
     grid-area: menu;
     width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
   }
 
   .user-content {
@@ -163,7 +167,7 @@
       background-color: transparent !important;
 
       .words {
-        width: fit-content !important;
+        width: 100% !important;
         border: 1px solid $blue !important;
         background-color: $black !important;
 
