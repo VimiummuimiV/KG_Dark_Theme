@@ -104,4 +104,30 @@
       }
     }
   }
+
+  .editfor-title {
+    text-decoration: none !important;
+    padding: 4px 8px !important;
+    color: $black !important;
+    background-color: $gray !important;
+    border-radius: 3px !important;
+
+    &.loading i {
+      filter: invert(1) !important;
+    }
+
+    &:hover {
+      background-color: lighten($gray, 10%) !important;
+    }
+
+    i {
+      margin-left: -30px !important;
+      filter: brightness(0.6) contrast(1.5) sepia(0.5) !important;
+    }
+
+    .dashed {
+      border: none !important;
+      color: inherit !important;
+    }
+  }
 }
