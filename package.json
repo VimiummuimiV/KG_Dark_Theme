@@ -12,6 +12,6 @@
   "scripts": {
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
-    "build:version": "node increment-version.js && webpack --mode production"
+    "build:version": "node src/js/increment-version.js && webpack --mode production"
   }
 }
