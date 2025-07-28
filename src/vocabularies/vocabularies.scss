@@ -2,7 +2,7 @@
 
 /* Main content container */
 #content {
-  /* Vocabularies section */
+   /* Vocabularies section */
   .voclist {
     display: inline-flex !important;
     gap: 10px !important;
@@ -16,9 +16,12 @@
       float: none !important;
       display: flex !important;
       flex-direction: column !important;
+      height: 100% !important;
       width: 150px !important;
       margin: 0 !important;
       padding: 0 !important;
+      position: sticky !important;
+      top: 100px !important;
 
       a.create_voc {
         margin: 0 !important;
@@ -92,6 +95,12 @@
       padding: 0 !important;
       padding-left: 0 !important;
       padding-right: 0 !important;
+
+      #search_form {
+        position: sticky !important;
+        top: 100px !important;
+        z-index: 5 !important;
+      }
 
       input[type="submit"] {
         display: none !important;

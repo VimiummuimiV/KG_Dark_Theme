@@ -3,11 +3,11 @@
     margin: 10px 0 !important;
   }
 
-  .user-title {
-    dd {
-      margin: 0 !important;
-    }
+  dd {
+    margin: 0 !important;
+  }
 
+  .user-title {
     .remove {
       color: $lightblue !important;
       background: $close-icon no-repeat left center / contain !important;
