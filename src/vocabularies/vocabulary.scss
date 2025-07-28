@@ -61,7 +61,9 @@
         margin: 25px 0 15px !important;
 
         b,
-        br {
+        br,
+        .quotetop,
+        .quotemain {
           display: contents !important;
         }
 
