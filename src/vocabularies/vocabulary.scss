@@ -75,7 +75,7 @@
           padding-left: 40px !important;
 
           &::before {
-            @include avatar-mask(4, 32px);
+            @include avatar-mask(4, 32px, $black);
           }
         }
 
@@ -162,7 +162,7 @@
       position: relative !important;
 
       &::before {
-        @include avatar-mask(4, 32px);
+        @include avatar-mask(4, 32px, $darkgray);
       }
     }
 
