@@ -238,6 +238,10 @@
     color: $white !important;
   }
 
+  .caret {
+    border-top: 4px solid $lightblue !important;
+  }
+
   &:hover,
   &:focus {
     color: $deepgray !important;
@@ -250,6 +254,10 @@
 
     span {
       color: $deepgray !important;
+    }
+
+    .caret {
+      border-top: 4px solid $deepgray !important;
     }
   }
 }

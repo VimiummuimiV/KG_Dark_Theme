@@ -1,10 +1,11 @@
 @import "./data/variables";
 
-/* modal fade scroll rm */
-body .fade {
+// Prevent scrollbars in modal fade
+.fade {
   overflow: auto !important;
   overflow-y: auto !important;
 
+  // Close button styles for modal
   .close {
     position: absolute !important; // Set globally
     margin-top: unset !important; // Garbage
@@ -20,9 +21,48 @@ body .fade {
     background: $black $close !important;
     font-size: 0 !important;
     transition: all 0.15s ease !important;
+    opacity: 1 !important;
 
     &:hover {
       filter: brightness(0.8) !important;
+    }
+  }
+
+  // Toggle button affecting only modal
+  .dropdown-toggle {
+    background-color: $deepgray !important;
+    border: 1px solid $blue !important;
+    border-radius: 5px !important;
+    transition: background 0.15s ease, color 0.15s ease, border 0.15s ease;
+
+    &:hover,
+    &:focus {
+      color: $black !important;
+      background-color: $blue !important;
+      border: 1px solid $lightblue !important;
+
+      span {
+        color: $black !important;
+      }
+
+      .caret {
+        border-top: 4px solid $black !important;
+      }
+    }
+
+    span {
+      color: $lightblue !important;
+    }
+
+    .caret {
+      border-top: 4px solid $lightblue !important;
+    }
+  }
+
+  // Prevent progress element left margin
+  .dailytask-progress {
+    .progress-striped {
+      margin: 0 !important;
     }
   }
 }
@@ -64,17 +104,7 @@ body .fade {
 .modal2-dialog {
   font-weight: lighter;
   border: 1px solid $gray !important;
-  .progress-label {
-    position: fixed !important;
-    top: 3px !important;
-    font-weight: lighter !important;
-    font-family: Verdana !important;
-    color: $deepgray !important;
-  }
-  .progress-striped {
-    margin: 0 !important;
-    background: $gray !important;
-  }
+
   span {
     color: $white !important;
   }

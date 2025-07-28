@@ -241,18 +241,6 @@ body .btn {
   @extend %button-base;
 }
 
-body .close {
-  background: none !important;
-  color: $gray !important;
-  opacity: 1 !important;
-
-  &:hover {
-    background: none !important;
-    color: $blue !important;
-    opacity: 1 !important;
-  }
-}
-
 // Layout Components
 .msg {
   background: $deepgray !important;
@@ -281,7 +269,7 @@ pre {
 
 // Progress Components
 #content .achieve .achieve-content .progress,
-.progress {
+.fade .progress {
   background: $black !important;
 
   &-bar {
