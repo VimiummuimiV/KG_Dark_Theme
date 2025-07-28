@@ -1,3 +1,4 @@
+@import "mixins";
 @import "./data/variables";
 
 /* MAIN PAGE */
@@ -111,6 +112,13 @@
         }
       }
 
+      a.user-link[style*="avatars/"] {
+        display: inline-flex !important;
+        height: 24px !important;
+        position: relative !important;
+        padding-left: 30px !important;
+      }
+
       .comments_num,
       .title2,
       .time {
@@ -121,7 +129,7 @@
     #discussing_forum {
       li {
         margin: 0 !important;
-        height: 26px !important;
+        height: 30px !important;
 
         .time {
           padding-left: 10px !important;
@@ -146,6 +154,17 @@ body #index #live #discussing_forum li .time {
 
   .note {
     color: $white !important;
+  }
+
+  td[style*="avatars/"] {
+    display: inline-flex !important;
+    height: 24px !important;
+    position: relative !important;
+    padding-left: 30px !important;
+  }
+
+  tr {
+    height: 30px !important;
   }
 
   td.date {

@@ -15,7 +15,9 @@
   function replaceBigAvatars() {
     const selectors = [
       '.info[style*="avatars/"]',
-      '.user-content dd[style*="avatars/"]'
+      '.user-content dd[style*="avatars/"]',
+      '#live .user-link[style*="avatars/"]',
+      '#top td[style*="avatars/"]'
     ];
     document.querySelectorAll(selectors.join(", ")).forEach(element => {
       const style = element.getAttribute('style');
