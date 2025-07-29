@@ -1,12 +1,19 @@
 @import "./data/variables";
 
 #toplist {
+  display: inline-flex !important;
+
+  h3 {
+    display: none !important;
+  }
+
   .left-col {
+    order: 0 !important;
     float: none !important;
     display: flex !important;
     flex-direction: column !important;
     height: 100% !important;
-    width: 200px !important;
+    min-width: 200px !important;
     margin: 0 !important;
     padding: 0 !important;
     position: sticky !important;
@@ -140,6 +147,107 @@
           }
         }
       }
+    }
+  }
+
+  .content-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    order: 1 !important;
+    margin: 0 !important;
+    padding: 0 10px !important;
+    width: 100% !important;
+
+    .search-position {
+      width: 100% !important;
+
+      .search-self {
+        background: $deepgray $position-icon / 24px !important;
+        border-radius: 5px !important;
+        border: 1px solid $gray !important;
+        width: 60px !important;
+        height: 100% !important;
+        padding: 0 !important;
+        margin-right: 10px !important;
+        transition: background 0.15s ease !important;
+        cursor: pointer !important;
+
+        &:hover {
+          background: $black $position-icon / 24px !important;
+          border-color: $lightblue !important;
+        }
+
+        a {
+          font-size: 0 !important;
+          display: inline-flex !important;
+          height: 100% !important;
+          width: 100% !important;
+        }
+      }
+    }
+
+    table {
+      width: 100% !important;
+    }
+  }
+
+  .right-col {
+    order: 2 !important;
+    float: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: fixed !important;
+    top: 50% !important;
+    right: 10px !important;
+    transform: translateY(-50%) !important;
+    width: 50px !important;
+    height: 50px !important;
+    z-index: 10 !important;
+    cursor: pointer !important;
+
+    // Fade-in animation
+    opacity: 0;
+    animation: fadeIn 3s ease-in-out 0s 1 forwards !important;
+
+    .info {
+      position: absolute !important;
+      background: $black $rating-info-icon 15px center / 32px !important;
+      width: 500px !important; // Set to final expanded width
+      height: 50px !important; // Set to final expanded height
+      overflow: hidden !important;
+      border-radius: 5px !important;
+      right: 0 !important;
+      top: 50% !important;
+      transform: translateY(-50%) translateX(calc(100% - 50px)) !important; // Hide most of it off-screen
+      transition: transform 0.3s ease !important; // Move transition to base state
+
+      p {
+        opacity: 0 !important;
+        transition: opacity 0.3s ease !important;  
+      }
+
+      &:hover {
+        height: fit-content !important; // Expand to fit content
+        transform: translateY(-50%) translateX(0) !important; // Slide it fully into view
+        background: $black !important;
+
+        p {
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  // Keyframe animation for fade-in effect
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 }
