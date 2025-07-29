@@ -1,174 +1,144 @@
 @import "./data/variables";
 
-/* Top list and rating styles */
-
 #toplist {
-  table {
-    width: 100% !important;
-
-    th,
-    tr,
-    td {
-      border: none !important;
-      background: $darkgray !important;
-    }
-
-    th,
-    td.offset_up,
-    td.offset_down,
-    tr.other > td.pos,
-    tr.other > td.highlight,
-    tr.other > td.competitions,
-    tr.other > td.bonuses,
-    tr.other td:nth-child(5),
-    tr.other td:nth-child(6) {
-      text-align: center !important;
-      vertical-align: middle !important;
-    }
-
-    tr.other {
-      &:nth-child(2n) {
-        filter: brightness(0.8) !important;
-      }
-    }
-
-    .pos {
-      text-align: center !important;
-    }
-  }
-
-  td {
-    &.offset_up {
-      color: #61ff39 !important;
-    }
-
-    &.offset_down {
-      color: #fc2727 !important;
-    }
-  }
-
-  .name {
-    a {
-      color: $white !important;
-      border-bottom: none !important;
-      border: 1px solid $gray !important;
-      padding: 12px !important;
-      display: flex !important;
-      background: transparent !important;
-      text-align: center !important;
-      align-items: center !important;
-      justify-content: center !important;
-
-      &:hover {
-        color: $blue !important;
-        border: 1px solid $blue !important;
-        background: $deepgray !important;
-      }
-    }
-  }
-
   .left-col {
+    float: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    width: 200px !important;
+    margin: 0 !important;
     padding: 0 !important;
+    position: sticky !important;
+    top: 100px !important;
 
     h4 {
-      display: none !important;
+      color: $orange !important;
+      font: 700 1.2em "Montserrat", sans-serif !important;
+      text-transform: uppercase !important;
+      padding: 2px 5px !important;
+      margin: 15px 0 5px !important;
+      border-radius: 3px !important;
+      text-align: center !important;
     }
-  }
 
-  ul.mode {
-    margin: 0 !important;
+    ul.mode {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      margin: 0 !important;
 
-    li {
-      margin-bottom: -1px !important;
-      width: 100% !important;
-
-      &:nth-child(odd) {
-        background-color: rgba(0, 0, 0, 0.2) !important;
-      }
-
-      &:nth-child(even) {
-        background-color: rgba(0, 0, 0, 0.3) !important;
-      }
-
-      &.active {
-        display: flex !important;
-        height: 20px !important;
-        width: 100% !important;
-        justify-content: center !important;
-        align-items: center !important;
+      li {
         left: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        background: $blue !important;
+        position: relative !important;
+        padding: 2px 5px !important;
+        margin: 2px !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        height: fit-content !important;
+        min-height: 20px !important;
+        border-radius: 3px !important;
 
         span {
           padding: 0 !important;
-          margin-right: 0 !important;
-          color: $deepgray !important;
-          background: $blue !important;
+          padding: 2px 5px !important;
+          background: transparent !important;
         }
-      }
 
-      a {
-        border: 1px solid transparent !important;
-        display: flex !important;
-        height: 20px !important;
-        width: 100% !important;
-        text-decoration: none !important;
-        justify-content: center !important;
-        align-items: center !important;
+        a {
+          position: absolute !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          top: 0 !important;
+          bottom: 0 !important;
+          left: 10px;
+          right: 0;
+          z-index: 1 !important;
+          text-decoration: none !important;
 
-        &[class="gametype-voc"],
-        &[href*="/top/rating/archive"],
-        &[href*="/top/rating/overall"] {
-          color: $gray !important;
-
-          &:hover {
-            color: $blue !important;
-            border: 1px solid $blue !important;
-            background: $deepgray !important;
+          img {
+            visibility: hidden !important;
+            height: 100% !important;
+            width: 25px !important;
+            top: 0 !important;
           }
         }
 
+        a[href*="/vocs/"] {
+          left: 0 !important;
+          width: 25px !important;
+          border-radius: 3px 0 0 3px !important;
+          mix-blend-mode: lighten !important;
+        }
+
+        a.gametype-voc {
+          left: 25px !important;
+          padding-left: 5px !important;
+          border-radius: 0 3px 3px 0 !important;
+          white-space: nowrap !important;
+          overflow: hidden !important;
+        }
+
         &:hover {
-          color: $blue !important;
-          border: 1px solid $blue !important;
-          background: $deepgray !important;
+          background: darken($lightblue, 40%) !important;
+        }
+
+        &.gametype-voc {
+          position: relative !important;
+
+          span {
+            margin: 0 0 0 25px !important;
+          }
+
+          a {
+            &:hover {
+              background-color: darken($lightblue, 30%) !important;
+            }
+          }
+
+          &::before {
+            content: "" !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            display: inline-flex !important;
+            width: 24px !important;
+            height: 100% !important;
+            background: $book-icon !important;
+          }
+        }
+
+        &.active {
+          background: darken($lightblue, 40%) !important;
         }
       }
-    }
-  }
 
-  .gametype-voc {
-    a[href*="/vocs/"] {
-      display: none !important;
-    }
-  }
-}
+      // Create a map of all gametypes (using existing variables from variables.scss)
+      $gametypes: (
+        "normal": $gametype-normal,
+        "quote": $gametype-quote,
+        "sprint": $gametype-sprint,
+        "marathon": $gametype-marathon,
+        "noerror": $gametype-noerror,
+        "noerrorcnt": $gametype-noerrorcnt,
+        "abra": $gametype-abra,
+        "abra-premium": $gametype-abra-premium,
+        "digits": $gametype-digits,
+        "referats": $gametype-referats,
+        "voc": $gametype-voc,
+        "chars": $gametype-chars,
+        "qual": $gametype-qual,
+      );
 
-/* Remove right column info panel */
-.columns {
-  .right-col {
-    display: none !important;
-  }
-
-  .info {
-    opacity: 0.2 !important;
-    background: $deepgray !important;
-    border-bottom: 1px solid $blue !important;
-    transition: 0.1s !important;
-
-    &:hover {
-      opacity: 1 !important;
-    }
-  }
-}
-
-body {
-  #toplist {
-    .gametype-voc {
-      a[href*="/vocs/"] {
-        display: none !important;
+      // Generate styles for all gametypes dynamically
+      @each $name, $color in $gametypes {
+        li:has(.gametype-#{$name}) {
+          &.active,
+          &:hover {
+            background: darken($color, 40%) !important;
+          }
+        }
       }
     }
   }

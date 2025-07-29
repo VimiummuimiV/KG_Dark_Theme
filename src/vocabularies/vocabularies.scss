@@ -2,7 +2,7 @@
 
 /* Main content container */
 #content {
-   /* Vocabularies section */
+  /* Vocabularies section */
   .voclist {
     display: inline-flex !important;
     gap: 10px !important;
@@ -32,7 +32,8 @@
 
       h4 {
         color: $orange !important;
-        background: darken($orange, 30%) !important;
+        font: 700 1.2em "Montserrat", sans-serif !important;
+        text-transform: uppercase !important;
         padding: 2px 5px !important;
         margin: 15px 0 5px !important;
         border-radius: 3px !important;
