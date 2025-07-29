@@ -55,6 +55,7 @@
       position: absolute !important;
       width: 500px !important; // Set to final expanded width
       height: 60px !important; // Limited height initially
+      max-height: 80vh !important;
       right: 0 !important;
       top: 50% !important;
       transform: translateY(-50%) translateX(calc(100% - 50px)) !important; // Hide most of it off-screen
@@ -62,6 +63,8 @@
       background: $black $reveal-comments-container-icon 15px center / 32px !important;
       border: 1px solid $blue !important;
       overflow: hidden !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
 
       // Content should be hidden initially
       .comment,
@@ -81,17 +84,10 @@
 
       .comment {
         display: flex !important;
+        flex-direction: column !important;
         position: relative !important;
         margin: 25px 0 15px !important;
-        a,
-        i,
-        b,
-        strong,
-        br,
-        .quotetop,
-        .quotemain {
-          display: contents !important;
-        }
+
         .info[style*="avatars/"] {
           width: 32px !important;
           height: 32px !important;
@@ -100,18 +96,14 @@
             @include avatar-mask(4, 32px, $black);
           }
         }
+
         .info {
           .author,
           .date {
-            position: absolute !important;
-            top: -15px !important;
           }
           .author {
-            left: 85px !important;
           }
           .date {
-            left: 0 !important;
-            width: 80px !important;
           }
         }
       }
