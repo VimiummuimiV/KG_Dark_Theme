@@ -42,6 +42,27 @@
       align-items: center !important;
       margin: 0 !important;
 
+      /* --- YEARGROUP START --- */
+
+      li.yeargroup {
+        color: $orange !important;
+        font: 700 1.1em "Montserrat", sans-serif !important;
+        text-align: center !important;
+        justify-content: center !important;
+
+        &:hover:not(:has(a)) {
+          background: transparent !important;
+        }
+
+        a {
+          &:hover {
+            color: lighten($gametype-voc, 30%) !important;
+          }
+        }
+      }
+
+      /* --- YEARGROUP END --- */
+
       li {
         left: 0 !important;
         position: relative !important;
@@ -107,6 +128,7 @@
 
           a {
             &:hover {
+              color: lighten($gametype-voc, 30%) !important;
               background-color: darken($lightblue, 30%) !important;
             }
           }
@@ -266,7 +288,8 @@
             }
 
             .numbers {
-              right: calc(100% + 10px) !important;
+              bottom: 5px !important;
+              right: calc(100% + 5px) !important;
             }
           }
 
@@ -322,7 +345,7 @@
     padding: 0 !important;
     position: fixed !important;
     top: 50% !important;
-    right: 10px !important;
+    right: 0 !important;
     transform: translateY(-50%) !important;
     width: 50px !important;
     height: 50px !important;
@@ -335,7 +358,7 @@
 
     .info {
       position: absolute !important;
-      background: $black $rating-info-icon 15px center / 32px !important;
+      background: $black $rating-info-icon 10px center / 32px !important;
       width: 500px !important; // Set to final expanded width
       height: 50px !important; // Set to final expanded height
       overflow: hidden !important;

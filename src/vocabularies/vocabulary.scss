@@ -41,7 +41,7 @@
     grid-area: right;
     position: fixed !important;
     top: 50% !important;
-    right: 10px !important;
+    right: 0 !important;
     transform: translateY(-50%) !important;
     width: 50px !important; // Trigger area width
     height: 50px !important; // Trigger area height
@@ -54,13 +54,13 @@
     .comments {
       position: absolute !important;
       width: 500px !important; // Set to final expanded width
-      height: 60px !important; // Limited height initially
+      height: 50px !important; // Limited height initially
       max-height: 80vh !important;
       right: 0 !important;
       top: 50% !important;
       transform: translateY(-50%) translateX(calc(100% - 50px)) !important; // Hide most of it off-screen
       transition: transform 0.3s ease, height 0.3s ease !important;
-      background: $black $reveal-comments-container-icon 15px center / 32px !important;
+      background: $black $reveal-comments-container-icon 10px center / 32px !important;
       border: 1px solid $blue !important;
       overflow: hidden !important;
       overflow-x: hidden !important;
