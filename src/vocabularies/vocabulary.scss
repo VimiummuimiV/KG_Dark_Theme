@@ -1,4 +1,5 @@
 @import "../mixins";
+@import "../animations";
 
 #content #profile-block {
   margin-top: 10px !important;
@@ -7,7 +8,8 @@
     "title right"
     "menu right"
     "content right";
-  grid-template-columns: 65% 35%;
+  // grid-template-columns: 65% 35%;
+  grid-template-columns: 100% auto;
   grid-template-rows: auto auto 1fr;
 
   dl {
@@ -37,18 +39,41 @@
 
   .right-col {
     grid-area: right;
-    width: 100% !important;
-    padding: 0 0 0 10px !important;
+    position: fixed !important;
+    top: 50% !important;
+    right: 10px !important;
+    transform: translateY(-50%) !important;
+    width: 50px !important; // Trigger area width
+    height: 50px !important; // Trigger area height
+    z-index: 10 !important;
+    cursor: pointer !important;
+    // Fade-in animation
+    opacity: 0;
+    animation: fadeIn 3s ease-in-out 0s 1 forwards !important;
 
     .comments {
-      background: $black !important;
+      position: absolute !important;
+      width: 500px !important; // Set to final expanded width
+      height: 60px !important; // Limited height initially
+      right: 0 !important;
+      top: 50% !important;
+      transform: translateY(-50%) translateX(calc(100% - 50px)) !important; // Hide most of it off-screen
+      transition: transform 0.3s ease, height 0.3s ease !important;
+      background: $black $reveal-comments-container-icon 15px center / 32px !important;
       border: 1px solid $blue !important;
       overflow: hidden !important;
+
+      // Content should be hidden initially
+      .comment,
+      .link,
+      h4 {
+        opacity: 0 !important;
+        transition: opacity 0.3s ease !important;
+      }
 
       .rss {
         top: 0 !important;
         background: $rss-icon !important;
-
         img {
           visibility: hidden !important;
         }
@@ -58,7 +83,6 @@
         display: flex !important;
         position: relative !important;
         margin: 25px 0 15px !important;
-
         a,
         i,
         b,
@@ -68,28 +92,23 @@
         .quotemain {
           display: contents !important;
         }
-
         .info[style*="avatars/"] {
           width: 32px !important;
           height: 32px !important;
           padding-left: 40px !important;
-
           &::before {
             @include avatar-mask(4, 32px, $black);
           }
         }
-
         .info {
           .author,
           .date {
             position: absolute !important;
             top: -15px !important;
           }
-
           .author {
             left: 85px !important;
           }
-
           .date {
             left: 0 !important;
             width: 80px !important;
@@ -108,11 +127,9 @@
         background-color: $gray !important;
         bottom: 0 !important;
         transition: background-color 0.15s ease !important;
-
         &:hover {
           background-color: $blue !important;
         }
-
         i {
           margin: 0 !important;
           left: 15px !important;
@@ -122,7 +139,6 @@
       .write {
         left: 0 !important;
         border-right: 1px solid $black !important;
-
         i {
           background: $write-comment-icon !important;
         }
@@ -130,10 +146,22 @@
 
       .other {
         left: 50% !important;
-
         i {
           background: $show-comments-icon !important;
         }
+      }
+    }
+
+    // Hover behavior - slide in and show content
+    &:hover .comments {
+      transform: translateY(-50%) translateX(0) !important; // Slide fully into view
+      height: auto !important; // Expand to fit content
+      background: $black !important; // Remove icon background on hover
+
+      .comment,
+      .link,
+      h4 {
+        opacity: 1 !important; // Show content
       }
     }
   }
@@ -171,7 +199,7 @@
       background-color: transparent !important;
 
       .words {
-        width: 100% !important;
+        width: fit-content !important;
         border: 1px solid $blue !important;
         background-color: $black !important;
 

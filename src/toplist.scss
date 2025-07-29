@@ -1,4 +1,5 @@
 @import "./data/variables";
+@import "animations";
 
 #toplist {
   font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
@@ -10,7 +11,9 @@
     display: none !important;
   }
 
-  .left-col {
+  .left-col,
+  // Top list left menu parent navigating from vocabulary
+  dt:first-child {
     order: 0 !important;
     float: none !important;
     display: flex !important;
@@ -154,7 +157,9 @@
     }
   }
 
-  .content-col {
+  .content-col,
+  // Top list table parent navigating from vocabulary
+  dd {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -354,16 +359,6 @@
           opacity: 1 !important;
         }
       }
-    }
-  }
-
-  // Keyframe animation for fade-in effect
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
     }
   }
 }
