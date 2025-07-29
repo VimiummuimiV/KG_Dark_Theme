@@ -2,6 +2,8 @@
 
 #toplist {
   display: inline-flex !important;
+  justify-content: center !important;
+  gap: 10px !important;
 
   h3 {
     display: none !important;
@@ -13,7 +15,7 @@
     display: flex !important;
     flex-direction: column !important;
     height: 100% !important;
-    min-width: 200px !important;
+    width: fit-content !important;
     margin: 0 !important;
     padding: 0 !important;
     position: sticky !important;
@@ -27,6 +29,7 @@
       margin: 15px 0 5px !important;
       border-radius: 3px !important;
       text-align: center !important;
+      width: 220px !important;
     }
 
     ul.mode {
@@ -157,7 +160,7 @@
     order: 1 !important;
     margin: 0 !important;
     padding: 0 10px !important;
-    width: 100% !important;
+    width: fit-content !important;
 
     .search-position {
       width: 100% !important;
@@ -189,6 +192,105 @@
 
     table {
       width: 100% !important;
+
+      tbody {
+        display: flex !important;
+        flex-direction: column !important;
+
+        tr {
+          background-color: darken($darkgray, 2%) !important;
+          border: 1px solid darken($gray, 15%) !important;
+          border-radius: 5px !important;
+          margin: 5px 0 !important;
+          padding: 5px !important;
+          height: 70px !important;
+
+          .offset_up,
+          .offset_down,
+          td:first-child {
+            width: 50px !important;
+            justify-content: center !important;
+          }
+
+          .pos {
+            width: 50px !important;
+            justify-content: center !important;
+          }
+
+          th.name {
+            margin-right: 110px !important;
+          }
+
+          .name {
+            width: 220px !important;
+            background-position: left center !important;
+            background-size: 32px !important;
+
+            a {
+              border: none !important;
+            }
+          }
+
+          .name[style*="avatars/"] {
+            a {
+              padding-left: 40px !important;
+            }
+          }
+
+          .car {
+            margin-right: 15px !important;
+
+            .img {
+              &::before {
+                filter: brightness(0.88) !important;
+              }
+            }
+
+            .numbers {
+              right: calc(100% + 10px) !important;
+            }
+          }
+
+          .highlight {
+            margin-right: 15px !important;
+            min-width: 90px !important;
+
+            + td,
+            + td + td,
+            + th,
+            + th + th {
+              min-width: 90px !important;
+              margin-right: 15px !important;
+            }
+          }
+
+          th:not(.offset) {
+            padding: 0 !important;
+          }
+
+          th,
+          td {
+            display: inline-flex !important;
+            flex-direction: row !important;
+            justify-content: start !important;
+            align-items: center !important;
+            width: fit-content !important;
+            background-color: darken($darkgray, 2%) !important;
+            border: none !important;
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+
+          td {
+            strong,
+            b {
+              color: $lightblue !important;
+              margin-right: 5px !important;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -226,7 +328,7 @@
 
       p {
         opacity: 0 !important;
-        transition: opacity 0.3s ease !important;  
+        transition: opacity 0.3s ease !important;
       }
 
       &:hover {
