@@ -1,3 +1,4 @@
+// Add avatar mask to make fake border-radius
 @mixin avatar-mask($radius: 4, $dimensions: 32px, $background: transparent) {
   content: "";
   position: absolute;
@@ -6,7 +7,27 @@
   width: $dimensions;
   height: $dimensions;
   background: $background;
-  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><rect width='32' height='32' rx='#{$radius}' ry='#{$radius}' fill='black'/></svg>") no-repeat,
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><rect width='32' height='32' rx='#{$radius}' ry='#{$radius}' fill='black'/></svg>")
+      no-repeat,
     linear-gradient(#000 0 0);
   mask-composite: exclude;
+}
+
+// Parameterized mixin for different orientations:
+@mixin content-reposition-focused($orientation: "portrait") {
+  @if $orientation == "portrait" {
+    // Bottom orientation (mobile/tablet)
+    margin-bottom: 40vh !important;
+    transition: margin-bottom 0.25s ease !important;
+    // Reset horizontal positioning from original
+    position: static !important;
+    left: auto !important;
+    width: auto !important;
+  } @else {
+    // Landscape orientation (desktop) - use original behavior
+    position: absolute !important;
+    left: 10px !important;
+    width: calc(60vw - 50px) !important;
+    transition: width 0.25s ease, left 0.25s ease !important;
+  }
 }

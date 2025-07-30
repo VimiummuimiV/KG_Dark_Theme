@@ -1,3 +1,5 @@
+@import "../mixins";
+
 // Forum
 #content td.write,
 // Vocabulary
@@ -111,24 +113,16 @@
   }
 }
 
-// Mixin for content repositioning when write block is focused
-@mixin content-reposition-focused {
-  position: absolute !important;
-  left: 10px !important;
-  width: calc(60vw - 50px) !important;
-  transition: width 0.25s ease, left 0.25s ease !important;
-}
-
 /* Posts-list repositioning: When write block gains focus (user interacts with form),
    shrink posts-list to 60% width and position it absolutely to make room for the expanded write panel */
 body:has(td.write:focus-within) #posts-list {
-  @include content-reposition-focused;
+  @include content-reposition-focused("landscape");
 }
 
 /* Profile-block repositioning: when vocabulary write block gains focus,
    shrink profile-block to 60% width and position it absolutely to make room for the expanded write panel */
 body:has(dl.write:focus-within) #profile-block {
-  @include content-reposition-focused;
+  @include content-reposition-focused("landscape");
 }
 
 // Special fix for write block on vocabulary comments section
@@ -163,3 +157,5 @@ body {
     }
   }
 }
+
+@import "write-adaptive";
