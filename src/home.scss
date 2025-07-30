@@ -112,11 +112,14 @@
         }
       }
 
+      a.user-link {
+        padding-left: 30px !important;
+      }
+
       a.user-link[style*="avatars/"] {
         display: inline-flex !important;
         height: 24px !important;
         position: relative !important;
-        padding-left: 30px !important;
       }
 
       .comments_num,
@@ -156,11 +159,16 @@ body #index #live #discussing_forum li .time {
     color: $white !important;
   }
 
+  tr {
+    > td:first-of-type {
+      padding-left: 30px !important;
+    }
+  }
+
   td[style*="avatars/"] {
     display: inline-flex !important;
     height: 24px !important;
     position: relative !important;
-    padding-left: 30px !important;
   }
 
   tr {

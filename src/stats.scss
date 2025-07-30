@@ -81,14 +81,23 @@
       height: 30px !important;
 
       td[style*="avatars/"] {
-        padding-left: 30px !important;
         background-size: 24px !important;
         position: relative !important;
       }
     }
   }
 
+  .statistic-top-15 {
+    td:first-of-type {
+      padding-left: 30px !important;
+    }
+  }
+
   .statistic-records {
+    td:last-of-type {
+      padding-left: 30px !important;
+    }
+
     #records th::after,
     #records td::after {
       background: linear-gradient(to right, transparent, #1b1d20) !important;
