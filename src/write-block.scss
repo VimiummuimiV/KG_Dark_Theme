@@ -15,17 +15,19 @@
   transition: height 0.15s ease, width 0.25s ease !important;
   cursor: pointer !important;
 
-  // content should be hidden initially
+  // Content should be hidden initially
   #write-block {
     opacity: 0 !important;
   }
 
-  &:hover #write-block {
+  &:hover #write-block,
+  &:focus-within #write-block {
     opacity: 1 !important;
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:focus-within {
     width: 40vw !important;
     height: 80vh !important;
     min-width: 800px !important;
