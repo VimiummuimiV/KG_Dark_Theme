@@ -18,7 +18,8 @@
   .statistic-players-ranks,
   .statistic-top-15,
   .statistic-records {
-    background-color: rgba(0, 0, 0, 0.2) !important;
+    background-color: $deepgray !important;
+    border: 1px solid $blue !important;
   }
 
   .statistic-players-ranks {
@@ -100,7 +101,11 @@
 
     #records th::after,
     #records td::after {
-      background: linear-gradient(to right, transparent, #1b1d20) !important;
+      background: linear-gradient(
+        to right,
+        transparent,
+        darken($deepgray, 2%)
+      ) !important;
     }
     .statistic-records-prize {
       background: $statistics-trophy-icon !important;
