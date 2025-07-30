@@ -33,11 +33,8 @@ function updateVersionInFile(filePath) {
   console.log(`Updated ${path.basename(filePath)}: ${currentVersion} → ${newVersion}`);
 }
 
-// Update both header files
-const stylishHeaderPath = path.resolve('src', 'header-stylish.js');
-const tampermonkeyHeaderPath = path.resolve('src', 'header-tampermonkey.js');
+const tampermonkeyHeaderPath = path.resolve('src', 'js', 'header-tampermonkey.js');
 
-updateVersionInFile(stylishHeaderPath);
 updateVersionInFile(tampermonkeyHeaderPath);
 
 console.log('✅ Version increment completed!');
