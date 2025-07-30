@@ -1,6 +1,6 @@
 // Keyframe animation for fade-in effect
 @keyframes fadeIn {
-  0% {
+  0%, 80% {
     opacity: 0;
   }
   100% {

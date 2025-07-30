@@ -1,182 +1,102 @@
-/* Write Block Styles */
-.write {
-  position: relative !important;
+// Forum
+#content td.write,
+// Vocabulary
+#content dl.write {
+  overflow: hidden !important;
+  z-index: 1010 !important;
+  position: fixed !important;
+  border: 1px solid $lightblue !important;
+  top: 50% !important;
+  right: 0 !important;
+  height: 50px !important;
+  width: 50px !important;
+  background: $black $show-write-block center / 32px !important;
+  transform: translateY(-50%) !important;
+  transition: height 0.15s ease, width 0.25s ease !important;
+  cursor: pointer !important;
 
-  // Write block container (both td.write and dl.write dd contexts)
-  #write-block,
-  .form {
-    transition: all 0.3s ease !important;
-
-    // Button container styling
-    > p {
-      display: flex !important;
-
-      > input {
-        color: $white !important;
-        width: 50% !important;
-        height: 35px !important;
-        background: #3b3b3b !important;
-        border: 1px solid $gray !important;
-        transition: all 0.1s !important;
-
-        &:hover {
-          background: $deepgray !important;
-          color: $white !important;
-          border: 1px solid $white !important;
-          transition: all 0.1s !important;
-        }
-
-        &[name="send"] {
-          margin-right: 1px !important;
-        }
-
-        &[name="preview"] {
-          margin-left: 1px !important;
-        }
-      }
-    }
+  // content should be hidden initially
+  #write-block {
+    opacity: 0 !important;
   }
 
-  // Textarea styling with popup behavior for entire write block
+  &:hover #write-block {
+    opacity: 1 !important;
+  }
+
+  &:hover,
+  &:focus {
+    width: 40vw !important;
+    height: 80vh !important;
+    min-width: 800px !important;
+    overflow: visible !important;
+    background: $black !important;
+    cursor: default !important;
+  }
+
   textarea {
-    position: static !important;
-    font-family: "Montserrat", sans-serif !important;
-    border: 1px solid $gray !important;
-    background: $darkgray !important;
-    color: $white !important;
-    font-size: 14px !important;
-    width: 100% !important;
-    transition: background 0.3s !important;
-    height: 40px !important;
-    cursor: pointer !important;
+    margin: 10px 0 !important;
     resize: none !important;
+    height: calc(80vh - 110px) !important;
+    border-radius: 5px !important;
     padding: 10px !important;
-    overflow: hidden !important;
-    z-index: 100 !important;
+    background-color: $black !important;
+    border: 1px solid $gray !important;
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
+    font-size: 1.2em !important;
+  }
 
-    &:hover {
-      background: $deepgray !important;
-      opacity: 0.8 !important;
+  // Button container styling
+  p:has(input) {
+    display: flex !important;
+    position: absolute !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    input {
+      border: none !important;
+      color: $white !important;
+      width: 50% !important;
+      height: 40px !important;
+      color: $black !important;
+      transition: background-color 0.15s ease !important;
+      font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
     }
 
-    // On focus, popup the entire write block
-    &:focus {
-      background: $deepgray !important;
-      width: 80vw !important;
-      height: 60vh !important;
-      position: fixed !important;
-      top: calc(50vh - 30vh) !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      font-size: 16px !important;
-      border-bottom: 3px solid $orange !important;
-      overflow-y: auto !important;
-      z-index: 1001 !important;
+    input[name="send"] {
+      border-right: 1px solid $black !important;
+      background: $gray $send-icon no-repeat 15px center / 24px !important;
 
-      // Move the entire parent container when textarea is focused
-      + ~ * {
-        position: fixed !important;
-        z-index: 1000 !important;
+      &:hover {
+        background-color: $blue !important;
       }
     }
 
-    // Target the parent write block when textarea is focused
-    &:focus ~ #fast-reply-controls,
-    &:focus + #fast-reply-controls {
-      position: fixed !important;
-      top: calc(50vh - 35vh) !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      width: 80vw !important;
-      z-index: 1000 !important;
-      background: $darkgray !important;
-      padding: 10px !important;
-      border: 2px solid $orange !important;
-      border-bottom: none !important;
-      border-radius: 8px 8px 0 0 !important;
-    }
+    input[name="preview"] {
+      background: $gray $preview-icon no-repeat 15px center / 24px !important;
 
-    &:focus ~ p,
-    &:focus + * + p {
-      position: fixed !important;
-      top: calc(50vh + 25vh) !important;
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      width: 80vw !important;
-      z-index: 1000 !important;
-      background: $darkgray !important;
-      padding: 10px !important;
-      border: 2px solid $orange !important;
-      border-top: none !important;
-      border-radius: 0 0 8px 8px !important;
-      margin: 0 !important;
+      &:hover {
+        background-color: $blue !important;
+      }
     }
   }
 
-  // Alternative approach using :focus-within on the container
-  &:focus-within {
-    #write-block,
-    .form {
-      position: fixed !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-      width: 80vw !important;
-      max-height: 80vh !important;
-      background: $darkgray !important;
-      border: 2px solid $orange !important;
-      border-radius: 8px !important;
-      padding: 20px !important;
-      z-index: 1000 !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  .g-recaptcha {
+    position: absolute !important;
+    padding-top: 10px !important;
+    bottom: 0 !important;
+    left: -2px !important;
+    transform: translateY(100%) !important;
+  }
 
-      textarea {
-        position: static !important;
-        width: 100% !important;
-        height: 50vh !important;
-        transform: none !important;
-        top: auto !important;
-        left: auto !important;
-        font-size: 16px !important;
-        border: 1px solid $gray !important;
-        border-bottom: 3px solid $orange !important;
-      }
-
-      #fast-reply-controls {
-        position: static !important;
-        width: 100% !important;
-        transform: none !important;
-        top: auto !important;
-        left: auto !important;
-        background: transparent !important;
-        border: none !important;
-        padding: 0 !important;
-        margin-bottom: 10px !important;
-      }
-
-      > p {
-        position: static !important;
-        width: 100% !important;
-        transform: none !important;
-        top: auto !important;
-        left: auto !important;
-        background: transparent !important;
-        border: none !important;
-        padding: 0 !important;
-        margin-top: 10px !important;
-      }
-    }
-
-    // Create backdrop effect
-    &::before {
-      content: '' !important;
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      background: rgba(0, 0, 0, 0.7) !important;
-      z-index: 999 !important;
-    }
+  div[style*="#e00"] {
+    position: absolute !important;
+    bottom: -20px !important;
+    font-weight: bold !important;
   }
 }
