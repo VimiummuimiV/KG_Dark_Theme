@@ -1,8 +1,17 @@
 @import "./data/variables";
 
 #stats {
+  // Hide main header (Statistics) to save some space on Y axis
+  > h4 {
+    display: none !important;
+  }
+
   h4 {
     color: $orange !important;
+  }
+
+  .all-stats-container {
+    justify-content: center !important;
   }
 
   .statistic-general,
@@ -56,8 +65,27 @@
     }
   }
 
-  .statistic-general span {
-    color: $lightblue !important;
+  .statistic-general {
+    span {
+      color: $lightblue !important;
+    }
+
+    div {
+      color: $white !important;
+    }
+  }
+
+  .statistic-top-15,
+  .statistic-records {
+    tr {
+      height: 30px !important;
+
+      td[style*="avatars/"] {
+        padding-left: 30px !important;
+        background-size: 24px !important;
+        position: relative !important;
+      }
+    }
   }
 
   .statistic-records {

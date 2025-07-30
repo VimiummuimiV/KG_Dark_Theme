@@ -18,6 +18,8 @@
       '.user-content dd[style*="avatars/"]',
       '#live .user-link[style*="avatars/"]',
       '#top td[style*="avatars/"]',
+      '#top15 td[style*="avatars/"]',
+      '#records td[style*="avatars/"]',
       '#toplist td[style*="avatars/"]'
     ];
 
