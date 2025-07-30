@@ -1,5 +1,9 @@
 /* Forum and Vocabularies comments Textarea bbcode formatting buttons */
 #fast-reply-controls {
+  tr {
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+  }
 
   img {
     // Individual button backgrounds using map

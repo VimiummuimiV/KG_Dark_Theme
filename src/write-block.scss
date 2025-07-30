@@ -30,7 +30,6 @@
   &:focus-within {
     width: 40vw !important;
     height: 80vh !important;
-    min-width: 800px !important;
     overflow: visible !important;
     background: $black !important;
     cursor: default !important;
@@ -101,4 +100,20 @@
     bottom: -20px !important;
     font-weight: bold !important;
   }
+}
+
+/* Posts-list repositioning: When write block gains focus (user interacts with form),
+   shrink posts-list to 60% width and position it absolutely to make room for the expanded write panel
+   This only triggers on focus-within (actual interaction), not on hover */
+body:has(td.write:focus-within) #posts-list,
+body:has(dl.write:focus-within) #posts-list {
+  position: absolute !important;
+  left: 10px !important;
+  width: calc(60vw - 50px) !important;
+  transition: width 0.25s ease, left 0.25s ease !important;
+}
+
+#posts-list {
+  // Smooth transitions for width and position changes when write block is focused/unfocused
+  transition: width 0.25s ease, left 0.25s ease !important;
 }
