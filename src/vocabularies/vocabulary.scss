@@ -187,28 +187,29 @@
         @include avatar-mask(4, 32px, $darkgray);
       }
     }
+    dl:not(.write) {
+      dd {
+        margin-left: 120px !important;
+        background-color: transparent !important;
 
-    dd {
-      margin-left: 120px !important;
-      background-color: transparent !important;
+        .words {
+          width: fit-content !important;
+          border: 1px solid $blue !important;
+          background-color: $black !important;
 
-      .words {
-        width: fit-content !important;
-        border: 1px solid $blue !important;
-        background-color: $black !important;
+          tr {
+            .num,
+            .text {
+              background: transparent !important;
+            }
 
-        tr {
-          .num,
-          .text {
-            background: transparent !important;
-          }
+            .num {
+              color: $blue !important;
+            }
 
-          .num {
-            color: $blue !important;
-          }
-
-          .text {
-            color: $white !important;
+            .text {
+              color: $white !important;
+            }
           }
         }
       }

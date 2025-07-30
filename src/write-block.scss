@@ -10,6 +10,7 @@
   right: 0 !important;
   height: 50px !important;
   width: 50px !important;
+  padding: 10px !important;
   background: $black $show-write-block center / 32px !important;
   transform: translateY(-50%) !important;
   transition: height 0.15s ease, width 0.25s ease !important;
@@ -21,6 +22,7 @@
     display: flex !important;
     flex-direction: column !important;
     box-sizing: border-box !important;
+    gap: 10px !important;
   }
 
   &:hover #write-block,
@@ -39,6 +41,7 @@
   }
 
   textarea {
+    width: 100% !important;
     flex: 1 !important;
     resize: none !important;
     border-radius: 5px !important;
@@ -52,11 +55,11 @@
   p {
     margin: 0 !important;
     padding: 0 !important;
+    display: none !important;
   }
 
   // Button container styling
   p:has(input) {
-    margin: 10px 0 !important;
     display: flex !important;
     flex-shrink: 0 !important;
 
@@ -121,4 +124,30 @@ body:has(dl.write:focus-within) #posts-list {
 #posts-list {
   // Smooth transitions for width and position changes when write block is focused/unfocused
   transition: width 0.25s ease, left 0.25s ease !important;
+}
+
+// Special fix for write block on vocabulary comments section
+body {
+  dl.write {
+    // Vocabulary comments
+    dd {
+      margin: 0 !important;
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    // Vocabulary comments
+    .form,
+    form {
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      flex: 1 !important;
+    }
+
+    form {
+      gap: 10px !important;
+    }
+  }
 }
