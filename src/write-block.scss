@@ -34,6 +34,7 @@
   &:focus,
   &:focus-within {
     width: 40vw !important;
+    min-width: 500px !important;
     height: 80vh !important;
     overflow: visible !important;
     background: $black !important;
