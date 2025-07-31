@@ -45,12 +45,35 @@
     });
   }
 
+  // Add viewport meta tag - only for mobile devices
+  function addViewportMeta() {
+    // Check if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (!isMobile) {
+      return; // Exit if not a mobile device
+    }
+
+    // Check if viewport meta tag already exists
+    let viewportMeta = document.querySelector('meta[name="viewport"]');
+
+    if (!viewportMeta) {
+      // Create new viewport meta tag
+      viewportMeta = document.createElement('meta');
+      viewportMeta.name = 'viewport';
+      document.head.appendChild(viewportMeta);
+    }
+
+    // Set the viewport content for 1:1 scale on mobile
+    viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+  }
   const cssContent = CSS_CONTENT_PLACEHOLDER;
 
   function initializeApp() {
     // Call the functions directly
     loadDarkTheme(cssContent);
     applyAvatarBiggener();
+    addViewportMeta();
   }
 
   // Execute immediately if possible
