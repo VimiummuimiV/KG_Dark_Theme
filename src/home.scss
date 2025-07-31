@@ -1,5 +1,6 @@
 @import "mixins";
 @import "./data/variables";
+@import "animations";
 
 $gap: 10px;
 
@@ -81,6 +82,7 @@ $gap: 10px;
           border-radius: 10px !important;
           border: 1px solid $gray !important;
           transition: all 0.15s ease-out !important;
+          position: relative !important;
 
           &:hover {
             color: $lightblue !important;
@@ -91,12 +93,43 @@ $gap: 10px;
       }
       // Fast game
       .col2 {
+        a.title:hover::after {
+          content: "⚡" !important;
+          position: absolute !important;
+          left: 15px !important;
+          font-size: 1.4em !important;
+          font-family: "Noto Color Emoji", sans-serif;
+          z-index: 2 !important;
+          animation: bounce 0.6s ease infinite alternate !important;
+          transform-origin: bottom center;
+        }
       }
+
       // Choose game
       .col3 {
+        a.title:hover::after {
+          content: "🎯" !important;
+          position: absolute !important;
+          left: 15px !important;
+          font-family: "Noto Color Emoji", sans-serif;
+          font-size: 1.4em !important;
+          z-index: 2 !important;
+          animation: spin 1s linear infinite !important;
+          transform-origin: 1.4/2em 1.4/2em !important;
+        }
       }
+
       // Create game
       .col4 {
+        a.title:hover::after {
+          content: "🛠️" !important;
+          position: absolute !important;
+          left: 15px !important;
+          font-family: "Noto Color Emoji", sans-serif;
+          font-size: 1.4em !important;
+          z-index: 2 !important;
+          animation: vigorousShake 1.5s ease-in-out infinite !important;
+        }
       }
     }
 
