@@ -18,6 +18,10 @@ $gap: 10px;
       width: 100% !important;
       margin: 0 !important;
 
+      h4 {
+        margin: 0 0 10px !important;
+      }
+
       // First row (News), Second row (Info, Review)
       .col1 {
         display: none !important;
@@ -158,6 +162,10 @@ $gap: 10px;
           margin: 0 !important;
           padding: $gap * 2 !important;
           background-color: $deepgray !important;
+
+          ul {
+            margin: 10px 0 0 !important;
+          }
 
           .switch {
             display: flex !important;
@@ -305,6 +313,7 @@ $gap: 10px;
           }
 
           #switch_with_icons {
+            margin: 0 !important;
             display: flex !important;
             flex-wrap: wrap !important;
             gap: $gap !important;
@@ -346,6 +355,7 @@ $gap: 10px;
 
           tr {
             height: 30px !important;
+            width: 100% !important;
 
             th {
               // As site original font size for live section timestamp
