@@ -89,21 +89,6 @@ body .gamelist-create {
   }
 }
 
-// ===== MAIN PAGE SPECIFIC STYLES =====
-// Recent games container positioned at bottom left of main page
-#head {
-  #recent-games-container {
-    height: 20vh !important;
-    width: 100vw !important;
-    position: fixed !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    z-index: 100 !important;
-    overflow-y: auto !important;
-    padding-top: 15px !important;
-  }
-}
-
 // ===== RECENT GAMES INDIVIDUAL ITEM CONTROLS =====
 
 body {
