@@ -39,7 +39,7 @@
     const observer = new MutationObserver(() => {
       replaceBigAvatars();
     });
-    observer.observe(document.body, {
+    observer.observe(document.documentElement, {
       childList: true,
       subtree: true
     });
