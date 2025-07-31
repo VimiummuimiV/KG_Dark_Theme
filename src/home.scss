@@ -1,285 +1,42 @@
 @import "mixins";
 @import "./data/variables";
 
-/* MAIN PAGE */
-.ownbanner-back,
-#index #live .grad,
-.index-icon-container img,
-#index .col1,
-.indexstats-block,
-.feedback-btn {
-  display: none !important;
-}
-
-.index-icon-container {
-  text-align: center !important;
-  width: 100% !important;
-  margin-left: 0 !important;
-  height: 45px !important;
-}
-
-.minwidth {
-  width: $container !important;
-  margin: 0 auto !important;
-  display: flex !important;
-  justify-content: space-between !important;
-}
-
-.minwidth_holyhack {
-  width: $container !important;
-  background: $darkgray !important;
-}
-
-#index {
-  .firstrow {
-    height: 45px !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    top: 5px !important;
-
-    .col2,
-    .col3,
-    .col4 {
+#content {
+  #index {
+    .firstrow {
+      clear: none !important;
+      float: none !important;
       width: 100% !important;
-      left: 0 !important;
 
-      p {
+      // News block
+      .col1 {
         display: none !important;
       }
+      // Hide game buttons images
+      .col2,
+      .col3,
+      .col4 {
+        width: 100% !important;
 
-      a {
-        font: 12px Arial;
-        text-transform: uppercase !important;
-        color: $white !important;
-        text-decoration: none !important;
-        margin-left: 0 !important;
-        transition: all 0.2s !important;
-        background: rgba(0, 0, 0, 0.1) !important;
-
-        &:hover {
-          color: $white !important;
+        a:not(.title),
+        p {
+          display: none !important;
+        }
+        a.title {
           text-decoration: none !important;
-          background-color: rgba(0, 0, 0, 0.3) !important;
-          transition: all 0.2s !important;
-        }
-
-        &[class="title"] {
-          height: 45px !important;
-          line-height: 45px !important;
-          transition: all 0.2s !important;
+          color: $white !important;
+          font: 500 1.5em "Montserrat", sans-serif !important;
         }
       }
-    }
-
-    .col2,
-    .col3 {
-      border-right: 1px solid $gray !important;
-    }
-  }
-
-  .secondrow {
-    margin-top: 3px !important;
-
-    .col2,
-    .col3 {
-      height: 500px !important;
-      left: 0 !important;
-      width: 50% !important;
-      flex-grow: 1 !important;
-    }
-
-    .col2 {
-      background: transparent !important;
-    }
-  }
-
-  #live {
-    h4 {
-      text-align: center !important;
-    }
-
-    li {
-      .title {
-        color: $blue !important;
-        max-width: 395px !important;
-        display: inline-block !important;
-        overflow: hidden !important;
-        position: relative !important;
-        top: 3px !important;
-
-        &:hover {
-          color: $lightblue !important;
-        }
+      // Fast game
+      .col2 {
       }
-
-      a.user-link {
-        padding-left: 30px !important;
+      // Choose game
+      .col3 {
       }
-
-      a.user-link[style*="avatars/"] {
-        display: inline-flex !important;
-        height: 24px !important;
-        position: relative !important;
-      }
-
-      .comments_num,
-      .title2,
-      .time {
-        color: $white !important;
+      // Create game
+      .col4 {
       }
     }
-
-    #discussing_forum {
-      li {
-        margin: 0 !important;
-        height: 30px !important;
-
-        .time {
-          padding-left: 10px !important;
-        }
-      }
-    }
-  }
-}
-
-body #index #live #discussing_forum li .time {
-  padding-left: 10px !important;
-}
-
-#top {
-  background: transparent !important;
-  height: 500px !important;
-  margin: 0 !important;
-
-  h4 {
-    text-align: center !important;
-  }
-
-  .note {
-    color: $white !important;
-  }
-
-  tr {
-    > td:first-of-type {
-      padding-left: 30px !important;
-    }
-  }
-
-  td[style*="avatars/"] {
-    display: inline-flex !important;
-    height: 24px !important;
-    position: relative !important;
-  }
-
-  tr {
-    height: 30px !important;
-  }
-
-  td.date {
-    font-size: 12px !important;
-    color: $blue !important;
-  }
-
-  .tops-sign {
-    margin: 0 0 -7px 0 !important;
-    height: 20px !important;
-    width: 20px !important;
-  }
-
-  .active {
-    filter: brightness(0.2) !important;
-  }
-
-  .sign-rating {
-    image-rendering: crisp-edges !important;
-    background: $topRating !important;
-  }
-
-  .sign-today {
-    image-rendering: crisp-edges !important;
-    background: $topToday !important;
-  }
-
-  .sign-week {
-    image-rendering: crisp-edges !important;
-    background: $topWeek !important;
-  }
-
-  .sign-success {
-    image-rendering: crisp-edges !important;
-    background: $topSuccess !important;
-  }
-
-  .sign-noerror {
-    image-rendering: crisp-edges !important;
-    background: $topNOError !important;
-  }
-
-  #sw_noerror.on {
-    width: 135px !important;
-    text-align: right !important;
-
-    .sign-noerror {
-      position: absolute !important;
-    }
-  }
-
-  .on {
-    background-color: $blue !important;
-  }
-
-  .top-title-on {
-    color: $black !important;
-  }
-}
-
-.switch {
-  span {
-    background: $blue !important;
-    color: $darkgray !important;
-  }
-
-  a {
-    color: $blue !important;
-  }
-}
-
-.discussing {
-  .post-content {
-    margin-top: 0 !important;
-
-    a {
-      color: $blue !important;
-
-      &:hover {
-        color: $lightblue !important;
-      }
-    }
-  }
-
-  .comments-cnt {
-    border: 1px solid $gray !important;
-    background-color: $darkgray !important;
-    color: $white !important;
-
-    &:hover {
-      background-color: $deepgray !important;
-      border: 1px solid $blue !important;
-      color: $blue !important;
-    }
-  }
-
-  .date {
-    color: $white !important;
-  }
-}
-
-#footer {
-  display: none !important;
-  background: $darkgray !important;
-
-  #copyright,
-  #links {
-    display: none !important;
   }
 }
