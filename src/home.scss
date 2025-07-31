@@ -1,13 +1,21 @@
 @import "mixins";
 @import "./data/variables";
 
+$gap: 10px;
+
 #content {
   #index {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: $gap;
+    margin-top: $gap;
+
     .firstrow,
     .secondrow {
       clear: none !important;
       float: none !important;
       width: 100% !important;
+      margin: 0 !important;
 
       // First row (News), Second row (Info, Review)
       .col1 {
@@ -21,6 +29,7 @@
         width: unset !important;
         left: unset !important;
         position: unset !important;
+        overflow: hidden !important;
       }
     }
 
@@ -29,7 +38,7 @@
       display: flex !important;
       align-items: center; // Center vertically
       justify-content: center; // Center horizontally
-      gap: 20px; // Add space between columns
+      gap: $gap;
 
       // News block
       .col1 {
@@ -40,12 +49,12 @@
       .col2,
       .col3,
       .col4 {
+        height: 45px !important;
         flex: 1; // Equal width distribution
         max-width: 300px; // Optional: limit maximum width
         display: flex !important;
         flex-direction: column;
         align-items: center;
-        text-align: center;
 
         .index-icon-container {
           text-align: unset !important;
@@ -63,10 +72,22 @@
           justify-content: center !important;
           align-items: center !important;
           text-decoration: none !important;
-          color: $white !important;
-          font: 500 1.5em "Montserrat", sans-serif !important;
+          text-transform: uppercase !important;
           width: 100% !important;
+          height: 45px !important;
           margin: 0 !important;
+          font: 500 1em "Montserrat", sans-serif !important;
+          color: $white !important;
+          background-color: $deepgray !important;
+          border-radius: 10px !important;
+          border: 1px solid $gray !important;
+          transition: all 0.15s ease-out !important;
+
+          &:hover {
+            color: $lightblue !important;
+            background-color: $black !important;
+            border-color: $lightblue !important;
+          }
         }
       }
       // Fast game
@@ -97,6 +118,115 @@
         flex: 1; // Equal width
         display: flex !important;
         flex-direction: column;
+        width: 50% !important;
+        border-radius: 10px !important;
+        border: 1px solid $gray !important;
+
+        #live {
+          margin: 0 !important;
+          padding: $gap * 2 !important;
+          background-color: $deepgray !important;
+
+          .switch {
+            a,
+            span {
+              border-radius: 3px !important;
+            }
+
+            a {
+              background-color: $gray !important;
+              color: $deepgray !important;
+              text-decoration: none !important;
+              transition: background-color 0.15s ease-out !important;
+
+              &:hover {
+                background-color: $blue !important;
+              }
+            }
+
+            span {
+              color: $deepgray !important;
+              background-color: $blue !important;
+            }
+          }
+
+          #discussing_today,
+          #discussing_week,
+          #discussing_recent {
+            .comments-cnt {
+              top: 0 !important;
+              color: $deepgray !important;
+              background-color: $gray !important;
+              border-radius: 3px !important;
+              transition: background-color 0.15s ease-out !important;
+
+              &:hover {
+                background-color: $blue !important;
+              }
+
+              &::before {
+                background: $show-comments-icon !important;
+              }
+            }
+          }
+
+          #discussing_forum {
+            li {
+              height: 30px !important;
+              margin: 0 !important;
+
+              &::after {
+                content: "";
+                position: absolute !important;
+                top: 0 !important;
+                bottom: 0 !important;
+                right: 0 !important;
+                width: 20px !important;
+                display: inline-flex !important;
+                background: linear-gradient(
+                  to right,
+                  transparent,
+                  darken($deepgray, 2%)
+                ) !important;
+              }
+            }
+          }
+
+          li {
+            overflow: hidden !important;
+            position: relative !important;
+            margin: 0 0 5px !important;
+
+            .time {
+              color: $orange !important;
+            }
+
+            .user-link {
+              padding-left: 0;
+              display: inline-flex !important;
+              align-items: center !important;
+              height: 30px !important;
+            }
+
+            .user-link[style*="avatars/"] {
+              background-position: left center !important;
+              background-size: 24px !important;
+              padding-left: 30px !important;
+            }
+
+            .title2 {
+              color: $white !important;
+            }
+
+            .comments_num {
+              color: $green !important;
+            }
+          }
+
+          .grad {
+            display: none !important;
+          }
+        }
       }
 
       // Top
@@ -104,6 +234,31 @@
         flex: 1; // Equal width
         display: flex !important;
         flex-direction: column;
+        width: 50% !important;
+        border-radius: 10px !important;
+        border: 1px solid $gray !important;
+
+        #top {
+          margin: 0 !important;
+          padding: $gap * 2 !important;
+          background-color: $deepgray !important;
+
+          .rc {
+            padding: 0 !important;
+
+            a.link {
+              display: inline-flex !important;
+              height: 24px !important;
+              position: relative !important;
+              right: unset !important;
+              margin: 0 !important;
+              text-decoration: none !important;
+              width: 100% !important;
+              justify-content: center !important;
+              align-items: center !important;
+            }
+          }
+        }
       }
     }
   }

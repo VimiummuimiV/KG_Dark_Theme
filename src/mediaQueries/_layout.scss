@@ -1,12 +1,13 @@
+@import "../data/variables";
+
 // Layout and General Styles
 /* max width 1300px */
 @media only screen and (max-width: 1300px) {
-  .minwidth,
   .minwidth_holyhack,
   .minwidth_container {
+    width: 100% !important;
     max-width: 100% !important;
     min-width: 100% !important;
-    width: 100% !important;
   }
 }
 
@@ -14,8 +15,15 @@ $margin-top: 50px;
 
 /* content top space */
 #content {
+  display: flex !important;
+  justify-content: center !important;
   padding: 0 !important;
   margin-top: $margin-top !important;
+
+  .minwidth_holyhack,
+  .minwidth_container {
+    min-width: $container;
+  }
 
   @media (max-width: 1000px) {
     margin-top: $margin-top + 40px !important;
