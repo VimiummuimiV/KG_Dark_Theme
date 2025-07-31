@@ -22,7 +22,9 @@ $margin-top: 50px;
 
   .minwidth_holyhack,
   .minwidth_container {
+    width: $container;
     min-width: $container;
+    max-width: $container;
   }
 
   @media (max-width: 1000px) {
