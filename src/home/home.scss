@@ -160,9 +160,14 @@ $gap: 10px;
           background-color: $deepgray !important;
 
           .switch {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: $gap !important;
+
             a,
             span {
               border-radius: 3px !important;
+              margin: 0 !important;
             }
 
             a {
@@ -228,6 +233,8 @@ $gap: 10px;
             overflow: hidden !important;
             position: relative !important;
             margin: 0 0 5px !important;
+            white-space: wrap !important;
+            width: 100% !important;
 
             .time {
               color: $orange !important;
@@ -246,11 +253,22 @@ $gap: 10px;
               padding-left: 30px !important;
             }
 
+            .date {
+              margin: 0 5px 0 0 !important;
+            }
+
+            .title {
+              margin: 0 5px 0 0 !important;
+            }
+
             .title2 {
+              margin: 0 5px !important;
               color: $white !important;
             }
 
             .comments_num {
+              margin: 0 5px 0 0 !important;
+              padding: 5px 0 !important;
               color: $green !important;
             }
           }
@@ -287,11 +305,17 @@ $gap: 10px;
           }
 
           #switch_with_icons {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: $gap !important;
+
             .swtop {
+              display: inline-flex !important;
               background-color: $gray !important;
               border-radius: 3px !important;
-              padding: 6px !important;
               transition: background-color 0.15s ease-out !important;
+              padding: 0 !important;
+              margin: 0 !important;
 
               &:hover {
                 background-color: $blue !important;

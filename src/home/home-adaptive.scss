@@ -27,4 +27,115 @@
       }
     }
   }
+
+  @media (max-width: 550px) {
+    #index {
+      margin: 10px !important;
+
+      .firstrow {
+        flex-direction: column !important;
+
+        .col2,
+        .col3,
+        .col4 {
+          width: 100% !important;
+
+          a.title {
+            height: 50px !important;
+            font-size: 0.9em !important;
+          }
+        }
+      }
+
+      .secondrow {
+        flex-direction: column !important;
+
+        .col2 {
+          #live {
+            padding: 15px !important;
+
+            .switch {
+              gap: 5px !important;
+            }
+
+            #discussing_today,
+            #discussing_week,
+            #discussing_recent,
+            #discussing_forum {
+              li {
+                height: auto !important;
+                background-color: $black;
+                border: 1px solid $gray !important;
+                border-radius: 5px !important;
+                padding: 10px !important;
+                display: inline-flex !important;
+                flex-wrap: wrap !important;
+                align-items: center !important;
+                margin: 0 0 5px !important;
+
+                .user-link {
+                  padding: 0 5px 0 0 !important;
+                }
+
+                .user-link[style*="avatars/"] {
+                  padding: 0 5px 0 30px !important;
+                }
+
+                &::after {
+                  display: none !important;
+                }
+              }
+            }
+          }
+        }
+
+        .col3 {
+          #top {
+            padding: 15px !important;
+
+            #switch_with_icons {
+              gap: 5px !important;
+            }
+
+            table {
+              width: 100% !important;
+
+              tr {
+                height: auto !important;
+                min-height: 30px !important;
+                padding: 10px !important;
+                border-radius: 5px !important;
+                background-color: $black !important;
+                display: inline-flex !important;
+                flex-wrap: wrap !important;
+                align-items: center !important;
+                margin: 0 0 5px !important;
+                border: 1px solid $gray !important;
+
+                th {
+                  font-size: 0.85em !important;
+                  padding: 0 5px 0 0 !important;
+                }
+
+                td:has(.bitmore) {
+                  padding: 0 5px !important;
+                }
+
+                .date {
+                  padding: 0 5px 0 0 !important;
+                }
+
+                td {
+                  .bitmore,
+                  .date {
+                    font-size: 0.85em;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
