@@ -75,7 +75,7 @@
 
 // Base container styling
 #recent-games-container {
-  background: $darkgray !important;
+  background: transparent !important;
 }
 
 // ===== GAMELIST PAGE SPECIFIC STYLES =====
@@ -86,6 +86,22 @@ body .gamelist-create {
     height: auto !important;
     padding-top: 15px !important;
     max-height: 20vh !important;
+  }
+}
+
+// ===== MAIN PAGE SPECIFIC STYLES =====
+// Recent games container positioned at bottom
+#head {
+  #recent-games-container {
+    height: 200px !important;
+    width: 100% !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    overflow-y: auto !important;
+
+    #recent-games {
+      margin-top: 10px !important;
+    }
   }
 }
 
