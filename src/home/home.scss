@@ -1,6 +1,6 @@
-@import "mixins";
-@import "./data/variables";
-@import "animations";
+@import "../mixins";
+@import "../data/variables";
+@import "../animations";
 
 $gap: 10px;
 
@@ -311,6 +311,7 @@ $gap: 10px;
                 color: $deepgray !important;
                 text-decoration: none !important;
                 padding: 6px !important;
+                display: inline !important;
               }
             }
           }
@@ -373,3 +374,5 @@ $gap: 10px;
     }
   }
 }
+
+@import "home-adaptive";
