@@ -3,25 +3,47 @@
 
 #content {
   #index {
-    .firstrow {
+    .firstrow,
+    .secondrow {
       clear: none !important;
       float: none !important;
       width: 100% !important;
+
+      // First row (News), Second row (Info, Review)
+      .col1 {
+        display: none !important;
+      }
+    }
+
+    .firstrow {
+      // Convert to flexbox layout
+      display: flex !important;
+      align-items: center; // Center vertically
+      justify-content: center; // Center horizontally
+      gap: 20px; // Add space between columns
 
       // News block
       .col1 {
         display: none !important;
       }
-      // Hide game buttons images
+
+      // Fast, Choose, Create game
       .col2,
       .col3,
       .col4 {
-        width: 100% !important;
+        flex: 1; // Equal width distribution
+        max-width: 300px; // Optional: limit maximum width
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
 
+        // Hide game buttons images
         a:not(.title),
         p {
           display: none !important;
         }
+
         a.title {
           text-decoration: none !important;
           color: $white !important;
@@ -36,6 +58,20 @@
       }
       // Create game
       .col4 {
+      }
+    }
+
+    // Stats
+    .indexstats-block {
+      display: none !important;
+    }
+
+    .secondrow {
+      // Discussed
+      .col2 {
+      }
+      // Top
+      .col3 {
       }
     }
   }
