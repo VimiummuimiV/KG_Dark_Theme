@@ -1,15 +1,5 @@
-// Responsive adaptations for user panel
-
-// Responsive breakpoints
-$tablet: 1000px;
-$small-tablet: 768px;
-$mobile: 480px;
-$small-mobile: 320px;
-
-/* TABLET AND BELOW - LAYOUT RESTRUCTURING */
-@media screen and (max-width: $tablet) {
+@media (max-width: 1000px) {
   .userpanel {
-    // Restructure layout - stats on top, user-block below
     flex-direction: column !important;
     height: #{$buttonHeight * 2} !important;
 
@@ -22,6 +12,12 @@ $small-mobile: 320px;
       left: 0 !important;
       width: 100vw !important;
       border-bottom: 1px solid $gray !important;
+
+      @media (max-width: 520px) {
+        .gametype {
+          display: none !important;
+        }
+      }
     }
 
     // User block moves below
@@ -34,16 +30,4 @@ $small-mobile: 320px;
       width: 100vw !important;
     }
   }
-}
-
-/* SMALL TABLET - FURTHER SCALING */
-@media screen and (max-width: $small-tablet) {
-}
-
-/* MOBILE - COMPACT LAYOUT */
-@media screen and (max-width: $mobile) {
-}
-
-/* SMALL MOBILE - MINIMAL LAYOUT */
-@media screen and (max-width: $small-mobile) {
 }

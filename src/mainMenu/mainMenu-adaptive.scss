@@ -86,9 +86,12 @@
     // Small mobile - more compact dropdown
     @media (max-width: 400px) {
       .menu {
+        flex-direction: column !important;
+        padding: 10px !important;
+        gap: 10px !important;
+
         a {
-          height: 35px !important;
-          font-size: 8px !important;
+          width: 100% !important;
         }
       }
     }
