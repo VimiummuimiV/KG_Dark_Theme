@@ -1,4 +1,5 @@
 @import "./data/variables";
+@import "mixins";
 
 /* Chat Styles */
 #chat-fixed-placeholder {
@@ -133,6 +134,10 @@
     }
 
     ins {
+      display: flex !important;
+      min-height: 26px !important;
+      align-items: center !important;
+
       &.revoked a {
         text-decoration: none !important;
         color: $red !important;
@@ -177,6 +182,12 @@
 
       a.name {
         text-decoration: none !important;
+        background-size: 24px !important;
+        min-height: 24px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        padding-left: 30px !important;
+        position: relative !important;
 
         &:hover {
           text-decoration: underline !important;
