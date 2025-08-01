@@ -1,6 +1,8 @@
-@import "./data/variables";
+@import "../data/variables";
 
 #stats {
+  width: 100% !important;
+
   // Hide main header (Statistics) to save some space on Y axis
   > h4 {
     display: none !important;
@@ -12,6 +14,10 @@
 
   .all-stats-container {
     justify-content: center !important;
+
+    &_column {
+      min-width: 450px !important;
+    }
   }
 
   .statistic-general,
@@ -19,7 +25,7 @@
   .statistic-top-15,
   .statistic-records {
     background-color: $deepgray !important;
-    border: 1px solid $blue !important;
+    border: 1px solid $gray !important;
   }
 
   .statistic-players-ranks {
@@ -114,3 +120,5 @@
     }
   }
 }
+
+@import "stats-adaptive";
