@@ -1,20 +1,7 @@
-// Max-width variables
-$large-desktop: 1200px;
-$medium-desktop: 1000px;
-$tablet-portrait: 768px;
-$large-mobile: 600px;
-$mobile: 480px;
-$small-mobile: 400px;
-$very-small-mobile: 360px;
-$extra-small: 320px;
-
-// Responsive breakpoints for menu adaptivity
-// Using higher specificity to override existing !important styles
-
-// Large desktop - reduce button width slightly
-@media (max-width: $large-desktop) {
-  #head.green-back {
-    .right {
+#head.green-back {
+  .right {
+    // Initial desktop shrinking
+    @media (max-width: 1200px) {
       .menu {
         a {
           width: 95px !important;
@@ -22,15 +9,12 @@ $extra-small: 320px;
         }
       }
     }
-  }
-}
 
-// Medium desktop/tablet landscape - further reduction
-@media (max-width: $medium-desktop) {
-  #head.green-back {
-    .right {
+    // Desktop adjustments for smaller screens before burger menu
+    @media (max-width: 1000px) {
       .menu {
         top: 88px !important;
+
         a {
           width: 85px !important;
           height: 40px !important;
@@ -38,70 +22,16 @@ $extra-small: 320px;
         }
       }
     }
-  }
-}
 
-// Tablet portrait - wrap to two rows, remove border-right, add gap and border-radius
-@media (max-width: $tablet-portrait) {
-  #head.green-back {
-    .right {
-      .menu {
-        margin-top: 5px !important;
-        flex-wrap: wrap !important;
-        max-width: 90vw !important;
-        gap: 5px !important;
-        
-        a {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
-          height: 35px !important;
-          font-size: 10px !important;
-          border-right: none !important;
-          border-radius: 5px !important;
-        }
-      }
-    }
-  }
-}
-
-// Large mobile - switch to static positioning, smaller buttons, keep two rows
-@media (max-width: $large-mobile) {
-  #head.green-back {
-    .right {
-      .menu {
-        position: static !important;
-        transform: none !important;
-        right: auto !important;
-        top: auto !important;
-        opacity: 1 !important;
-        max-width: 100% !important;
-        padding: 0 10px !important;
-        
-        a {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
-          height: 38px !important;
-          font-size: 9px !important;
-        }
-      }
-    }
-  }
-}
-
-// Mobile breakpoint - hide menu and show menu button
-@media (max-width: $mobile) {
-  #head.green-back {
-    .right {
-      // Create a hover trigger area
-      position: relative !important;
-      
-      // Add a pseudo-element as trigger area (menu button)
+    // Main breakpoint - switch to burger menu
+    @media (max-width: 800px) {
+      // Menu button (hamburger trigger)
       &:before {
         content: "" !important;
         width: 45px !important;
         height: 45px !important;
-        position: absolute !important;
-        top: 0 !important;
+        position: fixed !important;
+        top: 88px !important;
         right: 0 !important;
         color: $blue !important;
         cursor: pointer !important;
@@ -109,13 +39,13 @@ $extra-small: 320px;
         border-radius: 3px !important;
         background: $menu !important;
       }
-      
+
       .menu {
+        transform: translateX(0) !important;
         opacity: 0 !important;
         visibility: hidden !important;
-        transform: translateY(-10px) !important;
-        transition: all 0.3s ease !important;
-        position: absolute !important;
+        transition: opacity 0.3s ease !important;
+        position: fixed !important;
         z-index: 9999 !important;
         background: $black !important;
         backdrop-filter: blur(10px) !important;
@@ -123,12 +53,12 @@ $extra-small: 320px;
         border-radius: 8px !important;
         padding: 5px !important;
         right: 0 !important;
-        top: 100% !important;
-        margin-top: 5px !important;
+        left: 0 !important;
+        top: 88px !important;
         max-width: 100% !important;
         flex-wrap: wrap !important;
         gap: 5px !important;
-        
+
         a {
           flex: 1 1 auto !important;
           min-width: 0 !important;
@@ -138,69 +68,27 @@ $extra-small: 320px;
           border-radius: 5px !important;
         }
       }
-      
-      // Show menu when hovering the right section
+
+      // Show menu on hover
       &:hover .menu {
         opacity: 1 !important;
         visibility: visible !important;
-        transform: translateY(0) !important;
         pointer-events: auto !important;
       }
-      
+
       // Hide menu button when menu is visible
       &:hover:before {
         opacity: 0 !important;
         visibility: hidden !important;
       }
     }
-  }
-}
 
-// Small mobile - more compact dropdown
-@media (max-width: $small-mobile) {
-  #head.green-back {
-    .right {
+    // Small mobile - more compact dropdown
+    @media (max-width: 400px) {
       .menu {
-        
         a {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
           height: 35px !important;
           font-size: 8px !important;
-        }
-      }
-    }
-  }
-}
-
-// Very small mobile - even more compact
-@media (max-width: $very-small-mobile) {
-  #head.green-back {
-    .right {
-      .menu {
-        
-        a {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
-          height: 35px !important;
-          font-size: 8px !important;
-        }
-      }
-    }
-  }
-}
-
-// Extra small - maintain dropdown behavior
-@media (max-width: $extra-small) {
-  #head.green-back {
-    .right {
-      .menu {
-        
-        a {
-          flex: 1 1 auto !important;
-          min-width: 0 !important;
-          height: 32px !important;
-          font-size: 7px !important;
         }
       }
     }
