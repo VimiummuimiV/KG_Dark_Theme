@@ -1,0 +1,42 @@
+@import "../data/variables";
+
+// Color map for user ranks
+$rank-colors: (
+  "061956": $rang9,   // Экстракибер (Extra Cyber) 
+  "2E32CE": $rang8,   // Кибергонщик (Cyber Racer)
+  "5E0B9E": $rang7,   // Супермен (Superman)
+  "BC0143": $rang6,   // Маньяк (Maniac)
+  "BA5800": $rang5,   // Гонщик (Racer)
+  "8C8100": $rang4,   // Профи (Pro)
+  "187818": $rang3,   // Таксист (Taxi Driver)
+  "4F9A97": $rang2,   // Любитель (Amateur)
+  "8D8D8D": $rang1,   // Новичок (Newbie)
+);
+
+// Map gametype hex values directly to their corresponding gametype colors
+$gametype-hex-colors: (
+  "3D4856": $gametype-abra,        // Абракадабра
+  "698725": $gametype-referats,    // Яндекс.Рефераты
+  "4692AA": $gametype-noerror,     // Безошибочный
+  "D43E68": $gametype-marathon,    // Марафон
+  "B55900": $gametype-chars,       // Буквы
+  "833F3A": $gametype-sprint,      // Спринт
+  "524CA7": $gametype-voc          // По словарю
+);
+
+// BBtools_color select styling
+#BBtools_color {
+  // Style rank color options
+  @each $hex, $color in $rank-colors {
+    option[value="#{$hex}"] {
+      color: $color !important;
+    }
+  }
+  
+  // Style gametype color options
+  @each $hex, $color in $gametype-hex-colors {
+    option[value="#{$hex}"] {
+      color: $color !important;
+    }
+  }
+}
