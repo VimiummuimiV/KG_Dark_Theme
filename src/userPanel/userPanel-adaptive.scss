@@ -18,6 +18,64 @@
           display: none !important;
         }
       }
+
+      @media (max-width: 475px) {
+        tr {
+          display: inline-flex !important;
+          width: 100% !important;
+          justify-content: center !important;
+          align-items: center !important;
+          gap: 5px !important;
+
+          td.title {
+            width: 16px !important;
+            height: 16px !important;
+            font-size: 0 !important;
+            display: inline-flex !important;
+            padding: 0 !important;
+          }
+
+          td.rating {
+            font-size: 0 !important;
+            height: 16px !important;
+            width: fit-content !important;
+            text-align: right !important;
+
+            a:first-of-type {
+              padding-right: 5px !important;
+              padding-left: 18px !important;
+            }
+          }
+        }
+
+        tr:nth-child(1) {
+          // Best speed
+          td:nth-child(2) {
+            background: $bestSpeed center / contain !important;
+          }
+          // Error percentage
+          td:nth-child(5) {
+            background: $errorPercentage center / contain !important;
+          }
+        }
+
+        tr:nth-child(2) {
+          // Top position
+          td:nth-child(1) {
+            background: $topPosition left center / contain !important;
+          }
+
+          // Average speed
+          td:nth-child(2) {
+            background: $averageSpeed center / contain !important;
+          }
+
+          // Odometer
+          td:nth-child(4) {
+            background: $odometer center / contain !important;
+          }
+        }
+      }
     }
 
     // User block moves below
@@ -28,6 +86,24 @@
       justify-content: center !important;
       right: 0 !important;
       width: 100vw !important;
+
+      @media (max-width: 475px) {
+        .user-dropdown {
+          .name {
+            padding: 10px !important;
+            border-right: 1px solid $gray !important;
+
+            img {
+              margin: 0 !important;
+            }
+
+            span,
+            .caret {
+              display: none !important;
+            }
+          }
+        }
+      }
     }
   }
 }

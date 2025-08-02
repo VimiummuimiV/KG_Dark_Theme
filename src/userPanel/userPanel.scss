@@ -45,6 +45,7 @@ $buttonHeight: 44px;
   border-bottom: 1px solid $gray !important;
   background: $deepgray !important;
   color: $gray !important;
+  position: fixed !important;
 
   &::before {
     content: "";
@@ -334,14 +335,8 @@ $buttonHeight: 44px;
     color: $white !important;
   }
 
-  /* PIN FUNCTIONALITY */
-
   #pin {
-    @include pin-style(false);
-
-    &.active {
-      @include pin-style(true);
-    }
+    display: none !important;
   }
 }
 
