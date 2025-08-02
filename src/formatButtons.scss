@@ -1,5 +1,9 @@
 /* Forum and Vocabularies comments Textarea bbcode formatting buttons */
-body #fast-reply-controls {
+
+// Default container
+#fast-reply-controls,
+// Klavotools BB_Tools_Buttons
+#bb_tools_fast-reply {
   tr {
     display: inline-flex !important;
     flex-wrap: wrap !important;

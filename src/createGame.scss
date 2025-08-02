@@ -5,38 +5,41 @@
     margin: 0 5px 15px !important;
   }
 
-  * {
+  dd {
+    width: 525px !important;
+  }
+
+  *:not(select) {
     padding: 2px !important;
   }
 
   .buttons {
     display: flex !important;
     justify-content: space-between !important;
+    gap: 10px !important;
+    margin-top: 8px !important;
 
     input {
-      transition: filter 0.5s !important;
+      transition: background 0.15s ease-out !important;
       padding: 0 !important;
       margin: 0 !important;
-      width: 235px !important;
+      width: 50% !important;
       height: 50px !important;
+      border-radius: 5px !important;
 
       &.create_game {
-        background: $createNormal !important;
-        filter: brightness(0.8) !important;
+        background: $blue $createNormal center !important;
 
         &:hover {
-          background-position: unset !important;
-          filter: brightness(0.8) hue-rotate(180deg) !important;
+          background: $lightblue $createNormal center !important;
         }
       }
 
       &.save_game {
-        background: $saveNormal !important;
-        filter: brightness(0.8) !important;
+        background: $blue $saveNormal center !important;
 
         &:hover {
-          background-position: unset !important;
-          filter: brightness(0.8) hue-rotate(180deg) !important;
+          background: $lightblue $saveNormal center !important;
         }
       }
     }
