@@ -37,7 +37,7 @@
 // -----------------------------------------------------------------------------
 @import "components";
 @import "modalDialogue";
-@import "./formatButtons/formatButtons";
+@import "formatButtons";
 @import "calendar";
 @import "notifications";
 @import "pagination";
@@ -78,3 +78,8 @@
 // 8. RESPONSIVE & MEDIA QUERIES
 // -----------------------------------------------------------------------------
 @import "./mediaQueries/media";
+
+// -----------------------------------------------------------------------------
+// 9. KLAVOTOOLS
+// -----------------------------------------------------------------------------
+@import "./klavotools/BBTools/BBTools";
