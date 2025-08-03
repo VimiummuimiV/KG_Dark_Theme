@@ -21,7 +21,8 @@
       '#top15 td[style*="avatars/"]',
       '#records td[style*="avatars/"]',
       '#toplist td[style*="avatars/"]',
-      '.chat .userlist a.name[style*="avatars/"]'
+      '.chat .userlist a.name[style*="avatars/"]',
+      '#gamelist .name i[style*="avatars/"]',
     ];
 
     document.querySelectorAll(selectors.join(", ")).forEach(element => {

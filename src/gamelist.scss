@@ -145,9 +145,20 @@
   }
 }
 
-div#gamelist {
-  .name a {
-    border-bottom-style: solid !important;
+#gamelist {
+  .name {
+    min-height: 22px !important;
+
+    i {
+      width: 22px !important;
+      height: 22px !important;
+      border-radius: 2px !important;
+      background-color: transparent !important;
+    }
+    a {
+      border: none !important;
+      padding-left: 8px !important;
+    }
   }
 
   .item td {
