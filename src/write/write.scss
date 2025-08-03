@@ -1,9 +1,9 @@
 @import "../mixins";
 
 // Forum
-#content td.write:has(textarea),
+#content #posts-list td.write:has(textarea),
 // Vocabulary
-#content dl.write:has(textarea) {
+#content #profile-block dl.write:has(textarea) {
   overflow: hidden !important;
   z-index: 1010 !important;
   position: fixed !important;
@@ -113,8 +113,13 @@
   }
 }
 
-// Repositioning for posts and comments when write block is focused
-body:has(.write:focus-within) #content .minwidth_container {
+// Repositioning with portrait orientation for Forum and Vocabulary
+body:has(
+    #posts-list td.write:focus-within,
+    #profile-block dl.write:focus-within
+  )
+  #content
+  .minwidth_container {
   @include content-reposition-focused("landscape");
 }
 
