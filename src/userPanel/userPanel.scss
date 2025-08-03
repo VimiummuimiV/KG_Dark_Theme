@@ -340,20 +340,4 @@ $buttonHeight: 44px;
   }
 }
 
-/* KG_RemainingDailyRaces */
-#daily-remaining-races {
-  position: absolute !important;
-  bottom: 0 !important;
-  transform: translateY(100%) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 45px !important;
-  height: 45px !important;
-  border-radius: 0 0 3px 3px !important;
-  background-color: $orange !important;
-  @include flex-center;
-  font: bold 1.5em "Montserrat", sans-serif !important;
-  color: gold !important;
-}
-
 @import "userPanel-adaptive";

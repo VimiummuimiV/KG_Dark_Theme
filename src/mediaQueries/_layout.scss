@@ -12,7 +12,7 @@
   }
 }
 
-$margin-top: 50px;
+$space: 100px;
 
 /* head */
 #head {
@@ -31,7 +31,6 @@ $margin-top: 50px;
   display: flex !important;
   justify-content: center !important;
   padding: 0 !important;
-  margin-top: $margin-top !important;
 
   .minwidth_holyhack,
   .minwidth_container {
@@ -40,7 +39,12 @@ $margin-top: 50px;
     max-width: $container;
   }
 
-  @media (max-width: 1000px) {
-    margin-top: $margin-top + 40px !important;
+  .minwidth_holyhack {
+    position: absolute !important;
+    top: $space !important;
+
+    @media (max-width: 1000px) {
+      top: $space + 50px !important;
+    }
   }
 }

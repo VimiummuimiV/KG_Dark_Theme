@@ -7,13 +7,15 @@
   background: transparent !important;
   margin: 10px !important;
   position: fixed !important;
-  top: 45px !important;
-  right: 0px !important;
+  top: 50px !important;
+  right: 10px !important;
   z-index: 120 !important;
-  transition: opacity 0.2s !important;
+  transition: opacity 0.15s ease-out !important;
   display: flex !important;
   gap: 5px !important;
   padding-top: unset !important;
+  max-width: 350px !important;
+  flex-wrap: wrap !important;
 
   &:hover {
     opacity: 1 !important;
