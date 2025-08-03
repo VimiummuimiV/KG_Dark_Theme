@@ -4,7 +4,7 @@
 .pages {
   opacity: 0.5 !important;
   color: $white !important;
-  background: transparent !important;
+  background: $black !important;
   margin: 10px !important;
   position: fixed !important;
   bottom: 40% !important;
@@ -14,9 +14,10 @@
   transition: opacity 0.15s ease-out !important;
   display: flex !important;
   gap: 5px !important;
-  padding-top: unset !important;
+  padding: 10px !important;
   max-width: 350px !important;
   flex-wrap: wrap !important;
+  border-radius: 5px !important;
 
   &:hover {
     opacity: 1 !important;

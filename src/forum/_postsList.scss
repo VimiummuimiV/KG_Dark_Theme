@@ -1,6 +1,34 @@
 @import "../mixins";
 @import "../animations";
 
+// Mixin for post action button styling
+@mixin post-action-button($bg-color) {
+  span {
+    color: $bg-color !important;
+    font-size: 0 !important;
+
+    a {
+      font-size: 12px !important;
+      font-weight: bold !important;
+      text-decoration: none !important;
+      position: absolute !important;
+      right: 0 !important;
+      top: 0 !important;
+      width: 100px !important;
+      height: 100% !important;
+      color: $black !important;
+      @include flex-center(center, center);
+      background: darken($bg-color, 10%) !important;
+      border-radius: 0 5px 5px 0 !important;
+      transition: background 0.1s ease-in-out;
+
+      &:hover {
+        background: $bg-color !important;
+      }
+    }
+  }
+}
+
 #content {
   #posts-list {
     font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
@@ -26,55 +54,39 @@
             border-radius: 0 5px 5px 0 !important;
             background: $black !important;
           }
+          
+          // Default styling for all users (regular users)
+          td {
+            position: relative !important;
+          }
 
+          @include post-action-button($blue);
+          
+          // Admin users override
           &.admin {
             .user {
               color: $black !important;
-              background: darken($orange, 10%) !important;
+              background: darken($green, 10%) !important;
 
               &:hover {
-                background: $orange !important;
+                background: $green !important;
               }
             }
 
             td {
-              background: darken($orange, 42%) !important;
-              position: relative !important;
+              background: darken($green, 38%) !important;
             }
 
-            span {
-              color: $orange !important;
-              font-size: 0 !important;
-
-              a {
-                font-size: 12px !important;
-                font-weight: bold !important;
-                text-decoration: none !important;
-                position: absolute !important;
-                right: 0 !important;
-                top: 0 !important;
-                width: 100px !important;
-                height: 100% !important;
-                color: $black !important;
-                @include flex-center(center, center);
-                background: darken($orange, 10%) !important;
-                border-radius: 0 5px 5px 0 !important;
-                transition: background 0.1s ease-in-out;
-
-                &:hover {
-                  background: $orange !important;
-                }
-              }
-            }
+            @include post-action-button($green);
           }
-
+          
           .user {
             text-decoration: none !important;
             @include element-full-size();
             @include flex-center(center, center);
             transition: background 0.1s ease-in-out;
             color: $black !important;
-            background: $gray !important;
+            background: darken($blue, 10%) !important;
             border-radius: 5px 0 0 5px !important;
 
             &:hover {
@@ -86,6 +98,7 @@
         .post {
           .post-container {
             .text {
+
               img.linked-image {
                 animation: fadeIn 0.5s ease-in-out;
                 filter: brightness(0.5) !important;
