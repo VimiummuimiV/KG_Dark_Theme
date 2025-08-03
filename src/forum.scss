@@ -19,11 +19,6 @@ input {
     left: 0 !important;
     right: 0 !important;
     display: block !important;
-
-    tbody {
-      display: flex !important;
-      justify-content: center !important;
-    }
   }
 
   dd {
@@ -31,6 +26,10 @@ input {
   }
 
   dt {
+    display: none !important;
+  }
+
+  .write {
     display: none !important;
   }
 }

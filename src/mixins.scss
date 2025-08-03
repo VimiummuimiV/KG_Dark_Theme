@@ -25,9 +25,8 @@
     }
   } @else {
     // Landscape orientation (desktop) - use original behavior
-    $content-width: calc(60vw - 50px);
     position: absolute !important;
     left: 10px !important;
-    width: $content-width !important;
+    width: calc(60vw - 50px) !important;
   }
 }
