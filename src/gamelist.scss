@@ -146,6 +146,10 @@
 }
 
 #gamelist {
+  .players {
+    padding: 2px !important;
+  }
+
   .name {
     min-height: 24px !important;
     display: inline-flex !important;
