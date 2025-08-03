@@ -3,6 +3,8 @@
 
 #content {
   #posts-list {
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
+
     form {
       table {
         tr,
@@ -37,13 +39,31 @@
 
             td {
               background: darken($orange, 42%) !important;
+              position: relative !important;
             }
 
             span {
               color: $orange !important;
+              font-size: 0 !important;
 
               a {
-                color: $orange !important;
+                font-size: 12px !important;
+                font-weight: bold !important;
+                text-decoration: none !important;
+                position: absolute !important;
+                right: 0 !important;
+                top: 0 !important;
+                width: 100px !important;
+                height: 100% !important;
+                color: $black !important;
+                @include flex-center(center, center);
+                background: darken($orange, 10%) !important;
+                border-radius: 0 5px 5px 0 !important;
+                transition: background 0.1s ease-in-out;
+
+                &:hover {
+                  background: $orange !important;
+                }
               }
             }
           }
