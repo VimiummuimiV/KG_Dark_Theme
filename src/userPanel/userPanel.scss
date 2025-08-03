@@ -1,5 +1,6 @@
 @import "../data/variables";
 @import "../scoreIcon";
+@import "../mixins";
 
 // Variables
 $buttonWidth: 45px;
@@ -16,12 +17,6 @@ $buttonHeight: 44px;
   position: relative;
   top: 0;
   left: 0;
-}
-
-@mixin flex-center {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
 }
 
 @mixin pin-style($has-border: false) {

@@ -1,0 +1,156 @@
+#content {
+  #forums-list {
+    table {
+      tbody {
+        display: flex !important;
+        flex-direction: column !important;
+        tr {
+          margin-bottom: 10px !important;
+          display: grid !important;
+          grid-template-columns: auto 100px 100px 400px !important; // Adjust these ratios
+        }
+      }
+    }
+
+    tr.header {
+      th.title {
+        .moderators {
+          color: $red !important;
+        }
+      }
+      th.topic-cnt {
+        color: $lightblue !important;
+        text-align: center !important;
+        @include flex-center(start, center);
+      }
+      th.post-cnt {
+        color: $green !important;
+        text-align: center !important;
+        @include flex-center(start, center);
+      }
+      th:last-child {
+        color: $white !important;
+        @include flex-center(start, center);
+      }
+    }
+
+    tr.item {
+      border: 1px solid $gray !important;
+      border-radius: 5px !important;
+      padding: 0 !important;
+      position: relative !important;
+      min-height: 70px !important;
+
+      td {
+        border: none !important;
+        padding: 15px !important;
+      }
+
+      td:first-child {
+        position: relative !important;
+
+        a.short-description {
+          @include element-full-size();
+          padding-top: 10px !important;
+          padding-left: 15px !important;
+          text-decoration: none !important;
+          border-radius: 5px 0 0 5px !important;
+
+          &:hover {
+            background: $deepgray !important;
+            border-right: 1px solid $gray !important;
+          }
+        }
+        .long-description {
+          position: absolute !important;
+          bottom: 15px !important;
+          color: $white !important;
+          font-size: 0.9em !important;
+        }
+      }
+      td.topic-cnt {
+        color: $lightblue !important;
+        @include flex-center(start, center);
+      }
+      td.post-cnt {
+        color: $green !important;
+        @include flex-center(start, center);
+      }
+      td.last-post {
+        overflow: hidden !important;
+        margin-right: 80px !important;
+        display: grid !important;
+        grid-template-areas:
+          "title title"
+          "user date" !important;
+
+        .title {
+          grid-area: title !important;
+        }
+
+        a.user-link {
+          display: inline-flex !important;
+          align-items: center !important;
+          height: 24px !important;
+          min-width: 160px !important;
+          grid-area: user !important;
+          @include flex-center(flex-start, center);
+        }
+
+        a.user-link[style*="/avatars/"] {
+          padding-left: 30px !important;
+        }
+
+        span.date {
+          grid-area: date !important;
+          min-width: 120px !important;
+          @include flex-center(flex-start, center);
+        }
+
+        a.go {
+          position: absolute !important;
+          top: 0 !important;
+          right: 0 !important;
+          height: 100% !important;
+          width: 70px !important;
+          background-image: $enterForumBranch !important;
+          background-position: center center !important;
+          background-repeat: no-repeat !important;
+          border-radius: 0 5px 5px 0 !important;
+          border-left: 1px solid transparent !important;
+          transition: background-color 0.1s ease-in-out;
+
+          &:hover {
+            background-color: $deepgray !important;
+            border-left: 1px solid $gray !important;
+          }
+
+          img {
+            display: none !important;
+          }
+        }
+      }
+    }
+
+    .feed-link {
+      @include flex-center(center, center);
+
+      a {
+        @include flex-center(center, center);
+        padding: 10px 20px !important;
+        border-radius: 5px !important;
+        text-decoration: none !important;
+        text-transform: uppercase !important;
+        font-size: 0.9em !important;
+        color: $black !important;
+        font-weight: bold !important;
+        background: $gray !important;
+        transition: background 0.15s ease-in-out;
+
+        &:hover {
+          background: $blue !important;
+        }
+      }
+    }
+  }
+}

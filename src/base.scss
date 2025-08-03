@@ -61,12 +61,6 @@ $awards: (
 );
 
 // Mixins
-@mixin flex-center {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-
 @mixin reset-styles {
   box-shadow: none !important;
   text-shadow: none !important;
