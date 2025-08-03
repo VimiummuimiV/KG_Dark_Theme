@@ -16,21 +16,18 @@
 // Parameterized mixin for different orientations:
 @mixin content-reposition-focused($orientation: "portrait") {
   @if $orientation == "portrait" {
-    // Bottom orientation (mobile/tablet)
-    margin-bottom: 40vh !important;
-    transition: margin-bottom 0.25s ease !important;
-    // Reset horizontal positioning from original
-    position: static !important;
     left: auto !important;
     width: auto !important;
+
+    #posts-list,
+    #profile-block {
+      padding-bottom: 40vh !important;
+    }
   } @else {
     // Landscape orientation (desktop) - use original behavior
     $content-width: calc(60vw - 50px);
     position: absolute !important;
     left: 10px !important;
     width: $content-width !important;
-    min-width: $content-width !important;
-    max-width: $content-width !important;
-    transition: width 0.25s ease, left 0.25s ease !important;
   }
 }

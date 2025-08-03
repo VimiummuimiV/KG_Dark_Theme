@@ -5,12 +5,14 @@
 @media only screen and (max-width: 1300px) {
   .minwidth_holyhack {
     width: 100% !important;
-    max-width: 100% !important;
-    min-width: 100% !important;
   }
 }
 
 $space: 100px;
+/* global */
+.minwidth {
+  min-width: unset !important;
+}
 
 /* head */
 #head {
@@ -32,8 +34,6 @@ $space: 100px;
 
   .minwidth_holyhack {
     width: $container;
-    min-width: $container;
-    max-width: $container;
   }
 
   .minwidth_holyhack {

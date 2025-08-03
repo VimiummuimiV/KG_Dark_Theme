@@ -32,7 +32,7 @@
   }
 
   // Posts-list repositioning with portrait orientation:
-  body:has(td.write:focus-within) #content .minwidth_holyhack {
+  body:has(.write:focus-within) #content .minwidth_holyhack {
     @include content-reposition-focused('portrait');
   }
 }
