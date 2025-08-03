@@ -5,3 +5,15 @@
 #test {
   display: none !important;
 }
+
+// Remove background images from container corners
+.t,
+.b,
+.l,
+.r,
+.tl,
+.tr,
+.bl,
+.br {
+  background: none !important;
+}

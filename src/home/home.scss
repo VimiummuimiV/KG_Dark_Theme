@@ -301,17 +301,6 @@ $gap: 10px;
           padding: $gap * 2 !important;
           background-color: $deepgray !important;
 
-          // Remove default rounded corners styling
-          .r,
-          .tl,
-          .tr,
-          .bl,
-          .br {
-            background: none !important;
-            border: none !important;
-            border-radius: 0 !important;
-          }
-
           #switch_with_icons {
             margin: 0 !important;
             display: flex !important;
