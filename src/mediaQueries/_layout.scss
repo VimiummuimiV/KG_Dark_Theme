@@ -3,9 +3,7 @@
 // Layout and General Styles
 /* max width 1300px */
 @media only screen and (max-width: 1300px) {
-  .minwidth,
-  .minwidth_holyhack,
-  .minwidth_container {
+  .minwidth_holyhack {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 100% !important;
@@ -32,8 +30,7 @@ $space: 100px;
   justify-content: center !important;
   padding: 0 !important;
 
-  .minwidth_holyhack,
-  .minwidth_container {
+  .minwidth_holyhack {
     width: $container;
     min-width: $container;
     max-width: $container;

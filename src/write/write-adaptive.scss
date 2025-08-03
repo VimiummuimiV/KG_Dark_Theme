@@ -4,40 +4,35 @@
   // Position changes:
   #content td.write,
   #content dl.write {
-    top: unset !important;          // unset the original top: 50%
-    bottom: 0 !important;           // changed from: top: 50%
-    right: unset !important;        // unset the original right: 0
-    left: 0 !important;             // changed from: right: 0, set to 0 initially
-    transform: translateX(calc(50vw - 25px)) !important;  // center the 50px element
+    top: unset !important;
+    bottom: 0 !important;
+    right: unset !important;
+    left: 0 !important;
+    transform: translateX(calc(50vw - 25px)) !important;
     transition: height 0.25s ease, width 0.15s ease, transform 0.25s ease !important;
 
     &:hover,
     &:focus,
     &:focus-within {
-      width: 100vw !important;      // changed from: 40vw
-      height: 40vh !important;      // changed from: 80vh
-      transform: translateX(0) !important;   // expand from left edge
+      width: 100vw !important;
+      height: 40vh !important;
+      transform: translateX(0) !important;
     }
   }
 
   // Recaptcha positioning:
   .g-recaptcha {
-    top: 0 !important;              // changed from: bottom: 0
-    transform: translateY(-100%) !important;  // changed from: translateY(100%)
+    top: 0 !important;
+    transform: translateY(-100%) !important;
   }
 
   // Error message positioning:
   div[style*="#e00"] {
-    top: -20px !important;          // changed from: bottom: -20px
+    top: -20px !important;
   }
 
   // Posts-list repositioning with portrait orientation:
-  body:has(td.write:focus-within) #posts-list {
-    @include content-reposition-focused('portrait');
-  }
-
-  // Profile-block repositioning with portrait orientation:
-  body:has(dl.write:focus-within) #profile-block {
+  body:has(td.write:focus-within) #content .minwidth_holyhack {
     @include content-reposition-focused('portrait');
   }
 }

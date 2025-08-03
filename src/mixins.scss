@@ -25,9 +25,12 @@
     width: auto !important;
   } @else {
     // Landscape orientation (desktop) - use original behavior
+    $content-width: calc(60vw - 50px);
     position: absolute !important;
     left: 10px !important;
-    width: calc(60vw - 50px) !important;
+    width: $content-width !important;
+    min-width: $content-width !important;
+    max-width: $content-width !important;
     transition: width 0.25s ease, left 0.25s ease !important;
   }
 }

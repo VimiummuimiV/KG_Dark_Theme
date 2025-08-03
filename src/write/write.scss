@@ -113,15 +113,8 @@
   }
 }
 
-/* Posts-list repositioning: When write block gains focus (user interacts with form),
-   shrink posts-list to 60% width and position it absolutely to make room for the expanded write panel */
-body:has(td.write:focus-within) #posts-list {
-  @include content-reposition-focused("landscape");
-}
-
-/* Profile-block repositioning: when vocabulary write block gains focus,
-   shrink profile-block to 60% width and position it absolutely to make room for the expanded write panel */
-body:has(dl.write:focus-within) #profile-block {
+// Repositioning for posts and comments when write block is focused
+body:has(.write:focus-within) #content .minwidth_holyhack {
   @include content-reposition-focused("landscape");
 }
 
