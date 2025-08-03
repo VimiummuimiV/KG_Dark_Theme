@@ -13,23 +13,42 @@
 
   // Include avatarBiggener.js content directly
   function replaceBigAvatars() {
+    // Avatar URL pattern to match
+    const match = /avatars\/(\d+)\.png/g;
+
+    // Target common elements that typically have avatar backgrounds or sources
     const selectors = [
-      '.info[style*="avatars/"]',
-      '.user-content dd[style*="avatars/"]',
-      '#live .user-link[style*="avatars/"]',
-      '#top td[style*="avatars/"]',
-      '#top15 td[style*="avatars/"]',
-      '#records td[style*="avatars/"]',
-      '#toplist td[style*="avatars/"]',
-      '.chat .userlist a.name[style*="avatars/"]',
-      '#gamelist .name i[style*="avatars/"]',
+      'a[style*="avatars/"]',
+      'dd[style*="avatars/"]',
+      'td[style*="avatars/"]',
+      'i[style*="avatars/"]',
+      'img[src*="avatars/"]',
+      'div[style*="avatars/"]'
+    ];
+
+    // All possible attributes that might contain avatar URLs
+    const attributes = [
+      'style',
+      'src',
+      'href'
     ];
 
     document.querySelectorAll(selectors.join(", ")).forEach(element => {
-      const style = element.getAttribute('style');
-      const newStyle = style.replace(/avatars\/(\d+)\.png/g, 'avatars/$1_big.png');
-      element.setAttribute('style', newStyle);
-      element.style.backgroundSize = 'contain';
+      // Check and replace in all possible attributes
+      attributes.forEach(attr => {
+        const value = element.getAttribute(attr);
+        if (value && match.test(value)) {
+          // Reset regex lastIndex to ensure proper matching
+          match.lastIndex = 0;
+          const newValue = value.replace(match, 'avatars/$1_big.png');
+          element.setAttribute(attr, newValue);
+
+          // Apply background-size for style attributes
+          if (attr === 'style') {
+            element.style.backgroundSize = 'contain';
+          }
+        }
+      });
     });
   }
 

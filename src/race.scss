@@ -507,6 +507,12 @@
             overflow: visible !important; // Make award fully visible
             width: 100% !important;
 
+            img[src*="/avatars/"] {
+              width: 24px !important;
+              height: 24px !important;
+              margin-right: 5px !important;
+            }
+
             .top-award {
               .numbers {
                 transition: width 0.15s !important;
