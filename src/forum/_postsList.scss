@@ -1,4 +1,5 @@
 @import "../mixins";
+@import "../animations";
 
 #content {
   #posts-list {
@@ -11,7 +12,7 @@
         }
 
         .posth {
-          background: $deepgray !important;
+          background: transparent !important;
           height: 30px !important;
           border-radius: 5px !important;
 
@@ -19,35 +20,61 @@
             position: relative !important;
           }
 
-          &.admin {
-            background: $orange !important;
+          td {
+            border-radius: 0 5px 5px 0 !important;
+            background: $black !important;
+          }
 
+          &.admin {
             .user {
               color: $black !important;
+              background: darken($orange, 10%) !important;
 
               &:hover {
-                background: darken($orange, 10%) !important;
+                background: $orange !important;
               }
             }
 
+            td {
+              background: darken($orange, 42%) !important;
+            }
+
             span {
-              color: $black !important;
+              color: $orange !important;
 
               a {
-                color: $black !important;
+                color: $orange !important;
               }
             }
           }
 
           .user {
             text-decoration: none !important;
-            color: $white !important;
             @include element-full-size();
             @include flex-center(center, center);
             transition: background 0.1s ease-in-out;
+            color: $black !important;
+            background: $gray !important;
+            border-radius: 5px 0 0 5px !important;
 
             &:hover {
-              background: $black !important;
+              background: $blue !important;
+            }
+          }
+        }
+
+        .post {
+          .post-container {
+            .text {
+              img.linked-image {
+                animation: fadeIn 0.5s ease-in-out;
+                filter: brightness(0.5) !important;
+                transition: filter 0.1s ease-in-out;
+
+                &:hover {
+                  filter: brightness(1) !important;
+                }
+              }
             }
           }
         }
