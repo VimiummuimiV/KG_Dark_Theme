@@ -1,0 +1,57 @@
+@import "../mixins";
+
+#content {
+  #posts-list {
+    form {
+      table {
+        tr,
+        th,
+        td {
+          border: none !important;
+        }
+
+        .posth {
+          background: $deepgray !important;
+          height: 30px !important;
+          border-radius: 5px !important;
+
+          th {
+            position: relative !important;
+          }
+
+          &.admin {
+            background: $orange !important;
+
+            .user {
+              color: $black !important;
+
+              &:hover {
+                background: darken($orange, 10%) !important;
+              }
+            }
+
+            span {
+              color: $black !important;
+
+              a {
+                color: $black !important;
+              }
+            }
+          }
+
+          .user {
+            text-decoration: none !important;
+            color: $white !important;
+            @include element-full-size();
+            @include flex-center(center, center);
+            transition: background 0.1s ease-in-out;
+
+            &:hover {
+              background: $black !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
