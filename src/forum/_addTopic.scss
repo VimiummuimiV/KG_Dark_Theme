@@ -11,6 +11,11 @@
       gap: 10px !important;
       font-size: 0 !important;
 
+      @media (max-width: 500px) {
+        @include flex-layout(column);
+        gap: 5px !important;
+      }
+
       a[href*="/forum/"] {
         @include anchor-to-button();
       }
@@ -76,8 +81,13 @@
           @include flex-layout(row);
         }
 
-        dd:has(input[type="submit"]) {
+        dd:has(input) {
           margin-top: 5px !important;
+          
+          @media (max-width: 400px) {
+            gap: 5px !important;
+            @include flex-layout(column);
+          }
         }
 
         @include send-preview-buttons();

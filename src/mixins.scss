@@ -105,7 +105,6 @@
   }
 }
 
-// Mixin for send and preview buttons
 @mixin send-preview-buttons() {
   input {
     border: none !important;
@@ -117,22 +116,12 @@
     font-weight: 700 !important;
     text-transform: uppercase !important;
     font-size: 14px !important;
-    
-    @media (max-width: 500px) {
-      height: 32px !important;
-      font-size: 11px !important;
-    }
   }
 
   input[name="send"] {
     border-radius: 5px 0 0 5px !important;
     border-right: 1px solid $black !important;
     background: $gray $send-icon no-repeat 15px center / 24px !important;
-    
-    @media (max-width: 500px) {
-      background-size: 18px !important;
-      background-position: 10px center !important;
-    }
 
     &:hover {
       background-color: $blue !important;
@@ -142,14 +131,35 @@
   input[name="preview"] {
     border-radius: 0 5px 5px 0 !important;
     background: $gray $preview-icon no-repeat 15px center / 24px !important;
-    
-    @media (max-width: 500px) {
+
+    &:hover {
+      background-color: $blue !important;
+    }
+  }
+
+  @media (max-width: 500px) {
+    input {
+      height: 32px !important;
+      font-size: 11px !important;
+    }
+
+    input[name="send"] {
       background-size: 18px !important;
       background-position: 10px center !important;
     }
 
-    &:hover {
-      background-color: $blue !important;
+    input[name="preview"] {
+      background-size: 18px !important;
+      background-position: 10px center !important;
+    }
+  }
+
+  @media (max-width: 400px) {
+    input[name="send"],
+    input[name="preview"] {
+      width: 100% !important;
+      border-radius: 5px !important;
+      border: none !important;
     }
   }
 }
