@@ -169,6 +169,10 @@
 
   /* GAMELIST ACTIVE SECTION */
   #gamelist-active {
+    @media (max-width: 550px) {
+      display: none !important;
+    }
+
     background: $darkgray !important;
     border-top: 1px solid $gray !important;
     margin-top: 20px !important;
