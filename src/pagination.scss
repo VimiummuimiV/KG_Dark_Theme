@@ -19,6 +19,11 @@
   flex-wrap: wrap !important;
   border-radius: 5px !important;
 
+  // Make background transparent when there's no .paginator inside
+  &:not(:has(.paginator)) {
+    background: transparent !important;
+  }
+
   &:hover {
     opacity: 1 !important;
     transition: opacity 0.2s !important;

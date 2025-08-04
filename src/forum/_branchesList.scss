@@ -21,16 +21,16 @@
       th.topic-cnt {
         color: $lightblue !important;
         text-align: center !important;
-        @include flex-layout(start, center);
+        @include flex-layout();
       }
       th.post-cnt {
         color: $green !important;
         text-align: center !important;
-        @include flex-layout(start, center);
+        @include flex-layout();
       }
       th:last-child {
         color: $white !important;
-        @include flex-layout(start, center);
+        @include flex-layout();
       }
     }
 
@@ -70,11 +70,11 @@
       }
       td.topic-cnt {
         color: $lightblue !important;
-        @include flex-layout(start, center);
+        @include flex-layout();
       }
       td.post-cnt {
         color: $green !important;
-        @include flex-layout(start, center);
+        @include flex-layout();
       }
       td.last-post {
         overflow: hidden !important;
@@ -94,7 +94,7 @@
           height: 24px !important;
           min-width: 160px !important;
           grid-area: user !important;
-          @include flex-layout(start, center);
+          @include flex-layout(row, start, center);
         }
 
         a.user-link[style*="/avatars/"] {
@@ -104,7 +104,7 @@
         span.date {
           grid-area: date !important;
           min-width: 120px !important;
-          @include flex-layout(start, center);
+          @include flex-layout(row, start, center);
         }
 
         a.go {

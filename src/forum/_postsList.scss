@@ -1,31 +1,24 @@
 @import "../mixins";
 @import "../animations";
 
-// Mixin for post action button styling
-@mixin post-header-button($bg-color) {
-  span {
-    color: $bg-color !important;
-    font-size: 0 !important;
+// mixin for post action button styling
+@mixin post-header-button($bg-color, $border-radius: 0 5px 5px 0) {
+  font-size: 12px !important;
+  font-weight: bold !important;
+  text-decoration: none !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+  width: 100px !important;
+  height: 100% !important;
+  color: $black !important;
+  @include flex-layout();
+  background: darken($bg-color, 10%) !important;
+  border-radius: $border-radius !important;
+  transition: background 0.1s ease-in-out;
 
-    a {
-      font-size: 12px !important;
-      font-weight: bold !important;
-      text-decoration: none !important;
-      position: absolute !important;
-      right: 0 !important;
-      top: 0 !important;
-      width: 100px !important;
-      height: 100% !important;
-      color: $black !important;
-      @include flex-layout();
-      background: darken($bg-color, 10%) !important;
-      border-radius: 0 5px 5px 0 !important;
-      transition: background 0.1s ease-in-out;
-
-      &:hover {
-        background: $bg-color !important;
-      }
-    }
+  &:hover {
+    background: $bg-color !important;
   }
 }
 
@@ -47,36 +40,71 @@
   }
 }
 
-#content {
-  .forum-up {
+@mixin anchor-to-button($font-size: 14px) {
+  @include flex-layout(row);
+  cursor: pointer !important;
+  text-decoration: none !important;
+  color: $black !important;
+  background: $gray !important;
+  height: 30px !important;
+  width: fit-content !important;
+  border-radius: 5px !important;
+  padding: 5px 10px !important;
+  font-weight: bold !important;
+  font-size: $font-size !important;
+  transition: background 0.1s ease-in-out;
 
+  &:hover {
+    background: $blue !important;
   }
+}
 
-  h4 {
-    a[href*="/forum/"] {
+#content {
+  #posts-list {
+    margin-top: 5px !important;
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
 
-    }
-
-    i {
-      display: none !important;
-    }
-
-    #topic-title-block {
+    .forum-up {
       @include flex-layout(row);
+      margin-bottom: 10px !important;
 
-      a {
-        img {
-          display: none !important;
+      a[href*="/forum/"] {
+        @include anchor-to-button(0px);
+
+        span {
+          font-size: 14px !important;
+          text-decoration: none !important;
         }
-
-        background-image: $forumEdit;
-        @include rounded-button(0 10px, $orange);
       }
     }
-  }
 
-  #posts-list {
-    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
+    h4 {
+      noindex {
+        @include flex-layout(row);
+        gap: 10px !important;
+      }
+
+      a[href*="/forum/"] {
+        @include anchor-to-button();
+      }
+
+      i {
+        display: none !important;
+      }
+
+      #topic-title-block {
+        @include flex-layout(row);
+
+        a {
+          img {
+            display: none !important;
+          }
+
+          background-image: $forumEdit;
+          @include rounded-button(0 10px, $orange);
+        }
+      }
+    }
 
     form {
       table {
@@ -105,7 +133,13 @@
             position: relative !important;
           }
 
-          @include post-header-button($blue);
+          span:first-child {
+            font-size: 0 !important;
+
+            a {
+              @include post-header-button($blue);
+            }
+          }
 
           // Admin users override
           &.admin {
@@ -122,7 +156,11 @@
               background: darken($green, 38%) !important;
             }
 
-            @include post-header-button($green);
+            span {
+              a {
+                @include post-header-button($green);
+              }
+            }
           }
 
           .user {
@@ -158,7 +196,7 @@
           .post-opts {
             @include flex-layout(row);
             td {
-              @include flex-layout(row, center);
+              @include flex-layout(row);
 
               // Edit button
               a[onclick*="edit"] {
