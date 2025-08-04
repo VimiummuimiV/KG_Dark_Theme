@@ -21,16 +21,16 @@
       th.topic-cnt {
         color: $lightblue !important;
         text-align: center !important;
-        @include flex-center(start, center);
+        @include flex-layout(start, center);
       }
       th.post-cnt {
         color: $green !important;
         text-align: center !important;
-        @include flex-center(start, center);
+        @include flex-layout(start, center);
       }
       th:last-child {
         color: $white !important;
-        @include flex-center(start, center);
+        @include flex-layout(start, center);
       }
     }
 
@@ -70,11 +70,11 @@
       }
       td.topic-cnt {
         color: $lightblue !important;
-        @include flex-center(start, center);
+        @include flex-layout(start, center);
       }
       td.post-cnt {
         color: $green !important;
-        @include flex-center(start, center);
+        @include flex-layout(start, center);
       }
       td.last-post {
         overflow: hidden !important;
@@ -94,7 +94,7 @@
           height: 24px !important;
           min-width: 160px !important;
           grid-area: user !important;
-          @include flex-center(flex-start, center);
+          @include flex-layout(start, center);
         }
 
         a.user-link[style*="/avatars/"] {
@@ -104,7 +104,7 @@
         span.date {
           grid-area: date !important;
           min-width: 120px !important;
-          @include flex-center(flex-start, center);
+          @include flex-layout(start, center);
         }
 
         a.go {
@@ -133,10 +133,10 @@
     }
 
     .feed-link {
-      @include flex-center(center, center);
+      @include flex-layout();
 
       a {
-        @include flex-center(center, center);
+        @include flex-layout();
         padding: 10px 20px !important;
         border-radius: 5px !important;
         text-decoration: none !important;

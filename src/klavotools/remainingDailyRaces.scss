@@ -10,7 +10,7 @@
   height: 45px !important;
   border-radius: 0 0 3px 3px !important;
   background-color: $orange !important;
-  @include flex-center;
+  @include flex-layout;
   font: bold 1.5em "Montserrat", sans-serif !important;
   color: gold !important;
 }

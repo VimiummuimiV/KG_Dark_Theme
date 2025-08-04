@@ -2,7 +2,7 @@
 @import "../animations";
 
 // Mixin for post action button styling
-@mixin post-action-button($bg-color) {
+@mixin post-header-button($bg-color) {
   span {
     color: $bg-color !important;
     font-size: 0 !important;
@@ -17,7 +17,7 @@
       width: 100px !important;
       height: 100% !important;
       color: $black !important;
-      @include flex-center(center, center);
+      @include flex-layout();
       background: darken($bg-color, 10%) !important;
       border-radius: 0 5px 5px 0 !important;
       transition: background 0.1s ease-in-out;
@@ -29,7 +29,52 @@
   }
 }
 
+@mixin rounded-button($margin: 10px, $bg-hover: $blue) {
+  height: 35px !important;
+  width: 35px !important;
+  border-radius: 50% !important;
+  font-size: 0 !important;
+  margin: $margin !important;
+  background-color: $gray !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border: none !important;
+  transition: background-color 0.1s ease-in-out;
+  @include flex-layout();
+
+  &:hover {
+    background-color: $bg-hover !important;
+  }
+}
+
 #content {
+  .forum-up {
+
+  }
+
+  h4 {
+    a[href*="/forum/"] {
+
+    }
+
+    i {
+      display: none !important;
+    }
+
+    #topic-title-block {
+      @include flex-layout(row);
+
+      a {
+        img {
+          display: none !important;
+        }
+
+        background-image: $forumEdit;
+        @include rounded-button(0 10px, $orange);
+      }
+    }
+  }
+
   #posts-list {
     font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
 
@@ -54,14 +99,14 @@
             border-radius: 0 5px 5px 0 !important;
             background: $black !important;
           }
-          
+
           // Default styling for all users (regular users)
           td {
             position: relative !important;
           }
 
-          @include post-action-button($blue);
-          
+          @include post-header-button($blue);
+
           // Admin users override
           &.admin {
             .user {
@@ -77,13 +122,13 @@
               background: darken($green, 38%) !important;
             }
 
-            @include post-action-button($green);
+            @include post-header-button($green);
           }
-          
+
           .user {
             text-decoration: none !important;
             @include element-full-size();
-            @include flex-center(center, center);
+            @include flex-layout();
             transition: background 0.1s ease-in-out;
             color: $black !important;
             background: darken($blue, 10%) !important;
@@ -98,7 +143,6 @@
         .post {
           .post-container {
             .text {
-
               img.linked-image {
                 animation: fadeIn 0.5s ease-in-out;
                 filter: brightness(0.5) !important;
@@ -108,6 +152,25 @@
                   filter: brightness(1) !important;
                 }
               }
+            }
+          }
+
+          .post-opts {
+            @include flex-layout(row);
+            td {
+              @include flex-layout(row, center);
+
+              // Edit button
+              a[onclick*="edit"] {
+                background-image: $forumEdit;
+                @include rounded-button(10px, $green);
+              }
+            }
+
+            // Reply button
+            a[onclick*="reply"] {
+              background-image: $forumReply;
+              @include rounded-button(10px, $orange);
             }
           }
         }

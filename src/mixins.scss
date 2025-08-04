@@ -40,9 +40,10 @@
   height: 100%;
 }
 
-// Flexbox centering mixin
-@mixin flex-center($justify: center, $align: center) {
+// Flexbox layout mixin for centering elements
+@mixin flex-layout($direction: column, $justify: center, $align: center) {
   display: flex !important;
+  flex-direction: $direction !important;
   justify-content: $justify !important;
   align-items: $align !important;
 }

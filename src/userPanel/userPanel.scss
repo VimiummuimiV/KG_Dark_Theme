@@ -19,19 +19,6 @@ $buttonHeight: 44px;
   left: 0;
 }
 
-@mixin pin-style($has-border: false) {
-  display: block !important;
-  box-sizing: border-box !important;
-  width: 20px !important;
-  height: 20px !important;
-  background: transparent url($pin) center no-repeat !important;
-  z-index: 1 !important;
-
-  @if $has-border {
-    border: 1px solid $gray !important;
-  }
-}
-
 /* MAIN USERPANEL COMPONENT */
 
 .userpanel {
@@ -46,11 +33,16 @@ $buttonHeight: 44px;
     content: "";
     position: absolute;
     // Additional 1px to cover the border bottom
-    bottom: -61px !important; 
+    bottom: -61px !important;
     left: 0;
     width: 100%;
     height: 60px !important;
-    background: linear-gradient(to bottom, $darkgray 0%, $darkgray 80%, transparent 100%) !important;
+    background: linear-gradient(
+      to bottom,
+      $darkgray 0%,
+      $darkgray 80%,
+      transparent 100%
+    ) !important;
     z-index: -1 !important;
   }
 
@@ -64,7 +56,7 @@ $buttonHeight: 44px;
 
       .scores-table {
         height: $buttonHeight !important;
-        @include flex-center;
+        @include flex-layout;
       }
     }
 
@@ -205,7 +197,7 @@ $buttonHeight: 44px;
   /* USER LEVEL DISPLAY */
 
   #userpanel-level-container {
-    @include flex-center;
+    @include flex-layout;
     background: none !important;
     height: $buttonHeight !important;
     width: $buttonWidth !important;
@@ -214,7 +206,7 @@ $buttonHeight: 44px;
   }
 
   #userpanel-level-value {
-    @include flex-center;
+    @include flex-layout;
     margin: 0 !important;
     height: $buttonHeight !important;
     width: $buttonWidth !important;
