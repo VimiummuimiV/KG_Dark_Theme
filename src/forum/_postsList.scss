@@ -1,64 +1,6 @@
 @import "../mixins";
 @import "../animations";
 
-// mixin for post action button styling
-@mixin post-header-button($bg-color, $border-radius: 0 5px 5px 0) {
-  font-size: 12px !important;
-  font-weight: bold !important;
-  text-decoration: none !important;
-  position: absolute !important;
-  right: 0 !important;
-  top: 0 !important;
-  width: 100px !important;
-  height: 100% !important;
-  color: $black !important;
-  @include flex-layout();
-  background: darken($bg-color, 10%) !important;
-  border-radius: $border-radius !important;
-  transition: background 0.1s ease-in-out;
-
-  &:hover {
-    background: $bg-color !important;
-  }
-}
-
-@mixin rounded-button($margin: 10px, $bg-hover: $blue) {
-  height: 35px !important;
-  width: 35px !important;
-  border-radius: 50% !important;
-  font-size: 0 !important;
-  margin: $margin !important;
-  background-color: $gray !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  border: none !important;
-  transition: background-color 0.1s ease-in-out;
-  @include flex-layout();
-
-  &:hover {
-    background-color: $bg-hover !important;
-  }
-}
-
-@mixin anchor-to-button($font-size: 14px) {
-  @include flex-layout(row);
-  cursor: pointer !important;
-  text-decoration: none !important;
-  color: $black !important;
-  background: $gray !important;
-  height: 30px !important;
-  width: fit-content !important;
-  border-radius: 5px !important;
-  padding: 5px 10px !important;
-  font-weight: bold !important;
-  font-size: $font-size !important;
-  transition: background 0.1s ease-in-out;
-
-  &:hover {
-    background: $blue !important;
-  }
-}
-
 #content {
   #posts-list {
     margin-top: 5px !important;
