@@ -80,19 +80,7 @@
           margin-top: 5px !important;
         }
 
-        input[type="submit"] {
-          width: 50% !important;
-          border: none !important;
-          outline: none !important;
-          background-color: $gray !important;
-          color: $black !important;
-        }
-
-        input[name="send"] {
-        }
-
-        input[name="preview"] {
-        }
+        @include send-preview-buttons();
       }
     }
   }

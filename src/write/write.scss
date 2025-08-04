@@ -66,35 +66,7 @@
     display: flex !important;
     flex-shrink: 0 !important;
 
-    input {
-      border: none !important;
-      width: 50% !important;
-      height: 40px !important;
-      color: $black !important;
-      transition: background-color 0.15s ease !important;
-      font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
-      font-weight: 700 !important;
-      text-transform: uppercase !important;
-    }
-
-    input[name="send"] {
-      border-radius: 5px 0 0 5px !important;
-      border-right: 1px solid $black !important;
-      background: $gray $send-icon no-repeat 15px center / 24px !important;
-
-      &:hover {
-        background-color: $blue !important;
-      }
-    }
-
-    input[name="preview"] {
-      border-radius: 0 5px 5px 0 !important;
-      background: $gray $preview-icon no-repeat 15px center / 24px !important;
-
-      &:hover {
-        background-color: $blue !important;
-      }
-    }
+    @include send-preview-buttons();
   }
 
   .g-recaptcha {
