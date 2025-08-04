@@ -2,6 +2,7 @@
 
 // Default container
 #fast-reply-controls,
+#text-controls,
 // Klavotools BB_Tools_Buttons
 #bb_tools_fast-reply,
 #bb_tools_text {
@@ -81,7 +82,6 @@
       width: 32px !important;
       height: 32px !important;
       image-rendering: crisp-edges !important;
-      transition: all 0.15s !important;
       border: 2px solid transparent !important;
 
       // Hover states
