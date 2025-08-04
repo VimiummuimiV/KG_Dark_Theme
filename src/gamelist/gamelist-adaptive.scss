@@ -1,0 +1,108 @@
+#content {
+  /* RESPONSIVE STYLES FOR GAMELIST CREATE SECTION */
+  .gamelist-create {
+    @media (max-width: 800px) {
+      .r {
+        .rc {
+          padding: 10px 5px 40px 5px !important;
+
+          form {
+            position: relative !important;
+
+            #savedModes {
+              position: absolute !important;
+              margin: 0 !important;
+              bottom: -40px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* RESPONSIVE STYLES FOR GAMELIST SECTION */
+  #gamelist {
+    .item {
+      @media (max-width: 800px) {
+        padding: 10px 0 !important;
+        
+        table {
+          display: grid !important;
+          grid-template-areas: 
+            "enter sign status"
+            "players players players" !important;
+          grid-template-columns: 63px 60px fit-content !important;
+          gap: 10px !important;
+          width: fit-content !important;
+          max-width: 100% !important;
+          align-items: center !important;
+        }
+        
+        table tbody, 
+        table tr {
+          display: contents !important;
+        }
+        
+        td.enter {
+          margin: 0 !important;
+          grid-area: enter !important;
+          width: 63px !important;
+          max-width: 63px !important;
+          min-width: 63px !important;
+          height: 100% !important;
+          @include flex-layout();
+        }
+        
+        td.sign {
+          margin: 0 !important;
+          grid-area: sign !important;
+          width: 60px !important;
+          max-width: 60px !important;
+          min-width: 60px !important;
+          height: 100% !important;
+          @include flex-layout();
+        }
+        
+        td.status {
+          margin: 0 !important;
+          grid-area: status !important;
+          width: fit-content !important;
+          max-width: 200px !important;
+          overflow-wrap: break-word !important;
+          word-wrap: break-word !important;
+          height: 100% !important;
+          @include flex-layout();
+        }
+        
+        td.players {
+          grid-area: players !important;
+          padding: 10px 0 0 0 !important;
+          width: 100% !important;
+          overflow-wrap: break-word !important;
+          word-wrap: break-word !important;
+          height: 100% !important;
+          
+          // Handle nested tables in players section (normal and reduced) display
+          table {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            width: 100% !important;
+            gap: 5px !important;
+          }
+          
+          .name {
+            flex: 0 0 auto !important;
+            white-space: nowrap !important;
+          }
+        }
+      }
+    }
+  }
+
+  /* RESPONSIVE STYLES FOR GAMELIST ACTIVE SECTION */
+  #gamelist-active {
+    @media (max-width: 550px) {
+      display: none !important;
+    }
+  }
+}
