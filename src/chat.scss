@@ -71,6 +71,64 @@ $chatHeaderSize: 26px;
               background: $anchor-icon_white no-repeat center / 16px;
             }
           }
+
+          .chat {
+            background: $deepgray !important;
+            border: none !important;
+
+            .messages {
+              background: $deepgray !important;
+
+              .messages-border {
+                background: $deepgray !important;
+                border: none !important;
+
+                .messages-content {
+                  border: none !important;
+
+                  .chat-header {
+                    display: none !important;
+                  }
+
+                  div:first-of-type {
+                    border: none !important;
+                  }
+                }
+
+                table {
+                  position: absolute !important;
+
+                  input.text {
+                    border: none !important;
+                    outline: none !important;
+                    background: $black !important;
+                    margin: 5px !important;
+                    padding: 10px !important;
+                    border-radius: 5px !important;
+                    color: $white !important;
+                  }
+                }
+              }
+            }
+
+            .panel-btn {
+              width: 0 !important;
+              position: relative !important;
+              padding: 0 !important;
+
+              i {
+                position: absolute !important;
+                width: 32px !important;
+                height: 32px !important;
+                right: 100% !important;
+                background: $black !important;
+                border-radius: 5px 0 0 5px !important;
+                border: none !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+              }
+            }
+          }
         }
       }
 
