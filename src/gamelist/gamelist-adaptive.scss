@@ -27,64 +27,55 @@
         padding: 10px 0 !important;
         
         table {
-          display: grid !important;
-          grid-template-areas: 
-            "enter sign status"
-            "players players players" !important;
-          grid-template-columns: 63px 60px fit-content !important;
+          @include flex-layout(column, flex-start, stretch);
+          width: 100% !important;
           gap: 10px !important;
-          width: fit-content !important;
-          max-width: 100% !important;
-          align-items: center !important;
         }
         
-        table tbody, 
+        table tbody {
+          @include flex-layout(column, flex-start, stretch);
+          gap: 10px !important;
+        }
+        
         table tr {
-          display: contents !important;
+          @include flex-layout(row, flex-start, center);
+          flex-wrap: wrap !important;
+          gap: 10px !important;
+          width: 100% !important;
         }
         
+        // Top row elements in the same row
         td.enter {
           margin: 0 !important;
-          grid-area: enter !important;
-          width: 63px !important;
-          max-width: 63px !important;
-          min-width: 63px !important;
-          height: 100% !important;
+          flex: 0 0 auto !important;
           @include flex-layout();
         }
         
         td.sign {
           margin: 0 !important;
-          grid-area: sign !important;
-          width: 60px !important;
-          max-width: 60px !important;
-          min-width: 60px !important;
-          height: 100% !important;
+          flex: 0 0 auto !important;
           @include flex-layout();
         }
         
         td.status {
           margin: 0 !important;
-          grid-area: status !important;
-          width: fit-content !important;
-          max-width: 200px !important;
+          flex: 0 0 auto !important;
           overflow-wrap: break-word !important;
           word-wrap: break-word !important;
-          height: 100% !important;
           @include flex-layout();
         }
         
         td.players {
-          grid-area: players !important;
+          @include flex-layout(column, flex-start, stretch);
           padding: 10px 0 0 0 !important;
           width: 100% !important;
+          flex-basis: 100% !important; // Force players to new line
           overflow-wrap: break-word !important;
           word-wrap: break-word !important;
-          height: 100% !important;
           
           // Handle nested tables in players section (normal and reduced) display
           table {
-            display: flex !important;
+            @include flex-layout(row, flex-start, center);
             flex-wrap: wrap !important;
             width: 100% !important;
             gap: 5px !important;
