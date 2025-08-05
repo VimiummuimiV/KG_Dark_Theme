@@ -1,502 +1,75 @@
 @import "./data/variables";
-@import "mixins";
-
-/* Chat Styles */
-#chat-fixed-placeholder {
-  // Prevent selecting all except paragraph and anchor elements
-  table {
-    user-select: none !important;
-  }
-
-  .messages p,
-  .userlist a {
-    user-select: text !important;
-  }
-}
-
-#chat-container {
-  .messages-content > div {
-    overflow: hidden !important;
-    margin-bottom: 50px !important;
-  }
-}
-
-#chat-title {
-  span.new {
-    background: orange !important;
-    padding: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    color: $deepgray !important;
-    transition: 0.2s !important;
-  }
-
-  table {
-    .c {
-      background: $deepgray !important;
-      color: $white !important;
-
-      span {
-        padding: 0 !important;
-      }
-
-      &:hover {
-        background: $black !important;
-      }
-
-      &.active {
-        background: $blue !important;
-        filter: brightness(0.8) !important;
-        color: $deepgray !important;
-      }
-    }
-
-    .pin,
-    .height-btn {
-      position: absolute !important;
-      right: 18px !important;
-      background: transparent !important;
-      transition: filter 0.15s !important;
-      filter: brightness(0.5) !important;
-      background-image: $maximize-icon !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-
-      &:hover {
-        background-image: $maximize-icon !important;
-        filter: brightness(1.2) !important;
-      }
-    }
-
-    .height-btn.height-btn-max {
-      position: absolute !important;
-      right: 18px !important;
-      background: transparent !important;
-      transition: filter 0.15s !important;
-      filter: brightness(0.5) !important;
-      background: $minimize-icon no-repeat center / contain !important;
-
-      &:hover {
-        background-image: $minimize-icon !important;
-        filter: brightness(1.2) !important;
-      }
-    }
-
-    .mostright {
-      position: absolute !important;
-      right: 0 !important;
-      background-color: transparent !important;
-      filter: brightness(0.5) !important;
-      transition: filter 0.15s !important;
-      background: $close-icon no-repeat center / contain !important;
-
-      &:hover {
-        background-image: $close-icon;
-        filter: brightness(1.2) !important;
-      }
-    }
-
-    .dummy {
-      background: $deepgray !important;
-    }
-
-    // Hide old elements
-    .active.mostleft.l,
-    .active.r,
-    .mostleft.l,
-    .active.l,
-    .r,
-    .l {
-      display: none !important;
-    }
-
-    th {
-      padding-right: 0 !important;
-    }
-  }
-}
-
-.chat {
-  background: $darkgray !important;
-  border: 1px solid $gray !important;
-
-  .userlist {
-    background: $darkgray !important;
-
-    .smile-content {
-      margin: 12px 0px 0px 0px !important;
-    }
-
-    ins {
-      display: flex !important;
-      min-height: 26px !important;
-      align-items: center !important;
-
-      &.revoked a {
-        text-decoration: none !important;
-        color: $red !important;
-      }
-
-      a.info {
-        margin-left: 5px !important;
-        display: inline-block !important;
-        width: 8px !important;
-        height: 8px !important;
-        border-radius: 50% !important;
-        background: radial-gradient(
-          ellipse at center,
-          #baf2ba 0%,
-          #2ef459 49%,
-          #26ef80 52%,
-          #1e894b 100%
-        ) !important;
-
-        img {
-          display: block !important;
-          height: 8px !important;
-          width: 8px !important;
-          opacity: 0 !important;
-        }
-      }
-
-      &.revoked a.info {
-        margin-left: 5px !important;
-        display: inline-block !important;
-        width: 8px !important;
-        height: 8px !important;
-        background: radial-gradient(
-          ellipse at center,
-          #f2baba 0%,
-          #f42e2e 49%,
-          #ef2626 52%,
-          #891e1e 100%
-        ) !important;
-        border-radius: 50% !important;
-      }
-
-      a.name {
-        text-decoration: none !important;
-        background-size: 24px !important;
-        min-height: 24px !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        padding-left: 30px !important;
-        position: relative !important;
-
-        &:hover {
-          text-decoration: underline !important;
-        }
-      }
-    }
-
-    img[src="/img/moderator_icon-2.gif"] {
-      margin-left: 5px !important;
-      box-sizing: border-box !important;
-      display: inline-block !important;
-      width: 21px !important;
-      padding-left: 21px !important;
-      background: url("https://i.imgur.com/aW1ZXJc.png") no-repeat !important;
-      height: 28px !important;
-    }
-
-    a[data-user="474104"] {
-      color: white !important; // Owner
-    }
-
-    .smile-groups {
-      background: $darkgray !important;
-
-      &-action {
-        font: bold 12px "Montserrat", sans-serif !important;
-        color: $darkgray !important;
-        background-color: $blue;
-        border-top-left-radius: unset !important;
-        border-top-right-radius: unset !important;
-        padding: 4px 10px !important;
-        border-radius: 0 0 4px 4px !important;
-        border: none !important;
-        opacity: 0.6 !important;
-
-        &.active {
-          color: $deepgray !important;
-          background-color: $lightblue !important;
-          opacity: 1 !important;
-        }
-      }
-    }
-  }
-
-  .panel-btn {
-    background: $darkgray !important;
-
-    &:hover {
-      background: $deepgray !important;
-    }
-
-    i {
-      border: 3px solid $orange !important;
-      height: 20px !important;
-      border-radius: 5px !important;
-      border-radius: 3px !important;
-    }
-  }
-
-  .messages {
-    background: $darkgray !important;
-    font-size: 14px !important;
-    padding: 4px !important;
-
-    &-content {
-      color: $white !important;
-    }
-
-    &-border {
-      background: $darkgray !important;
-    }
-
-    div {
-      border: none !important;
-    }
-
-    .chat-header {
-      display: none !important;
-    }
-
-    .chat-guest {
-      background-color: $darkgray !important;
-      color: #565656 !important;
-      border: none !important;
-      font-weight: lighter !important;
-      padding: 4px !important;
-
-      a {
-        display: none !important;
-      }
-    }
-
-    .private {
-      color: $orange !important;
-      font-weight: lighter !important;
-      font-size: 14px !important;
-      padding: 3px !important;
-
-      &.room {
-        filter: hue-rotate(20deg) !important;
-        font-size: 16px !important;
-      }
-    }
-
-    .username {
-      visibility: hidden !important;
-
-      span[data-user] {
-        visibility: visible !important;
-        filter: invert(100%) !important;
-      }
-    }
-
-    .time {
-      visibility: hidden !important;
-
-      span {
-        cursor: pointer !important;
-        visibility: visible !important;
-        color: $blue !important;
-      }
-
-      .clickable:hover {
-        color: $lightblue !important;
-        text-decoration: none !important;
-      }
-
-      &[style*="background-color: yellow"] {
-        background: transparent !important;
-
-        .clickable {
-          visibility: visible;
-          color: $blue !important;
-        }
-      }
-    }
-
-    table {
-      tr {
-        display: flex !important;
-        border-top: 1px solid $gray !important;
-      }
-
-      td {
-        &:nth-child(2) {
-          width: 35px !important;
-          height: 35px !important;
-          display: inline-flex !important;
-
-          &:after {
-            position: relative !important;
-            left: -26px !important;
-            z-index: 0 !important;
-            content: $send-icon;
-            font: 26px Consolas !important;
-            color: white !important;
-            display: flex !important;
-            align-items: center !important;
-          }
-        }
-
-        &:nth-child(3),
-        &:nth-child(4),
-        &:nth-child(5) {
-          display: inline-flex !important;
-          flex-direction: row-reverse !important;
-          height: 35px !important;
-          background-color: #3b3b3b !important;
-        }
-
-        div:nth-child(1) {
-          width: 0 !important;
-          height: 0 !important;
-        }
-
-        .chat-opt-btn {
-          display: flex !important;
-          justify-content: center !important;
-          align-items: center !important;
-          width: 35px !important;
-          height: 35px !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          background: #3b3b3b !important;
-          border: none !important;
-
-          &:hover,
-          &.active {
-            background: #4b4b4b !important;
-            border: none !important;
-          }
-
-          img[src="/img/smilies/smile.gif"] {
-            box-sizing: border-box !important;
-            padding-left: 20px !important;
-            height: 20px !important;
-            width: 20px !important;
-            background: $smiliesNotActive !important;
-          }
-
-          &.active img[src="/img/smilies/smile.gif"] {
-            box-sizing: border-box !important;
-            padding-left: 20px !important;
-            height: 20px !important;
-            width: 20px !important;
-            background: $smiliesActive !important;
-          }
-        }
-
-        img[src*="exclamation"] {
-          box-sizing: border-box !important;
-          padding-left: 35px !important;
-          margin-top: 8px !important;
-          width: 35px !important;
-          background: $ignoreBlue !important;
-          position: relative !important;
-          left: 7px !important;
-        }
-      }
-
-      input {
-        &.send {
-          display: block !important;
-          color: transparent !important;
-          background: rgba(128, 128, 128, 0.19) !important;
-          border: none !important;
-          width: 35px !important;
-          height: 35px !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          z-index: 1 !important;
-
-          &:hover {
-            background: rgba(128, 128, 128, 0.39) !important;
-          }
-        }
-
-        &.text {
-          border: none !important;
-          background: $darkgray !important;
-          font: 14px Tahoma !important;
-          color: $white;
-          line-height: 25px !important;
-        }
-
-        &[value="BBCode"] {
-          color: $white !important;
-          background: #3b3b3b !important;
-          border: none !important;
-
-          &:hover {
-            color: $white !important;
-            background: #4b4b4b !important;
-            border: none !important;
+@import "./mixins";
+
+$chatHeaderSize: 26px;
+
+#content {
+  #chat-fixed-placeholder {
+    #chat-wrapper {
+      #chat-container {
+        #chat-content {
+          #chat-title {
+            height: $chatHeaderSize !important;
+            background: $deepgray !important;
+            border-radius: 8px 8px 0 0 !important;
+
+            .l,
+            .r {
+              display: none !important;
+            }
+
+            .c {
+              color: $gray !important;
+              background: transparent !important;
+
+              span {
+                height: $chatHeaderSize !important;
+                color: $black !important;
+                background: $gray !important;
+                padding: 0 !important;
+                margin-left: 4px !important;
+                height: $chatHeaderSize - 6px !important;
+                border-radius: 5px !important;
+                font: 600 1em "Montserrat", sans-serif !important;
+                @include flex-layout();
+              }
+
+              &.active {
+                span {
+                  background: $blue !important;
+                }
+              }
+            }
+
+            .dummy {
+              background: transparent !important;
+
+              .hide-bar {
+                height: $chatHeaderSize !important;
+              }
+            }
+
+            // Expand, Open... buttons
+            .height-btn, .mostright {
+              height: $chatHeaderSize !important;
+              width: $chatHeaderSize !important;
+            }
+
+            // Expand, Collapse button
+            .height-btn {
+              background: $expand-icon_white no-repeat center / 16px !important;
+
+              &.height-btn-max {
+                background: $collapse-icon_white no-repeat center / 16px !important;
+              }
+            }
+            // Close, Open button
+            .mostright {
+              background:  $close-icon_white no-repeat center / 16px !important;
+            }
           }
         }
       }
     }
-
-    img[src="/img/filter.png"] {
-      box-sizing: border-box !important;
-      padding-left: 20px !important;
-      height: 20px !important;
-      width: 20px !important;
-      background: $filterOFF !important;
-      top: 0 !important;
-      left: 0 !important;
-    }
-
-    .active {
-      img[src="/img/filter.png"] {
-        box-sizing: border-box !important;
-        padding-left: 20px !important;
-        height: 20px !important;
-        width: 20px !important;
-        background: $filterON !important;
-        top: 0 !important;
-        left: 0 !important;
-      }
-
-      img[src*="exclamation"] {
-        box-sizing: border-box !important;
-        padding-left: 20px !important;
-        height: 20px !important;
-        width: 20px !important;
-        background: $ignoreOrange !important;
-      }
-    }
   }
-}
-
-.system-message {
-  color: lightcoral !important;
-  font-size: 14px !important;
-  background: $deepgray !important;
-  border: 1px solid rgba(240, 128, 128, 0.4) !important;
-  padding: 6px !important;
-  border-radius: 4px !important;
-}
-
-p:has(.system-message) {
-  margin: 12px 0 !important;
-}
-
-code {
-  color: $red !important;
-  filter: hue-rotate(120deg) !important;
-  font-size: 14px !important;
-  background: $deepgray !important;
-  border: 1px solid rgba(225, 20, 0, 0.5) !important;
-  padding: 0 10px !important;
 }
