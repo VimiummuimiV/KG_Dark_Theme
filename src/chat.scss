@@ -1,6 +1,5 @@
 @import "./data/variables";
 @import "./mixins";
-
 $chatHeaderSize: 26px;
 
 #content {
@@ -12,16 +11,13 @@ $chatHeaderSize: 26px;
             height: $chatHeaderSize !important;
             background: $deepgray !important;
             border-radius: 8px 8px 0 0 !important;
-
             .l,
             .r {
               display: none !important;
             }
-
             .c {
               color: $gray !important;
               background: transparent !important;
-
               span {
                 height: $chatHeaderSize !important;
                 color: $black !important;
@@ -33,39 +29,59 @@ $chatHeaderSize: 26px;
                 font: 600 1em "Montserrat", sans-serif !important;
                 @include flex-layout();
               }
-
               &.active {
                 span {
                   background: $blue !important;
                 }
               }
             }
-
             .dummy {
               background: transparent !important;
-
               .hide-bar {
                 height: $chatHeaderSize !important;
               }
             }
-
             // Expand, Open... buttons
-            .height-btn, .mostright {
+            .height-btn,
+            .mostright,
+            .pin {
               height: $chatHeaderSize !important;
               width: $chatHeaderSize !important;
-            }
+              transition: filter 0.1s ease-out !important;
 
+              &:hover {
+                filter: brightness(1.2) !important;
+              }
+            }
             // Expand, Collapse button
             .height-btn {
               background: $expand-icon_white no-repeat center / 16px !important;
-
               &.height-btn-max {
                 background: $collapse-icon_white no-repeat center / 16px !important;
               }
             }
             // Close, Open button
             .mostright {
-              background:  $close-icon_white no-repeat center / 16px !important;
+              background: $close-icon_white no-repeat center / 16px;
+            }
+            // Fixed, Floating chat button
+            .pin {
+              background: $anchor-icon_white no-repeat center / 16px;
+            }
+          }
+        }
+      }
+
+      // When chat is hidden, change the mostright icon
+      &.chat-hidden {
+        #chat-container {
+          height: $chatHeaderSize !important;
+
+          #chat-content {
+            #chat-title {
+              .mostright {
+                background: $maximize-icon_white no-repeat center / 16px !important;
+              }
             }
           }
         }
