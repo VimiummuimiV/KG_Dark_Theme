@@ -125,6 +125,7 @@ $chatHeaderSize: 26px;
                   border: none !important;
                   flex: 1 !important;
                   overflow-y: auto !important;
+                  padding: 5px !important;
 
                   .chat-header {
                     display: none !important;
@@ -135,6 +136,29 @@ $chatHeaderSize: 26px;
 
                     p {
                       font-size: 1.2em !important;
+
+                      .time {
+                        color: $gray;
+                        visibility: hidden !important;
+
+                        span {
+                          visibility: visible !important;
+                        }
+
+                        // Mention message
+                        &[style*="background-color: yellow"] {
+                          color: $green;
+                          background-color: transparent !important;
+                        }
+                      }
+
+                      .username {
+                        visibility: hidden !important;
+
+                        span {
+                          visibility: visible !important;
+                        }
+                      }
                     }
                   }
                 }
@@ -229,11 +253,13 @@ $chatHeaderSize: 26px;
                   }
 
                   .smile-btn {
-                    background: $gray $smiles-panel-closed_black no-repeat center / 20px !important;
+                    background: $gray $smiles-panel-closed_black no-repeat
+                      center / 20px !important;
 
                     &.active,
                     &:hover {
-                      background: $blue $smiles-panel-opened_black no-repeat center / 20px !important;
+                      background: $blue $smiles-panel-opened_black no-repeat
+                        center / 20px !important;
                     }
                   }
 
@@ -242,7 +268,8 @@ $chatHeaderSize: 26px;
 
                     &.active,
                     &:hover {
-                      background: $blue $filter-icon_black no-repeat center / 20px !important;
+                      background: $blue $filter-icon_black no-repeat center /
+                        20px !important;
                     }
                   }
                 }
