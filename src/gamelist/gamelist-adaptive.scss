@@ -24,7 +24,7 @@
   #gamelist {
     .item {
       @media (max-width: 800px) {
-        padding: 10px 0 !important;
+        padding: 5px !important;
         
         table {
           @include flex-layout(column, flex-start, stretch);
