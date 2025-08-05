@@ -8,18 +8,31 @@ $chatHeaderSize: 26px;
   #chat-fixed-placeholder {
     #chat-wrapper {
       #chat-container {
+        // Make main container flexbox
+        display: flex !important;
+        flex-direction: column !important;
+
         #chat-content {
+          // Make content area flexbox
+          display: flex !important;
+          flex-direction: column !important;
+          flex: 1 !important;
+          min-height: 0 !important;
+
           #chat-title {
             height: $chatHeaderSize !important;
             background: $deepgray !important;
             border-radius: 8px 8px 0 0 !important;
+
             .l,
             .r {
               display: none !important;
             }
+
             .c {
               color: $gray !important;
               background: transparent !important;
+
               span {
                 height: $chatHeaderSize !important;
                 color: $black !important;
@@ -75,16 +88,43 @@ $chatHeaderSize: 26px;
           .chat {
             background: $deepgray !important;
             border: none !important;
+            display: flex !important;
+            flex: 1 !important;
+            min-height: 0 !important;
+
+            // Convert main chat table to flexbox
+            > table {
+              display: flex !important;
+              width: 100% !important;
+              height: 100% !important;
+
+              tbody,
+              tr {
+                display: flex !important;
+                width: 100% !important;
+                height: 100% !important;
+              }
+            }
 
             .messages {
               background: $deepgray !important;
+              display: flex !important;
+              flex-direction: column !important;
+              flex: 1 !important;
+              min-width: 0 !important;
 
               .messages-border {
                 background: $deepgray !important;
                 border: none !important;
+                display: flex !important;
+                flex-direction: column !important;
+                flex: 1 !important;
+                min-height: 0 !important;
 
                 .messages-content {
                   border: none !important;
+                  flex: 1 !important;
+                  overflow-y: auto !important;
 
                   .chat-header {
                     display: none !important;
@@ -92,20 +132,118 @@ $chatHeaderSize: 26px;
 
                   div:first-of-type {
                     border: none !important;
+
+                    p {
+                      font-size: 1.2em !important;
+                    }
                   }
                 }
 
-                table {
+                // Convert input table to flexbox
+                > table {
                   background: $deepgray !important;
+                  display: flex !important;
+                  flex-shrink: 0 !important;
+                  width: 100% !important;
+
+                  tbody,
+                  tr {
+                    display: flex !important;
+                    width: 100% !important;
+                    align-items: center !important;
+                  }
+
+                  // Input field container
+                  th {
+                    display: flex !important;
+                    flex: 1 !important;
+                    padding: 0 !important;
+
+                    form {
+                      display: flex !important;
+                      width: 100% !important;
+                      margin: 0 !important;
+                    }
+                  }
+
+                  // Send button and options
+                  td {
+                    display: flex !important;
+                    align-items: center !important;
+                    flex-shrink: 0 !important;
+
+                    div[style*="width: 50px"][style*="height: 0px"] {
+                      display: none;
+                    }
+                  }
 
                   input.text {
                     border: none !important;
                     outline: none !important;
                     background: $black !important;
                     margin: 5px !important;
-                    padding: 10px !important;
+                    padding: 0 10px !important;
+                    height: 35px !important;
                     border-radius: 5px !important;
                     color: $white !important;
+                    flex: 1 !important; // Take all available space
+                    min-width: 0 !important; // Allow shrinking
+                    font-size: 1.2em !important;
+                  }
+
+                  // Send button styling
+                  input.send {
+                    margin: 0 5px 0 0 !important;
+                    padding: 0 !important;
+                    flex-shrink: 0 !important;
+                    height: 35px !important;
+                    width: 35px !important;
+                    border: none !important;
+                    outline: none !important;
+                    border-radius: 5px !important;
+                    font-size: 0 !important;
+                    background: $gray $send-icon_black no-repeat center / 20px !important;
+
+                    &:hover {
+                      background: $blue $send-icon_black no-repeat center / 20px !important;
+                    }
+                  }
+
+                  // Chat option buttons
+                  .chat-opt-btn {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    flex-shrink: 0 !important;
+                    height: 35px !important;
+                    width: 35px !important;
+                    border: none !important;
+                    border-radius: 5px !important;
+                    background: $gray !important;
+                    margin: 0 5px 0 0 !important;
+                    padding: 0 !important;
+
+                    img {
+                      display: none !important;
+                    }
+                  }
+
+                  .smile-btn {
+                    background: $gray $smiles-panel-closed_black no-repeat center / 20px !important;
+
+                    &.active,
+                    &:hover {
+                      background: $blue $smiles-panel-opened_black no-repeat center / 20px !important;
+                    }
+                  }
+
+                  .filter-btn {
+                    background: $gray $filter-icon_black no-repeat center / 20px !important;
+
+                    &.active,
+                    &:hover {
+                      background: $blue $filter-icon_black no-repeat center / 20px !important;
+                    }
                   }
                 }
               }
