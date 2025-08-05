@@ -1,8 +1,10 @@
 @import "./data/variables";
 @import "./mixins";
+
 $chatHeaderSize: 26px;
 
 #content {
+  #chat-inline-placeholder,
   #chat-fixed-placeholder {
     #chat-wrapper {
       #chat-container {
@@ -82,6 +84,28 @@ $chatHeaderSize: 26px;
               .mostright {
                 background: $maximize-icon_white no-repeat center / 16px !important;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Specific styling for inline chat pin icon
+  #chat-inline-placeholder {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+
+    .handle {
+      top: -15px !important;
+    }
+
+    #chat-wrapper {
+      #chat-container {
+        #chat-content {
+          #chat-title {
+            .pin {
+              background: $anchor-icon_lightblue no-repeat center / 16px !important;
             }
           }
         }
