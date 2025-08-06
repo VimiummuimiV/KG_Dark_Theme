@@ -271,6 +271,7 @@ $chatHeaderSize: 26px;
                     outline: none !important;
                     border-radius: 5px !important;
                     font-size: 0 !important;
+                    transition: background 0.1s ease-out !important;
                     background: $gray $send-icon_black no-repeat center / 20px !important;
 
                     &:hover {
@@ -291,6 +292,7 @@ $chatHeaderSize: 26px;
                     background: $gray !important;
                     margin: 0 5px 0 0 !important;
                     padding: 0 !important;
+                    transition: background 0.1s ease-out !important;
 
                     img {
                       display: none !important;
@@ -336,14 +338,25 @@ $chatHeaderSize: 26px;
                 border: none !important;
                 top: 50% !important;
                 transform: translateY(-50%) !important;
+                transition: background 0.1s ease-out !important;
                 background: $blue chevronLeft-icon($black) no-repeat center /
                   20px !important;
+
+                &:hover {
+                  background: $gray chevronLeft-icon($black) no-repeat center /
+                    20px !important;
+                }
               }
 
               &.active {
                 i {
                   background: $gray chevronRight-icon($black) no-repeat center /
                     20px !important;
+
+                  &:hover {
+                    background: $blue chevronRight-icon($black) no-repeat center /
+                      20px !important;
+                  }
                 }
               }
             }
