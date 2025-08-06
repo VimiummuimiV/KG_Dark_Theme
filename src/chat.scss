@@ -15,6 +15,10 @@ $chatHeaderSize: 26px;
         @media (max-width: 1400px) {
           left: 0 !important;
           right: 0 !important;
+
+          @media (max-width: 800px) {
+            height: 100% !important;
+          }
         }
 
         #chat-content {
@@ -181,8 +185,13 @@ $chatHeaderSize: 26px;
                       font-size: 1.2em !important;
 
                       @media (max-width: 1000px) {
-                        @include flex-layout(column, start, start); 
                         white-space: break-spaces !important;
+                        
+                        // Force line break after username using CSS
+                        .username::after {
+                          content: "\A" !important;
+                          white-space: pre !important;
+                        }
                       }
 
                       .time {
@@ -417,7 +426,7 @@ $chatHeaderSize: 26px;
 
               .smile-tab {
                 // Make the smile tab a flex container that fills available height
-                @include flex-layout(column, start, start);
+                @include flex-layout(column, start, start, false);
                 height: 100% !important; // Take full height of parent
                 max-height: 100% !important; // Don't exceed parent height
 

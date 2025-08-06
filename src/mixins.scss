@@ -40,12 +40,13 @@
   height: 100%;
 }
 
-// Flexbox layout mixin for centering elements
-@mixin flex-layout($direction: column, $justify: center, $align: center) {
-  display: flex !important;
-  flex-direction: $direction !important;
-  justify-content: $justify !important;
-  align-items: $align !important;
+// Flexbox layout mixin with optional !important control
+@mixin flex-layout($direction: column, $justify: center, $align: center, $important: true) {
+  $imp: if($important, !important, null);
+  display: flex #{$imp};
+  flex-direction: $direction #{$imp};
+  justify-content: $justify #{$imp};
+  align-items: $align #{$imp};
 }
 
 @mixin post-header-button($bg-color, $border-radius: 0 5px 5px 0) {
