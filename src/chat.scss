@@ -34,6 +34,12 @@ $chatHeaderSize: 26px;
               background: transparent !important;
               width: 120px !important;
 
+              // Add background image when .c doesn't have a span child
+              &:not(:has(span)) {
+                background: transparent messageCircle-icon($gray) no-repeat 10px
+                  center / 12px !important;
+              }
+
               span {
                 height: $chatHeaderSize !important;
                 color: $black !important;
@@ -49,15 +55,15 @@ $chatHeaderSize: 26px;
               // General state - $gray background with $black message circle icon
               &.general {
                 span {
-                  background: $gray $messageCircle-icon_black no-repeat 5px center /
-                    12px !important;
+                  background: $gray messageCircle-icon($black) no-repeat 5px
+                    center / 12px !important;
                 }
 
                 // General active state - $blue background with same message circle icon
                 &.active {
                   span {
-                    background: $blue $messageCircle-icon_black no-repeat 5px center /
-                      12px !important;
+                    background: $blue messageCircle-icon($black) no-repeat 5px
+                      center / 12px !important;
                   }
                 }
               }
@@ -71,7 +77,8 @@ $chatHeaderSize: 26px;
                 // Game active state - $blue background with same game icon
                 &.active {
                   span {
-                    background: $blue $flag-icon_black no-repeat 5px center / 12px !important;
+                    background: $blue $flag-icon_black no-repeat 5px center /
+                      12px !important;
                   }
                 }
               }
@@ -405,14 +412,15 @@ $chatHeaderSize: 26px;
 
   // Specific styling for inline chat pin icon
   #chat-inline-placeholder {
-    border-radius: 8px !important;
-    overflow: hidden !important;
-
     .handle {
       top: -15px !important;
     }
 
     #chat-wrapper {
+      // Add bottom left/right border radius to maintain consistent rounded styling with chat title
+      border-radius: 8px !important;
+      overflow: hidden !important;
+
       #chat-container {
         // Limit chat height on floating mode
         height: 250px !important;
