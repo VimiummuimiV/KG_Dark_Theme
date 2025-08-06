@@ -323,26 +323,26 @@ $chatHeaderSize: 26px;
 
             .panel-btn {
               width: 0 !important;
+              background: $gray !important;
               position: relative !important;
               padding: 0 !important;
 
               i {
                 position: absolute !important;
-                width: 32px !important;
-                height: 32px !important;
+                width: 35px !important;
+                height: 35px !important;
                 right: 100% !important;
-                background: $black !important;
                 border-radius: 5px 0 0 5px !important;
                 border: none !important;
                 top: 50% !important;
                 transform: translateY(-50%) !important;
-                background: $black $chevronLeft-icon_white no-repeat center /
+                background: $blue chevronLeft-icon($black) no-repeat center /
                   20px !important;
               }
 
               &.active {
                 i {
-                  background: $black $chevronRight-icon_white no-repeat center /
+                  background: $gray chevronRight-icon($black) no-repeat center /
                     20px !important;
                 }
               }
