@@ -1,5 +1,5 @@
-@import "./data/variables";
-@import "./mixins";
+@import "../data/variables";
+@import "../mixins";
 
 $chatHeaderSize: 26px;
 
@@ -147,6 +147,7 @@ $chatHeaderSize: 26px;
               flex-direction: column !important;
               flex: 1 !important;
               min-width: 0 !important;
+              overflow: hidden !important;
 
               .messages-border {
                 background: $deepgray !important;
@@ -155,18 +156,20 @@ $chatHeaderSize: 26px;
                 flex-direction: column !important;
                 flex: 1 !important;
                 min-height: 0 !important;
+                overflow: hidden !important;
 
                 .messages-content {
                   border: none !important;
                   flex: 1 !important;
                   overflow-y: auto !important;
                   padding: 5px !important;
+                  scrollbar-width: thin !important;
 
                   .chat-header {
                     display: none !important;
                   }
 
-                  div:first-of-type {
+                  div {
                     border: none !important;
 
                     p {
@@ -368,6 +371,7 @@ $chatHeaderSize: 26px;
               .userlist-content {
                 margin: 0 !important;
                 padding: 0 !important;
+                scrollbar-width: thin !important;
 
                 ins {
                   height: 26px !important;
@@ -398,6 +402,26 @@ $chatHeaderSize: 26px;
                       display: none !important;
                     }
                   }
+                }
+              }
+
+              .smile-tab {
+                .smile-groups {
+                  height: 35px !important;
+                  background: $deepgray !important;
+
+                  .smile-groups-action {
+
+                    &.active {
+
+                    }
+                  }
+                }
+
+                .smile-content {
+                  scrollbar-width: thin !important;
+                  margin: 0 !important;
+                  padding: 0 !important;
                 }
               }
             }
@@ -454,3 +478,5 @@ $chatHeaderSize: 26px;
     }
   }
 }
+
+@import "chat-adaptive";
