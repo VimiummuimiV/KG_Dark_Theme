@@ -32,6 +32,7 @@ $chatHeaderSize: 26px;
             .c {
               color: $gray !important;
               background: transparent !important;
+              width: 120px !important;
 
               span {
                 height: $chatHeaderSize !important;
@@ -44,18 +45,45 @@ $chatHeaderSize: 26px;
                 font: 600 1em "Montserrat", sans-serif !important;
                 @include flex-layout();
               }
-              &.active {
+
+              // General state - $gray background with $black message circle icon
+              &.general {
                 span {
-                  background: $blue !important;
+                  background: $gray $messageCircle-icon_black no-repeat 5px center /
+                    12px !important;
+                }
+
+                // General active state - $blue background with same message circle icon
+                &.active {
+                  span {
+                    background: $blue $messageCircle-icon_black no-repeat 5px center /
+                      12px !important;
+                  }
+                }
+              }
+
+              // Game state - $gray background with game icon
+              &.game {
+                span {
+                  background: $gray $flag-icon_black no-repeat 5px center / 12px !important;
+                }
+
+                // Game active state - $blue background with same game icon
+                &.active {
+                  span {
+                    background: $blue $flag-icon_black no-repeat 5px center / 12px !important;
+                  }
                 }
               }
             }
+
             .dummy {
               background: transparent !important;
               .hide-bar {
                 height: $chatHeaderSize !important;
               }
             }
+
             // Expand, Open... buttons
             .height-btn,
             .mostright,
@@ -70,9 +98,9 @@ $chatHeaderSize: 26px;
             }
             // Expand, Collapse button
             .height-btn {
-              background: $expand-icon_white no-repeat center / 16px !important;
+              background: $chevronUp-icon_white no-repeat center / 16px !important;
               &.height-btn-max {
-                background: $collapse-icon_white no-repeat center / 16px !important;
+                background: $chevronDown-icon_white no-repeat center / 16px !important;
               }
             }
             // Close, Open button
@@ -88,7 +116,7 @@ $chatHeaderSize: 26px;
           .chat {
             background: $deepgray !important;
             border: none !important;
-            display: flex !important;
+            display: flex;
             flex: 1 !important;
             min-height: 0 !important;
 
@@ -143,6 +171,11 @@ $chatHeaderSize: 26px;
 
                         span {
                           visibility: visible !important;
+                          text-decoration: none !important;
+
+                          &:hover {
+                            filter: brightness(0.8) !important;
+                          }
                         }
 
                         // Mention message
@@ -157,6 +190,11 @@ $chatHeaderSize: 26px;
 
                         span {
                           visibility: visible !important;
+                          text-decoration: none !important;
+
+                          &:hover {
+                            filter: brightness(0.8) !important;
+                          }
                         }
                       }
                     }
@@ -291,6 +329,57 @@ $chatHeaderSize: 26px;
                 border: none !important;
                 top: 50% !important;
                 transform: translateY(-50%) !important;
+                background: $black $chevronLeft-icon_white no-repeat center /
+                  20px !important;
+              }
+
+              &.active {
+                i {
+                  background: $black $chevronRight-icon_white no-repeat center /
+                    20px !important;
+                }
+              }
+            }
+
+            .userlist {
+              padding: 10px !important;
+              width: auto !important;
+              min-width: 200px !important;
+
+              .userlist-content {
+                margin: 0 !important;
+                padding: 0 !important;
+
+                ins {
+                  height: 26px !important;
+                  @include flex-layout(row, start, center);
+
+                  .name {
+                    height: 26px !important;
+                    font-size: 1.2em !important;
+                    @include flex-layout(row, start, center);
+                    background-size: 24px !important;
+                    padding-left: 30px !important;
+                    text-decoration: none !important;
+                    color: darken($white, 10%) !important;
+
+                    &:hover {
+                      filter: brightness(0.8) !important;
+                    }
+                  }
+
+                  .info {
+                    width: 14px !important;
+                    height: 14px !important;
+                    margin-left: 5px !important;
+                    background: $deepgray $info-icon_lightblue no-repeat center /
+                      14px !important;
+
+                    img {
+                      display: none !important;
+                    }
+                  }
+                }
               }
             }
           }
@@ -325,6 +414,9 @@ $chatHeaderSize: 26px;
 
     #chat-wrapper {
       #chat-container {
+        // Limit chat height on floating mode
+        height: 250px !important;
+
         #chat-content {
           #chat-title {
             .pin {

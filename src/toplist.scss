@@ -194,7 +194,7 @@
       width: 100% !important;
 
       .search-self {
-        background: $deepgray $position-icon / 24px !important;
+        background: $deepgray $position-icon_lightblue no-repeat center / 24px !important;
         border-radius: 5px !important;
         border: 1px solid $gray !important;
         width: 60px !important;
@@ -205,7 +205,7 @@
         cursor: pointer !important;
 
         &:hover {
-          background: $black $position-icon / 24px !important;
+          background: $black $position-icon_lightblue no-repeat center / 24px !important;
           border-color: $lightblue !important;
         }
 
@@ -358,7 +358,7 @@
 
     .info {
       position: absolute !important;
-      background: $black $rating-info-icon 10px center / 32px !important;
+      background: $black $info-icon_lightblue no-repeat 10px center / 32px !important;
       width: 500px !important; // Set to final expanded width
       height: 50px !important; // Set to final expanded height
       overflow: hidden !important;
