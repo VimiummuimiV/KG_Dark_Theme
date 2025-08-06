@@ -602,22 +602,8 @@
         box-sizing: content-box !important;
 
         &.off {
-          background: $darkgray !important;
-        }
-
-        // Slider handle
-        .handle {
-          background: $white !important;
-          border: 2px solid $white !important;
-          border-radius: 50% !important;
-          height: 14px !important;
-          width: 14px !important;
-          margin: 1px !important;
-          transition: all 0.2s !important;
-
-          &:hover {
-            background: $gray !important;
-          }
+          background: $gray !important;
+          pointer-events: none !important;
         }
       }
     }
@@ -707,16 +693,16 @@
   }
 }
 
+// Slider handle
 #content .handle {
-  margin-left: -5px !important;
-  opacity: 0.5 !important;
+  background: $gray !important;
   border-radius: 50% !important;
   height: 10px !important;
   width: 10px !important;
-  background: $gray !important;
+  transition: background 0.2s !important;
 
   &:hover {
-    background: $blue !important;
+    background: $lightblue !important;
   }
 }
 
