@@ -186,7 +186,7 @@ $chatHeaderSize: 26px;
 
                       @media (max-width: 1000px) {
                         white-space: break-spaces !important;
-                        
+
                         // Force line break after username using CSS
                         .username::after {
                           content: "\A" !important;
@@ -355,14 +355,20 @@ $chatHeaderSize: 26px;
                 position: absolute !important;
                 width: 35px !important;
                 height: 35px !important;
-                right: 100% !important;
+                // Align the right side of the button with the scrollbar of the messages container (Especially on Firefox)
+                right: calc(100% + 3px) !important;
                 border-radius: 5px 0 0 5px !important;
                 border: none !important;
-                top: 50% !important;
-                transform: translateY(-50%) !important;
+                top: 0 !important;
+                transform: translateY(0) !important;
                 transition: background 0.1s ease-out !important;
                 background: $blue chevronLeft-icon($black) no-repeat center /
                   20px !important;
+
+                @media (max-width: 800px) {
+                  top: 50% !important;
+                  transform: translateY(-50%) !important;
+                }
 
                 &:hover {
                   background: $gray chevronLeft-icon($black) no-repeat center /
