@@ -350,8 +350,7 @@ $chatHeaderSize: 26px;
 
             .userlist {
               padding: 10px !important;
-              width: auto !important;
-              min-width: 200px !important;
+              width: 200px !important;
 
               .userlist-content {
                 margin: 0 !important;
@@ -402,6 +401,12 @@ $chatHeaderSize: 26px;
             #chat-title {
               .mostright {
                 background: $maximize-icon_white no-repeat center / 16px !important;
+              }
+            }
+
+            .chat {
+              .panel-btn {
+                display: none !important;
               }
             }
           }
