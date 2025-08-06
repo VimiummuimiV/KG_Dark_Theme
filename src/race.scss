@@ -573,16 +573,16 @@
     // Race settings panel
     #params {
       order: 1 !important;
-      width: 270px !important;
-      background: $darkgray !important;
+      width: 300px !important;
+      background: $black !important;
       border: 1px solid $gray !important;
+      border-radius: 5px !important;
       color: $white !important;
       opacity: 0.2 !important;
-      transition: opacity 0.2s !important;
+      transition: opacity 0.2s ease-in-out !important;
 
       &:hover {
         opacity: 1 !important;
-        transition: opacity 0.2s !important;
       }
 
       // Race settings links styles
@@ -591,9 +591,13 @@
         border-bottom: none !important;
       }
 
+      select {
+        margin: 2px !important;
+      }
+
       .slider {
         background: $deepgray !important;
-        border: 2px solid $gray !important;
+        border: 1px solid $gray !important;
         border-radius: 10px !important;
         box-sizing: content-box !important;
 
@@ -620,17 +624,18 @@
 
     // Invite friends panel
     #invite {
+      margin: 0 !important;
       order: 0 !important;
-      width: 270px !important;
-      background: $darkgray !important;
+      width: 300px !important;
+      background: $black !important;
       border: 1px solid $gray !important;
+      border-radius: 5px !important;
       color: $white !important;
       opacity: 0.2 !important;
-      transition: opacity 0.2s !important;
+      transition: opacity 0.2s ease-in-out !important;
 
       &:hover {
         opacity: 1 !important;
-        transition: opacity 0.2s !important;
       }
 
       a {
@@ -845,52 +850,6 @@ $rotation-snap: cubic-bezier(
 
     &:hover {
       color: $lightblue !important;
-    }
-  }
-
-  // Klavotools statistics panel (external)
-  #spectrumcanvas {
-    background: $deepgray !important;
-    filter: contrast(2) !important;
-  }
-
-  #statistics {
-    width: 270px !important;
-    margin-top: 10px !important;
-    margin-bottom: 0 !important;
-    color: $white !important;
-    background: $darkgray !important;
-    border: 1px solid $gray !important;
-    opacity: 0.7 !important;
-    transition: opacity 0.2s !important;
-
-    &:hover {
-      opacity: 1 !important;
-      transition: opacity 0.2s !important;
-    }
-
-    span {
-      color: $blue !important;
-    }
-  }
-
-  // Klavotools complexity panel (external)
-  #complexity-panel {
-    opacity: 0.7 !important;
-    transition: opacity 0.2s !important;
-
-    &:hover {
-      opacity: 1 !important;
-      transition: opacity 0.2s !important;
-    }
-
-    label {
-      font-size: 10px !important;
-      margin-right: 8px !important;
-    }
-
-    #spectrumCanvas {
-      margin: 10px 0 10px !important;
     }
   }
 }
