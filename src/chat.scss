@@ -1,5 +1,5 @@
-@import "../data/variables";
-@import "../mixins";
+@import "./data/variables";
+@import "./mixins";
 
 $chatHeaderSize: 26px;
 
@@ -11,6 +11,11 @@ $chatHeaderSize: 26px;
         // Make main container flexbox
         display: flex !important;
         flex-direction: column !important;
+
+        @media (max-width: 1400px) {
+          left: 0 !important;
+          right: 0 !important;
+        }
 
         #chat-content {
           // Make content area flexbox
@@ -174,6 +179,11 @@ $chatHeaderSize: 26px;
 
                     p {
                       font-size: 1.2em !important;
+
+                      @media (max-width: 1000px) {
+                        @include flex-layout(column, start, start); 
+                        white-space: break-spaces !important;
+                      }
 
                       .time {
                         color: $gray;
@@ -406,14 +416,34 @@ $chatHeaderSize: 26px;
               }
 
               .smile-tab {
+                // Make the smile tab a flex container that fills available height
+                @include flex-layout(column, start, start);
+                height: 100% !important; // Take full height of parent
+                max-height: 100% !important; // Don't exceed parent height
+
                 .smile-groups {
                   height: 35px !important;
+                  width: 100% !important;
                   background: $deepgray !important;
+                  @include flex-layout(row, start, center);
+                  gap: 5px !important;
+                  margin-bottom: 5px !important;
+                  flex-shrink: 0 !important;
 
                   .smile-groups-action {
+                    border: none !important;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    width: 35px !important;
+                    height: 35px !important;
+                    color: $black !important;
+                    background: $gray !important;
+                    border-radius: 5px !important;
+                    font: 600 1.2em "Montserrat", sans-serif !important;
+                    @include flex-layout();
 
                     &.active {
-
+                      background: $blue !important;
                     }
                   }
                 }
@@ -422,6 +452,13 @@ $chatHeaderSize: 26px;
                   scrollbar-width: thin !important;
                   margin: 0 !important;
                   padding: 0 !important;
+                  gap: 2px !important;
+
+                  // Calculate height: 100% minus tab height
+                  height: calc(100% - 35px) !important;
+                  max-height: calc(100% - 35px) !important;
+                  overflow-y: auto !important;
+                  overflow-x: hidden !important;
                 }
               }
             }
@@ -478,5 +515,3 @@ $chatHeaderSize: 26px;
     }
   }
 }
-
-@import "chat-adaptive";
