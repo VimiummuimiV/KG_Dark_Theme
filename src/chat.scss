@@ -393,6 +393,12 @@ $chatHeaderSize: 26px;
               padding: 10px !important;
               width: 200px !important;
 
+              // Empowerment script classname
+              .chat-user-list {
+                scrollbar-width: thin !important;
+              }
+
+              // Original site classname
               .userlist-content {
                 margin: 0 !important;
                 padding: 0 !important;
