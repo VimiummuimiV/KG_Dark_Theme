@@ -30,7 +30,17 @@
       table {
         tbody {
           tr {
+            @include flex-layout(row, center, center);
+            gap: 10px !important;
+
+            @media (max-width: 600px) {
+              @include flex-layout(column, center, center);
+            }
+
             td.title {
+              @media (max-width: 600px) {
+                @include flex-layout(column, center, center);
+              }
             }
             td.links {
               .btn_play,
@@ -50,6 +60,7 @@
         color: $lightblue !important;
         background: $close-icon no-repeat left center / contain !important;
         filter: hue-rotate(150deg) !important;
+        margin: 0 !important;
       }
     }
   }
@@ -134,6 +145,7 @@
         transition: background-color 0.15s ease !important;
         position: sticky !important;
 
+
         &:hover {
           background-color: $blue !important;
         }
@@ -175,6 +187,7 @@
         opacity: 1 !important; // Show content
       }
     }
+
   }
 
   .menu {
@@ -189,6 +202,11 @@
     margin-top: 0 !important;
     grid-area: content;
     width: 100% !important;
+
+    @media (max-width: 450px) {
+      margin: 0 10px !important;
+      width: auto !important;
+    }
 
     dt {
       width: 100px;
@@ -205,9 +223,19 @@
       }
     }
     dl:not(.write):not(:has(.title)) {
+      dt {
+        @media (max-width: 450px) {
+          display: none !important;
+        }
+      }
+
       dd {
         margin-left: 120px !important;
         background-color: transparent !important;
+
+        @media (max-width: 450px) {
+          margin-left: 0 !important;
+        }
 
         .words {
           width: fit-content !important;
