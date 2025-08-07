@@ -1,6 +1,8 @@
 @import "../data/variables";
 @import "../mixins";
 
+$buttonSize: 24px !default;
+
 #recent-games-container {
   background: $darkgray !important;
 
@@ -24,44 +26,52 @@
       }
 
       .recent-game-buttons {
+        overflow: hidden !important;
+        border-radius: 3px 3px 0 0 !important;
         transform: translateY(-100%) !important;
         right: 5px !important;
+        width: fit-content !important;
+        height: $buttonSize !important;
+        @include flex-layout(row, center, center);
 
         .recent-game-pin,
         .recent-game-delete {
           float: unset !important;
-          width: 16px !important;
-          height: 16px !important;
-          background: $gray !important;
+          width: $buttonSize !important;
+          height: $buttonSize !important;
+          background-color: $gray !important;
+          background-repeat: no-repeat !important;
+          background-size: $buttonSize - 4px !important;
+          background-position: center !important;
           top: unset !important;
           left: unset !important;
           bottom: 0 !important;
           margin: 0 !important;
           padding: 0 !important;
-          position: absolute !important;
-          transition: background 0.1s ease-in-out !important;
+          transition: background-color 0.1s ease-in-out !important;
 
           &:hover {
-            background: $blue !important;
+            background-color: $blue !important;
           }
 
           img {
             opacity: 0 !important;
-            width: 16px !important;
-            max-width: 16px !important;
-            height: 16px !important;
-            max-height: 16px !important;
+            width: $buttonSize !important;
+            max-width: $buttonSize !important;
+            height: $buttonSize !important;
+            max-height: $buttonSize !important;
             clip: unset !important;
           }
         }
 
         .recent-game-pin {
-          right: 16px !important;
-          margin-right: 5px !important;
+          right: $buttonSize !important;
+          background-image: locked-icon($black) !important;
         }
 
         .recent-game-delete {
           right: 0 !important;
+          background-image: close-icon($black) !important;
         }
       }
 

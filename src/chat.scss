@@ -121,11 +121,11 @@ $chatHeaderSize: 26px;
             }
             // Close, Open button
             .mostright {
-              background: $close-icon_white no-repeat center / 16px;
+              background: close-icon($white) no-repeat center / 16px;
             }
             // Fixed, Floating chat button
             .pin {
-              background: $anchor-icon_white no-repeat center / 16px;
+              background: anchor-icon($white) no-repeat center / 16px;
             }
           }
 
@@ -537,7 +537,7 @@ $chatHeaderSize: 26px;
         #chat-content {
           #chat-title {
             .pin {
-              background: $anchor-icon_lightblue no-repeat center / 16px !important;
+              background: anchor-icon($lightblue) no-repeat center / 16px !important;
             }
           }
         }
