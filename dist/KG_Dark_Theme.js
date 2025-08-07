@@ -94,21 +94,21 @@
 
     const hslToRgb = (h, s, l) => {
       if (!s) return [l, l, l].map(x => Math.round(x * 255));
-      const hue2rgb = (p, q, t) => (t < 0 && t++, t > 1 && t--, t < 1/6 ? p + (q - p) * 6 * t : t < 1/2 ? q : t < 2/3 ? p + (q - p) * (2/3 - t) * 6 : p);
+      const hue2rgb = (p, q, t) => (t < 0 && t++, t > 1 && t--, t < 1 / 6 ? p + (q - p) * 6 * t : t < 1 / 2 ? q : t < 2 / 3 ? p + (q - p) * (2 / 3 - t) * 6 : p);
       const q = l < 0.5 ? l * (1 + s) : l + s - l * s, p = 2 * l - q;
-      return [hue2rgb(p, q, h + 1/3), hue2rgb(p, q, h), hue2rgb(p, q, h - 1/3)].map(x => Math.round(x * 255));
+      return [hue2rgb(p, q, h + 1 / 3), hue2rgb(p, q, h), hue2rgb(p, q, h - 1 / 3)].map(x => Math.round(x * 255));
     };
 
     // Calculate perceptual lightness adjustment based on hue
     const getPerceptualLightness = (hue, baseLightness) => {
       // Normalize hue to 0-360 degrees
       const hueDegrees = hue * 360;
-      
+
       // Blue range (roughly 200-280 degrees) needs significant boost
       // Purple-blue (280-320) needs moderate boost
       // Cyan-blue (180-200) needs slight boost
       let lightnessBoost = 0;
-      
+
       if (hueDegrees >= 200 && hueDegrees <= 280) {
         // Peak blue range - maximum boost
         const blueIntensity = 1 - Math.abs(hueDegrees - 240) / 40; // Peak at 240°
@@ -122,7 +122,7 @@
         const intensity = 1 - (hueDegrees - 280) / 40;
         lightnessBoost = 0.1 * intensity; // Up to 0.1 boost
       }
-      
+
       return Math.min(0.95, baseLightness + lightnessBoost);
     };
 
@@ -135,12 +135,12 @@
         if (!rgb) return;
         originalColors.set(el, rgbToHsl(+rgb[0], +rgb[1], +rgb[2]));
       }
-      
+
       const [h, s, l] = originalColors.get(el);
-      
+
       // Calculate adjusted lightness with blue gamma boost
       const adjustedLightness = getPerceptualLightness(h, targetLightness);
-      
+
       // Only update if significantly different from current
       if (Math.abs(l - adjustedLightness) > 0.05) {
         const [r, g, b] = hslToRgb(h, s, adjustedLightness);
@@ -167,7 +167,7 @@
     // Initialize the username calibrator
     addEventListener('DOMContentLoaded', processExistingUsernames);
     observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
-    
+
     // Process immediately if DOM is already ready
     if (document.readyState !== 'loading') {
       processExistingUsernames();
