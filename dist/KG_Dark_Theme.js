@@ -80,10 +80,7 @@
 
   // Auto-scroll helper function
   function scrollChatToBottom() {
-    // Don't scroll if chat user list is present
-    if (document.querySelector('.chat-user-list')) {
-      return;
-    }
+    if (document.querySelector('.chat-user-list')) return;
 
     const chatContainer = document.querySelector('.messages-content');
     if (!chatContainer) return;
@@ -93,15 +90,14 @@
     const clientHeight = chatContainer.clientHeight;
     const distanceFromBottom = scrollHeight - scrollTop - clientHeight;
 
-    // Only scroll if user is within 20px of the bottom
-    if (distanceFromBottom <= 20) {
+    if (distanceFromBottom <= 100) {
       chatContainer.scrollTop = scrollHeight;
     }
   }
 
   // Enhanced username lightness calibrator with blue gamma boost
   function initializeUsernameCalibrator() {
-    let targetLightness = 0.6; // Base target lightness (0-1)
+    let targetLightness = 0.55; // Base target lightness (0-1)
 
     const rgbToHsl = (r, g, b) => {
       r /= 255; g /= 255; b /= 255;
@@ -147,17 +143,11 @@
       return Math.min(0.95, baseLightness + lightnessBoost);
     };
 
-    // Store original colors to avoid re-parsing
-    const originalColors = new WeakMap();
-
     const calibrateUsername = (el) => {
-      if (!originalColors.has(el)) {
-        const rgb = getComputedStyle(el).color.match(/\d+/g);
-        if (!rgb) return;
-        originalColors.set(el, rgbToHsl(+rgb[0], +rgb[1], +rgb[2]));
-      }
+      const rgb = getComputedStyle(el).color.match(/\d+/g);
+      if (!rgb) return;
 
-      const [h, s, l] = originalColors.get(el);
+      const [h, s, l] = rgbToHsl(+rgb[0], +rgb[1], +rgb[2]);
 
       // Calculate adjusted lightness with blue gamma boost
       const adjustedLightness = getPerceptualLightness(h, targetLightness);
@@ -168,20 +158,30 @@
         const hexColor = `#${[r, g, b].map(x => x.toString(16).padStart(2, '0')).join('')}`;
         el.style.setProperty('color', hexColor, 'important');
       }
+
+      // Mark as calibrated to avoid reprocessing
+      el.classList.add('calibrated-color');
     };
 
     // Watch for new usernames only
     const observer = new MutationObserver(mutations => {
+      // Disconnect observer if chat user list is present (Empowerment tampermonkey script)
+      if (document.querySelector('.chat-user-list')) {
+        observer.disconnect();
+        return;
+      }
       mutations.forEach(m => m.type === 'childList' && m.addedNodes.forEach(node => {
         if (node.nodeType === 1) {
-          node.querySelectorAll?.('.username').forEach(calibrateUsername);
-          node.matches?.('.username') && calibrateUsername(node);
+          node.querySelectorAll?.('.username:not(.calibrated-color)').forEach(calibrateUsername);
         }
       }));
       scrollChatToBottom();
     });
 
-    observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
+    // Only observe if chat user list is not present (Empowerment tampermonkey script)
+    if (!document.querySelector('.chat-user-list')) {
+      observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
+    }
   }
 
   // Add viewport meta tag - only for mobile devices
