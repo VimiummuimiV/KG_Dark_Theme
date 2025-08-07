@@ -1,0 +1,85 @@
+@import "../data/variables";
+@import "../mixins";
+
+#recent-games-container {
+  background: $darkgray !important;
+
+  #recent-games {
+    @include flex-layout(row, start, start);
+    gap: 5px !important;
+
+    .recent-game {
+      border: 1px solid $gray !important;
+      border-radius: 5px !important;
+      background: $deepgray !important;
+      margin: 0 !important;
+      transition: backgorund 0.1s ease-in-out, border-color 0.1s ease-in-out !important;
+
+      .recent-game-handle {
+        img {
+          display: none !important;
+        }
+
+        background: transparent dragTopLeft-icon($white) no-repeat center / 10px !important;
+      }
+
+      .recent-game-buttons {
+        transform: translateY(-100%) !important;
+        right: 5px !important;
+
+        .recent-game-pin,
+        .recent-game-delete {
+          float: unset !important;
+          width: 16px !important;
+          height: 16px !important;
+          background: $gray !important;
+          top: unset !important;
+          left: unset !important;
+          bottom: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          position: absolute !important;
+          transition: background 0.1s ease-in-out !important;
+
+          &:hover {
+            background: $blue !important;
+          }
+
+          img {
+            opacity: 0 !important;
+            width: 16px !important;
+            max-width: 16px !important;
+            height: 16px !important;
+            max-height: 16px !important;
+            clip: unset !important;
+          }
+        }
+
+        .recent-game-pin {
+          right: 16px !important;
+          margin-right: 5px !important;
+        }
+
+        .recent-game-delete {
+          right: 0 !important;
+        }
+      }
+
+      a {
+        .recent-game-name {
+          font: 600 14px "Montserrat", sans-serif !important;
+        }
+
+        .recent-game-description {
+          color: $white !important;
+          font: 400 12px "Montserrat", sans-serif !important;
+        }
+      }
+
+      &:hover {
+        border-color: $lightblue !important;
+        background: $black !important;
+      }
+    }
+  }
+}
