@@ -4,6 +4,15 @@
 $chatHeaderSize: 26px;
 
 #content {
+  // Hide gamelist on mobile when chat is not hidden
+  @media (max-width: 800px) {
+    &:has(#chat-wrapper:not(.chat-hidden)) {
+      #gamelist {
+        display: none !important;
+      }
+    }
+  }
+
   #chat-inline-placeholder,
   #chat-fixed-placeholder {
     #chat-wrapper {
