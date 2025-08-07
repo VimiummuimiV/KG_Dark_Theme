@@ -1,4 +1,5 @@
-@import "../data/variables";
+@import "./data/variables";
+@import "./mixins";
 
 #stats {
   width: 100% !important;
@@ -16,7 +17,16 @@
     justify-content: center !important;
 
     &_column {
-      min-width: 450px !important;
+      min-width: 360px !important;
+
+      @media (max-width: 1000px) {
+        width: 550px !important;
+
+        @media (max-width: 600px) {
+          width: 100% !important;
+          margin: 0 10px !important;
+        }
+      }
     }
   }
 
@@ -32,6 +42,20 @@
     table td {
       background-color: $darkgray !important;
       border: 1px solid $deepgray !important;
+    }
+
+    @media (max-width: 1000px) {
+      .statistic__row-container {
+        flex-direction: column !important;
+
+        canvas#playersRanks {
+          margin-bottom: 10px !important;
+        }
+
+        .statistic-players-ranks__table {
+          width: 100% !important;
+        }
+      }
     }
 
     // Rank-specific styling based on row position
@@ -113,12 +137,26 @@
         darken($deepgray, 2%)
       ) !important;
     }
-    .statistic-records-prize {
-      background: $statistics-trophy-icon !important;
-      width: 40px !important;
-      height: 40px !important;
+    .statistic-records-title-container {
+      @include flex-layout(row);
+
+      .statistic-records-prize {
+        background: $statistics-trophy-icon !important;
+        width: 40px !important;
+        height: 40px !important;
+      }
+
+      h4 {
+        @include flex-layout();
+      }
+    }
+
+    table.table-records {
+      tr {
+        td {
+          max-width: 115px !important;
+        }
+      }
     }
   }
 }
-
-@import "stats-adaptive";
