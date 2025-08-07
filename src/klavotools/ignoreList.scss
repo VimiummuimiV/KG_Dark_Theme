@@ -1,0 +1,32 @@
+@import "../data/variables";
+
+#chat-container {
+  #chat-content {
+    .chat {
+      .messages {
+        .messages-border {
+          table {
+            td:has(img[src*="exclamation"]) {
+              width: 35px !important;
+              height: 35px !important;
+              background: $gray slash-icon($black) no-repeat center / 20px !important;
+              border-radius: 5px !important;
+              margin: 0 5px 0 0 !important;
+              transition: background 0.1s ease-out !important;
+
+              &:hover {
+                background: $blue slash-icon($black) no-repeat center / 20px !important;
+              }
+
+              img {
+                opacity: 0 !important;
+                width: 35px !important;
+                height: 35px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
