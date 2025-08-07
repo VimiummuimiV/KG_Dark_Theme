@@ -1,82 +1,226 @@
 @import "../data/variables";
-.user-content {
-  .comments {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
 
-    .comment {
-      border: 1px solid $gray !important;
-      border-radius: 5px !important;
-      padding: 12px !important;
-      background-color: $darkgray !important;
-      transition: border-color 0.1s ease, background-color 0.1s ease-out !important;
-      font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
+// Vocabulary floating comments section (limited view)
+#content #profile-block {
+  .right-col {
+    grid-area: right;
+    position: fixed !important;
+    top: 50% !important;
+    right: 0 !important;
+    transform: translateY(-50%) !important;
+    width: 50px !important; // Trigger area width
+    height: 50px !important; // Trigger area height
+    z-index: 10 !important;
+    cursor: pointer !important;
+    // Fade-in animation
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out 0s 1 forwards !important;
 
-      &:hover {
-        border-color: $lightblue !important;
-        background-color: $deepgray !important;
+    .comments {
+      position: absolute !important;
+      width: 500px !important; // Set to final expanded width
+      height: 50px !important; // Limited height initially
+      max-height: 80vh !important;
+      right: 0 !important;
+      top: 50% !important;
+      transform: translateY(-50%) translateX(calc(100% - 50px)) !important; // Hide most of it off-screen
+      transition: transform 0.3s ease, height 0.3s ease !important;
+      background: $black $reveal-comments-container-icon 10px center / 32px !important;
+      border: 1px solid $blue !important;
+      overflow: hidden !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+
+      @media (max-width: 500px) {
+        width: 100vw !important;
       }
 
-      dl {
-        margin: 0 !important;
+      // Content should be hidden initially
+      .comment,
+      .link,
+      h4 {
+        opacity: 0 !important;
+        transition: opacity 0.3s ease !important;
+      }
+
+      .rss {
+        top: 0 !important;
+        background: $rss-icon !important;
+        img {
+          visibility: hidden !important;
+        }
+      }
+
+      .comment {
         display: flex !important;
-        gap: 12px !important;
-        align-items: flex-start !important;
+        flex-direction: column !important;
+        position: relative !important;
+        margin: 25px 0 15px !important;
 
-        dt {
-          width: 60px !important;
-          height: 60px !important;
-          flex-shrink: 0 !important;
+        .info[style*="avatars/"] {
+          width: 32px !important;
+          height: 32px !important;
+          padding-left: 40px !important;
+          &::before {
+            @include avatar-mask(4, 32px, $black);
+          }
+        }
+
+        .info {
+          display: inline-flex !important;
+          align-items: center !important;
+          gap: 5px !important;
+        }
+      }
+
+      .link {
+        width: calc(50% + 15px) !important;
+        height: 32px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-decoration: none !important;
+        color: $black !important;
+        background-color: $gray !important;
+        bottom: 0 !important;
+        transition: background-color 0.15s ease !important;
+        position: sticky !important;
+
+
+        &:hover {
+          background-color: $blue !important;
+        }
+
+        i {
           margin: 0 !important;
+          left: 15px !important;
 
-          img {
+          @media (max-width: 430px) {
+            display: none !important;
+          }
+        }
+      }
+
+      .write {
+        margin-left: -15px !important;
+        float: left !important;
+        left: 0 !important;
+        border-right: 1px solid $black !important;
+        i {
+          background: $write-comment-icon !important;
+        }
+      }
+
+      .other {
+        margin-right: -15px !important;
+        float: right !important;
+        left: 50% !important;
+        i {
+          background: $show-comments-icon !important;
+        }
+      }
+    }
+
+    // Hover behavior - slide in and show content
+    &:hover .comments {
+      transform: translateY(-50%) translateX(0) !important; // Slide fully into view
+      height: auto !important; // Expand to fit content
+      background: $black !important; // Remove icon background on hover
+
+      @media (max-width: 500px) {
+        height: 70vh !important; // Limit height on smaller screens
+      }
+
+      .comment,
+      .link,
+      h4 {
+        opacity: 1 !important; // Show content
+      }
+    }
+  }
+}
+
+// Vocabulary full comments section (expanded view)
+#content #profile-block {
+  .user-content {
+    .comments {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+
+      .comment {
+        border: 1px solid $gray !important;
+        border-radius: 5px !important;
+        padding: 12px !important;
+        background-color: $darkgray !important;
+        transition: border-color 0.1s ease, background-color 0.1s ease-out !important;
+        font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
+
+        &:hover {
+          border-color: $lightblue !important;
+          background-color: $deepgray !important;
+        }
+
+        dl {
+          margin: 0 !important;
+          display: flex !important;
+          gap: 12px !important;
+          align-items: flex-start !important;
+
+          dt {
             width: 60px !important;
             height: 60px !important;
-            border-radius: 5px !important;
-            object-fit: cover !important;
+            flex-shrink: 0 !important;
+            margin: 0 !important;
+
+            img {
+              width: 60px !important;
+              height: 60px !important;
+              border-radius: 5px !important;
+              object-fit: cover !important;
+            }
+          }
+
+          dd {
+            flex: 1 !important;
           }
         }
 
-        dd {
-          flex: 1 !important;
+        .title {
+          display: flex !important;
+          align-items: center !important;
+          flex-wrap: wrap !important;
+          gap: 10px !important;
+          margin-bottom: 5px !important;
+
+          .name {
+            font-weight: 600 !important;
+            color: $white !important;
+            text-decoration: none !important;
+            font-size: 1.1em !important;
+
+            &:hover {
+              color: $lightblue !important;
+            }
+          }
+
+          .date {
+            margin: 0 !important;
+            color: $gray !important;
+            font-size: 1em !important;
+          }
         }
-      }
 
-      .title {
-        display: flex !important;
-        align-items: center !important;
-        flex-wrap: wrap !important;
-        gap: 10px !important;
-        margin-bottom: 5px !important;
-
-        .name {
-          font-weight: 600 !important;
+        .text {
           color: $white !important;
-          text-decoration: none !important;
-          font-size: 1.1em !important;
-
-          &:hover {
-            color: $lightblue !important;
-          }
-        }
-
-        .date {
-          margin: 0 !important;
-          color: $gray !important;
+          line-height: 1.5 !important;
           font-size: 1em !important;
-        }
-      }
+          margin: 0 !important;
 
-      .text {
-        color: $white !important;
-        line-height: 1.5 !important;
-        font-size: 1em !important;
-        margin: 0 !important;
-
-        b {
-          color: $green !important;
-          font-weight: 600 !important;
+          b {
+            color: $green !important;
+            font-weight: 600 !important;
+          }
         }
       }
     }
