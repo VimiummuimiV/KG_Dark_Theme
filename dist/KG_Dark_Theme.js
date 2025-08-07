@@ -78,6 +78,27 @@
     });
   }
 
+  // Auto-scroll helper function
+  function scrollChatToBottom() {
+    // Don't scroll if chat user list is present
+    if (document.querySelector('.chat-user-list')) {
+      return;
+    }
+
+    const chatContainer = document.querySelector('.messages-content');
+    if (!chatContainer) return;
+
+    const scrollTop = chatContainer.scrollTop;
+    const scrollHeight = chatContainer.scrollHeight;
+    const clientHeight = chatContainer.clientHeight;
+    const distanceFromBottom = scrollHeight - scrollTop - clientHeight;
+
+    // Only scroll if user is within 20px of the bottom
+    if (distanceFromBottom <= 20) {
+      chatContainer.scrollTop = scrollHeight;
+    }
+  }
+
   // Enhanced username lightness calibrator with blue gamma boost
   function initializeUsernameCalibrator() {
     let targetLightness = 0.6; // Base target lightness (0-1)
@@ -149,11 +170,6 @@
       }
     };
 
-    // Process existing usernames
-    const processExistingUsernames = () => {
-      document.querySelectorAll('.username').forEach(calibrateUsername);
-    };
-
     // Watch for new usernames only
     const observer = new MutationObserver(mutations => {
       mutations.forEach(m => m.type === 'childList' && m.addedNodes.forEach(node => {
@@ -162,16 +178,10 @@
           node.matches?.('.username') && calibrateUsername(node);
         }
       }));
+      scrollChatToBottom();
     });
 
-    // Initialize the username calibrator
-    addEventListener('DOMContentLoaded', processExistingUsernames);
     observer.observe(document.body || document.documentElement, { childList: true, subtree: true });
-
-    // Process immediately if DOM is already ready
-    if (document.readyState !== 'loading') {
-      processExistingUsernames();
-    }
   }
 
   // Add viewport meta tag - only for mobile devices
@@ -223,4 +233,4 @@
       subtree: true
     });
   }
-})();
+})();    
