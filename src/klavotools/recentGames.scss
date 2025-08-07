@@ -8,6 +8,7 @@ $buttonSize: 24px !default;
 
   #recent-games {
     @include flex-layout(row, start, start);
+    flex-wrap: wrap !important;
     gap: 5px !important;
 
     .recent-game {
@@ -113,22 +114,25 @@ $buttonSize: 24px !default;
     @include flex-layout();
     width: 35px !important;
     height: 35px !important;
-    background: $gray !important;
+    background-color: $gray !important;
     margin: 0 !important;
     color: $black !important;
   }
 
   span:first-child,
   span:last-child {
-    transition: background 0.15s ease-in-out !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 20px !important;
+    transition: background-color 0.15s ease-in-out !important;
 
     &:hover {
-      background: $blue !important;
+      background-color: $blue !important;
     }
   }
 
   #recent-games-count-dec {
-
+    background-image: chevronLeft-icon($black) !important;
   }
 
   #recent-games-count {
@@ -136,6 +140,16 @@ $buttonSize: 24px !default;
   }
 
   #recent-games-count-inc {
-
+    background-image: chevronRight-icon($black) !important;
   }
+}
+
+// Position the recent games container fixed to the bottom of the main page
+#head #recent-games-container {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 1000 !important;
+  width: 100vw !important;
 }
