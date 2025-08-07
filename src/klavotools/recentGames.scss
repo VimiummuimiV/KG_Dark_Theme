@@ -15,7 +15,7 @@ $buttonSize: 24px !default;
       border-radius: 5px !important;
       background: $deepgray !important;
       margin: 0 !important;
-      transition: backgorund 0.1s ease-in-out, border-color 0.1s ease-in-out !important;
+      transition: background 0.1s ease-in-out, border-color 0.1s ease-in-out !important;
 
       .recent-game-handle {
         img {
@@ -28,10 +28,14 @@ $buttonSize: 24px !default;
       .recent-game-buttons {
         overflow: hidden !important;
         border-radius: 3px 3px 0 0 !important;
-        transform: translateY(-100%) !important;
+        transform: translateY(-100%) scale(0) !important;
+        transform-origin: bottom center !important;
         right: 5px !important;
         width: fit-content !important;
         height: $buttonSize !important;
+        opacity: 0 !important;
+        transition: opacity 0.15s ease-in-out 0.5s,
+          transform 0.15s ease-in-out 0.5s !important;
         @include flex-layout(row, center, center);
 
         .recent-game-pin,
@@ -41,7 +45,7 @@ $buttonSize: 24px !default;
           height: $buttonSize !important;
           background-color: $gray !important;
           background-repeat: no-repeat !important;
-          background-size: $buttonSize - 4px !important;
+          background-size: $buttonSize - 8px !important;
           background-position: center !important;
           top: unset !important;
           left: unset !important;
@@ -89,7 +93,49 @@ $buttonSize: 24px !default;
       &:hover {
         border-color: $lightblue !important;
         background: $black !important;
+
+        .recent-game-buttons {
+          opacity: 1 !important;
+          transform: translateY(-100%) scale(1) !important;
+        }
       }
     }
+  }
+}
+
+#recent-games-options {
+  @include flex-layout(row, center, center);
+  font-size: 0 !important;
+  overflow: hidden !important;
+  border-radius: 5px !important;
+
+  span {
+    @include flex-layout();
+    width: 35px !important;
+    height: 35px !important;
+    background: $gray !important;
+    margin: 0 !important;
+    color: $black !important;
+  }
+
+  span:first-child,
+  span:last-child {
+    transition: background 0.15s ease-in-out !important;
+
+    &:hover {
+      background: $blue !important;
+    }
+  }
+
+  #recent-games-count-dec {
+
+  }
+
+  #recent-games-count {
+    font: 600 16px "Montserrat", sans-serif !important;
+  }
+
+  #recent-games-count-inc {
+
   }
 }
