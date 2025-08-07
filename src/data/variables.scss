@@ -202,9 +202,17 @@ $anchor-icon_lightblue: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/20
 
 $send-icon_black: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="-10 -10 270 270"><path fill="#{$black}" d="M22.32 98.04l-19.04 -87.15c-0.75,-3.46 0.48,-6.84 3.29,-9 2.81,-2.17 6.39,-2.49 9.55,-0.87l225.95 116.02c3.07,1.57 4.87,4.52 4.87,7.96 0,3.44 -1.8,6.39 -4.87,7.96l-225.95 116.02c-3.16,1.62 -6.74,1.3 -9.55,-0.87 -2.81,-2.16 -4.04,-5.54 -3.29,-9l19.04 -87.15c0.79,-3.62 3.53,-6.26 7.18,-6.91l102.6 -18.19c0.91,-0.16 1.56,-0.94 1.56,-1.86 0,-0.92 -0.65,-1.7 -1.56,-1.86l-102.6 -18.19c-3.65,-0.65 -6.39,-3.29 -7.18,-6.91z"/></svg>');
 
-$smiles-panel-closed_black: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#{$black}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="15" x2="16" y2="15"></line><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>');
+@function faceFrown-icon($color) {
+  @return url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#{$color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>');
+}
 
-$smiles-panel-opened_black: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#{$black}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>');
+@function faceMeh-icon($color) {
+  @return url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#{$color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="15" x2="16" y2="15"></line><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>');
+}
+
+@function faceSmile-icon($color) {
+  @return url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#{$color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>');
+}
 
 $filter-icon_black: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#{$black}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>');
 

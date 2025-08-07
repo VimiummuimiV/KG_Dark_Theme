@@ -322,13 +322,22 @@ $chatHeaderSize: 26px;
                   }
 
                   .smile-btn {
-                    background: $gray $smiles-panel-closed_black no-repeat
-                      center / 20px !important;
+                    background: $gray faceMeh-icon($black) no-repeat center /
+                      20px !important;
 
-                    &.active,
                     &:hover {
-                      background: $blue $smiles-panel-opened_black no-repeat
-                        center / 20px !important;
+                      background: $blue faceSmile-icon($black) no-repeat center /
+                        20px !important;
+                    }
+
+                    &.active {
+                      background: $blue faceSmile-icon($black) no-repeat center /
+                        20px !important;
+
+                      &:hover {
+                        background: $blue faceFrown-icon($black) no-repeat
+                          center / 20px !important;
+                      }
                     }
                   }
 
