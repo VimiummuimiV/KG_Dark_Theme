@@ -130,7 +130,7 @@
 
           .post-container {
             .text {
-              img.linked-image {
+              img.linked-image:not([src*="smilies/"]) {
                 animation: fadeIn 0.5s ease-in-out;
                 filter: brightness(0.5) !important;
                 transition: filter 0.1s ease-in-out;
