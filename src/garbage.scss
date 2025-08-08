@@ -14,17 +14,5 @@
 .tr,
 .bl,
 .br {
-  display: none !important;
-
-  #top &,
-  #params &,
-  .params &,
-  #invite &,
-  .gamelist-create &,
-  .comments &,
-  .info &,
-  #typeblock & {
-    display: initial !important;
-    background: none !important;
-  }
+  background: none !important;
 }
