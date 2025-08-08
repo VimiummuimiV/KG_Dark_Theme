@@ -2,25 +2,28 @@
 
 // Pagination controls styles - unified for all pages
 .pages {
-  opacity: 0.5 !important;
   color: $white !important;
   background: $black !important;
   position: fixed !important;
   top: 45px !important;
   right: 0 !important;
   z-index: 120 !important;
-  transition: opacity 0.15s ease-out !important;
   display: flex !important;
   gap: 5px !important;
   margin: 0 !important;
   padding: 10px !important;
   flex-wrap: wrap !important;
-  border-radius: 5px !important;
+  border-radius: 5px 0 0 5px !important;
+  opacity: 0.5 !important;
+  transition: opacity 0.15s ease-in-out !important;
 
   @media (max-width: 2000px) {
-    flex-direction: column !important;
     top: unset !important;
     bottom: 0 !important;
+    right: 10px !important;
+    border-radius: 5px 5px 0 0 !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
   // Make background transparent when there's no .paginator inside
@@ -31,6 +34,64 @@
   &:hover {
     opacity: 1 !important;
     transition: opacity 0.2s !important;
+  }
+
+  // Collapsed button behavior only for screens 1420px and lower
+  @media (max-width: 1440px) {
+    // Collapsed state
+    width: 50px !important;
+    height: 50px !important;
+    overflow: hidden !important;
+    transition: all 0.15s ease-in-out !important;
+    cursor: pointer !important;
+
+    @media (max-width: 800px) {
+      width: 45px !important;
+      height: 45px !important;
+      bottom: unset !important;
+      top: 88px !important;
+      right: 60px !important;
+      border-radius: 0 0 5px 5px !important;
+    }
+
+    // Expanded state on hover
+    &:hover {
+      width: auto !important;
+      height: auto !important;
+      transition: all 0.15s ease-in-out !important;
+
+      // Show all content on hover
+      .paginator,
+      .page,
+      .selected {
+        opacity: 1 !important;
+      }
+    }
+
+    // Hide content in collapsed state
+    .paginator,
+    .page,
+    .selected {
+      opacity: 0 !important;
+      transition: opacity 0.15s ease-in-out !important;
+    }
+
+    // Add a visual indicator in collapsed state
+    &::before {
+      content: "..." !important;
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      color: $white !important;
+      font-weight: bold !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
+
+    &:hover::before {
+      opacity: 0 !important;
+    }
   }
 
   // Nested paginator controls
