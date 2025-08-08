@@ -81,12 +81,6 @@
                 width: 100% !important;
 
                 &#r_username {
-                  dt {
-                    label {
-                      display: none !important;
-                    }
-                  }
-
                   dd {
                     margin: 0 !important;
                     padding: 0 !important;
@@ -117,12 +111,6 @@
                 }
 
                 &#r_password {
-                  dt {
-                    label {
-                      display: none !important;
-                    }
-                  }
-
                   dd {
                     margin: 0 !important;
                     padding: 0 !important;
@@ -213,12 +201,7 @@
                           transition: background-color 0.3s !important;
 
                           &:hover {
-                            background-color: rgba(
-                              200,
-                              200,
-                              200,
-                              0.5
-                            ) !important;
+                            background-color: rgba(200, 200, 200, 0.5) !important;
                             border: 2px solid lightgray;
                           }
 
@@ -242,10 +225,7 @@
                 }
               }
 
-              // Login and password description text color
-              label {
-                font-weight: lighter !important;
-              }
+
             }
           }
         }
