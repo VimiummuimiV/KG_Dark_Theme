@@ -88,6 +88,7 @@
           height: 63px !important;
           background: $race !important;
           background-size: contain !important;
+          background-repeat: no-repeat !important;
           padding-left: 63px !important;
           filter: brightness(0.8) !important;
 
@@ -106,6 +107,7 @@
             height: 63px !important;
             background: $competition !important;
             background-size: contain !important;
+            background-repeat: no-repeat !important;
             padding-left: 63px !important;
 
             &:hover {

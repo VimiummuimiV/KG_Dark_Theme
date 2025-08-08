@@ -18,9 +18,9 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    background: $black $close !important;
+    background: $black icon("close", $blue) no-repeat center / 20px !important;
     font-size: 0 !important;
-    transition: all 0.15s ease !important;
+    transition: filter 0.15s ease-in-out !important;
     opacity: 1 !important;
 
     &:hover {

@@ -43,6 +43,7 @@
       &[src*="#{$selector}"] {
         background: $icon !important;
         background-position: center !important;
+        background-repeat: no-repeat !important;
       }
     }
 

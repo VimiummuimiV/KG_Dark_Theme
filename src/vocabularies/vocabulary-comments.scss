@@ -25,7 +25,7 @@
       top: 50% !important;
       transform: translateY(-50%) translateX(calc(100% - 50px)) !important; // Hide most of it off-screen
       transition: transform 0.3s ease, height 0.3s ease !important;
-      background: $black $reveal-comments-container-icon 10px center / 32px !important;
+      background: $black icon("messageCircle", $lightblue) no-repeat 10px center / 32px !important;
       border: 1px solid $blue !important;
       overflow: hidden !important;
       overflow-x: hidden !important;
@@ -45,7 +45,7 @@
 
       .rss {
         top: 0 !important;
-        background: $rss-icon !important;
+        background: icon("rss", $orange) no-repeat center / contain !important;
         img {
           visibility: hidden !important;
         }
@@ -107,7 +107,7 @@
         left: 0 !important;
         border-right: 1px solid $black !important;
         i {
-          background: $write-comment-icon !important;
+          background: icon("edit", $deepgray) no-repeat center / contain !important;
         }
       }
 
@@ -116,7 +116,7 @@
         float: right !important;
         left: 50% !important;
         i {
-          background: $show-comments-icon !important;
+          background: icon("messageCircle", $deepgray) no-repeat center / contain !important;
         }
       }
     }

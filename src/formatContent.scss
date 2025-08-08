@@ -37,6 +37,7 @@
 }
 
 // Code
+pre:has(code),
 .codemain {
   $base: $green;
   $multiplier: 0.95;

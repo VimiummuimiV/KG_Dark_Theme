@@ -5,7 +5,6 @@
 #test {
   display: none !important;
 }
-
 // Remove background images from container corners
 .t,
 .b,
@@ -15,5 +14,16 @@
 .tr,
 .bl,
 .br {
-  background: none !important;
+  display: none !important;
+
+  #top &,
+  #params &,
+  #invite &,
+  .gamelist-create &,
+  .comments &,
+  .info &,
+  #typeblock & {
+    display: initial !important;
+    background: none !important;
+  }
 }

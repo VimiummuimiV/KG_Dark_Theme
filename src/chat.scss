@@ -54,7 +54,7 @@ $chatHeaderSize: 26px;
 
               // Add background image when .c doesn't have a span child
               &:not(:has(span)) {
-                background: transparent messageCircle-icon($gray) no-repeat 10px
+                background: transparent icon("messageCircle", $gray) no-repeat 10px
                   center / 12px !important;
               }
 
@@ -73,14 +73,14 @@ $chatHeaderSize: 26px;
               // General state - $gray background with $black message circle icon
               &.general {
                 span {
-                  background: $gray messageCircle-icon($black) no-repeat 5px
+                  background: $gray icon("messageCircle", $black) no-repeat 5px
                     center / 12px !important;
                 }
 
                 // General active state - $blue background with same message circle icon
                 &.active {
                   span {
-                    background: $blue messageCircle-icon($black) no-repeat 5px
+                    background: $blue icon("messageCircle", $black) no-repeat 5px
                       center / 12px !important;
                   }
                 }
@@ -89,13 +89,13 @@ $chatHeaderSize: 26px;
               // Game state - $gray background with game icon
               &.game {
                 span {
-                  background: $gray $flag-icon_black no-repeat 5px center / 12px !important;
+                  background: $gray icon("flag", $black) no-repeat 5px center / 12px !important;
                 }
 
                 // Game active state - $blue background with same game icon
                 &.active {
                   span {
-                    background: $blue $flag-icon_black no-repeat 5px center /
+                    background: $blue icon("flag", $black) no-repeat 5px center /
                       12px !important;
                   }
                 }
@@ -123,18 +123,18 @@ $chatHeaderSize: 26px;
             }
             // Expand, Collapse button
             .height-btn {
-              background: $chevronUp-icon_white no-repeat center / 16px !important;
+              background: icon("chevronUp", $white) no-repeat center / 16px !important;
               &.height-btn-max {
-                background: $chevronDown-icon_white no-repeat center / 16px !important;
+                background: icon("chevronDown", $white) no-repeat center / 16px !important;
               }
             }
             // Close, Open button
             .mostright {
-              background: close-icon($white) no-repeat center / 16px;
+              background: icon("close", $white) no-repeat center / 16px;
             }
             // Fixed, Floating chat button
             .pin {
-              background: anchor-icon($white) no-repeat center / 16px;
+              background: icon("anchor", $white) no-repeat center / 16px;
             }
           }
 
@@ -303,10 +303,10 @@ $chatHeaderSize: 26px;
                     border-radius: 5px !important;
                     font-size: 0 !important;
                     transition: background 0.1s ease-out !important;
-                    background: $gray $send-icon_black no-repeat center / 20px !important;
+                    background: $gray icon("send", $black) no-repeat center / 20px !important;
 
                     &:hover {
-                      background: $blue $send-icon_black no-repeat center / 20px !important;
+                      background: $blue icon("send", $black) no-repeat center / 20px !important;
                     }
                   }
 
@@ -331,31 +331,35 @@ $chatHeaderSize: 26px;
                   }
 
                   .smile-btn {
-                    background: $gray faceMeh-icon($black) no-repeat center /
+                    background: $gray icon("faceMeh", $black) no-repeat center /
                       20px !important;
 
                     &:hover {
-                      background: $blue faceSmile-icon($black) no-repeat center /
+                      background: $blue icon("faceSmile", $black) no-repeat center /
                         20px !important;
                     }
 
                     &.active {
-                      background: $blue faceSmile-icon($black) no-repeat center /
+                      background: $orange icon("faceSmile", $black) no-repeat center /
                         20px !important;
 
                       &:hover {
-                        background: $blue faceFrown-icon($black) no-repeat
+                        background: $orange icon("faceFrown", $black) no-repeat
                           center / 20px !important;
                       }
                     }
                   }
 
                   .filter-btn {
-                    background: $gray $filter-icon_black no-repeat center / 20px !important;
+                    background: $gray icon("filter", $black) no-repeat center / 20px !important;
 
-                    &.active,
                     &:hover {
-                      background: $blue $filter-icon_black no-repeat center /
+                      background: $blue icon("filter", $black) no-repeat center /
+                        20px !important;
+                    }
+
+                    &.active {
+                      background: $green icon("filter", $black) no-repeat center /
                         20px !important;
                     }
                   }
@@ -444,7 +448,7 @@ $chatHeaderSize: 26px;
                     width: 14px !important;
                     height: 14px !important;
                     margin-left: 5px !important;
-                    background: $deepgray $info-icon_lightblue no-repeat center /
+                    background: $deepgray icon("info", $lightblue) no-repeat center /
                       14px !important;
 
                     img {
@@ -513,7 +517,7 @@ $chatHeaderSize: 26px;
           #chat-content {
             #chat-title {
               .mostright {
-                background: $maximize-icon_white no-repeat center / 16px !important;
+                background: icon("maximize", $white) no-repeat center / 16px !important;
               }
             }
 
@@ -546,7 +550,7 @@ $chatHeaderSize: 26px;
         #chat-content {
           #chat-title {
             .pin {
-              background: anchor-icon($lightblue) no-repeat center / 16px !important;
+              background: icon("anchor", $lightblue) no-repeat center / 16px !important;
             }
           }
         }

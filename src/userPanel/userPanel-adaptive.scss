@@ -51,28 +51,28 @@
         tr:nth-child(1) {
           // Best speed
           td:nth-child(2) {
-            background: $bestSpeed center / contain !important;
+            background: icon("bestSpeed", $green) no-repeat left center / contain !important;
           }
           // Error percentage
           td:nth-child(5) {
-            background: $errorPercentage center / contain !important;
+            background: icon("errorPercentage", $red) no-repeat left center / contain !important;
           }
         }
 
         tr:nth-child(2) {
           // Top position
           td:nth-child(1) {
-            background: $topPosition left center / contain !important;
+            background: icon("topPosition", $lightblue) no-repeat left center / contain !important;
           }
 
           // Average speed
           td:nth-child(2) {
-            background: $averageSpeed center / contain !important;
+            background: icon("averageSpeed", $yellow) no-repeat left center / contain !important;
           }
 
           // Odometer
           td:nth-child(4) {
-            background: $odometer center / contain !important;
+            background: icon("odometer", $white) no-repeat left center / contain !important;
           }
         }
       }

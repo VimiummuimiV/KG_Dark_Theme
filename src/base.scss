@@ -249,11 +249,6 @@ td {
   border-color: $gray !important;
 }
 
-pre {
-  background-color: $deepgray !important;
-  border-color: $blue !important;
-}
-
 // Progress Components
 #content .achieve .achieve-content .progress,
 .fade .progress {
@@ -340,50 +335,6 @@ pre {
   @include reset-styles;
   filter: invert(0.95) brightness(1.2) grayscale(0.6) contrast(0.8)
     hue-rotate(-30deg) !important;
-}
-
-// Reformal Tab
-body #reformal_tab,
-#reformal_tab {
-  top: 25% !important;
-  bottom: 0 !important;
-  box-sizing: content-box !important;
-  margin-top: 0 !important;
-  padding: 0 !important;
-  background-color: transparent !important;
-  background: $deepgray $reformalTabDefault !important;
-  border: none !important;
-  border-left: 2px solid $blue !important;
-  height: 46px !important;
-  width: 46px !important;
-  transform: translateY(-50%) !important;
-  transition: all 0.2s !important;
-
-  &:hover {
-    top: 25% !important;
-    box-sizing: content-box !important;
-    border-radius: 50% !important;
-    transform: rotate(180deg) translateY(50%) !important;
-    background-color: transparent !important;
-    border: 2px solid $orange !important;
-    background: $black $reformalTabHover !important;
-    transition: all 0.2s !important;
-  }
-
-  img {
-    display: none !important;
-  }
-}
-
-// Special Cases
-img[src*="/img/yellow_cros"] {
-  box-sizing: border-box;
-  padding-left: 17px;
-  height: 17px;
-  width: 17px;
-  background: $close;
-  position: relative;
-  top: 0 !important;
 }
 
 // Tooltips

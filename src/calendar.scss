@@ -43,8 +43,7 @@ $fontFamily: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
       left: 0.2em !important;
 
       .ui-icon {
-        background: $arrowLeft !important;
-        background-size: 18px !important;
+        background: icon("chevronLeft", $lightblue) no-repeat center / 20px !important;
       }
     }
 
@@ -53,8 +52,7 @@ $fontFamily: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
       right: 0.2em !important;
 
       .ui-icon {
-        background: $arrowRight !important;
-        background-size: 18px !important;
+        background: icon("chevronRight", $lightblue) no-repeat center / 20px !important;
       }
     }
 

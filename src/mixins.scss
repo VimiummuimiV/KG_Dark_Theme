@@ -122,7 +122,7 @@
   input[name="send"] {
     border-radius: 5px 0 0 5px !important;
     border-right: 1px solid $black !important;
-    background: $gray $send-icon no-repeat 15px center / 24px !important;
+    background: $gray icon("send", $black) no-repeat 15px center / 24px !important;
 
     &:hover {
       background-color: $blue !important;
@@ -131,7 +131,7 @@
 
   input[name="preview"] {
     border-radius: 0 5px 5px 0 !important;
-    background: $gray $preview-icon no-repeat 15px center / 24px !important;
+    background: $gray icon("eye", $black) no-repeat 15px center / 24px !important;
 
     &:hover {
       background-color: $blue !important;

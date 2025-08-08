@@ -13,7 +13,7 @@
   height: 50px !important;
   width: 50px !important;
   padding: 10px !important;
-  background: $black $show-write-block center / 32px !important;
+  background: $black icon("messageCircle", $lightblue) no-repeat center / 32px !important;
   transform: translateY(-50%) !important;
   transition: height 0.15s ease, width 0.25s ease !important;
   cursor: pointer !important;

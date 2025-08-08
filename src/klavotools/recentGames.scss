@@ -23,7 +23,7 @@ $buttonSize: 24px !default;
           display: none !important;
         }
 
-        background: transparent dragTopLeft-icon($white) no-repeat center / 10px !important;
+        background: transparent icon("dragTopLeft", $white) no-repeat center / 10px !important;
       }
 
       .recent-game-buttons {
@@ -71,12 +71,12 @@ $buttonSize: 24px !default;
 
         .recent-game-pin {
           right: $buttonSize !important;
-          background-image: locked-icon($black) !important;
+          background-image: icon("lock", $black) !important;
         }
 
         .recent-game-delete {
           right: 0 !important;
-          background-image: close-icon($black) !important;
+          background-image: icon("trashFull", $black) !important;
         }
       }
 
@@ -132,7 +132,7 @@ $buttonSize: 24px !default;
   }
 
   #recent-games-count-dec {
-    background-image: chevronLeft-icon($black) !important;
+    background-image: icon("chevronLeft", $black) !important;
   }
 
   #recent-games-count {
@@ -140,7 +140,7 @@ $buttonSize: 24px !default;
   }
 
   #recent-games-count-inc {
-    background-image: chevronRight-icon($black) !important;
+    background-image: icon("chevronRight", $black) !important;
   }
 }
 

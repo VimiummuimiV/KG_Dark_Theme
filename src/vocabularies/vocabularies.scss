@@ -176,7 +176,7 @@
                 background: none !important;
 
                 .voc_popularity {
-                  background: $vocPopularity;
+                  background: $vocabularyPopularity no-repeat;
 
                   // Dynamic popularity positioning
                   @for $i from 0 through 4 {

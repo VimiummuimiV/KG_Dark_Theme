@@ -19,7 +19,7 @@
             padding-left: 262px !important;
             height: 87px !important;
             width: 262px !important;
-            background: $speed !important;
+            background: $speedPanel !important;
           }
 
           #speed-label,
@@ -130,7 +130,7 @@
 
           // Race hidden text before the game starts bg color && text color
           #hiddentext {
-            background: $hiddenGameText !important;
+            background: icon("eyeOff", $gray) no-repeat center / 45px !important;
             background-color: $darkgray !important;
             border: none !important;
             color: transparent !important;
@@ -483,7 +483,7 @@
 
             img {
               box-sizing: border-box !important;
-              background: $close !important;
+              background: icon("close", $blue) no-repeat center / 20px !important;
               width: 16px !important;
               height: 16px !important;
               padding-left: 16px !important;

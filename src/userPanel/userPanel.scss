@@ -8,12 +8,12 @@ $buttonHeight: 44px;
 
 /* MIXINS - COMPLEX REUSABLE STYLES ONLY */
 
-@mixin daily-task-icon($bg-color) {
+@mixin daily-task-icon($background) {
   box-sizing: border-box;
   padding-left: $buttonWidth;
   height: $buttonHeight;
   width: $buttonWidth;
-  background: $bg-color !important;
+  background: $background !important;
   position: relative;
   top: 0;
   left: 0;
@@ -70,11 +70,11 @@ $buttonHeight: 44px;
 
         .icon {
           &[src*="active"] {
-            @include daily-task-icon($no);
+            @include daily-task-icon(icon("alertCircle", $yellow) no-repeat center / 35px);
           }
 
           &[src*="completed"] {
-            @include daily-task-icon($yes);
+            @include daily-task-icon(icon("checkCircle", $green) no-repeat center / 35px);
           }
         }
       }
