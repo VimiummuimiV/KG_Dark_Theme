@@ -142,7 +142,7 @@
       @include flex-layout(row);
 
       .statistic-records-prize {
-        background: $statistics-trophy-icon !important;
+        background: $statistics-trophy-icon no-repeat center / cover !important;
         width: 40px !important;
         height: 40px !important;
       }

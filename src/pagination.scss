@@ -145,12 +145,12 @@
 
         // Next button icon
         &:nth-child(1) {
-          background-image: chevronRight-icon($black) !important;
+          background-image: icon("chevronRight", $black) !important;
         }
 
         // Previous button icon
         &:nth-child(2) {
-          background-image: chevronLeft-icon($black) !important;
+          background-image: icon("chevronLeft", $black) !important;
         }
 
         &:hover {

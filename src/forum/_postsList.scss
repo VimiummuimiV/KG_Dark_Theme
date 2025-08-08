@@ -42,7 +42,7 @@
             display: none !important;
           }
 
-          background-image: $forumEdit;
+          background-image: icon("editSquare", $black);
           @include rounded-button(0 10px, $orange);
         }
       }
@@ -149,14 +149,14 @@
 
               // Edit button
               a[onclick*="edit"] {
-                background-image: $forumEdit;
+                background-image: icon("editSquare", $black);
                 @include rounded-button(10px, $green);
               }
             }
 
             // Reply button
             a[onclick*="reply"] {
-              background-image: $forumReply;
+              background-image: icon("cornerDownLeft", $black);
               @include rounded-button(10px, $orange);
             }
           }

@@ -81,36 +81,32 @@
                 width: 100% !important;
 
                 &#r_username {
+                  dt {
+                    label {
+                      display: none !important;
+                    }
+                  }
+
                   dd {
                     margin: 0 !important;
                     padding: 0 !important;
                     width: 100% !important;
 
                     #username {
-                      color: $white !important;
-                      background: $darkgray !important;
-                      border: none !important;
-                      background-color: $blue !important;
-                      height: 45px !important;
-                      padding: 10px !important;
-                      color: $deepgray !important;
-                      text-align: center !important;
-                      width: 100% !important;
+                      @include login-input-field(icon("user", $lightblue));
                       border-bottom: 1px solid $gray !important;
-                      background-image: $user-icon !important;
-                      background-position: 10px !important;
-                      background-repeat: no-repeat !important;
-
-                      &:active,
-                      &:focus {
-                        background-color: $lightblue !important;
-                        transition: background-color 0.3s ease-in-out !important;
-                      }
+                      font: 500 1.1em "Montserrat", sans-serif !important;
                     }
                   }
                 }
 
                 &#r_password {
+                  dt {
+                    label {
+                      display: none !important;
+                    }
+                  }
+
                   dd {
                     margin: 0 !important;
                     padding: 0 !important;
@@ -118,54 +114,35 @@
 
                     &.field {
                       #password {
-                        color: $white !important;
-                        background: $darkgray !important;
-                        border: none !important;
-                        background-color: $blue !important;
-                        height: 45px !important;
-                        padding: 10px !important;
-                        color: $deepgray !important;
-                        text-align: center !important;
-                        width: 100% !important;
-                        margin-bottom: 10px !important;
-                        background-image: $lock-icon !important;
-                        background-position: 10px !important;
-                        background-repeat: no-repeat !important;
-
-                        &:active,
-                        &:focus {
-                          background-color: $lightblue !important;
-                          transition: background-color 0.3s ease-in-out !important;
-                        }
+                        @include login-input-field(icon("lock", $lightblue));
+                        font: 500 1.1em "Montserrat", sans-serif !important;
                       }
                     }
                   }
                 }
 
                 &#r_login_form_submit {
-                  dt {
-                    // Empty dt
-                  }
-
                   dd {
-                    margin: 0 !important;
+                    margin: 10px 0 !important;
                     padding: 0 !important;
                     width: 100% !important;
 
                     #login_form_submit {
-                      width: 200px !important;
-                      transform: translate(25px);
+                      width: 90% !important;
                       height: 45px !important;
-                      border: 2px solid $blue !important;
-                      border-radius: 25px !important;
+                      border: none !important;
+                      border-radius: 5px !important;
                       background-color: $deepgray !important;
-                      color: $blue !important;
+                      color: $white !important;
                       text-transform: uppercase !important;
-                      transition: all 0.15s !important;
+                      transition: background-color 0.15s ease-in-out !important;
+                      display: block !important;
+                      margin: 0 auto !important;
+                      font: 600 1.1em "Montserrat", sans-serif !important;
 
                       &:hover {
-                        color: $lightblue !important;
-                        border: 2px solid $lightblue !important;
+                        color: $white !important;
+                        background-color: $black !important;
                       }
                     }
                   }
@@ -173,50 +150,42 @@
 
                 // Navigation dl (the one without id)
                 &:last-child {
-                  dt {
-                    // Empty dt
-                  }
-
                   dd {
                     margin: 0 !important;
                     padding: 0 !important;
                     width: 100% !important;
 
                     .navigation {
-                      display: inline-flex !important;
+                      @include flex-layout(row);
                       width: 100% !important;
-                      justify-content: center !important;
 
                       li {
                         margin-bottom: 0 !important;
 
                         a {
                           border-radius: 50% !important;
-                          background-color: rgba(200, 200, 200, 0.3) !important;
+                          background-color: $deepgray !important;
+                          background-position: center !important;
+                          background-repeat: no-repeat !important;
+                          background-size: 18px !important;
                           display: block !important;
                           width: 35px !important;
                           height: 35px !important;
                           font-size: 0 !important;
-                          border: 2px solid gray;
-                          transition: background-color 0.3s !important;
+                          transition: background-color 0.15s ease-in-out !important;
 
                           &:hover {
-                            background-color: rgba(200, 200, 200, 0.5) !important;
-                            border: 2px solid lightgray;
+                            background-color: $black !important;
                           }
 
                           &[href="/register/"] {
                             margin-right: 10px !important;
-                            background-image: $user-plus-icon !important;
-                            background-repeat: no-repeat !important;
-                            background-position: center !important;
+                            background-image: icon("userPlus", $white) !important;
                           }
 
                           &[href="/remind/"] {
                             margin-left: 10px !important;
-                            background-image: $user-check-icon !important;
-                            background-repeat: no-repeat !important;
-                            background-position: center !important;
+                            background-image: icon("userCheck", $white) !important;
                           }
                         }
                       }
@@ -224,8 +193,6 @@
                   }
                 }
               }
-
-
             }
           }
         }
@@ -234,18 +201,20 @@
   }
 
   .close {
+    opacity: 1 !important;
     top: 0 !important;
     right: 0 !important;
     height: 45px !important;
     width: 45px !important;
-    background-color: #484a4e !important;
-    background-image: $close-icon !important;
+    background-color: $gray !important;
+    background-image: icon("close", $black) !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
-    transition: background-color 0.3s !important;
+    transition: background-color 0.15s ease-in-out !important;
+    border-radius: 0 0 0 5px !important;
 
     &:hover {
-      background-color: #626468 !important;
+      background-color: $blue !important;
     }
 
     ins {

@@ -58,7 +58,7 @@
 
       .remove {
         color: $lightblue !important;
-        background: $close-icon no-repeat left center / contain !important;
+        background: icon("close", $lightblue) no-repeat left center / contain !important;
         filter: hue-rotate(150deg) !important;
         margin: 0 !important;
       }

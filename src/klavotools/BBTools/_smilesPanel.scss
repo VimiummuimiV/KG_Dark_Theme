@@ -20,7 +20,7 @@
     left: 0 !important;
 
     ins {
-      background: $move-icon no-repeat center / 16px !important;
+      background: icon("move", $lightblue) no-repeat center / 16px !important;
     }
   }
 
@@ -29,7 +29,7 @@
     right: 0 !important;
 
     ins {
-      background: $close-icon no-repeat center / 16px !important;
+      background: icon("close", $lightblue) no-repeat center / 16px !important;
     }
   }
 

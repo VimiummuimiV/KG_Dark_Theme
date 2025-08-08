@@ -164,3 +164,31 @@
     }
   }
 }
+
+// Login form input field mixin
+@mixin login-input-field($bg-icon: none, $margin-bottom: 0) {
+  color: $white !important;
+  background: $darkgray !important;
+  border: none !important;
+  background-color: $deepgray !important;
+  height: 45px !important;
+  padding: 10px !important;
+  color: $blue !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin-bottom: $margin-bottom !important;
+  
+  @if $bg-icon != none {
+    background-image: $bg-icon !important;
+    background-position: 10px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 20px !important;
+  }
+
+  &:active,
+  &:focus {
+    color: $lightblue !important;
+    background-color: $black !important;
+    transition: background-color 0.3s ease-in-out !important;
+  }
+}

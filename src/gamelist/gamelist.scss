@@ -33,11 +33,12 @@
             transition: background-color 0.15s !important;
             background-repeat: no-repeat !important;
             background-position: center !important;
+            background-size: 18px !important;
             margin-right: 5px !important;
           }
 
           input#create_game {
-            background-image: $add-game-icon !important;
+            background-image: icon("plus", $deepgray) !important;
 
             &:hover {
               background-color: $green !important;
@@ -45,7 +46,7 @@
           }
 
           input#delete {
-            background-image: $remove-game-icon !important;
+            background-image: icon("close", $deepgray) !important;
 
             &:hover {
               background-color: $red !important;

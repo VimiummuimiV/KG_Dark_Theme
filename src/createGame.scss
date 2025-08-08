@@ -28,18 +28,18 @@
       border-radius: 5px !important;
 
       &.create_game {
-        background: $blue $createNormal center !important;
+        background: $blue $createNormal no-repeat center !important;
 
         &:hover {
-          background: $lightblue $createNormal center !important;
+          background: $lightblue $createNormal no-repeat center !important;
         }
       }
 
       &.save_game {
-        background: $blue $saveNormal center !important;
+        background: $blue $saveNormal no-repeat center !important;
 
         &:hover {
-          background: $lightblue $saveNormal center !important;
+          background: $lightblue $saveNormal no-repeat center !important;
         }
       }
     }

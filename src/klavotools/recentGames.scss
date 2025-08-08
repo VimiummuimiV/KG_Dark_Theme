@@ -132,7 +132,7 @@ $buttonSize: 24px !default;
   }
 
   #recent-games-count-dec {
-    background-image: icon("chevronLeft", $black) !important;
+    background-image: icon("chevronLeft", $deepgray) !important;
   }
 
   #recent-games-count {
@@ -140,7 +140,7 @@ $buttonSize: 24px !default;
   }
 
   #recent-games-count-inc {
-    background-image: icon("chevronRight", $black) !important;
+    background-image: icon("chevronRight", $deepgray) !important;
   }
 }
 

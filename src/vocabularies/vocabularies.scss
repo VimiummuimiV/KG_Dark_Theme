@@ -142,7 +142,7 @@
 
                 .remove {
                   color: $lightblue !important;
-                  background: $close-icon no-repeat left center / contain !important;
+                  background: icon("close", $lightblue) no-repeat left center / contain !important;
                   filter: hue-rotate(150deg) !important;
                 }
               }
@@ -160,7 +160,7 @@
                   padding: 2px 5px !important;
                   margin-right: 10px !important;
                   border-radius: 3px !important;
-                  font-weight: lighter !important;
+                  font-weight: bold !important;
                 }
 
                 i {
