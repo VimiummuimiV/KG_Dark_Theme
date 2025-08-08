@@ -19,7 +19,7 @@
             padding-left: 262px !important;
             height: 87px !important;
             width: 262px !important;
-            background: $speedPanel !important;
+            background: $speedPanel no-repeat !important;
           }
 
           #speed-label,
@@ -249,12 +249,12 @@
             font-size: 0 !important;
             position: absolute !important;
             border: none !important;
-            background: $virtualKeyboard;
+            background: $virtualKeyboard no-repeat center !important;
             color: transparent !important;
             height: 12px;
             width: 26px;
             display: block;
-            transition: all 0.15s !important;
+            transition: filter 0.15s ease-in-out !important;
             animation: keyboard 10s linear infinite !important;
 
             &:hover {
