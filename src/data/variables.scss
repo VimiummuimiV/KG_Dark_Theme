@@ -164,10 +164,6 @@ $user-plus-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
 $user-check-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='#{$white}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-user-check'%3E%3Cpath d='M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'%3E%3C/path%3E%3Ccircle cx='8.5' cy='7' r='4'%3E%3C/circle%3E%3Cpolyline points='17 11 19 13 23 9'%3E%3C/polyline%3E%3C/svg%3E");
 
-// SVG Icons as variables
-$chevron-left-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='#{$white}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-left'%3E%3Cpolyline points='15 18 9 12 15 6'%3E%3C/polyline%3E%3C/svg%3E");
-$chevron-right-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='#{$white}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-right'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
-
 // Recent games button icons (moved from variables.scss)
 $fixedRecent: url("https://i.imgur.com/0lVhZRk.png") no-repeat;
 $closeResent: url("https://i.imgur.com/B6eH1ag.png") no-repeat;
