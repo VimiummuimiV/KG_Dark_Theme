@@ -54,8 +54,8 @@ $chatHeaderSize: 26px;
 
               // Add background image when .c doesn't have a span child
               &:not(:has(span)) {
-                background: transparent icon("messageCircle", $gray) no-repeat 10px
-                  center / 12px !important;
+                background: transparent icon("messageCircle", $gray) no-repeat
+                  10px center / 12px !important;
               }
 
               span {
@@ -80,8 +80,8 @@ $chatHeaderSize: 26px;
                 // General active state - $blue background with same message circle icon
                 &.active {
                   span {
-                    background: $blue icon("messageCircle", $black) no-repeat 5px
-                      center / 12px !important;
+                    background: $blue icon("messageCircle", $black) no-repeat
+                      5px center / 12px !important;
                   }
                 }
               }
@@ -89,7 +89,8 @@ $chatHeaderSize: 26px;
               // Game state - $gray background with game icon
               &.game {
                 span {
-                  background: $gray icon("flag", $black) no-repeat 5px center / 12px !important;
+                  background: $gray icon("flag", $black) no-repeat 5px center /
+                    12px !important;
                 }
 
                 // Game active state - $blue background with same game icon
@@ -289,6 +290,10 @@ $chatHeaderSize: 26px;
                     flex: 1 !important; // Take all available space
                     min-width: 0 !important; // Allow shrinking
                     font-size: 1.2em !important;
+
+                    &:disabled {
+                      background: darken($gray, 20%) !important;
+                    }
                   }
 
                   // Send button styling
@@ -303,10 +308,12 @@ $chatHeaderSize: 26px;
                     border-radius: 5px !important;
                     font-size: 0 !important;
                     transition: background 0.1s ease-out !important;
-                    background: $gray icon("send", $black) no-repeat center / 20px !important;
+                    background: $gray icon("send", $black) no-repeat center /
+                      20px !important;
 
                     &:hover {
-                      background: $blue icon("send", $black) no-repeat center / 20px !important;
+                      background: $blue icon("send", $black) no-repeat center /
+                        20px !important;
                     }
                   }
 
@@ -335,13 +342,13 @@ $chatHeaderSize: 26px;
                       20px !important;
 
                     &:hover {
-                      background: $blue icon("faceSmile", $black) no-repeat center /
-                        20px !important;
+                      background: $blue icon("faceSmile", $black) no-repeat
+                        center / 20px !important;
                     }
 
                     &.active {
-                      background: $orange icon("faceSmile", $black) no-repeat center /
-                        20px !important;
+                      background: $orange icon("faceSmile", $black) no-repeat
+                        center / 20px !important;
 
                       &:hover {
                         background: $orange icon("faceFrown", $black) no-repeat
@@ -351,7 +358,8 @@ $chatHeaderSize: 26px;
                   }
 
                   .filter-btn {
-                    background: $gray icon("filter", $black) no-repeat center / 20px !important;
+                    background: $gray icon("filter", $black) no-repeat center /
+                      20px !important;
 
                     &:hover {
                       background: $blue icon("filter", $black) no-repeat center /
@@ -448,8 +456,8 @@ $chatHeaderSize: 26px;
                     width: 14px !important;
                     height: 14px !important;
                     margin-left: 5px !important;
-                    background: $deepgray icon("info", $lightblue) no-repeat center /
-                      14px !important;
+                    background: $deepgray icon("info", $lightblue) no-repeat
+                      center / 14px !important;
 
                     img {
                       display: none !important;
