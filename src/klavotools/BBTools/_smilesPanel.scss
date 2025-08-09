@@ -5,18 +5,6 @@
   border: 1px solid $blue !important;
   width: 360px !important;
 
-  // Remove background images from container corners
-  .t,
-  .b,
-  .l,
-  .r,
-  .tl,
-  .tr,
-  .bl,
-  .br {
-    display: none !important;
-  }
-
   .move,
   .move ins,
   .close,

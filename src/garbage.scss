@@ -16,3 +16,20 @@
 .br {
   background: none !important;
 }
+
+// Disable fully images from container corners
+// KlavoTools BBTools emoticons panel
+#table_smiles,
+// Klavogonki popup message (newrecord, shadow, howtoplay, competition_alert, popalert, popconfirm)
+.popup_message {
+  .t,
+  .b,
+  .l,
+  .r,
+  .tl,
+  .tr,
+  .bl,
+  .br {
+    display: none !important;
+  }
+}
