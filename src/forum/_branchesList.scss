@@ -155,22 +155,19 @@
       td.last-post {
         overflow: hidden !important;
         margin-right: 80px !important;
-        display: grid !important;
-        grid-template-areas:
-          "title title"
-          "user date" !important;
+        @include flex-layout(column, center, start);
 
         @media (max-width: 900px) {
           order: 5 !important;
           width: 100% !important;
           margin-right: 0 !important;
           padding: 0 !important;
-          display: block !important;
         }
 
         .title {
           grid-area: title !important;
           @include flex-layout(row, start, center);
+          margin-bottom: 5px !important;
 
           a {
             @include anchor-to-button(1em);
@@ -187,7 +184,6 @@
           align-items: center !important;
           height: 24px !important;
           min-width: 160px !important;
-          grid-area: user !important;
           @include flex-layout(row, start, center);
 
           @media (max-width: 900px) {
@@ -201,13 +197,9 @@
 
         span.date {
           color: $lightgray !important;
-          grid-area: date !important;
           min-width: 120px !important;
+          margin: 0 !important;
           @include flex-layout(row, start, center);
-
-          @media (max-width: 900px) {
-            margin: 0 !important;
-          }
         }
 
         a.go {
