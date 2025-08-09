@@ -24,7 +24,7 @@ $gametype-colors: (
     margin: 0 !important;
     padding: 0 !important;
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1120px) {
       @include flex-layout(column, center, center);
     }
 
@@ -35,8 +35,13 @@ $gametype-colors: (
       padding: 0 !important;
       order: 1 !important;
 
-      @media (max-width: 1080px) {
+      @media (max-width: 1120px) {
         order: 0 !important;
+
+        @media (max-width: 580px) {
+          width: calc(100% - 20px) !important;
+          min-width: calc(100% - 20px) !important;
+        }
       }
 
       .buttons {
@@ -46,6 +51,10 @@ $gametype-colors: (
         padding: 10px 0 !important;
         gap: 10px !important;
 
+        @media (max-width: 580px) {
+          @include flex-layout(column, center, center);
+        }
+
         input {
           transition: background 0.15s ease-out !important;
           padding: 0 !important;
@@ -53,6 +62,11 @@ $gametype-colors: (
           width: 50% !important;
           height: 50px !important;
           border-radius: 5px !important;
+
+          @media (max-width: 580px) {
+            width: 100% !important;
+            min-width: 300px !important;
+          }
 
           &.create_game {
             background: $blue $createNormal no-repeat center !important;
@@ -75,6 +89,42 @@ $gametype-colors: (
       .params {
         background-color: transparent !important;
         border: 1px solid $gray !important;
+
+        .rc {
+          @media (max-width: 580px) {
+            padding: 10px !important;
+          }
+
+          h4 {
+            font: 700 1.1em "Montserrat", sans-serif !important;
+          }
+
+          select#type {
+            @media (max-width: 580px) {
+              width: calc(100% - 20px) !important;
+            }
+          }
+
+          span#players_range {
+            @media (max-width: 580px) {
+              font-size: 0 !important;
+
+              select {
+                width: calc(50% - 20px) !important;
+              }
+            }
+          }
+
+          .note {
+            color: $lightgray !important;
+          }
+
+          #qual-block {
+            label {
+              color: $gametype-qual !important;
+            }
+          }
+        }
       }
     }
 
@@ -85,7 +135,7 @@ $gametype-colors: (
       border-radius: 5px !important;
       overflow: hidden !important;
 
-      @media (max-width: 1080px) {
+      @media (max-width: 1120px) {
         width: calc(100% - 20px) !important;
       }
 
@@ -95,6 +145,61 @@ $gametype-colors: (
           .gametype-#{$type} {
             h4 {
               color: #{$color} !important;
+              font: 700 1.4em "Montserrat", sans-serif !important;
+            }
+          }
+        }
+
+        tr {
+          // Border for all rows except the last one
+          &:not(:last-child) {
+            border-bottom: 1px solid darken($gray, 20%) !important;
+          }
+
+          // Active and hover states
+          &.active,
+          &:hover {
+            background-color: $black !important;
+          }
+
+          // Nested elements styling
+          .note {
+            color: $lightgray !important;
+
+            @media (max-width: 580px) {
+              display: none !important;
+            }
+          }
+
+          td {
+            border: none !important;
+            padding: 20px 5px !important;
+            height: fit-content !important;
+          }
+
+          // Stylize previmium abra gametype
+          &.gametype-abra {
+            #premium_abra {
+              color: darken($gametype-abra, 10%) !important;
+
+              label {
+                background: transparent !important;
+                color: $gametype-abra !important;
+              }
+            }
+          }
+
+          // Float select and note element in voc gametype on small screens
+          &.gametype-voc {
+            @media (max-width: 580px) {
+              h4 {
+                @include flex-layout(column, start, start);
+                gap: 5px !important;
+
+                select {
+                  width: 280px !important;
+                }
+              }
             }
           }
         }
