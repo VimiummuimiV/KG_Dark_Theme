@@ -116,7 +116,7 @@
           &:before {
             content: "Темы:" !important;
             margin-right: 5px !important;
-            color: $lightgray !important;
+            color: $white !important;
           }
         }
       }
@@ -134,7 +134,7 @@
           &:before {
             content: "Сообщения:" !important;
             margin-right: 5px !important;
-            color: $lightgray !important;
+            color: $white !important;
           }
         }
       }
@@ -171,7 +171,6 @@
 
           a {
             @include anchor-to-button(1em);
-            white-space: break-spaces !important;
 
             @media (max-width: 900px) {
               margin-bottom: 10px !important;

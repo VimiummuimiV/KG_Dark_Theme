@@ -41,7 +41,12 @@
 }
 
 // Flexbox layout mixin with optional !important control
-@mixin flex-layout($direction: column, $justify: center, $align: center, $important: true) {
+@mixin flex-layout(
+  $direction: column,
+  $justify: center,
+  $align: center,
+  $important: true
+) {
   $imp: if($important, !important, null);
   display: flex #{$imp};
   flex-direction: $direction #{$imp};
@@ -98,6 +103,7 @@
   border-radius: 5px !important;
   padding: 5px 10px !important;
   font: 600 $font-size "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
+  white-space: break-spaces !important;
   transition: background 0.1s ease-in-out;
 
   &:hover {
@@ -176,7 +182,7 @@
   text-align: center !important;
   width: 100% !important;
   margin-bottom: $margin-bottom !important;
-  
+
   @if $bg-icon != none {
     background-image: $bg-icon !important;
     background-position: 10px center !important;
