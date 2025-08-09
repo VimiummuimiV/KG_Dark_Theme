@@ -210,7 +210,8 @@ $gap: 10px;
               }
 
               &::before {
-                background: icon("messageCircle", $deepgray) no-repeat center / 16px !important;
+                background: icon("messageCircle", $deepgray) no-repeat center /
+                  16px !important;
               }
             }
           }
@@ -256,9 +257,16 @@ $gap: 10px;
             }
 
             .user-link[style*="avatars/"] {
-              background-position: left center !important;
               background-size: 24px !important;
+              background-position: left center !important;
               padding-left: 30px !important;
+              position: relative !important;
+
+              &::before {
+                content: "";
+                position: absolute !important;
+                @include avatar-mask(24px, $deepgray);
+              }
             }
 
             .date {
@@ -365,6 +373,13 @@ $gap: 10px;
               padding-left: 30px !important;
               background-position: left center !important;
               background-size: 24px !important;
+              position: relative !important;
+
+              &::before {
+                content: "";
+                position: absolute !important;
+                @include avatar-mask(24px, $deepgray);
+              }
             }
           }
 

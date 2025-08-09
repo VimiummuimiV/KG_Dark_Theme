@@ -137,7 +137,7 @@
         darken($deepgray, 2%)
       ) !important;
     }
-    
+
     .statistic-records-title-container {
       @include flex-layout(row);
 
@@ -164,12 +164,12 @@
     @media (max-width: 600px) {
       table.table-records {
         @include flex-layout(column, start, stretch);
-        
+
         tbody {
           @include flex-layout(column, start, stretch);
           width: 100% !important;
         }
-        
+
         tr {
           @include flex-layout(column, start, stretch);
           margin-bottom: 15px !important;
@@ -177,10 +177,10 @@
           background-color: $black !important;
           border-radius: 8px !important;
           border: 1px solid $gray !important;
-          
+
           // Reset table row height for mobile
           height: auto !important;
-          
+
           // Title (th) as first row
           th.table-records__title {
             @include flex-layout(row, start, center);
@@ -195,7 +195,7 @@
               display: none !important;
             }
           }
-          
+
           // Second row container for number and user
           td {
             display: flex !important;
@@ -205,25 +205,25 @@
             &::after {
               display: none !important;
             }
-            
+
             &:nth-child(2) {
               // Number container - first in the second row
               @include flex-layout(row, start, center);
               margin-bottom: 8px !important;
-              
+
               .table-records__number {
                 font-size: 18px !important;
                 font-weight: bold !important;
                 color: $lightblue !important;
               }
             }
-            
+
             &:nth-child(3) {
               // User container - below the number
               @include flex-layout(row, start, center);
               padding-left: 30px !important; // Keep the padding for avatar
               height: 30px !important;
-              
+
               a.user {
                 color: $white !important;
                 text-decoration: none !important;

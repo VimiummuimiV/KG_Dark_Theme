@@ -200,6 +200,17 @@
 
         a.user-link[style*="/avatars/"] {
           padding-left: 30px !important;
+          position: relative !important;
+
+          &::before {
+            content: "";
+            position: absolute !important;
+            @include avatar-mask(24px, $darkgray);
+
+            @media (max-width: 900px) {
+              @include avatar-mask(24px, $deepgray);
+            }
+          }
         }
 
         span.date {

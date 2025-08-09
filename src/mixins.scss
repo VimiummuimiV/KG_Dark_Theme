@@ -1,8 +1,7 @@
 // Add avatar mask to make fake border-radius
-@mixin avatar-mask($radius: 4, $dimensions: 32px, $color: transparent) {
+@mixin avatar-mask($dimensions: 32px, $color: transparent) {
   content: "";
   position: absolute;
-  top: 0;
   left: 0;
   width: $dimensions;
   height: $dimensions;

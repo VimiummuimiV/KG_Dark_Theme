@@ -453,7 +453,7 @@ $chatHeaderSize: 26px;
                       position: absolute !important;
                       left: 0 !important;
                       top: 0 !important;
-                      @include avatar-mask(4, 24px, $deepgray);
+                      @include avatar-mask(24px, $deepgray);
                     }
 
                     &:hover {

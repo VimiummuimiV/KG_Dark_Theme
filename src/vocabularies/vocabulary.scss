@@ -94,7 +94,7 @@
       position: relative !important;
 
       &::before {
-        @include avatar-mask(4, 32px, $darkgray);
+        @include avatar-mask(32px, $darkgray);
       }
     }
     dl:not(.write):not(:has(.title)) {

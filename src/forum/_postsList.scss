@@ -107,14 +107,21 @@
         }
 
         .post {
-          .avatar_big {
-            .rang {
-              font-size: 9px !important;
-              text-transform: uppercase !important;
+          th {
+            padding: 10px !important;
+            @include flex-layout(column, start, center);
+
+            .avatar_big {
+              .rang {
+                font-size: 9px !important;
+                text-transform: uppercase !important;
+              }
             }
           }
 
           .post-container {
+            padding: 0 !important;
+
             .text {
               img.linked-image:not([src*="smilies/"]) {
                 animation: fadeIn 0.5s ease-in-out;

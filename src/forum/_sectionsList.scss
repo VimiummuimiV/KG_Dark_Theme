@@ -199,6 +199,17 @@
                 padding-left: 30px !important;
                 background-size: 24px !important;
                 background-position: left center !important;
+                position: relative !important;
+
+                &::before {
+                  content: "";
+                  position: absolute !important;
+                  @include avatar-mask(24px, $darkgray);
+
+                  @media (max-width: 900px) {
+                    @include avatar-mask(24px, $deepgray);
+                  }
+                }
               }
 
               &:hover {
@@ -276,6 +287,17 @@
                 padding-left: 30px !important;
                 background-size: 24px !important;
                 background-position: left center !important;
+                position: relative !important;
+
+                &::before {
+                  content: "";
+                  position: absolute !important;
+                  @include avatar-mask(24px, $darkgray);
+
+                  @media (max-width: 900px) {
+                    @include avatar-mask(24px, $deepgray);
+                  }
+                }
               }
 
               &:hover {
