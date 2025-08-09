@@ -6,10 +6,23 @@
     margin-top: 5px !important;
     font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
 
+    @media (max-width: 1320px) {
+      margin: 0 10px !important;
+    }
+
     h4 {
       noindex {
         @include flex-layout(row);
         gap: 10px !important;
+
+        @media (max-width: 750px) {
+          flex-direction: column !important;
+          align-items: center !important;
+
+          span {
+            text-align: center !important;
+          }
+        }
       }
 
       a[href*="/forum/"] {
@@ -45,15 +58,36 @@
         .posth {
           background: transparent !important;
           height: 30px !important;
+          min-height: 30px !important;
           border-radius: 5px !important;
+          overflow: hidden !important;
+
+          @media (max-width: 480px) {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            height: 60px !important;
+          }
 
           th {
             position: relative !important;
+            min-width: 170px !important;
+
+            @media (max-width: 480px) {
+              width: 100% !important;
+              height: 30px !important;
+            }
           }
 
           td {
             border-radius: 0 5px 5px 0 !important;
             background: $black !important;
+
+            @media (max-width: 480px) {
+              border-top: 1px solid $black !important;
+              width: 100% !important;
+              height: 30px !important;
+            }
           }
 
           // Default styling for all users (regular users)
@@ -62,11 +96,23 @@
           }
 
           span:first-child {
+            float: unset !important;
             font-size: 0 !important;
 
             a {
               @include post-header-button($blue);
+
+              @media (max-width: 480px) {
+                @include post-header-button($blue, 0);
+              }
             }
+          }
+
+          span.date {
+            display: inline-flex !important;
+            height: 100% !important;
+            justify-content: center !important;
+            align-items: center !important;
           }
 
           // Admin users override
@@ -100,6 +146,10 @@
             background: darken($blue, 10%) !important;
             border-radius: 5px 0 0 5px !important;
 
+            @media (max-width: 480px) {
+              border-radius: 0 !important;
+            }
+
             &:hover {
               background: $blue !important;
             }
@@ -107,9 +157,21 @@
         }
 
         .post {
+          @media (max-width: 480px) {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+          }
+
           th {
             padding: 10px !important;
             @include flex-layout(column, start, center);
+
+            @media (max-width: 480px) {
+              width: 100% !important;
+              height: 150px !important;
+              padding: 10px !important;
+            }
 
             .avatar_big {
               .rang {
@@ -119,8 +181,19 @@
             }
           }
 
+          td {
+            @media (max-width: 480px) {
+              width: 100% !important;
+            }
+          }
+
           .post-container {
             padding: 0 !important;
+
+            @media (max-width: 480px) {
+              width: 100% !important;
+              padding: 10px !important;
+            }
 
             .text {
               img.linked-image:not([src*="smilies/"]) {
