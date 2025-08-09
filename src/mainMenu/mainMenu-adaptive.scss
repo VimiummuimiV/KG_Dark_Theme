@@ -28,11 +28,11 @@
       // Menu button (hamburger trigger)
       &:before {
         content: "" !important;
-        width: 45px !important;
-        height: 45px !important;
+        width: 50px !important;
+        height: 50px !important;
         position: fixed !important;
         top: 88px !important;
-        right: 0 !important;
+        right: 5px !important;
         color: $blue !important;
         cursor: pointer !important;
         z-index: 10000 !important;

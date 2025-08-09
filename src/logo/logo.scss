@@ -1,23 +1,21 @@
 @import "../data/variables";
-@import "checkerboard";
 
 /* Logo styles */
 #head #logo {
   z-index: 120 !important;
   width: 150px !important;
-  height: 45px !important;
+  height: 50px !important;
   padding: 0 !important;
   float: none !important;
   position: fixed !important;
   top: 45px !important;
-  background-color: $darkgray !important;
+  background-color: $black !important;
   border-radius: 0 0 6px 6px !important;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.7) !important;
 
   a {
     display: block !important;
     width: 150px !important;
-    height: 45px !important;
+    height: 50px !important;
     transition: filter 0.15s ease !important;
 
     &:hover {
@@ -27,8 +25,8 @@
     &::after {
       content: "" !important;
       mask: $keysLogoBig no-repeat center / 130px !important;
-      @include checkerboard;
-      height: 45px !important;
+      background-color: $orange !important;
+      height: 50px !important;
       width: 150px !important;
       display: flex !important;
       position: absolute !important;
