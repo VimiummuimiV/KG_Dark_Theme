@@ -141,54 +141,6 @@ $gametype-icons: (
 }
 
 // ====================
-// GAMETYPE TABLE STYLING
-// ====================
-
-#create .gametypes tr.active {
-  background: $deepgray !important;
-}
-
-.gametypes {
-  tr:hover {
-    background: $deepgray !important;
-  }
-
-  .note {
-    color: $white !important;
-  }
-
-  td {
-    border-bottom: 1px solid $gray !important;
-  }
-
-  h4 {
-    color: $blue !important;
-  }
-}
-
-// Premium abra styling
-#premium_abra {
-  input {
-    top: 2px !important;
-    left: 2px !important;
-  }
-
-  label {
-    vertical-align: middle !important;
-    background: none !important;
-  }
-
-  &,
-  a {
-    color: $blue !important;
-  }
-
-  a:hover {
-    color: $lightblue !important;
-  }
-}
-
-// ====================
 // UTILITY FUNCTIONS
 // ====================
 

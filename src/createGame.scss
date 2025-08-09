@@ -1,54 +1,104 @@
 @import "./data/variables";
+@import "./mixins";
+
+$gametype-colors: (
+  "normal": $gametype-normal,
+  "voc": $gametype-voc,
+  "noerror": $gametype-noerror,
+  "chars": $gametype-chars,
+  "marathon": $gametype-marathon,
+  "sprint": $gametype-sprint,
+  "abra": $gametype-abra,
+  "digits": $gametype-digits,
+  "referats": $gametype-referats,
+);
 
 #create {
   h3 {
-    margin: 0 5px 15px !important;
+    display: none !important;
   }
 
-  dd {
-    width: 525px !important;
-  }
-
-  *:not(select) {
-    padding: 2px !important;
-  }
-
-  .buttons {
-    display: flex !important;
-    justify-content: space-between !important;
+  dl {
+    @include flex-layout(row, center, start);
     gap: 10px !important;
-    margin-top: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
 
-    input {
-      transition: background 0.15s ease-out !important;
+    @media (max-width: 1080px) {
+      @include flex-layout(column, center, center);
+    }
+
+    dd {
+      float: unset !important;
+      width: 550px !important;
+      min-width: 550px !important;
       padding: 0 !important;
-      margin: 0 !important;
-      width: 50% !important;
-      height: 50px !important;
-      border-radius: 5px !important;
+      order: 1 !important;
 
-      &.create_game {
-        background: $blue $createNormal no-repeat center !important;
+      @media (max-width: 1080px) {
+        order: 0 !important;
+      }
 
-        &:hover {
-          background: $lightblue $createNormal no-repeat center !important;
+      .buttons {
+        display: flex !important;
+        justify-content: space-between !important;
+        margin: 0 !important;
+        padding: 10px 0 !important;
+        gap: 10px !important;
+
+        input {
+          transition: background 0.15s ease-out !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 50% !important;
+          height: 50px !important;
+          border-radius: 5px !important;
+
+          &.create_game {
+            background: $blue $createNormal no-repeat center !important;
+
+            &:hover {
+              background: $lightblue $createNormal no-repeat center !important;
+            }
+          }
+
+          &.save_game {
+            background: $blue $saveNormal no-repeat center !important;
+
+            &:hover {
+              background: $lightblue $saveNormal no-repeat center !important;
+            }
+          }
         }
       }
 
-      &.save_game {
-        background: $blue $saveNormal no-repeat center !important;
-
-        &:hover {
-          background: $lightblue $saveNormal no-repeat center !important;
-        }
+      .params {
+        background-color: transparent !important;
+        border: 1px solid $gray !important;
       }
     }
-  }
 
-  dd {
-    .params {
-      background-color: transparent !important;
-      border: 1px solid $gray !important;
+    dt {
+      margin: 0 !important;
+      width: 100% !important;
+      order: 0 !important;
+      border-radius: 5px !important;
+      overflow: hidden !important;
+
+      @media (max-width: 1080px) {
+        width: calc(100% - 20px) !important;
+      }
+
+      .gametypes {
+        // Generate classes dynamically using @each loop
+        @each $type, $color in $gametype-colors {
+          .gametype-#{$type} {
+            h4 {
+              color: #{$color} !important;
+            }
+          }
+        }
+      }
     }
   }
 }

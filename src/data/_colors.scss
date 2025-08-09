@@ -57,17 +57,17 @@ $rang10: hsl(300, 55%, 50%); // Тахион (Tachyon)
 $rang11: hsl(50, 100%, 50%); // Гиперион (Hyperion)
 
 // Game type colors
-$gametype-normal: hsl(0, 0%, 70%);
-$gametype-quote: hsl(280, 50%, 70%);
-$gametype-sprint: hsl(5, 55%, 65%);
-$gametype-marathon: hsl(335, 90%, 70%);
-$gametype-noerror: hsl(210, 50%, 65%);
-$gametype-noerrorcnt: hsl(210, 50%, 65%);
-$gametype-abra: hsl(220, 25%, 65%);
-$gametype-abra-premium: hsl(50, 80%, 55%);
-$gametype-digits: hsl(180, 80%, 55%);
-$gametype-referats: hsl(85, 40%, 55%);
-$gametype-voc: $blue;
-$gametype-chars: hsl(35, 80%, 55%);
+$gametype-normal: hsl(135, 30%, 60%);
+$gametype-quote: hsl(0, 0%, 60%);
+$gametype-sprint: hsl(280, 65%, 65%);
+$gametype-marathon: hsl(315, 40%, 60%);
+$gametype-noerror: hsl(175, 100%, 40%);
+$gametype-noerrorcnt: $gametype-noerror;
+$gametype-abra: hsl(50, 100%, 45%);
+$gametype-abra-premium: $gametype-abra;
+$gametype-digits: hsl(170, 45%, 50%);
+$gametype-referats: hsl(60, 40%, 60%);
+$gametype-voc: hsl(215, 60%, 60%);
+$gametype-chars: hsl(20, 45%, 60%);
 $gametype-qual: hsl(0, 100%, 70%);
 $premium-yellow: hsl(50, 80%, 55%);
