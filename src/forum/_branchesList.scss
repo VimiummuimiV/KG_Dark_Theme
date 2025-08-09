@@ -1,3 +1,5 @@
+@import "../mixins";
+
 #content {
   #forums-list {
     table {
@@ -7,7 +9,7 @@
         tr {
           margin-bottom: 10px !important;
           display: grid !important;
-          grid-template-columns: auto 100px 100px 400px !important; // Adjust these ratios
+          grid-template-columns: auto 100px 100px 420px !important;
         }
       }
     }
@@ -18,16 +20,19 @@
           color: $red !important;
         }
       }
+
       th.topic-cnt {
         color: $lightblue !important;
         text-align: center !important;
         @include flex-layout();
       }
+
       th.post-cnt {
         color: $green !important;
         text-align: center !important;
         @include flex-layout();
       }
+
       th:last-child {
         color: $white !important;
         @include flex-layout();
@@ -41,8 +46,12 @@
       position: relative !important;
       min-height: 70px !important;
 
-      @media (max-width: 1300px) {
-        height: 80px !important;
+      @media (max-width: 900px) {
+        display: flex !important;
+        flex-direction: column !important;
+        min-height: auto !important;
+        padding: 10px !important;
+        background: $deepgray !important;
       }
 
       td {
@@ -51,53 +60,98 @@
       }
 
       td:first-child {
-        position: relative !important;
+        @include flex-layout(column, center, start);
+
+        @media (max-width: 900px) {
+          width: 100% !important;
+          order: 1 !important;
+          justify-content: flex-start !important;
+        }
 
         a.short-description {
-          @include element-full-size();
-          padding: 10px !important;
-          text-decoration: none !important;
-          border-radius: 5px 0 0 5px !important;
+          @include anchor-to-button(1.5em, 100%);
+          margin: 10px !important;
 
-          @media (max-width: 950px) {
+          @media (max-width: 1000px) {
             @include flex-layout(row, start, center);
+            font-size: 1.1em !important;
 
-            @media (max-width: 800px) {
-              padding: 10px !important;
+            @media (max-width: 900px) {
+              margin: 0 0 10px 0 !important;
+              font-size: 1.5em !important;
+            }
+
+            @media (max-width: 375px) {
               font-size: 1.2em !important;
             }
-          }
-
-          &:hover {
-            background: $deepgray !important;
-            border-right: 1px solid $gray !important;
           }
         }
 
         .long-description {
-          position: absolute !important;
-          bottom: 15px !important;
-          left: 15px !important;
-          color: $white !important;
+          color: $lightgray !important;
           font-size: 0.9em !important;
+          padding: 0 10px 10px 10px !important;
+          margin: 0 !important;
 
           @media (max-width: 1000px) {
             font-size: 0.8em !important;
 
-            @media (max-width: 950px) {
-              display: none !important;
+            @media (max-width: 900px) {
+              padding: 0 0 10px !important;
             }
           }
         }
       }
+
       td.topic-cnt {
         color: $lightblue !important;
         @include flex-layout();
+
+        @media (max-width: 900px) {
+          order: 2 !important;
+          display: inline-block !important;
+          text-align: left !important;
+          margin: 0 !important;
+
+          &:before {
+            content: "Темы:" !important;
+            margin-right: 5px !important;
+            color: $lightgray !important;
+          }
+        }
       }
+
       td.post-cnt {
         color: $green !important;
         @include flex-layout();
+
+        @media (max-width: 900px) {
+          order: 3 !important;
+          display: inline-block !important;
+          text-align: left !important;
+          margin: 0 !important;
+
+          &:before {
+            content: "Сообщения:" !important;
+            margin-right: 5px !important;
+            color: $lightgray !important;
+          }
+        }
       }
+
+      // Create a stats row container on mobile
+      @media (max-width: 900px) {
+        &::after {
+          content: "" !important;
+          order: 4 !important;
+          width: 100% !important;
+          height: 1px !important;
+          background: darken($gray, 10%) !important;
+          margin: 10px 0 !important;
+          display: block !important;
+        }
+      }
+
       td.last-post {
         overflow: hidden !important;
         margin-right: 80px !important;
@@ -106,9 +160,26 @@
           "title title"
           "user date" !important;
 
+        @media (max-width: 900px) {
+          order: 5 !important;
+          width: 100% !important;
+          margin-right: 0 !important;
+          padding: 0 !important;
+          display: block !important;
+        }
+
         .title {
           grid-area: title !important;
           @include flex-layout(row, start, center);
+
+          a {
+            @include anchor-to-button(1em);
+            white-space: break-spaces !important;
+
+            @media (max-width: 900px) {
+              margin-bottom: 10px !important;
+            }
+          }
         }
 
         a.user-link {
@@ -118,6 +189,10 @@
           min-width: 160px !important;
           grid-area: user !important;
           @include flex-layout(row, start, center);
+
+          @media (max-width: 900px) {
+            margin-bottom: 5px !important;
+          }
         }
 
         a.user-link[style*="/avatars/"] {
@@ -125,9 +200,14 @@
         }
 
         span.date {
+          color: $lightgray !important;
           grid-area: date !important;
           min-width: 120px !important;
           @include flex-layout(row, start, center);
+
+          @media (max-width: 900px) {
+            margin: 0 !important;
+          }
         }
 
         a.go {
@@ -143,15 +223,42 @@
           border-left: 1px solid transparent !important;
           transition: background-color 0.1s ease-in-out;
 
+          @media (max-width: 900px) {
+            height: 60px !important;
+            width: 60px !important;
+            border-radius: 5px !important;
+            margin: 0 10px 10px 0 !important;
+            top: unset !important;
+            bottom: 0 !important;
+            border: 1px solid transparent !important;
+
+            @media (max-width: 375px) {
+              height: 45px !important;
+              width: 45px !important;
+            }
+          }
+
           &:hover {
             background-color: $deepgray !important;
             border-left: 1px solid $gray !important;
+
+            @media (max-width: 900px) {
+              background-color: $black !important;
+              border: 1px solid $lightblue !important;
+            }
           }
 
           img {
             display: none !important;
           }
         }
+      }
+    }
+
+    // Hide header on mobile
+    @media (max-width: 900px) {
+      tr.header {
+        display: none !important;
       }
     }
 

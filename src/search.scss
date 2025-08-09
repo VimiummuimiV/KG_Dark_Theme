@@ -30,7 +30,7 @@
   padding: 0 20px !important;
   width: 100% !important;
   box-sizing: border-box !important;
-  transition: border-color 0.15s ease !important;
+  transition: border-color 0.15s ease-in-out, background 0.15s ease-in-out !important;
 
   /* Default text selection */
   &::selection {
@@ -49,6 +49,7 @@
     }
   }
   &:focus {
+    background: $black !important;
     color: $lightblue !important;
     border-color: $lightblue !important;
 

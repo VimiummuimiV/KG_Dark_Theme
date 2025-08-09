@@ -87,18 +87,17 @@
   }
 }
 
-@mixin anchor-to-button($font-size: 14px) {
-  @include flex-layout(row);
+@mixin anchor-to-button($font-size: 1em, $width: fit-content) {
+  @include flex-layout(row, start, center);
   cursor: pointer !important;
   text-decoration: none !important;
   color: $black !important;
   background: $gray !important;
   min-height: 30px !important;
-  width: fit-content !important;
+  width: $width !important;
   border-radius: 5px !important;
   padding: 5px 10px !important;
-  font-weight: bold !important;
-  font-size: $font-size !important;
+  font: 600 $font-size "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
   transition: background 0.1s ease-in-out;
 
   &:hover {
