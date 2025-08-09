@@ -23,6 +23,10 @@
       position: sticky !important;
       top: 100px !important;
 
+      @media (max-width: 1000px) {
+        top: 140px !important;
+      }
+
       a.create_voc {
         margin: 0 !important;
         border-radius: 5px !important;
@@ -101,6 +105,10 @@
         position: sticky !important;
         top: 100px !important;
         z-index: 5 !important;
+
+        @media (max-width: 1000px) {
+          top: 140px !important;
+        }
       }
 
       input[type="submit"] {
@@ -108,6 +116,8 @@
       }
 
       table {
+        background: $darkgray !important;
+
         tbody {
           display: grid !important;
           width: 100% !important;
