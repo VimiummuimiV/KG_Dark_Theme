@@ -165,6 +165,7 @@
 
           th {
             padding: 10px !important;
+            width: auto !important;
             @include flex-layout(column, start, center);
 
             @media (max-width: 480px) {
