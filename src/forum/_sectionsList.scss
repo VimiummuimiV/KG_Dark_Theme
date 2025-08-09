@@ -1,270 +1,348 @@
 @import "../mixins";
 
 #content {
-  table.list {
-    width: 100% !important;
-    border-collapse: separate !important;
-    border-spacing: 0 !important;
+  #topics-list {
+    position: relative !important;
 
-    tbody {
-      display: flex !important;
-      flex-direction: column !important;
+    h4 {
+      @include flex-layout(row);
+    }
 
-      tr {
-        margin-bottom: 10px !important;
-        display: grid !important;
-        grid-template-columns: 1fr 200px 80px 300px !important;
+    .write {
+      width: 60px !important;
+      min-width: 60px !important;
+      height: 50px !important;
+      padding: 0 !important;
+      margin: 0 5px 0 0 !important;
+      border-radius: 5px !important;
+      border: 1px solid $gray !important;
+      background: $deepgray icon("editSquare", $blue) no-repeat center / 24px !important;
+      display: inline-flex !important;
+      cursor: pointer !important;
+      transition: border-color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out;
 
-        @media (max-width: 900px) {
+      &:hover {
+        border-color: $lightblue !important;
+        background: $deepgray icon("editSquare", $lightblue) no-repeat center /
+          24px !important;
+        background-color: $black !important;
+      }
+
+      a {
+        font-size: 0 !important;
+      }
+    }
+
+    tr:has(.write) {
+      @include flex-layout(row, start, center);
+
+      td:has(.search) {
+        width: 100% !important;
+      }
+    }
+
+    form {
+      table.list {
+        width: 100% !important;
+        border-collapse: separate !important;
+        border-spacing: 0 !important;
+
+        tbody {
           display: flex !important;
           flex-direction: column !important;
-          grid-template-columns: none !important;
-        }
-      }
-    }
 
-    // Header row styles
-    tr.header {
-      th {
-        &.title {
-          text-align: left !important;
-          color: $lightblue !important;
-        }
-
-        &.author {
-          color: $lightblue !important;
-        }
-
-        &.post-cnt {
-          color: $green !important;
-        }
-
-        &:last-child {
-          color: $lightgray !important;
-        }
-      }
-
-      // Hide header on mobile
-      @media (max-width: 900px) {
-        display: none !important;
-      }
-    }
-
-    // Item row styles
-    tr.item {
-      border: 1px solid $gray !important;
-      border-radius: 5px !important;
-      padding: 0 !important;
-      margin: 0 0 10px !important;
-      position: relative !important;
-      min-height: 80px !important;
-      background: transparent !important;
-
-      @media (max-width: 900px) {
-        display: flex !important;
-        flex-direction: column !important;
-        min-height: auto !important;
-      }
-
-      td {
-        background: transparent !important;
-        border: none !important;
-        padding: 10px !important;
-      }
-
-      // Title column
-      td.title {
-        @include flex-layout(column, center, start);
-
-        @media (max-width: 900px) {
-          order: 1 !important;
-          width: 100% !important;
-          padding: 10px 10px 0 !important;
-        }
-
-        .topic-note {
-          background: transparent !important;
-          font-size: 0 !important;
-          padding: 0 !important;
-          margin: 0 0 5px !important;
-          width: 20px !important;
-          height: 20px !important;
-          background: transparent icon("star", $yellow) no-repeat center / 20px !important;
-        }
-
-        .topic-title {
-          a {
-            @include anchor-to-button(1em, 100%);
-          }
-        }
-
-        .date {
-          color: $lightgray !important;
-          margin-top: 5px !important;
-          font-size: 0.9em !important;
-
-          @media (max-width: 900px) {
-            font-size: 0.8em !important;
-          }
-        }
-
-        // Locked topic icon
-        img[alt="Тема закрыта"] {
-          @include flex-layout(row, center, center);
-          position: unset !important;
-          margin-bottom: 5px !important;
-          width: 20px !important;
-          height: 20px !important;
-          padding-left: 20px !important;
-          background: transparent icon("lock", $orange) no-repeat center / 20px !important;
-        }
-      }
-
-      // Author column
-      td.author {
-        @include flex-layout(row, start, center);
-
-        @media (max-width: 900px) {
-          order: 2 !important;
-          padding: 0 10px !important;
-
-          &:before {
-            content: "Автор:" !important;
-            color: $white !important;
-            margin-right: 5px !important;
-          }
-        }
-
-        a.user-link {
-          @include flex-layout(row, start, center);
-          color: $blue !important;
-          text-decoration: none !important;
-          height: 30px !important;
-          transition: color 0.15s ease-in-out;
-
-          // Handle avatar background
-          &[style*="/avatars/"] {
-            padding-left: 30px !important;
-            background-size: 24px !important;
-            background-position: left center !important;
-          }
-
-          &:hover {
-            color: $lightblue !important;
-          }
-        }
-      }
-
-      // Post count column
-      td.post-cnt {
-        @include flex-layout(row, start, center);
-        color: $green !important;
-
-        @media (max-width: 900px) {
-          order: 3 !important;
-          padding: 0 10px 10px !important;
-
-          &:before {
-            content: "Ответы:" !important;
-            color: $white !important;
-            margin-right: 5px !important;
-          }
-        }
-      }
-
-      // Last post column
-      td.last-post {
-        @include flex-layout(column, center, start);
-        padding: 10px 80px 10px 10px !important;
-        position: relative !important;
-
-        @media (max-width: 900px) {
-          order: 4 !important;
-          margin-bottom: 0 !important;
-
-          &:before {
-            content: "Последний ответ" !important;
-            color: $orange !important;
-            margin-bottom: 8px !important;
-            font-weight: 600 !important;
-            font-size: 0.9em !important;
-          }
-        }
-
-        a.user-link {
-          @include flex-layout(row, start, center);
-          color: $blue !important;
-          text-decoration: none !important;
-          margin-bottom: 5px !important;
-          height: 30px !important;
-          transition: color 0.15s ease-in-out;
-
-          // Handle avatar background
-          &[style*="/avatars/"] {
-            padding-left: 30px !important;
-            background-size: 24px !important;
-            background-position: left center !important;
-          }
-
-          &:hover {
-            color: $lightblue !important;
-          }
-        }
-
-        .date {
-          color: $lightgray !important;
-          font-size: 0.9em !important;
-          margin: 0 !important;
-
-          @media (max-width: 900px) {
-            font-size: 0.8em !important;
-          }
-        }
-
-        // Go to post button
-        a.go {
-          position: absolute !important;
-          top: 0 !important;
-          right: 0 !important;
-          height: 100% !important;
-          width: 70px !important;
-          background-image: icon("logIn", $lightblue) !important;
-          background-position: center center !important;
-          background-repeat: no-repeat !important;
-          background-size: 20px 20px !important;
-          border-radius: 0 8px 8px 0 !important;
-          border-left: 1px solid transparent !important;
-          transition: border 0.15s ease-in-out,
-            background-color 0.15s ease-in-out;
-
-          @media (max-width: 900px) {
-            height: 60px !important;
-            width: 60px !important;
-            border-radius: 5px !important;
-            border: 1px solid transparent !important;
-            top: unset !important;
-            bottom: 0 !important;
-            margin: 0 10px 10px 0 !important;
-          }
-
-          @media (max-width: 375px) {
-            height: 45px !important;
-            width: 45px !important;
-          }
-
-          &:hover {
-            background-color: $deepgray !important;
-            border-left-color: $lightblue !important;
+          tr {
+            margin-bottom: 10px !important;
+            display: grid !important;
+            grid-template-columns: 1fr 200px 80px 300px !important;
 
             @media (max-width: 900px) {
-              background-color: $black !important;
-              border-color: $lightblue !important;
+              display: flex !important;
+              flex-direction: column !important;
+              grid-template-columns: none !important;
+            }
+          }
+        }
+
+        // Header row styles
+        tr.header {
+          th {
+            &.title {
+              text-align: left !important;
+              color: $lightblue !important;
+            }
+
+            &.author {
+              color: $lightblue !important;
+            }
+
+            &.post-cnt {
+              color: $green !important;
+            }
+
+            &:last-child {
+              color: $lightgray !important;
             }
           }
 
-          img {
+          // Hide header on mobile
+          @media (max-width: 900px) {
             display: none !important;
           }
+        }
+
+        // Item row styles
+        tr.item {
+          border: 1px solid $gray !important;
+          border-radius: 5px !important;
+          padding: 0 !important;
+          margin: 0 0 10px !important;
+          position: relative !important;
+          min-height: 80px !important;
+          background: transparent !important;
+
+          @media (max-width: 900px) {
+            display: flex !important;
+            flex-direction: column !important;
+            min-height: auto !important;
+            background: $deepgray !important;
+          }
+
+          td {
+            background: transparent !important;
+            border: none !important;
+            padding: 10px !important;
+          }
+
+          // Title column
+          td.title {
+            @include flex-layout(column, center, start);
+
+            @media (max-width: 900px) {
+              order: 1 !important;
+              width: 100% !important;
+              padding: 10px 10px 0 !important;
+            }
+
+            .topic-note {
+              background: transparent !important;
+              font-size: 0 !important;
+              padding: 0 !important;
+              margin: 0 0 5px !important;
+              width: 20px !important;
+              height: 20px !important;
+              background: transparent icon("star", $yellow) no-repeat center /
+                20px !important;
+            }
+
+            .topic-title {
+              a {
+                @include anchor-to-button(1em, 100%);
+              }
+            }
+
+            .date {
+              color: $lightgray !important;
+              margin-top: 5px !important;
+              font-size: 0.9em !important;
+
+              @media (max-width: 900px) {
+                font-size: 0.8em !important;
+              }
+            }
+
+            // Locked topic icon
+            img[alt="Тема закрыта"] {
+              @include flex-layout(row, center, center);
+              position: unset !important;
+              margin-bottom: 5px !important;
+              width: 20px !important;
+              height: 20px !important;
+              padding-left: 20px !important;
+              background: transparent icon("lock", $orange) no-repeat center /
+                20px !important;
+            }
+          }
+
+          // Author column
+          td.author {
+            @include flex-layout(row, start, center);
+
+            @media (max-width: 900px) {
+              order: 2 !important;
+              padding: 0 10px !important;
+
+              &:before {
+                content: "Автор:" !important;
+                color: $white !important;
+                margin-right: 5px !important;
+              }
+            }
+
+            a.user-link {
+              @include flex-layout(row, start, center);
+              color: $blue !important;
+              text-decoration: none !important;
+              height: 30px !important;
+              transition: color 0.15s ease-in-out;
+
+              // Handle avatar background
+              &[style*="/avatars/"] {
+                padding-left: 30px !important;
+                background-size: 24px !important;
+                background-position: left center !important;
+              }
+
+              &:hover {
+                color: $lightblue !important;
+              }
+            }
+          }
+
+          // Post count column
+          td.post-cnt {
+            @include flex-layout(row, start, center);
+            color: $green !important;
+
+            @media (max-width: 900px) {
+              order: 3 !important;
+              padding: 0 10px 10px !important;
+              position: relative !important;
+
+              &:before {
+                content: "Ответы:" !important;
+                color: $white !important;
+                margin-right: 5px !important;
+              }
+
+              // HR line after post-cnt on mobile
+              &:after {
+                content: "" !important;
+                position: absolute !important;
+                bottom: 0 !important;
+                left: 10px !important;
+                right: 10px !important;
+                height: 0 !important;
+                border-bottom: 1px solid $gray !important;
+                background-color: $gray !important;
+                mask: linear-gradient(
+                  90deg,
+                  transparent 0%,
+                  $gray 50px,
+                  $gray calc(100% - 50px),
+                  transparent 100%
+                ) !important;
+              }
+            }
+          }
+
+          // Last post column
+          td.last-post {
+            @include flex-layout(column, center, start);
+            padding: 10px 80px 10px 10px !important;
+            position: relative !important;
+
+            @media (max-width: 900px) {
+              order: 4 !important;
+              margin-bottom: 0 !important;
+
+              &:before {
+                content: "Последний ответ" !important;
+                color: $orange !important;
+                margin-bottom: 8px !important;
+                font-weight: 600 !important;
+                font-size: 0.9em !important;
+              }
+            }
+
+            a.user-link {
+              @include flex-layout(row, start, center);
+              color: $blue !important;
+              text-decoration: none !important;
+              margin-bottom: 5px !important;
+              height: 30px !important;
+              transition: color 0.15s ease-in-out;
+
+              // Handle avatar background
+              &[style*="/avatars/"] {
+                padding-left: 30px !important;
+                background-size: 24px !important;
+                background-position: left center !important;
+              }
+
+              &:hover {
+                color: $lightblue !important;
+              }
+            }
+
+            .date {
+              color: $lightgray !important;
+              font-size: 0.9em !important;
+              margin: 0 !important;
+
+              @media (max-width: 900px) {
+                font-size: 0.8em !important;
+              }
+            }
+
+            // Go to post button
+            a.go {
+              position: absolute !important;
+              top: 0 !important;
+              right: 0 !important;
+              height: 100% !important;
+              width: 70px !important;
+              background-image: icon("logIn", $lightblue) !important;
+              background-position: center center !important;
+              background-repeat: no-repeat !important;
+              background-size: 20px 20px !important;
+              border-radius: 0 8px 8px 0 !important;
+              border-left: 1px solid transparent !important;
+              transition: border 0.15s ease-in-out,
+                background-color 0.15s ease-in-out;
+
+              @media (max-width: 900px) {
+                height: 60px !important;
+                width: 60px !important;
+                border-radius: 5px !important;
+                border: 1px solid transparent !important;
+                top: unset !important;
+                bottom: 0 !important;
+                margin: 0 10px 10px 0 !important;
+              }
+
+              @media (max-width: 375px) {
+                height: 45px !important;
+                width: 45px !important;
+              }
+
+              &:hover {
+                background-color: $deepgray !important;
+                border-left-color: $lightblue !important;
+
+                @media (max-width: 900px) {
+                  background-color: $black !important;
+                  border-color: $lightblue !important;
+                }
+              }
+
+              img {
+                display: none !important;
+              }
+            }
+          }
+        }
+      }
+
+      table.foot {
+        width: 100% !important;
+        border-collapse: separate !important;
+        border-spacing: 0 !important;
+
+        tbody {
+          display: flex !important;
+          flex-direction: row !important;
         }
       }
     }

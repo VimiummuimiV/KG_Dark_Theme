@@ -139,16 +139,24 @@
         }
       }
 
-      // Create a stats row container on mobile
+      // HR line after post-cnt on mobile
       @media (max-width: 900px) {
         &::after {
           content: "" !important;
           order: 4 !important;
           width: 100% !important;
-          height: 1px !important;
+          height: 0 !important;
+          border-bottom: 1px solid $gray !important;
           background: darken($gray, 10%) !important;
           margin: 10px 0 !important;
           display: block !important;
+          mask: linear-gradient(
+            90deg,
+            transparent 0%,
+            $gray 50px,
+            $gray calc(100% - 50px),
+            transparent 100%
+          ) !important;
         }
       }
 

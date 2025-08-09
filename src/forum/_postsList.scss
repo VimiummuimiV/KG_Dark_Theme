@@ -6,20 +6,6 @@
     margin-top: 5px !important;
     font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
 
-    .forum-up {
-      @include flex-layout(row);
-      margin-bottom: 10px !important;
-
-      a[href*="/forum/"] {
-        @include anchor-to-button(0px);
-
-        span {
-          font-size: 14px !important;
-          text-decoration: none !important;
-        }
-      }
-    }
-
     h4 {
       noindex {
         @include flex-layout(row);
