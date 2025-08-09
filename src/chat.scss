@@ -408,12 +408,12 @@ $chatHeaderSize: 26px;
 
               &.active {
                 i {
-                  background: $gray icon("chevronRight", $black) no-repeat center /
-                    20px !important;
+                  background: $gray icon("chevronRight", $black) no-repeat
+                    center / 20px !important;
 
                   &:hover {
-                    background: $blue icon("chevronRight", $black) no-repeat center /
-                      20px !important;
+                    background: $blue icon("chevronRight", $black) no-repeat
+                      center / 20px !important;
                   }
                 }
               }
@@ -446,9 +446,19 @@ $chatHeaderSize: 26px;
                     padding-left: 30px !important;
                     text-decoration: none !important;
                     color: darken($white, 10%) !important;
+                    position: relative !important;
+
+                    &::before {
+                      content: "" !important;
+                      position: absolute !important;
+                      left: 0 !important;
+                      top: 0 !important;
+                      @include avatar-mask(4, 24px, $deepgray);
+                    }
 
                     &:hover {
-                      filter: brightness(0.8) !important;
+                      color: $white !important;
+                      text-decoration: underline !important;
                     }
                   }
 
