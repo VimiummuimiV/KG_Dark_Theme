@@ -392,7 +392,7 @@ $chatHeaderSize: 26px;
                 top: 0 !important;
                 transform: translateY(0) !important;
                 transition: background 0.1s ease-out !important;
-                background: $blue chevronLeft-icon($black) no-repeat center /
+                background: $blue icon("chevronLeft", $black) no-repeat center /
                   20px !important;
 
                 @media (max-width: 800px) {
@@ -401,18 +401,18 @@ $chatHeaderSize: 26px;
                 }
 
                 &:hover {
-                  background: $gray chevronLeft-icon($black) no-repeat center /
+                  background: $gray icon("chevronLeft", $black) no-repeat center /
                     20px !important;
                 }
               }
 
               &.active {
                 i {
-                  background: $gray chevronRight-icon($black) no-repeat center /
+                  background: $gray icon("chevronRight", $black) no-repeat center /
                     20px !important;
 
                   &:hover {
-                    background: $blue chevronRight-icon($black) no-repeat center /
+                    background: $blue icon("chevronRight", $black) no-repeat center /
                       20px !important;
                   }
                 }
