@@ -41,9 +41,13 @@
       position: relative !important;
       min-height: 70px !important;
 
+      @media (max-width: 1300px) {
+        height: 80px !important;
+      }
+
       td {
         border: none !important;
-        padding: 15px !important;
+        padding: 0 !important;
       }
 
       td:first-child {
@@ -51,21 +55,39 @@
 
         a.short-description {
           @include element-full-size();
-          padding-top: 10px !important;
-          padding-left: 15px !important;
+          padding: 10px !important;
           text-decoration: none !important;
           border-radius: 5px 0 0 5px !important;
+
+          @media (max-width: 950px) {
+            @include flex-layout(row, start, center);
+
+            @media (max-width: 800px) {
+              padding: 10px !important;
+              font-size: 1.2em !important;
+            }
+          }
 
           &:hover {
             background: $deepgray !important;
             border-right: 1px solid $gray !important;
           }
         }
+
         .long-description {
           position: absolute !important;
           bottom: 15px !important;
+          left: 15px !important;
           color: $white !important;
           font-size: 0.9em !important;
+
+          @media (max-width: 1000px) {
+            font-size: 0.8em !important;
+
+            @media (max-width: 950px) {
+              display: none !important;
+            }
+          }
         }
       }
       td.topic-cnt {
@@ -86,6 +108,7 @@
 
         .title {
           grid-area: title !important;
+          @include flex-layout(row, start, center);
         }
 
         a.user-link {
