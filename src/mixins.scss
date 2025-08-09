@@ -92,7 +92,7 @@
   }
 }
 
-@mixin anchor-to-button($font-size: 1em, $width: fit-content) {
+@mixin anchor-to-button($font-size: 16px, $width: fit-content) {
   @include flex-layout(row, start, center);
   cursor: pointer !important;
   text-decoration: none !important;
