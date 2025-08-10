@@ -1,5 +1,6 @@
 @import "../data/variables";
 @import "gameSettings";
+@import "../mixins";
 
 // Main wrapper container
 #content .play-wrapper {
@@ -128,14 +129,6 @@
         #typeblock {
           background: $darkgray !important;
           border: none !important;
-
-          // Race typeblock weird image based corners
-          .tl,
-          .tr,
-          .bl,
-          .br {
-            background: none !important;
-          }
 
           // Race hidden text before the game starts bg color && text color
           #hiddentext {
@@ -305,7 +298,6 @@
         }
       }
 
-      // Race book bg white bg border remove
       .imobilco-book .imobilco-cover .co {
         background: none !important;
       }
@@ -328,15 +320,15 @@
 
           &.premium_abra_errors {
             span {
-              background-color: coral !important;
+              background-color: $red !important;
               color: $black !important;
             }
 
             a {
-              color: gold !important;
+              color: $yellow !important;
 
               &:hover {
-                color: darken(gold, 10%) !important;
+                color: darken($yellow, 10%) !important;
               }
             }
 
@@ -421,7 +413,7 @@
             span {
               left: 4px !important;
               top: 14px !important;
-              color: silver !important;
+              color: $white !important;
               padding: 2px !important;
               font: 600 6pt "Montserrat", sans-serif !important;
             }
@@ -684,90 +676,3 @@ $rotation-snap: cubic-bezier(
   }
 }
 
-// KLAVOTOOLS SCRIPTS
-#content {
-  // Klavotools sort btn's
-  #sort-panel {
-    .sort-button {
-      text-align: center !important;
-      width: 60px !important;
-      padding-top: 20px !important;
-    }
-
-    div[style*="float: left"] {
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-      width: 175px !important;
-      text-align: center !important;
-
-      label,
-      input {
-        margin: 0 !important;
-      }
-    }
-  }
-
-  // Klavotools race sort block label color && links sort color
-  label[for="autosort"] {
-    color: $white !important;
-  }
-
-  #position,
-  #nickname,
-  #errorscount,
-  #errors,
-  #rating {
-    color: $blue !important;
-
-    &:hover {
-      color: $lightblue !important;
-    }
-  }
-
-  // Klavotools statistics panel (external)
-  #spectrumcanvas {
-    background: $deepgray !important;
-    filter: contrast(2) !important;
-  }
-
-  #statistics {
-    width: 270px !important;
-    margin-top: 10px !important;
-    margin-bottom: 0 !important;
-    color: $white !important;
-    background: $darkgray !important;
-    border: 1px solid $gray !important;
-    opacity: 0.7 !important;
-    transition: opacity 0.2s !important;
-
-    &:hover {
-      opacity: 1 !important;
-      transition: opacity 0.2s !important;
-    }
-
-    span {
-      color: $blue !important;
-    }
-  }
-
-  // Klavotools complexity panel (external)
-  #complexity-panel {
-    opacity: 0.7 !important;
-    transition: opacity 0.2s !important;
-
-    &:hover {
-      opacity: 1 !important;
-      transition: opacity 0.2s !important;
-    }
-
-    label {
-      font-size: 10px !important;
-      margin-right: 8px !important;
-    }
-
-    #spectrumCanvas {
-      margin: 10px 0 10px !important;
-    }
-  }
-}
