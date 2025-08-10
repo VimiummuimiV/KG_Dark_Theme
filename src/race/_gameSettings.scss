@@ -1,10 +1,10 @@
 // Mixin for collapsible panels that start as icon buttons and expand on hover
 @mixin collapsible-panel(
-  $top: 0,
+  $order: 0,
   $icon: null,
   $icon-color: $lightblue,
-  $collapsed-width: 50px,
-  $collapsed-height: 50px,
+  $size: 50px,
+  $gap: 10px,
   $expanded-width: 300px,
   $background: $black,
   $transition-duration: 0.15s,
@@ -16,9 +16,9 @@
   border-radius: 0 5px 5px 0 !important;
   color: $white !important;
   position: absolute !important;
-  top: $top !important;
-  width: $collapsed-width !important;
-  height: $collapsed-height !important;
+  top: #{$order * ($size + $gap)} !important;
+  width: $size !important;
+  height: $size !important;
   overflow: hidden !important;
   min-width: unset !important;
   max-width: unset !important;
@@ -69,61 +69,14 @@
       margin: 0 !important;
       padding: 0 !important;
 
-      // Race settings panel
-      #params {
-        @include collapsible-panel(
-          $top: 60px,
-          $icon: "sliders",
-          $icon-color: $lightblue
-        );
-
-        // Specific styles for params panel
-        a {
-          text-decoration: underline !important;
-          border-bottom: none !important;
-        }
-
-        select {
-          margin: 2px !important;
-        }
-
-        .slider {
-          background: $darkgray !important;
-          border-radius: 10px !important;
-          box-sizing: content-box !important;
-          display: flex !important;
-          align-items: center !important;
-
-          &.off {
-            background: $gray !important;
-            pointer-events: none !important;
-            .handle {
-              display: none !important;
-            }
-          }
-
-          .handle {
-            background: $gray !important;
-            border-radius: 50% !important;
-            height: 14px !important;
-            width: 14px !important;
-            transition: background 0.15s ease-in-out !important;
-            &:hover {
-              background: $lightgray !important;
-            }
-          }
-        }
-      }
-
-      // Invite friends panel
+      // Invite friends panel - order 0
       #invite {
         @include collapsible-panel(
-          $top: 0,
+          $order: 0,
           $icon: "users",
           $icon-color: $lightblue
         );
 
-        // Specific styles for invite panel
         a {
           color: $blue !important;
           &:hover {
@@ -146,6 +99,53 @@
           border: none !important;
           border-bottom: 1px solid $gray !important;
           background: none !important;
+        }
+      }
+
+      // Race settings panel - order 1
+      #params {
+        @include collapsible-panel(
+          $order: 1,
+          $icon: "sliders",
+          $icon-color: $lightblue
+        );
+
+        a {
+          text-decoration: underline !important;
+          border-bottom: none !important;
+        }
+
+        select {
+          margin: 2px !important;
+        }
+
+        .slider {
+          background: $darkgray !important;
+          border-radius: 10px !important;
+          box-sizing: content-box !important;
+          display: flex !important;
+          align-items: center !important;
+
+          &.off {
+            background: $gray !important;
+            pointer-events: none !important;
+
+            .handle {
+              display: none !important;
+            }
+          }
+
+          .handle {
+            background: $gray !important;
+            border-radius: 50% !important;
+            height: 14px !important;
+            width: 14px !important;
+            transition: background 0.15s ease-in-out !important;
+
+            &:hover {
+              background: $lightgray !important;
+            }
+          }
         }
       }
     }
