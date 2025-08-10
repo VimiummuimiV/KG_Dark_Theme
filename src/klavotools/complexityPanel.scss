@@ -8,14 +8,20 @@
   background: $black !important;
   transition: opacity 0.15s ease-in-out !important;
   position: absolute;
-  top: 120px; // Default position, before application of media queries
+  top: 120px;
+  // overflow: hidden !important;
 
-  @media (max-width: 1360px) {
-    @include collapsible-panel(
-      $order: 2,
-      $icon: "percent",
-      $icon-color: $lightblue
-    );
+  @media (max-width: 1350px) {
+    width: 100px;
+    height: 50px;
+    #complexity-pre-calc,
+    #complexity-calc #input-language,
+    #complexity-calc #spectrumCanvas {
+      display: none !important;
+    }
+    #complexity-calc #complexity-calc-inner {
+      font-size: 0 !important;
+    }
   }
 
   &:hover {
@@ -24,12 +30,31 @@
 
   #statistics {
     background: transparent !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    @include flex-layout(column, center, center);
 
     #complexity-pre-calc {
     }
 
     #complexity-calc {
       #complexity-calc-inner {
+        span[style*="color:#333"] {
+          color: $lightblue !important;
+          @media (max-width: 1350px) {
+            font-size: 22px !important;
+          }
+        }
+
+        span[style*="color:#666"] {
+          color: $blue !important;
+          @media (max-width: 1350px) {
+            font-size: 20px !important;
+          }
+        }
+
         #spectrumCanvas {
           margin: 10px 0 !important;
           border-radius: 5px !important;
