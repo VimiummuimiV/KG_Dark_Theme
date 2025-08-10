@@ -1,17 +1,3 @@
-// Game Section Styles
-/* max width 1300px */
-@media only screen and (max-width: 1300px) {
-  #play-right {
-    transform: translate(-90%) !important;
-    opacity: 0 !important;
-
-    &:hover {
-      transform: translate(0) !important;
-      opacity: 1 !important;
-    }
-  }
-}
-
 @media only screen and (max-width: 750px) {
   /* remove speed and errors panel */
   #speedpanel-canvas,
@@ -50,28 +36,6 @@
     width: 50% !important;
     padding: 5px !important;
     text-align: center !important;
-  }
-}
-
-/* play with tablet */
-@media only screen and (max-width: 1075px) {
-  #play-right {
-    display: none !important;
-  }
-
-  .minwidth_container {
-    height: 0 !important;
-  }
-
-  /* game block top space */
-  body .play-wrapper {
-    display: flex !important;
-    justify-content: center !important;
-    margin: 25px 0 0 0 !important;
-  }
-
-  body .play-overall-table {
-    margin: 0 !important;
   }
 }
 

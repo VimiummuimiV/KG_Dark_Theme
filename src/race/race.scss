@@ -515,6 +515,11 @@
               }
             }
 
+            img[src*="avatars/"] {
+              height: 24px !important;
+              border-radius: 3px !important;
+            }
+
             .nick_content {
               // Fix none accessible nickname by cursor to show profile popup
               z-index: 100 !important;
@@ -574,7 +579,7 @@
   }
 }
 
-#content .handle {
+#content .gameblock .handle {
   margin-left: -5px !important;
   opacity: 0.5 !important;
   border-radius: 50% !important;

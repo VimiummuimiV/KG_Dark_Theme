@@ -4,32 +4,43 @@
     #play-right {
       display: flex !important;
       flex-direction: column !important;
-      gap: 1em !important;
+      gap: 0.5em !important;
       position: absolute !important;
-      margin-left: 0 !important;
-      padding: 1em !important;
+      margin: 0 !important;
       left: 0 !important;
-      transform: translate(0) !important;
-      transition: opacity 1s ease-in-out, 0.3s ease-in-out !important;
-
-      // Race advertisement remove
-      #playads {
-        display: none !important;
-      }
+      z-index: 1000 !important;
+      width: 0 !important;
+      min-width: 0 !important;
+      max-width: 0 !important;
 
       // Race settings panel
       #params {
-        order: 1 !important;
-        width: 300px !important;
-        background: $black !important;
-        border: 1px solid $gray !important;
-        border-radius: 5px !important;
+        border-radius: 0 5px 5px 0 !important;
         color: $white !important;
-        opacity: 0.2 !important;
-        transition: opacity 0.2s ease-in-out !important;
+        position: absolute !important;
+        top: 60px !important;
+        width: 50px !important;
+        height: 50px !important;
+        overflow: hidden !important;
+        min-width: unset !important;
+        max-width: unset !important;
+        transition: width 0.15s ease-in-out, height 0.15s ease-in-out !important;
+        background: $black icon("sliders", $lightblue) no-repeat center / 24px !important;
+
+        & * {
+          opacity: 0 !important;
+          transition: opacity 0.3s ease-in-out !important;
+        }
 
         &:hover {
-          opacity: 1 !important;
+          width: 300px !important;
+          height: auto !important;
+          background: $black !important;
+
+          & * {
+            opacity: 1 !important;
+            transition: opacity 0.3s ease-in-out 0.05s !important;
+          }
         }
 
         // Race settings links styles
@@ -43,8 +54,7 @@
         }
 
         .slider {
-          background: $deepgray !important;
-          border: 1px solid $gray !important;
+          background: $darkgray !important;
           border-radius: 10px !important;
           box-sizing: content-box !important;
           display: flex !important;
@@ -53,6 +63,10 @@
           &.off {
             background: $gray !important;
             pointer-events: none !important;
+
+            .handle {
+              display: none !important;
+            }
           }
 
           .handle {
@@ -60,10 +74,10 @@
             border-radius: 50% !important;
             height: 14px !important;
             width: 14px !important;
-            transition: background 0.2s !important;
+            transition: background 0.15s ease-in-out !important;
 
             &:hover {
-              background: $lightblue !important;
+              background: $lightgray !important;
             }
           }
         }
@@ -72,18 +86,17 @@
       // Invite friends panel
       #invite {
         margin: 0 !important;
-        order: 0 !important;
         width: 300px !important;
         background: $black !important;
-        border: 1px solid $gray !important;
-        border-radius: 5px !important;
+        border-radius: 0 5px 5px 0 !important;
         color: $white !important;
-        opacity: 0.2 !important;
-        transition: opacity 0.2s ease-in-out !important;
-
-        &:hover {
-          opacity: 1 !important;
-        }
+        position: absolute !important;
+        top: 0 !important;
+        width: 50px !important;
+        height: 50px !important;
+        overflow: hidden !important;
+        min-width: unset !important;
+        max-width: unset !important;
 
         a {
           color: $blue !important;
