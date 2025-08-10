@@ -45,6 +45,17 @@
         $icon: "percent",
         $icon-color: $lightblue
       );
+
+      // Reset display to initial values at 970px and below
+      #complexity-pre-calc,
+      #input-language,
+      #spectrumCanvas {
+        display: block !important;
+      }
+
+      #complexity-calc-inner {
+        font-size: unset !important;
+      }
     }
   }
 
