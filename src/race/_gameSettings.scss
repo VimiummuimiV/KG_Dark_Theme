@@ -17,11 +17,11 @@
   color: $white !important;
   position: absolute !important;
   top: #{$order * ($size + $gap)} !important;
-  width: $size !important;
-  height: $size !important;
+  width: $size;
+  height: $size;
   overflow: hidden !important;
   min-width: unset !important;
-  max-width: unset !important;
+  max-width: 300px !important;
   transition: width $transition-duration ease-in-out,
     height $transition-duration ease-in-out !important;
 
