@@ -233,6 +233,77 @@
     viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
   }
 
+  // ===== SPEEDOMETER ARROW =====
+  const SPEEDOMETER_ARROW_COLOR = 'hsl(200, 40%, 60%)';
+
+  function initializeSpeedometerArrow() {
+    if (!window.location.href.includes('/g/?gmid=')) return;
+
+    const init = () => {
+      const speedpanel = document.getElementById('speedpanel');
+      if (!speedpanel || document.querySelector('.speedpanel-arrow')) return;
+
+      // Create SVG arrow
+      const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      arrow.classList.add("speedpanel-arrow");
+      arrow.setAttribute('width', '4');
+      arrow.setAttribute('height', '60');
+      arrow.setAttribute('viewBox', '0 0 4 60');
+      Object.assign(arrow.style, {
+        position: 'absolute',
+        bottom: '0',
+        right: '142px',
+        transformOrigin: '50% 100%',
+        transform: 'rotate(-90deg)',
+        zIndex: '10',
+        pointerEvents: 'none',
+        filter: `drop-shadow(0 0 6px ${SPEEDOMETER_ARROW_COLOR}) drop-shadow(0 0 12px ${SPEEDOMETER_ARROW_COLOR}40)`
+      });
+
+      const stick = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      stick.setAttribute('x', '0');
+      stick.setAttribute('y', '0');
+      stick.setAttribute('width', '4');
+      stick.setAttribute('height', '60');
+      stick.setAttribute('rx', '2');
+      stick.setAttribute('fill', SPEEDOMETER_ARROW_COLOR);
+
+      arrow.appendChild(stick);
+      speedpanel.appendChild(arrow);
+
+      // Update function
+      const update = () => {
+        const speedLabel = document.getElementById('speed-label');
+        if (!speedLabel) return;
+        const speed = Math.max(0, Math.min(1000, parseFloat(speedLabel.textContent) || 0));
+        const angle = (speed / 1000) * 180 - 90;
+        arrow.style.transform = `rotate(${angle}deg)`;
+      };
+
+      // Watch for speed changes
+      const observer = new MutationObserver(update);
+      const speedLabel = document.getElementById('speed-label');
+      if (speedLabel) observer.observe(speedLabel, { childList: true, characterData: true, subtree: true });
+
+      const parentObserver = new MutationObserver(mutations => {
+        mutations.forEach(m => m.addedNodes.forEach(n => {
+          if (n.nodeType === 1) {
+            const sl = n.id === 'speed-label' ? n : n.querySelector?.('#speed-label');
+            if (sl) {
+              observer.observe(sl, { childList: true, characterData: true, subtree: true });
+              update();
+              parentObserver.disconnect();
+            }
+          }
+        }));
+      });
+      parentObserver.observe(document.documentElement, { childList: true, subtree: true });
+      update();
+    };
+
+    init();
+  }
+
   const cssContent = CSS_CONTENT_PLACEHOLDER;
 
   // ===== INITIALIZATION =====
@@ -244,6 +315,7 @@
     addViewportMeta();
     initializeUsernameColorCalibrator(); // Uses mutation observer with helper functions
     initializeSpanColorCalibrator(); // One-time calibration on DOMContentLoaded with helper functions
+    initializeSpeedometerArrow(); // Speedometer arrow for specific URL
   }
 
   // Execute immediately if possible
