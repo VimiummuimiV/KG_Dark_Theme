@@ -245,8 +245,8 @@
     arrow.classList.add('speedpanel-arrow');
     Object.assign(arrow.style, {
       position: 'absolute',
-      bottom: '32px',
-      right: '142px',
+      bottom: '30px',
+      right: '148px',
       pointerEvents: 'none',
       filter: `drop-shadow(0 0 6px ${SPEEDOMETER_ARROW_COLOR}) drop-shadow(0 0 12px ${SPEEDOMETER_ARROW_COLOR}40)`,
       transformOrigin: '50% 100%',
@@ -254,10 +254,10 @@
       zIndex: '10'
     });
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewBox', '0 0 4 36');
+    svg.setAttribute('viewBox', '0 0 4 38');
     svg.setAttribute('width', '4');
-    svg.setAttribute('height', '36');
-    svg.innerHTML = `<rect width="4" height="36" rx="2" fill="${SPEEDOMETER_ARROW_COLOR}"/>`;
+    svg.setAttribute('height', '38');
+    svg.innerHTML = `<rect width="4" height="38" rx="2" fill="${SPEEDOMETER_ARROW_COLOR}"/>`;
     arrow.appendChild(svg);
     speedpanel.appendChild(arrow);
     const update = () => {

@@ -2,19 +2,6 @@
 @import "gameSettings";
 @import "../mixins";
 
-// Neon text effect mixin
-// $color: The base color for the neon effect
-// $glow-size: Controls the size/spread of the glow effect (1 = normal, 2 = double size, 0.5 = half size)
-@mixin neon-text($color, $glow-size: 1) {
-  color: $color !important;
-  text-shadow: 0 0 (5px * $glow-size) rgba($color, 0.8),
-    0 0 (10px * $glow-size) rgba($color, 0.6),
-    0 0 (15px * $glow-size) rgba($color, 0.4),
-    0 0 (20px * $glow-size) rgba($color, 0.3),
-    0 0 (35px * $glow-size) rgba($color, 0.2),
-    0 0 (40px * $glow-size) rgba($color, 0.1) !important;
-}
-
 // Main wrapper container
 #content .play-wrapper {
   // Play overall table container
@@ -30,30 +17,35 @@
         #speedpanel {
           #speedpanel-canvas {
             box-sizing: border-box !important;
-            padding-left: 262px !important;
-            height: 87px !important;
-            width: 262px !important;
-            background: transparent $newSpeedPanel no-repeat right center /
-              contain !important;
+            padding-left: 260px !important;
+            height: 90px !important;
+            width: 260px !important;
+            background: transparent $speedPanel no-repeat right center / contain !important;
+          }
+
+          &::before {
+            content: "";
+            position: absolute !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: 15 !important;
+            background: transparent $speedPanelDigitsPlace no-repeat right center / contain !important;
           }
 
           #speed-label {
-            top: 59px !important;
-            right: 130px !important;
+            width: 40px !important;
+            top: 61px !important;
+            right: 129px !important;
             font: 600 16px "Montserrat", sans-serif !important;
-
-            // Apply neon effect with the existing color
-            @include neon-text(lighten($lightblue, 15%), 0.8);
+            color: lighten($lightblue, 15%) !important;
           }
 
           #errors-label {
-            width: 60px !important;
+            width: 62px !important;
             right: 18px !important;
-            top: 35px !important;
+            top: 37px !important;
             font: 600 24px "Montserrat", sans-serif !important;
-
-            // Apply neon effect with the existing color
-            @include neon-text(lighten($red, 15%), 1);
+            color: lighten($red, 15%) !important;
           }
         }
 

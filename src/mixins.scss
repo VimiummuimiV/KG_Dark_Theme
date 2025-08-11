@@ -208,6 +208,7 @@
   $content-transition-duration: 0.3s,
   $content-transition-delay: 0.05s
 ) {
+  z-index: 100 !important;
   margin: 0 !important;
   padding: 0 !important;
   border-radius: 0 5px 5px 0 !important;
@@ -243,6 +244,8 @@
     width: $expanded-width !important;
     height: auto !important;
     background: $background !important;
+    border: 2px solid $blue !important;
+    border-left-width: 0 !important;
 
     & * {
       opacity: 1 !important;
