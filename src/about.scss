@@ -1,44 +1,144 @@
 @import "./data/variables";
+@import "./mixins";
 
-.about {
-  width: 80% !important;
-  font-size: 12px !important;
-
-  /* all images invert for rules, training, all the day questions, vip accaunt */
-  img {
-    filter: invert(83%) !important;
-  }
-
-  /* about premium menu bg under buy button */
-  div[style*="eee"] {
-    background-color: $darkgray !important;
-  }
-}
+// Breakpoint
+$tablet-breakpoint: 1100px;
 
 #about {
-  table#regular {
-    display: flex !important;
-    justify-content: center !important;
+  width: 80% !important;
+  font-size: 1em !important;
+
+  @media (max-width: 1175px) {
+    width: 100% !important;
   }
 
-  /* rules tab ranges table big border remove */
-  table.cars {
-    border: 1px solid $gray !important;
+  h4 {
+    text-align: center !important;
+  }
 
-    /* rules tab ranges table bg color */
-    td {
-      background: $darkgray !important;
-      color: $white !important;
+  h3 {
+    margin: 0 !important;
+    color: $black !important;
+  }
+
+  dl.menu {
+    @include flex-layout();
+  }
+
+  a:has(h3) {
+    text-decoration: none !important;
+    margin: 30px 0 5px 50% !important;
+    transform: translateX(-50%) !important;
+
+    @include anchor-to-button($font-size: 20px);
+  }
+
+  ul {
+    @media (max-width: 800px) {
+      margin: 0 !important;
+      padding: 0 !important;
     }
   }
-}
 
-/* about all the day questions headers text color */
-#faq .question dt {
-  color: $blue !important;
-}
+  // Material Design Dark Theme
+  #regular {
+    width: 100%;
+    border-collapse: collapse;
+    background: $deepgray;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    overflow: hidden;
 
-/* training hint what's about vocs bg color */
-#learning .hint {
-  background: $deepgray !important;
+    @media (max-width: $tablet-breakpoint) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+      border-collapse: initial;
+    }
+
+    tbody {
+      @media (max-width: $tablet-breakpoint) {
+        display: contents;
+      }
+    }
+
+    tr {
+      background: $darkgray;
+
+      &:hover {
+        background: rgba($lightblue, 0.08);
+      }
+
+      @media (max-width: $tablet-breakpoint) {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 180px;
+        background: $darkgray;
+        min-width: 180px;
+        max-width: 250px;
+
+        &:hover {
+          background: rgba($lightblue, 0.08);
+        }
+
+        &:first-child {
+          display: none;
+        }
+      }
+    }
+
+    th,
+    td {
+      padding: 8px 6px !important;
+      text-align: center !important;
+      border: none !important;
+      background: $black !important;
+      color: $white !important;
+      font-size: 0.8rem !important;
+
+      @media (max-width: $tablet-breakpoint) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 4px;
+        border: none;
+        background: $darkgray;
+        min-height: 40px;
+        flex: 1;
+      }
+    }
+
+    th {
+      background: $black !important;
+      color: $lightgray !important;
+      font-weight: 500 !important;
+      font-size: 0.75rem !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    td {
+      &.bordleft {
+        @media (max-width: $tablet-breakpoint) {
+
+        }
+      }
+
+      &.x3 {
+        background: darken($orange, 30%) !important;
+        color: lighten($orange, 30%) !important;
+      }
+
+      &.x5 {
+        background: darken($yellow, 30%) !important;
+        color: lighten($yellow, 30%) !important;
+      }
+
+      &:nth-child(odd):not([class*="x"]) {
+        background: $deepgray !important;
+        color: $lightgray !important;
+      }
+    }
+  }
 }
