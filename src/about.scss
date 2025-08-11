@@ -27,33 +27,33 @@ $tablet-breakpoint: 1100px;
 
   a:has(h3) {
     text-decoration: none !important;
-    margin: 30px 0 5px 50% !important;
-    transform: translateX(-50%) !important;
+    margin: 30px 0 5px !important;
 
     @include anchor-to-button($font-size: 20px);
   }
 
-  ul {
+  ul, ol {
     @media (max-width: 800px) {
       margin: 0 !important;
       padding: 0 !important;
     }
   }
 
-  // Material Design Dark Theme
-  #regular {
+  // Competitions table timestamps
+  table#regular {
     width: 100%;
     border-collapse: collapse;
-    background: $deepgray;
+    background: transparent !important;
     font-size: 0.8rem;
-    border-radius: 8px;
+    border-radius: 5px;
     overflow: hidden;
 
     @media (max-width: $tablet-breakpoint) {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 150px));
+      gap: 5px;
       border-collapse: initial;
+      justify-content: center;
     }
 
     tbody {
@@ -72,10 +72,7 @@ $tablet-breakpoint: 1100px;
       @media (max-width: $tablet-breakpoint) {
         display: flex;
         flex-direction: column;
-        flex: 1 1 180px;
-        background: $darkgray;
-        min-width: 180px;
-        max-width: 250px;
+        border-radius: 5px;
 
         &:hover {
           background: rgba($lightblue, 0.08);
@@ -121,7 +118,6 @@ $tablet-breakpoint: 1100px;
     td {
       &.bordleft {
         @media (max-width: $tablet-breakpoint) {
-
         }
       }
 
@@ -138,6 +134,23 @@ $tablet-breakpoint: 1100px;
       &:nth-child(odd):not([class*="x"]) {
         background: $deepgray !important;
         color: $lightgray !important;
+      }
+    }
+  }
+
+  // Ranking table ranges
+  table.cars {
+    @include flex-layout();
+    width: fit-content !important;
+    padding: 10px !important;
+    border-radius: 10px !important;
+    border: none !important;
+    background: $black !important;
+
+    tr {
+      td {
+        color: $lightgray;
+        background: transparent !important;
       }
     }
   }
