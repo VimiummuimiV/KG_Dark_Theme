@@ -251,6 +251,7 @@
       filter: `drop-shadow(0 0 6px ${SPEEDOMETER_ARROW_COLOR}) drop-shadow(0 0 12px ${SPEEDOMETER_ARROW_COLOR}40)`,
       transformOrigin: '50% 100%',
       transform: `rotate(${ARROW_START_ROTATION}deg)`,
+      transition: 'transform 0.15s ease',
       zIndex: '10'
     });
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
