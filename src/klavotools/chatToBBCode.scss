@@ -1,0 +1,45 @@
+@import "../data/variables";
+
+#chat-container {
+  #chat-content {
+    .chat {
+      .messages {
+        .messages-border {
+          table {
+            td:has(input[value*="BBCode"]) {
+              width: 35px !important;
+              height: 35px !important;
+              background: $gray icon("clipboard", $black) no-repeat center /
+                20px !important;
+              border-radius: 5px !important;
+              margin: 0 5px 0 0 !important;
+              transition: background 0.1s ease-out !important;
+
+              &:hover {
+                background: $blue icon("clipboard", $black) no-repeat center /
+                  20px !important;
+              }
+
+              input[value*="BBCode"] {
+                opacity: 0 !important;
+                width: 35px !important;
+                height: 35px !important;
+                padding: 0 !important;
+                border: none !important;
+                outline: none !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#popalert {
+  #popalert-content {
+    #chat2BBcode_textarea {
+      margin-bottom: 10px !important;
+    }
+  }
+}
