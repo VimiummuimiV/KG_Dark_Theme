@@ -233,62 +233,47 @@
     viewportMeta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
   }
 
-  // ===== SPEEDOMETER ARROW =====
   const SPEEDOMETER_ARROW_COLOR = 'hsl(200, 40%, 60%)';
+  const ARROW_START_ROTATION = -100;
+  const ARROW_END_ROTATION = 100;
 
   function initializeSpeedometerArrow() {
-    if (!window.location.href.includes('/g/?gmid=')) return;
-
-    const init = () => {
-      const speedpanel = document.getElementById('speedpanel');
-      if (!speedpanel || document.querySelector('.speedpanel-arrow')) return;
-
-      // Create SVG arrow
-      const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      arrow.classList.add("speedpanel-arrow");
-      arrow.setAttribute('width', '4');
-      arrow.setAttribute('height', '60');
-      arrow.setAttribute('viewBox', '0 0 4 60');
-      Object.assign(arrow.style, {
-        position: 'absolute',
-        bottom: '0',
-        right: '142px',
-        transformOrigin: '50% 100%',
-        transform: 'rotate(-90deg)',
-        zIndex: '10',
-        pointerEvents: 'none',
-        filter: `drop-shadow(0 0 6px ${SPEEDOMETER_ARROW_COLOR}) drop-shadow(0 0 12px ${SPEEDOMETER_ARROW_COLOR}40)`
-      });
-
-      const stick = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      stick.setAttribute('x', '0');
-      stick.setAttribute('y', '0');
-      stick.setAttribute('width', '4');
-      stick.setAttribute('height', '60');
-      stick.setAttribute('rx', '2');
-      stick.setAttribute('fill', SPEEDOMETER_ARROW_COLOR);
-
-      arrow.appendChild(stick);
-      speedpanel.appendChild(arrow);
-
-      // Animation loop
-      const update = () => {
-        const speedLabel = document.getElementById('speed-label');
-        if (speedLabel) {
-          const speed = Math.max(0, Math.min(1000, parseFloat(speedLabel.textContent) || 0));
-          const angle = (speed / 1000) * 180 - 90;
-          arrow.style.transform = `rotate(${angle}deg)`;
-        }
-        requestAnimationFrame(update);
-      };
-
+    if (!location.href.includes('/g/?gmid=')) return;
+    const speedpanel = document.getElementById('speedpanel');
+    if (!speedpanel || document.querySelector('.speedpanel-arrow')) return;
+    const arrow = document.createElement('div');
+    arrow.classList.add('speedpanel-arrow');
+    Object.assign(arrow.style, {
+      position: 'absolute',
+      bottom: '32px',
+      right: '142px',
+      pointerEvents: 'none',
+      filter: `drop-shadow(0 0 6px ${SPEEDOMETER_ARROW_COLOR}) drop-shadow(0 0 12px ${SPEEDOMETER_ARROW_COLOR}40)`,
+      transformOrigin: '50% 100%',
+      transform: `rotate(${ARROW_START_ROTATION}deg)`,
+      zIndex: '10'
+    });
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 4 36');
+    svg.setAttribute('width', '4');
+    svg.setAttribute('height', '36');
+    svg.innerHTML = `<rect width="4" height="36" rx="2" fill="${SPEEDOMETER_ARROW_COLOR}"/>`;
+    arrow.appendChild(svg);
+    speedpanel.appendChild(arrow);
+    const update = () => {
+      const speedLabel = document.getElementById('speed-label');
+      if (speedLabel) {
+        const speed = Math.max(0, Math.min(1000, parseFloat(speedLabel.textContent) || 0));
+        const rotationRange = ARROW_END_ROTATION - ARROW_START_ROTATION;
+        const angle = ARROW_START_ROTATION + (speed / 1000) * rotationRange;
+        arrow.style.transform = `rotate(${angle}deg)`;
+      }
       requestAnimationFrame(update);
     };
-
-    init();
+    requestAnimationFrame(update);
   }
 
-
+  // ===== APPLY CSS CONTENT =====
   const cssContent = CSS_CONTENT_PLACEHOLDER;
 
   // ===== INITIALIZATION =====
