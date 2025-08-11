@@ -1,9 +1,16 @@
+// Globally
 .ownbanner-back,
 #reformal_tab,
 #footer,
 .feedback,
 #test,
-#playads {
+// Race settings panel
+#playads,
+// Race speed panel
+#speedpanel-back,
+#speedpanel-back-dark,
+#speedpanel-top,
+#speedpanel-arrow {
   display: none !important;
 }
 // Remove background images from container corners
