@@ -271,38 +271,23 @@
       arrow.appendChild(stick);
       speedpanel.appendChild(arrow);
 
-      // Update function
+      // Animation loop
       const update = () => {
         const speedLabel = document.getElementById('speed-label');
-        if (!speedLabel) return;
-        const speed = Math.max(0, Math.min(1000, parseFloat(speedLabel.textContent) || 0));
-        const angle = (speed / 1000) * 180 - 90;
-        arrow.style.transform = `rotate(${angle}deg)`;
+        if (speedLabel) {
+          const speed = Math.max(0, Math.min(1000, parseFloat(speedLabel.textContent) || 0));
+          const angle = (speed / 1000) * 180 - 90;
+          arrow.style.transform = `rotate(${angle}deg)`;
+        }
+        requestAnimationFrame(update);
       };
 
-      // Watch for speed changes
-      const observer = new MutationObserver(update);
-      const speedLabel = document.getElementById('speed-label');
-      if (speedLabel) observer.observe(speedLabel, { childList: true, characterData: true, subtree: true });
-
-      const parentObserver = new MutationObserver(mutations => {
-        mutations.forEach(m => m.addedNodes.forEach(n => {
-          if (n.nodeType === 1) {
-            const sl = n.id === 'speed-label' ? n : n.querySelector?.('#speed-label');
-            if (sl) {
-              observer.observe(sl, { childList: true, characterData: true, subtree: true });
-              update();
-              parentObserver.disconnect();
-            }
-          }
-        }));
-      });
-      parentObserver.observe(document.documentElement, { childList: true, subtree: true });
-      update();
+      requestAnimationFrame(update);
     };
 
     init();
   }
+
 
   const cssContent = CSS_CONTENT_PLACEHOLDER;
 
