@@ -183,11 +183,13 @@ $tablet-breakpoint: 1100px;
   .hint {
     background: $black !important;
     border-radius: 10px !important;
+    width: 80% !important;
 
-    @media (max-width: 500px) {
-      float: unset !important;
+    @media (max-width: 1000px) {
+      width: 65% !important;
 
-      @media (max-width: 360px) {
+      @media (max-width: 500px) {
+        float: unset !important;
         width: 100% !important;
       }
     }
@@ -195,6 +197,9 @@ $tablet-breakpoint: 1100px;
 
   ol#vocs {
     list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
     li {
       a {
         @include anchor-to-button($font-size: 1.2em);
