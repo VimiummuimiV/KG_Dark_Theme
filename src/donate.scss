@@ -1,139 +1,223 @@
 @import "./data/variables";
 
-/* fuel */
-.fuel-dlg-pay {
-  /* fuel amount container */
-  .amount {
-    background: $deepgray !important;
-    border: 1px solid $gray !important;
-  }
-
-  /* fuel active item */
-  ul.benefit > li {
-    &.active,
-    &:hover {
-      background: $deepgray !important;
-    }
-
-    /* fuel get premium options */
-    .pro-options > li {
-      background: $darkgray !important;
-      border: 1px solid $gray !important;
-
-      &.active {
-        background: $darkgray !important;
-      }
-    }
-  }
-
-  /* fuel my name thanks */
-  .bonus.clickable {
-    background: $darkgray !important;
-
-    &:hover {
-      background: $deepgray !important;
-    }
-  }
-}
-
-/* fuel i wanna points count input */
-input.ng-pristine {
-  border: 1px solid $gray !important;
-}
-
 .fuel-root {
-  /* hidden fuel about */
-  .faq {
-    height: 0 !important;
-    visibility: hidden !important;
-    margin-bottom: 0 !important;
+  width: 100% !important;
+
+  h2 {
+    text-align: center !important;
+    @include flex-layout(row);
+    gap: 10px !important;
+    margin: 0 0 20px !important;
+
+    @media (max-width: 440px) {
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+
+    a {
+      margin: 0 !important;
+      color: $orange !important;
+      background: darken($orange, 30%) !important;
+      padding: 5px 10px !important;
+      border-radius: 5px !important;
+      transition: background 0.15s ease-in-out, color 0.15s ease-in-out !important;
+
+      &.active,
+      &:hover {
+        color: $yellow !important;
+        background: darken($yellow, 30%) !important;
+      }
+    }
   }
 
-  /* fuel bg color top and bottom blocks */
-  .fuel-content,
-  .thankyou {
-    background-color: $darkgray !important;
+  .month {
+    button {
+      padding: 10px !important;
+      text-decoration: none !important;
+    }
   }
 
-  /* fuel dividers */
   .fuel-content {
-    border-bottom: 1px solid $gray !important;
+    background-color: $darkgray !important;
+    position: relative !important;
+    padding: 0 !important;
+    margin: 20px 0 0 !important;
 
-    .left-block {
-      /* donated main value color */
-      .amount {
-        color: $blue !important;
+    .container {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+      display: flex !important;
+
+      @media (max-width: 1000px) {
+        flex-direction: column !important;
+        align-items: center !important;
       }
 
-      /* donate button */
-      .tank-up {
-        background: $donate no-repeat !important;
+      // Donation button
+      .left-block {
+        order: 0 !important;
 
-        &:hover {
-          background-position: 0 -70px !important;
+        @media (max-width: 1000px) {
+          order: 1 !important;
+          margin-bottom: 40px !important;
+          width: 100% !important;
+          @include flex-layout();
+        }
+
+        .my {
+          color: $lightgray !important;
+          position: relative !important;
+
+          b {
+            color: $yellow !important;
+          }
+
+          a {
+            @include anchor-to-button($font-size: 12px, $width: 100%);
+            margin: 10px 0 0 !important;
+            position: absolute !important;
+          }
         }
       }
-    }
 
-    .right-block {
-      .goal-list {
-        /* fuel goal more information */
-        .goal {
-          background: $deepgray !important;
-          border-bottom: 1px solid $blue !important;
+      // Donation arrow indicator
+      .indicator {
+        order: 1 !important;
 
-          /* aim && aim point */
-          h4,
-          h4 .remained {
-            color: $deepgray !important;
+        @media (max-width: 1000px) {
+          order: 0 !important;
+
+          @media (max-width: 550px) {
+            display: none !important;
           }
         }
 
-        /* fuel aim bg img shit remove */
-        .gradient-bottom,
-        .gradient-top {
-          display: none !important;
+        .vote-display-mode {
+          a {
+            padding: 5px 10px !important;
+            color: $orange !important;
+            background: darken($orange, 30%) !important;
+            border: none !important;
+            border-radius: 3px !important;
+            font-weight: normal !important;
+            transition: background 0.15s ease-in-out, color 0.15s ease-in-out !important;
+
+            &.active,
+            &:hover {
+              color: $yellow !important;
+              background: darken($yellow, 30%) !important;
+            }
+          }
+        }
+      }
+
+      // Donation goal
+      .right-block {
+        order: 2 !important;
+
+        .goal-list {
+          .goal {
+            background: $black !important;
+
+            h4 {
+              color: lighten($orange, 40%) !important;
+              background-color: darken($orange, 10%) !important;
+
+              .remained {
+                color: lighten($orange, 30%) !important;
+              }
+            }
+          }
+
+          .gradient-top,
+          .gradient-bottom {
+            display: none !important;
+          }
         }
       }
     }
   }
 
+  .faq {
+    margin: 20px !important;
+  }
+
   .thankyou {
+    margin: 60px 0 0 !important;
     padding: 0 !important;
+    background-color: $darkgray !important;
+    position: relative !important;
 
-    .row > div .user > div.avgmore {
-      background: $blue !important;
+    .container {
+      width: 100% !important;
+      color: lighten($green, 20%) !important;
 
-      /* donated more link colors */
-      a,
-      a:hover,
-      .note {
-        color: $darkgray !important;
-        text-decoration: none !important;
+      h4 {
+        color: $yellow !important;
+        text-align: center !important;
+        text-transform: uppercase !important;
+        font: 700 2em "Montserrat", sans-serif !important;
+
+        &::after {
+          content: "" !important;
+          display: block !important;
+          width: auto !important;
+          height: 102px !important;
+          background: transparent
+            url("https://klavogonki.ru/img/smilies/firework.gif") no-repeat
+            center !important;
+        }
       }
-    }
-  }
 
-  /* fuel donation word */
-  h2 a.active {
-    color: $orange !important;
-  }
+      .row {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
 
-  /* data button select */
-  .month {
-    button {
-      padding: 5px !important;
-      background: $deepgray !important;
-      border-bottom: 1px solid transparent !important;
+        @media (max-width: 1050px) {
+          grid-template-columns: repeat(3, 1fr) !important;
 
-      &:hover {
-        text-decoration: none !important;
-        border-bottom: 1px solid $blue !important;
+          @media (max-width: 800px) {
+            grid-template-columns: repeat(2, 1fr) !important;
+
+            @media (max-width: 550px) {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        }
+
+        &::before {
+          display: none !important;
+        }
+
+        .col-xs-3 {
+          width: 100% !important;
+        }
+
+        .user {
+          a {
+            text-decoration: none !important;
+            color: $orange !important;
+            transition: color 0.15s ease-in-out !important;
+
+            &:hover {
+              color: $yellow !important;
+            }
+          }
+
+          .avgmore {
+            background: $yellow !important;
+
+            a {
+              color: $black !important;
+            }
+
+            .note {
+              color: $darkgray !important;
+            }
+          }
+        }
       }
-    }
-
-    span.ng-scope:nth-child(1) {
-      color: $white !important;
     }
   }
 }
