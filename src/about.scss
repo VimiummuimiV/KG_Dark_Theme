@@ -4,7 +4,8 @@
 // Breakpoint
 $tablet-breakpoint: 1100px;
 
-#about {
+.about {
+  // ===== ABOUT =====
   width: 80% !important;
   font-size: 1em !important;
 
@@ -32,7 +33,8 @@ $tablet-breakpoint: 1100px;
     @include anchor-to-button($font-size: 20px);
   }
 
-  ul, ol {
+  ul,
+  ol {
     @media (max-width: 800px) {
       margin: 0 !important;
       padding: 0 !important;
@@ -153,5 +155,114 @@ $tablet-breakpoint: 1100px;
         background: transparent !important;
       }
     }
+  }
+
+  // ===== LEARNING =====
+  p:has(img[src*="keyboard"]) {
+    img {
+      @include replace-image($backRussianKeyboard, 546px, 202px);
+
+      @media (max-width: 600px) {
+        padding-left: 100% !important;
+        width: 100% !important;
+
+        @media (max-width: 500px) {
+          height: 150px !important;
+        }
+      }
+    }
+  }
+
+  .note {
+    color: lighten($green, 20%) !important;
+    font-size: 1.2em !important;
+    margin: 20px 0 !important;
+    padding: 0 !important;
+  }
+
+  .hint {
+    background: $black !important;
+    border-radius: 10px !important;
+
+    @media (max-width: 500px) {
+      float: unset !important;
+
+      @media (max-width: 360px) {
+        width: 100% !important;
+      }
+    }
+  }
+
+  ol#vocs {
+    list-style: none !important;
+    li {
+      a {
+        @include anchor-to-button($font-size: 1.2em);
+      }
+    }
+  }
+
+  p:has(input[type="button"]) {
+    input {
+      border: none !important;
+      border-radius: 5px !important;
+      outline: none !important;
+      font-size: 1.2em !important;
+      margin: 20px 0 !important;
+      padding: 5px 10px !important;
+      background: lighten($green, 20%) !important;
+      color: $black !important;
+      transition: all 0.1s ease-in-out !important;
+
+      &:hover {
+        background: lighten($green, 10%) !important;
+        color: $black !important;
+      }
+    }
+  }
+
+  // ===== FAQ =====
+  .question {
+    dt {
+      font-weight: bold !important;
+      color: lighten($green, 10%) !important;
+      margin: 20px 0 !important;
+      padding: 0 !important;
+    }
+  }
+
+  // ===== PREMIUM =====
+  .btn_buy_premium_bg {
+    background: $darkgray !important;
+  }
+
+  img[src*="digramms"] {
+    @include replace-image($diagrams, 700px, 170px);
+
+    @media (max-width: 770px) {
+      display: none !important;
+    }
+  }
+
+  img[src*="premium_check"] {
+    float: left !important;
+    @include replace-image($premiumCheck, 700px, 170px);
+    margin-left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    @media (max-width: 770px) {
+      display: none !important;
+    }
+
+    + p {
+      float: left !important;
+    }
+  }
+
+  img[src*="premium_abra"],
+  img[src*="view_ts_in_race"],
+  img[src*="books"],
+  img[src*="stats"] {
+    display: none !important;
   }
 }

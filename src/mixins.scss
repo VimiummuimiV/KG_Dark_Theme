@@ -260,3 +260,11 @@
     }
   }
 }
+
+@mixin replace-image($background: $image, $width: 500px, $height: 200px) {
+  box-sizing: border-box !important;
+  padding-left: $width !important;
+  width: $width !important;
+  height: $height !important;
+  background: $background no-repeat center / contain !important;
+}
