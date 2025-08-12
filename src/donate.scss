@@ -97,20 +97,39 @@
           }
         }
 
-        .vote-display-mode {
-          a {
-            padding: 5px 10px !important;
-            color: $orange !important;
-            background: darken($orange, 30%) !important;
-            border: none !important;
-            border-radius: 3px !important;
-            font-weight: normal !important;
-            transition: background 0.15s ease-in-out, color 0.15s ease-in-out !important;
+        &.vote {
+          margin: 0 auto !important;
 
-            &.active,
-            &:hover {
-              color: $yellow !important;
-              background: darken($yellow, 30%) !important;
+          @media (max-width: 1000px) {
+            margin: 0 0 40px !important;
+
+            @media (max-width: 770px) {
+              transform: scale(0.8) !important;
+
+              @media (max-width: 666px) {
+                transform: scale(0.7) !important;
+              }
+            }
+          }
+
+          .vote-display-mode {
+            right: 50% !important;
+            transform: translateX(50%) !important;
+
+            a {
+              padding: 5px 10px !important;
+              color: $orange !important;
+              background: darken($orange, 30%) !important;
+              border: none !important;
+              border-radius: 3px !important;
+              font-weight: normal !important;
+              transition: background 0.15s ease-in-out, color 0.15s ease-in-out !important;
+
+              &.active,
+              &:hover {
+                color: $yellow !important;
+                background: darken($yellow, 30%) !important;
+              }
             }
           }
         }
