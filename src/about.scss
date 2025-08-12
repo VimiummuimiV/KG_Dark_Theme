@@ -239,6 +239,10 @@ $tablet-breakpoint: 1100px;
   // ===== PREMIUM =====
   .btn_buy_premium_bg {
     background: $darkgray !important;
+
+    .btn_buy_premium {
+      background-image: $buyPremium !important;
+    }
   }
 
   img[src*="digramms"] {
