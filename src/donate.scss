@@ -58,6 +58,10 @@
       .left-block {
         order: 0 !important;
 
+        button.tank-up {
+          background-image: $fuelButton !important;
+        }
+
         @media (max-width: 1000px) {
           order: 1 !important;
           margin-bottom: 40px !important;
