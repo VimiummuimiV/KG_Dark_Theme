@@ -205,12 +205,12 @@
             transition: color 0.15s ease-in-out !important;
 
             &:hover {
-              color: $yellow !important;
+              color: lighten($orange, 15%) !important;
             }
           }
 
           .avgmore {
-            background: $yellow !important;
+            background: $orange !important;
 
             a {
               color: $black !important;
