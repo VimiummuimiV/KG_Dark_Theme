@@ -174,10 +174,12 @@
     // Watch for new usernames with mutation observer
     const observer = new MutationObserver(mutations => {
       // Disconnect observer if chat user list is present (Empowerment tampermonkey script)
-      if (document.querySelector('.chat-user-list')) {
+      if (document.querySelector('.chat-user-list') &&
+        !location.href.includes('/g/?gmid=')) {
         observer.disconnect();
         return;
       }
+
       mutations.forEach(m => m.type === 'childList' && m.addedNodes.forEach(node => {
         if (node.nodeType === 1) {
           node.querySelectorAll?.('.username:not(.calibrated-username-color)').forEach(el => {
