@@ -220,8 +220,8 @@
   padding: 0 !important;
   border-radius: 0 5px 5px 0 !important;
   color: $white !important;
-  position: absolute !important;
-  top: #{$order * ($size + $gap)} !important;
+  position: fixed !important;
+  top: #{100px + ($order * ($size + $gap))} !important;
   width: $size;
   height: $size;
   overflow: hidden !important;
@@ -259,6 +259,10 @@
       transition: opacity $content-transition-duration ease-in-out
         $content-transition-delay !important;
     }
+  }
+
+  @media (max-width: 1000px) {
+    top: #{145px + ($order * ($size + $gap))} !important;
   }
 }
 
