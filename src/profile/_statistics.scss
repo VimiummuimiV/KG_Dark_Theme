@@ -1,204 +1,87 @@
-// Statistics section styles
-.profile-stats {
-  .profile-stats-details {
-    .top-stats {
-      .best-speed {
-        background-color: $blue !important;
+.profile-root {
+  .profile-content {
+    .profile-stats {
+      .profile-stats-overview {
+        .row {
+          .col-xs-8 {
+            h4 {
+              display: none !important;
+            }
 
-        .title {
-          color: $darkgray !important;
-        }
+            .chart-pie {
+              svg {
+                g {
+                  path {
+                    stroke: none !important;
+                  }
+                  // Gametype normal #262626, #333333
+                  path[fill="#262626"] {
+                    fill: darken($gametype-normal, 20%) !important;
+                  }
+                  path[fill="#333333"] {
+                    fill: $gametype-normal !important;
+                  }
 
-        .content {
-          background-color: $darkgray !important;
-          border-bottom: 1px solid $white !important;
-          border-top: 1px solid $deepgray !important;
-          color: $blue !important;
-        }
-      }
+                  // Gametype chars #884300, #b55900
+                  path[fill="#884300"] {
+                    fill: darken($gametype-chars, 20%) !important;
+                  }
+                  path[fill="#b55900"] {
+                    fill: $gametype-chars !important;
+                  }
 
-      .counter {
-        .value {
-          .book-progress {
-            .item {
-              background-color: $blue !important;
+                  // Gametype digits #595959, #777777
+                  path[fill="#595959"] {
+                    fill: darken($gametype-digits, 20%) !important;
+                  }
+                  path[fill="#777777"] {
+                    fill: $gametype-digits !important;
+                  }
+
+                  // Gametype sprint #622f2c, #833f3a
+                  path[fill="#622f2c"] {
+                    fill: darken($gametype-sprint, 20%) !important;
+                  }
+                  path[fill="#833f3a"] {
+                    fill: $gametype-sprint !important;
+                  }
+
+                  // Gametype abra #2e3641, #3d4856
+                  path[fill="#2e3641"] {
+                    fill: darken($gametype-abra, 20%) !important;
+                  }
+                  path[fill="#3d4856"] {
+                    fill: $gametype-abra !important;
+                  }
+                  // Gametype noerror #356e80, #4692aa
+                  path[fill="#356e80"] {
+                    fill: darken($gametype-noerror, 20%) !important;
+                  }
+                  path[fill="#4692aa"] {
+                    fill: $gametype-noerror !important;
+                  }
+
+                  // Gametype vocabulary #3e397d, #524ca7
+                  path[fill="#3e397d"] {
+                    fill: darken($gametype-voc, 20%) !important;
+                  }
+                  path[fill="#524ca7"] {
+                    fill: $gametype-voc !important;
+                  }
+
+                  // Other games #999999, #cccccc
+                  path[fill="#999999"] {
+                    fill: $black !important;
+                  }
+                  path[fill="#cccccc"] {
+                    fill: $deepgray !important;
+                  }
+                }
+              }
             }
           }
         }
       }
     }
-
-    .charts {
-      background: $darkgray !important;
-
-      .chart-graph {
-        text:nth-child(1) {
-          stroke: $blue !important;
-          fill: none !important;
-          stroke-width: 1px !important;
-        }
-
-        text:nth-child(2) {
-          fill: none !important;
-        }
-      }
-    }
   }
-
-  .profile-stats-overview {
-    .chart-table {
-      tr {
-        td {
-          color: $blue !important;
-        }
-      }
-    }
-
-    .recent {
-      background-color: $darkgray !important;
-      border: 1px solid $gray !important;
-    }
-  }
-
-  .recent {
-    a {
-      color: $white !important;
-      font-weight: lighter !important;
-
-      &:hover {
-        color: $blue !important;
-        font-weight: lighter !important;
-      }
-    }
-
-    li:hover {
-      background: none !important;
-      color: $blue !important;
-    }
-  }
-
-  .chart-table {
-    color: $darkgray !important;
-  }
-
-  .counter {
-    background-color: $blue !important;
-
-    .title {
-      color: $darkgray !important;
-    }
-
-    .value {
-      border-bottom: 1px solid $lightblue !important;
-      border-top: 1px solid $deepgray !important;
-      color: $blue !important;
-      background-color: $darkgray !important;
-    }
-  }
-}
-
-.chart-graph {
-  div {
-    border: none !important;
-    background: $darkgray !important;
-  }
-}
-
-.dlg-profile-stats-book-parts {
-  .parts {
-    .col-xs-1 {
-      .item {
-        background: $darkgray !important;
-
-        &:hover {
-          background: $blue !important;
-          color: $deepgray !important;
-        }
-
-        &.even {
-          background-color: $deepgray !important;
-
-          &:hover {
-            background-color: $blue !important;
-            color: $deepgray !important;
-          }
-        }
-      }
-      border-right: 1px solid $gray !important;
-    }
-  }
-}
-
-.badge {
-  border: 1px solid $darkgray !important;
-  background: $blue !important;
-  color: $deepgray !important;
-}
-
-.stats-empty {
-  background: $darkgray !important;
-
-  .icon-icomoon {
-    color: $blue !important;
-  }
-}
-
-#totalGamesCounter {
-  background-color: $blue !important;
-
-  .value {
-    color: $blue !important;
-    background-color: $darkgray !important;
-
-    .icon-icomoon {
-      color: $blue !important;
-    }
-  }
-}
-
-.dropdown-menu {
-  overflow: hidden !important;
-}
-
-.col-xs-5 {
-  input {
-    border: 1px solid $gray !important;
-  }
-}
-
-.col-xs-7 {
-  border-left: 1px solid $gray !important;
-
-  a {
-    border: none !important;
-  }
-}
-
-.google-visualization-table-tr-even {
-  background: $darkgray !important;
-}
-
-.google-visualization-table-tr-odd {
-  background: $deepgray !important;
-}
-
-.google-visualization-table-table {
-  th,
-  td {
-    border: none !important;
-  }
-}
-
-.google-visualization-table-tr-head {
-  background-color: $blue !important;
-}
-
-.google-visualization-table {
-  .gradient {
-    background: none !important;
-  }
-}
-
-.google-visualization-table-sortind {
-  color: $darkgray !important;
 }
