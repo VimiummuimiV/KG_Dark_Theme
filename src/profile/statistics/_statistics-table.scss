@@ -1,4 +1,15 @@
 @mixin chart-table {
+  // Define RGB to gametype variable mapping
+  $gametype-rgb-map: (
+    "rgb(51, 51, 51)": $gametype-normal,
+    "rgb(181, 89, 0)": $gametype-chars,
+    "rgb(119, 119, 119)": $gametype-digits,
+    "rgb(131, 63, 58)": $gametype-sprint,
+    "rgb(61, 72, 86)": $gametype-abra,
+    "rgb(70, 146, 170)": $gametype-noerror,
+    "rgb(82, 76, 167)": $gametype-voc
+  );
+
   .chart-table {
     background-color: $black;
     border-radius: 12px;
@@ -8,8 +19,6 @@
       background-color: $black;
       border-radius: 12px;
       overflow: hidden;
-
-      border-radius: 12px;
 
       table {
         width: 100%;
@@ -41,7 +50,7 @@
               border: none;
               position: relative;
               cursor: pointer;
-              transition: all 0.3s ease;
+              transition: all 0.15s ease-in-out;
               display: table-cell;
               vertical-align: middle;
               background: $black !important;
@@ -92,39 +101,11 @@
               display: table-cell;
               font-weight: 500;
 
-              // Gametype normal rgb(51, 51, 51)
-              &[style*="color: rgb(51, 51, 51)"] {
-                color: $gametype-normal !important;
-              }
-
-              // Gametype chars rgb(181, 89, 0)
-              &[style*="color: rgb(181, 89, 0)"] {
-                color: $gametype-chars !important;
-              }
-
-              // Gametype digits rgb(119, 119, 119)
-              &[style*="color: rgb(119, 119, 119)"] {
-                color: $gametype-digits !important;
-              }
-
-              // Gametype sprint rgb(131, 63, 58)
-              &[style*="color: rgb(131, 63, 58)"] {
-                color: $gametype-sprint !important;
-              }
-
-              // Gametype abra rgb(61, 72, 86)
-              &[style*="color: rgb(61, 72, 86)"] {
-                color: $gametype-abra !important;
-              }
-
-              // Gametype noerror rgb(70, 146, 170)
-              &[style*="color: rgb(70, 146, 170)"] {
-                color: $gametype-noerror !important;
-              }
-
-              // Gametype voc rgb(82, 76, 167)
-              &[style*="color: rgb(82, 76, 167)"] {
-                color: $gametype-voc !important;
+              // Apply gametype colors using @each loop
+              @each $rgb-value, $color-variable in $gametype-rgb-map {
+                &[style*="color: #{$rgb-value}"] {
+                  color: $color-variable !important;
+                }
               }
 
               // Number columns styling
@@ -134,25 +115,20 @@
                 font-weight: 500;
                 color: $lightgray;
 
-                // Highlight high numbers
                 &:nth-child(2) {
-                  // Пробег column
                   color: $green;
                 }
 
                 &:nth-child(3) {
-                  // Рекорд column
                   color: $yellow;
                   font-weight: 600;
                 }
 
                 &:nth-child(4) {
-                  // Средняя column
                   color: $blue;
                 }
 
                 &:nth-child(5) {
-                  // Ошибки column
                   color: $red;
                 }
               }
@@ -178,7 +154,7 @@
         > div {
           table {
             thead {
-              display: none; // Hide table headers on tablet and mobile
+              display: none;
             }
 
             tbody {
@@ -210,7 +186,6 @@
                     letter-spacing: 0.5px;
                   }
 
-                  // First cell (mode) spans full width in first row
                   &:first-child {
                     grid-column: 1 / -1;
                     background-color: rgba($lightblue, 0.1);
@@ -222,7 +197,6 @@
                     }
                   }
 
-                  // Add labels for other columns
                   &:nth-child(2):before {
                     content: "Пробег";
                   }
@@ -262,7 +236,7 @@
 
           table {
             thead {
-              display: none; // Hide table headers on mobile
+              display: none;
             }
 
             tbody {
