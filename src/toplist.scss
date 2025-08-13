@@ -47,16 +47,16 @@
       li.yeargroup {
         color: $orange !important;
         font: 700 1.1em "Montserrat", sans-serif !important;
-        text-align: center !important;
         justify-content: center !important;
 
         &:hover:not(:has(a)) {
+          color: $orange !important;
           background: transparent !important;
         }
 
         a {
           &:hover {
-            color: lighten($gametype-voc, 30%) !important;
+            color: lighten($gametype-voc, 20%) !important;
           }
         }
       }
@@ -73,7 +73,14 @@
         align-items: center !important;
         height: fit-content !important;
         min-height: 20px !important;
-        border-radius: 3px !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
+
+        &:hover,
+        &.active {
+          color: lighten($lightblue, 20%) !important;
+          background: darken($blue, 20%) !important;
+        }
 
         span {
           padding: 0 !important;
@@ -98,25 +105,17 @@
             width: 25px !important;
             top: 0 !important;
           }
-        }
 
-        a[href*="/vocs/"] {
-          left: 0 !important;
-          width: 25px !important;
-          border-radius: 3px 0 0 3px !important;
-          mix-blend-mode: lighten !important;
+          &:hover {
+            color: lighten($lightblue, 20%) !important;
+          }
         }
 
         a.gametype-voc {
           left: 25px !important;
           padding-left: 5px !important;
-          border-radius: 0 3px 3px 0 !important;
           white-space: nowrap !important;
           overflow: hidden !important;
-        }
-
-        &:hover {
-          background: darken($lightblue, 40%) !important;
         }
 
         &.gametype-voc {
@@ -124,13 +123,6 @@
 
           span {
             margin: 0 0 0 25px !important;
-          }
-
-          a {
-            &:hover {
-              color: lighten($gametype-voc, 30%) !important;
-              background-color: darken($lightblue, 30%) !important;
-            }
           }
 
           &::before {
@@ -143,10 +135,6 @@
             height: 100% !important;
             background: icon("book", $lightblue) no-repeat center / 16px !important;
           }
-        }
-
-        &.active {
-          background: darken($lightblue, 40%) !important;
         }
       }
 
@@ -170,9 +158,21 @@
       // Generate styles for all gametypes dynamically
       @each $name, $color in $gametypes {
         li:has(.gametype-#{$name}) {
+          border: 2px solid transparent !important;
+
           &.active,
           &:hover {
-            background: darken($color, 40%) !important;
+            border-color: darken($color, 10%) !important;
+            background: color-mix(
+              in srgb,
+              $color 30%,
+              $darkgray 70%
+            ) !important;
+          }
+
+          a,
+          span {
+            color: lighten($color, 20%) !important;
           }
         }
       }
@@ -273,6 +273,13 @@
           }
 
           .name[style*="avatars/"] {
+            position: relative !important;
+
+            &::before {
+              @include avatar-mask(32px, $darkgray);
+              filter: brightness(0.88) !important;
+            }
+
             a {
               padding-left: 40px !important;
             }
