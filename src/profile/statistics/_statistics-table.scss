@@ -15,10 +15,21 @@
     border-radius: 12px;
     overflow: hidden;
 
+    // Mobile responsive adjustments
+    @media (max-width: 480px) {
+      margin: 0 -8px;
+      border-radius: 8px;
+    }
+
     .google-visualization-table {
       background-color: $black;
       border-radius: 12px;
       overflow: hidden;
+
+      // Mobile responsive adjustments
+      @media (max-width: 480px) {
+        border-radius: 8px;
+      }
 
       table {
         width: 100%;
@@ -80,6 +91,11 @@
               }
             }
           }
+
+          // Hide header on tablets and mobile
+          @media (max-width: 768px) {
+            display: none;
+          }
         }
 
         // Body styles
@@ -91,6 +107,23 @@
 
             &:hover {
               background-color: rgba($lightblue, 0.08);
+            }
+
+            // Tablet responsive layout
+            @media (max-width: 768px) {
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              grid-template-rows: auto auto;
+              gap: 8px;
+              padding: 12px;
+              border-radius: 8px;
+              margin-bottom: 8px;
+            }
+
+            // Mobile responsive layout
+            @media (max-width: 480px) {
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: auto auto auto;
             }
 
             .google-visualization-table-td {
@@ -108,66 +141,8 @@
                 }
               }
 
-              // Number columns styling
-              &.google-visualization-table-type-number {
-                text-align: right;
-                font-variant-numeric: tabular-nums;
-                font-weight: 500;
-                color: $lightgray;
-
-                &:nth-child(2) {
-                  color: $green;
-                }
-
-                &:nth-child(3) {
-                  color: $yellow;
-                  font-weight: 600;
-                }
-
-                &:nth-child(4) {
-                  color: $blue;
-                }
-
-                &:nth-child(5) {
-                  color: $red;
-                }
-              }
-            }
-          }
-
-          .google-visualization-table-tr-even {
-            background-color: rgba($deepgray, 0.3);
-          }
-
-          .google-visualization-table-tr-odd {
-            background-color: rgba($deepgray, 0.1);
-          }
-        }
-      }
-    }
-  }
-
-  // Responsive Grid Layout for smaller screens
-  @media (max-width: 768px) {
-    .chart-table {
-      .google-visualization-table {
-        table {
-          thead {
-            display: none;
-          }
-
-          tbody {
-            .google-visualization-table-tr-even,
-            .google-visualization-table-tr-odd {
-              display: grid;
-              grid-template-columns: 1fr 1fr 1fr;
-              grid-template-rows: auto auto;
-              gap: 8px;
-              padding: 12px;
-              border-radius: 8px;
-              margin-bottom: 8px;
-
-              .google-visualization-table-td {
+              // Tablet and mobile responsive layout for cells
+              @media (max-width: 768px) {
                 display: flex;
                 flex-direction: column;
                 padding: 8px;
@@ -216,33 +191,9 @@
                   text-align: center;
                 }
               }
-            }
-          }
-        }
-      }
-    }
-  }
 
-  @media (max-width: 480px) {
-    .chart-table {
-      margin: 0 -8px;
-      border-radius: 8px;
-
-      .google-visualization-table {
-        border-radius: 8px;
-
-        table {
-          thead {
-            display: none;
-          }
-
-          tbody {
-            .google-visualization-table-tr-even,
-            .google-visualization-table-tr-odd {
-              grid-template-columns: 1fr 1fr;
-              grid-template-rows: auto auto auto;
-
-              .google-visualization-table-td {
+              // Mobile specific adjustments
+              @media (max-width: 480px) {
                 padding: 6px;
                 font-size: 12px;
 
@@ -250,7 +201,40 @@
                   grid-column: 1 / -1;
                 }
               }
+
+              // Number columns styling
+              &.google-visualization-table-type-number {
+                text-align: center;
+                font-variant-numeric: tabular-nums;
+                font-weight: 500;
+                color: $lightgray;
+
+                &:nth-child(2) {
+                  color: $green;
+                }
+
+                &:nth-child(3) {
+                  color: $yellow;
+                  font-weight: 600;
+                }
+
+                &:nth-child(4) {
+                  color: $blue;
+                }
+
+                &:nth-child(5) {
+                  color: $red;
+                }
+              }
             }
+          }
+
+          .google-visualization-table-tr-even {
+            background-color: rgba($deepgray, 0.3);
+          }
+
+          .google-visualization-table-tr-odd {
+            background-color: rgba($deepgray, 0.1);
           }
         }
       }
