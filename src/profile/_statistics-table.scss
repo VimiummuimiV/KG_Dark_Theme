@@ -1,0 +1,289 @@
+@mixin chart-table {
+  .chart-table {
+    background-color: $black;
+    border-radius: 12px;
+    overflow: hidden;
+
+    .google-visualization-table {
+      background-color: $black;
+      border-radius: 12px;
+      overflow: hidden;
+
+      border-radius: 12px;
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background-color: $black;
+        color: $white;
+        font-family: "Montserrat", sans-serif;
+        display: table;
+        border: none;
+
+        .gradient {
+          background: none !important;
+        }
+
+        // Header styles
+        thead {
+          .google-visualization-table-tr-head {
+            background: linear-gradient(135deg, $deepgray 0%, $darkgray 100%);
+            display: table-row;
+
+            .google-visualization-table-th {
+              padding: 12px 16px;
+              font-size: 12px;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              color: $lightblue;
+              border: none;
+              position: relative;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: table-cell;
+              vertical-align: middle;
+              background: $black !important;
+
+              &:first-child {
+                border-top-left-radius: 12px;
+              }
+
+              &:last-child {
+                border-top-right-radius: 12px;
+              }
+
+              &:hover {
+                background-color: rgba($lightblue, 0.1) !important;
+                color: $white;
+              }
+
+              &.sort-descending,
+              &.sort-ascending {
+                background-color: rgba($lightblue, 0.15) !important;
+                color: $white;
+              }
+
+              .google-visualization-table-sortind {
+                margin-left: 8px;
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+
+        // Body styles
+        tbody {
+          .google-visualization-table-tr-even,
+          .google-visualization-table-tr-odd {
+            transition: all 0.15s ease-in-out;
+            display: table-row;
+
+            &:hover {
+              background-color: rgba($lightblue, 0.08);
+            }
+
+            .google-visualization-table-td {
+              padding: 10px 14px;
+              font-size: 13px;
+              border: none;
+              vertical-align: middle;
+              display: table-cell;
+              font-weight: 500;
+
+              // Gametype normal rgb(51, 51, 51)
+              &[style*="color: rgb(51, 51, 51)"] {
+                color: $gametype-normal !important;
+              }
+
+              // Gametype chars rgb(181, 89, 0)
+              &[style*="color: rgb(181, 89, 0)"] {
+                color: $gametype-chars !important;
+              }
+
+              // Gametype digits rgb(119, 119, 119)
+              &[style*="color: rgb(119, 119, 119)"] {
+                color: $gametype-digits !important;
+              }
+
+              // Gametype sprint rgb(131, 63, 58)
+              &[style*="color: rgb(131, 63, 58)"] {
+                color: $gametype-sprint !important;
+              }
+
+              // Gametype abra rgb(61, 72, 86)
+              &[style*="color: rgb(61, 72, 86)"] {
+                color: $gametype-abra !important;
+              }
+
+              // Gametype noerror rgb(70, 146, 170)
+              &[style*="color: rgb(70, 146, 170)"] {
+                color: $gametype-noerror !important;
+              }
+
+              // Gametype voc rgb(82, 76, 167)
+              &[style*="color: rgb(82, 76, 167)"] {
+                color: $gametype-voc !important;
+              }
+
+              // Number columns styling
+              &.google-visualization-table-type-number {
+                text-align: right;
+                font-variant-numeric: tabular-nums;
+                font-weight: 500;
+                color: $lightgray;
+
+                // Highlight high numbers
+                &:nth-child(2) {
+                  // Пробег column
+                  color: $green;
+                }
+
+                &:nth-child(3) {
+                  // Рекорд column
+                  color: $yellow;
+                  font-weight: 600;
+                }
+
+                &:nth-child(4) {
+                  // Средняя column
+                  color: $blue;
+                }
+
+                &:nth-child(5) {
+                  // Ошибки column
+                  color: $red;
+                }
+              }
+            }
+          }
+
+          .google-visualization-table-tr-even {
+            background-color: rgba($deepgray, 0.3);
+          }
+
+          .google-visualization-table-tr-odd {
+            background-color: rgba($deepgray, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive Grid Layout for smaller screens
+  @media (max-width: 768px) {
+    .chart-table {
+      .google-visualization-table {
+        > div {
+          table {
+            thead {
+              display: none; // Hide table headers on tablet and mobile
+            }
+
+            tbody {
+              .google-visualization-table-tr-even,
+              .google-visualization-table-tr-odd {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 8px;
+                padding: 12px;
+                border-radius: 8px;
+                margin-bottom: 8px;
+
+                .google-visualization-table-td {
+                  display: flex;
+                  flex-direction: column;
+                  padding: 8px;
+                  border: none;
+                  border-radius: 4px;
+                  background-color: rgba($darkgray, 0.3);
+
+                  &:before {
+                    content: attr(data-label);
+                    font-size: 10px;
+                    font-weight: 600;
+                    color: $lightblue;
+                    text-transform: uppercase;
+                    margin-bottom: 4px;
+                    letter-spacing: 0.5px;
+                  }
+
+                  // First cell (mode) spans full width in first row
+                  &:first-child {
+                    grid-column: 1 / -1;
+                    background-color: rgba($lightblue, 0.1);
+                    text-align: center;
+                    font-weight: 600;
+
+                    &:before {
+                      content: "Режим";
+                    }
+                  }
+
+                  // Add labels for other columns
+                  &:nth-child(2):before {
+                    content: "Пробег";
+                  }
+
+                  &:nth-child(3):before {
+                    content: "Рекорд";
+                  }
+
+                  &:nth-child(4):before {
+                    content: "Средняя";
+                  }
+
+                  &:nth-child(5):before {
+                    content: "Ошибки";
+                  }
+
+                  &.google-visualization-table-type-number {
+                    text-align: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .chart-table {
+      margin: 0 -8px;
+      border-radius: 8px;
+
+      .google-visualization-table {
+        > div {
+          border-radius: 8px;
+
+          table {
+            thead {
+              display: none; // Hide table headers on mobile
+            }
+
+            tbody {
+              .google-visualization-table-tr-even,
+              .google-visualization-table-tr-odd {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto auto;
+
+                .google-visualization-table-td {
+                  padding: 6px;
+                  font-size: 12px;
+
+                  &:first-child {
+                    grid-column: 1 / -1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

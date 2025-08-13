@@ -1,85 +1,85 @@
+@import "statistics-table";
+
+$gametype-colors: (
+  "normal": (
+    #262626: darken($gametype-normal, 20%),
+    #333333: $gametype-normal,
+  ),
+  "chars": (
+    #884300: darken($gametype-chars, 20%),
+    #b55900: $gametype-chars,
+  ),
+  "digits": (
+    #595959: darken($gametype-digits, 20%),
+    #777777: $gametype-digits,
+  ),
+  "sprint": (
+    #622f2c: darken($gametype-sprint, 20%),
+    #833f3a: $gametype-sprint,
+  ),
+  "abra": (
+    #2e3641: darken($gametype-abra, 20%),
+    #3d4856: $gametype-abra,
+  ),
+  "noerror": (
+    #356e80: darken($gametype-noerror, 20%),
+    #4692aa: $gametype-noerror,
+  ),
+  "vocabulary": (
+    #3e397d: darken($gametype-voc, 20%),
+    #524ca7: $gametype-voc,
+  ),
+  "other": (
+    #999999: $black,
+    #cccccc: $deepgray,
+  ),
+);
+
 .profile-root {
   .profile-content {
     .profile-stats {
       .profile-stats-overview {
         .row {
+          @include flex-layout(row, center, center);
+          margin: 0 !important;
+
           .col-xs-8 {
             h4 {
               display: none !important;
             }
-
             .chart-pie {
               svg {
                 g {
                   path {
                     stroke: none !important;
                   }
-                  // Gametype normal #262626, #333333
-                  path[fill="#262626"] {
-                    fill: darken($gametype-normal, 20%) !important;
-                  }
-                  path[fill="#333333"] {
-                    fill: $gametype-normal !important;
-                  }
 
-                  // Gametype chars #884300, #b55900
-                  path[fill="#884300"] {
-                    fill: darken($gametype-chars, 20%) !important;
-                  }
-                  path[fill="#b55900"] {
-                    fill: $gametype-chars !important;
-                  }
-
-                  // Gametype digits #595959, #777777
-                  path[fill="#595959"] {
-                    fill: darken($gametype-digits, 20%) !important;
-                  }
-                  path[fill="#777777"] {
-                    fill: $gametype-digits !important;
-                  }
-
-                  // Gametype sprint #622f2c, #833f3a
-                  path[fill="#622f2c"] {
-                    fill: darken($gametype-sprint, 20%) !important;
-                  }
-                  path[fill="#833f3a"] {
-                    fill: $gametype-sprint !important;
-                  }
-
-                  // Gametype abra #2e3641, #3d4856
-                  path[fill="#2e3641"] {
-                    fill: darken($gametype-abra, 20%) !important;
-                  }
-                  path[fill="#3d4856"] {
-                    fill: $gametype-abra !important;
-                  }
-                  // Gametype noerror #356e80, #4692aa
-                  path[fill="#356e80"] {
-                    fill: darken($gametype-noerror, 20%) !important;
-                  }
-                  path[fill="#4692aa"] {
-                    fill: $gametype-noerror !important;
-                  }
-
-                  // Gametype vocabulary #3e397d, #524ca7
-                  path[fill="#3e397d"] {
-                    fill: darken($gametype-voc, 20%) !important;
-                  }
-                  path[fill="#524ca7"] {
-                    fill: $gametype-voc !important;
-                  }
-
-                  // Other games #999999, #cccccc
-                  path[fill="#999999"] {
-                    fill: $black !important;
-                  }
-                  path[fill="#cccccc"] {
-                    fill: $deepgray !important;
+                  // Dynamic generation using @each
+                  @each $gametype, $color-map in $gametype-colors {
+                    @each $original-color, $new-color in $color-map {
+                      path[fill="#{$original-color}"] {
+                        fill: #{$new-color} !important;
+                      }
+                    }
                   }
                 }
               }
             }
           }
+
+          .col-xs-4 {
+            .recent {
+              background: $black !important;
+
+              ul {
+                li {
+                  background: transparent !important;
+                }
+              }
+            }
+          }
+
+          @include chart-table;
         }
       }
     }
