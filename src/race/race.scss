@@ -29,7 +29,8 @@
             width: 100% !important;
             height: 100% !important;
             z-index: 15 !important;
-            background: transparent $speedPanelDigitsPlace no-repeat right center / contain !important;
+            background: transparent $speedPanelDigitsPlace no-repeat right
+              center / contain !important;
           }
 
           #speed-label {
@@ -51,7 +52,11 @@
 
         // Race status block under typeblock bg color
         #status {
+          padding: 0 0px 0px 60px !important;
           background-color: $darkgray !important;
+          background-image: $semaphore !important;
+          background-size: 52px 360px !important;
+          background-position-x: 10px !important;
 
           table {
             width: 100% !important;
@@ -101,6 +106,7 @@
             width: 100% !important;
             align-items: center !important;
             justify-content: center;
+            z-index: 20 !important;
 
             #waiting {
               &[style="none"] {
