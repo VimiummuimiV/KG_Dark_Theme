@@ -7,7 +7,7 @@
     "rgb(131, 63, 58)": $gametype-sprint,
     "rgb(61, 72, 86)": $gametype-abra,
     "rgb(70, 146, 170)": $gametype-noerror,
-    "rgb(82, 76, 167)": $gametype-voc
+    "rgb(82, 76, 167)": $gametype-voc,
   );
 
   .chart-table {
@@ -151,71 +151,69 @@
   @media (max-width: 768px) {
     .chart-table {
       .google-visualization-table {
-        > div {
-          table {
-            thead {
-              display: none;
-            }
+        table {
+          thead {
+            display: none;
+          }
 
-            tbody {
-              .google-visualization-table-tr-even,
-              .google-visualization-table-tr-odd {
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
-                grid-template-rows: auto auto;
-                gap: 8px;
-                padding: 12px;
-                border-radius: 8px;
-                margin-bottom: 8px;
+          tbody {
+            .google-visualization-table-tr-even,
+            .google-visualization-table-tr-odd {
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              grid-template-rows: auto auto;
+              gap: 8px;
+              padding: 12px;
+              border-radius: 8px;
+              margin-bottom: 8px;
 
-                .google-visualization-table-td {
-                  display: flex;
-                  flex-direction: column;
-                  padding: 8px;
-                  border: none;
-                  border-radius: 4px;
-                  background-color: rgba($darkgray, 0.3);
+              .google-visualization-table-td {
+                display: flex;
+                flex-direction: column;
+                padding: 8px;
+                border: none;
+                border-radius: 4px;
+                background-color: rgba($darkgray, 0.3);
+
+                &:before {
+                  content: attr(data-label);
+                  font-size: 10px;
+                  font-weight: 600;
+                  color: $lightblue;
+                  text-transform: uppercase;
+                  margin-bottom: 4px;
+                  letter-spacing: 0.5px;
+                }
+
+                &:first-child {
+                  grid-column: 1 / -1;
+                  background-color: rgba($lightblue, 0.1);
+                  text-align: center;
+                  font-weight: 600;
 
                   &:before {
-                    content: attr(data-label);
-                    font-size: 10px;
-                    font-weight: 600;
-                    color: $lightblue;
-                    text-transform: uppercase;
-                    margin-bottom: 4px;
-                    letter-spacing: 0.5px;
+                    content: "Режим";
                   }
+                }
 
-                  &:first-child {
-                    grid-column: 1 / -1;
-                    background-color: rgba($lightblue, 0.1);
-                    text-align: center;
-                    font-weight: 600;
+                &:nth-child(2):before {
+                  content: "Пробег";
+                }
 
-                    &:before {
-                      content: "Режим";
-                    }
-                  }
+                &:nth-child(3):before {
+                  content: "Рекорд";
+                }
 
-                  &:nth-child(2):before {
-                    content: "Пробег";
-                  }
+                &:nth-child(4):before {
+                  content: "Средняя";
+                }
 
-                  &:nth-child(3):before {
-                    content: "Рекорд";
-                  }
+                &:nth-child(5):before {
+                  content: "Ошибки";
+                }
 
-                  &:nth-child(4):before {
-                    content: "Средняя";
-                  }
-
-                  &:nth-child(5):before {
-                    content: "Ошибки";
-                  }
-
-                  &.google-visualization-table-type-number {
-                    text-align: center;
-                  }
+                &.google-visualization-table-type-number {
+                  text-align: center;
                 }
               }
             }
@@ -231,27 +229,25 @@
       border-radius: 8px;
 
       .google-visualization-table {
-        > div {
-          border-radius: 8px;
+        border-radius: 8px;
 
-          table {
-            thead {
-              display: none;
-            }
+        table {
+          thead {
+            display: none;
+          }
 
-            tbody {
-              .google-visualization-table-tr-even,
-              .google-visualization-table-tr-odd {
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: auto auto auto;
+          tbody {
+            .google-visualization-table-tr-even,
+            .google-visualization-table-tr-odd {
+              grid-template-columns: 1fr 1fr;
+              grid-template-rows: auto auto auto;
 
-                .google-visualization-table-td {
-                  padding: 6px;
-                  font-size: 12px;
+              .google-visualization-table-td {
+                padding: 6px;
+                font-size: 12px;
 
-                  &:first-child {
-                    grid-column: 1 / -1;
-                  }
+                &:first-child {
+                  grid-column: 1 / -1;
                 }
               }
             }
