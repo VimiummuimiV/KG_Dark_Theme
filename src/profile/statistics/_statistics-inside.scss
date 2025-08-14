@@ -129,6 +129,74 @@
               }
             }
           }
+
+          .charts-contents {
+            .chart-graph {
+              svg {
+                // Graph background
+                rect[fill="#ffffff"] {
+                  fill: $darkgray !important;
+                }
+
+                // Graph lines
+                rect[width="1"],
+                rect[height="1"] {
+                  fill: $blue !important;
+                }
+
+                // Grapth curves
+                // Front
+                path[fill="#ffffff"] {
+                  fill: $lightblue !important;
+                  fill-opacity: 0.8 !important;
+                }
+                // Back
+                path[fill="#3366cc"] {
+                  fill: $black !important;
+                  fill-opacity: 0.5 !important;
+                }
+
+                // Grapth line
+                path[stroke="#3366cc"] {
+                  stroke: $yellow !important;
+                }
+
+                // Grapth top dashed line
+                path[stroke="#e9a511"] {
+                  stroke: $yellow !important;
+                }
+
+                text {
+                  fill: lighten($white, 20%) !important;
+                  stroke-width: 0 !important;
+                }
+              }
+            }
+          }
+
+          .google-visualization-tooltip {
+            border-color: $black !important;
+            color: $white !important;
+            background-color: $black !important;
+
+            .chart-tooltip {
+              h4 {
+                color: $orange !important;
+              }
+            }
+          }
+
+          .table-controls {
+            @include flex-layout(row, center, center);
+            gap: 10px !important;
+
+            .table-control {
+              margin: 0 !important;
+              @include anchor-to-button($font-size: 12px, $width: 100%);
+            }
+          }
+
+          @include chart-table;
         }
       }
     }
