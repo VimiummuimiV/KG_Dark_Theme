@@ -167,8 +167,9 @@
                 }
 
                 text {
-                  fill: lighten($white, 20%) !important;
-                  stroke-width: 0 !important;
+                  fill: $black !important;
+                  stroke: $blue !important;
+                  font: 600 12px "Montserrat", sans-serif !important;
                 }
               }
             }
