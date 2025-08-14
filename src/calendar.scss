@@ -3,7 +3,11 @@
 $fontFamily: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
 
 // Main calendar container
+.ui-datepicker,
 .calendar {
+  width: fit-content !important;
+  background: $black !important;
+
   // Reset jQuery UI default styles
   .ui-datepicker-inline {
     width: fit-content !important;

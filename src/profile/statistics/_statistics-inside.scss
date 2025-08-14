@@ -4,7 +4,7 @@
       .profile-stats-details {
         .top-stats {
           @include flex-layout(row, start, start);
-          margin: 0 !important;
+          margin: 0 -10px 0 !important;
           gap: 10px !important;
 
           .col-xs-4 {
@@ -15,8 +15,118 @@
             padding: 0 !important;
             width: 100% !important;
 
+            .best-speed {
+              background-color: lighten($yellow, 5%) !important;
+
+              .title {
+                color: darken($yellow, 30%) !important;
+
+                .qual {
+                  opacity: 1 !important;
+
+                  .icon-icomoon {
+                    color: darken($yellow, 30%) !important;
+                  }
+                }
+              }
+
+              .content {
+                background-color: lighten($yellow, 30%) !important;
+                border: none !important;
+              }
+
+              .more {
+                .dropdown-toggle {
+                  color: darken($yellow, 30%) !important;
+
+                  .toggle-text {
+                    border: none !important;
+                  }
+
+                  .caret {
+                    border-top-color: darken($yellow, 30%) !important;
+                  }
+                }
+              }
+            }
+
             .counter {
+              background: $black !important;
               margin: 0 !important;
+
+              .title {
+                color: $lightblue !important;
+
+                .icon-icomoon {
+                  color: $lightblue !important;
+                }
+              }
+
+              .value {
+                color: $white !important;
+                background: $deepgray !important;
+                border: none !important;
+
+                .icon-icomoon {
+                  color: $white !important;
+                }
+              }
+            }
+          }
+        }
+
+        .charts {
+          background: $darkgray !important;
+
+          .graph-controls {
+            .period {
+              .dropdown-menu {
+                overflow: hidden !important;
+
+                .col-xs-5 {
+                  @include flex-layout(row, start, center);
+                  gap: 5px !important;
+                  margin-top: 15px !important;
+                  flex-wrap: nowrap !important;
+                  width: 100% !important;
+
+                  label {
+                    font-size: 0 !important;
+                    color: $blue !important;
+
+                    input {
+                      padding: 5px 10px !important;
+                      width: 100% !important;
+                      text-align: center !important;
+                    }
+                  }
+                }
+
+                .col-xs-7 {
+                  width: 100% !important;
+                  border-color: $darkgray !important;
+
+                  .fast-period {
+                    a {
+                      @include anchor-to-button($font-size: 12px, $width: 100%);
+                    }
+                  }
+                }
+
+                .close {
+                  opacity: 1 !important;
+                  font-size: 0 !important;
+                  width: 15px !important;
+                  height: 15px !important;
+                  background: transparent icon("close", $lightblue) no-repeat
+                    center / contain !important;
+                  transition: filter 0.15s ease-in-out !important;
+
+                  &:hover {
+                    filter: brightness(0.8) !important;
+                  }
+                }
+              }
             }
           }
         }
