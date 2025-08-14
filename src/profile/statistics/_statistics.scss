@@ -40,10 +40,16 @@ $gametype-colors: (
     .profile-stats {
       .profile-stats-overview {
         .row {
-          @include flex-layout(row, center, center);
+          @include flex-layout(column, center, center);
           margin: 0 !important;
 
+          // Pie chart
           .col-xs-8 {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            order: 1 !important;
+
             h4 {
               display: none !important;
             }
@@ -52,6 +58,26 @@ $gametype-colors: (
                 g {
                   path {
                     stroke: none !important;
+                  }
+
+                  g.google-visualization-tooltip {
+                    background-color: $black !important;
+
+                    path {
+                      fill: $black !important;
+                    }
+
+                    text {
+                      fill: $white !important;
+                    }
+                  }
+
+                  // Pie chart piece text
+                  text[fill="#ffffff"] {
+                    font: 600 14px "Montserrat", Verdana, Geneva, Tahoma,
+                      sans-serif !important;
+                    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000,
+                      -1px 1px 0 #000, 1px 1px 0 #000 !important;
                   }
 
                   // Dynamic generation using @each
@@ -66,14 +92,26 @@ $gametype-colors: (
               }
             }
           }
-
+          // Recent games
           .col-xs-4 {
+            width: 100% !important;
+            order: 0 !important;
+            padding: 0 !important;
+
             .recent {
+              padding: 10px !important;
               background: $black !important;
 
               ul {
+                @include flex-layout(row, start, start);
+                flex-wrap: wrap !important;
+                margin: 0 !important;
+
                 li {
                   background: transparent !important;
+                  a {
+                    @include anchor-to-button($font-size: 14px);
+                  }
                 }
               }
             }
@@ -85,3 +123,5 @@ $gametype-colors: (
     }
   }
 }
+
+@import "statistics-inside";

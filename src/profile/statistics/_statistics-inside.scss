@@ -1,0 +1,26 @@
+.profile-root {
+  .profile-content {
+    .profile-stats {
+      .profile-stats-details {
+        .top-stats {
+          @include flex-layout(row, start, start);
+          margin: 0 !important;
+          gap: 10px !important;
+
+          .col-xs-4 {
+            @include flex-layout(row, start, start);
+            flex-wrap: wrap !important;
+            gap: 10px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+
+            .counter {
+              margin: 0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
