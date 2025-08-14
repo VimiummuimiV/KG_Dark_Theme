@@ -1,0 +1,36 @@
+@import "../mixins";
+
+.profile-root {
+  .profile-content {
+    .profile-stats {
+      #totalContainer {
+        @include flex-layout(row, start, start);
+        gap: 10px !important;
+      }
+
+      #totalGamesCounter,
+      #totalHours {
+        margin: 0 0 10px !important;
+        background-color: $black !important;
+
+        .title {
+          color: $lightblue !important;
+
+          .icon-icomoon {
+            color: $lightblue !important;
+          }
+        }
+
+        .value {
+          color: $white !important;
+          background: $deepgray !important;
+          border: none !important;
+
+          .icon-icomoon {
+            color: $white !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -16,35 +16,43 @@
             width: 100% !important;
 
             .best-speed {
-              background-color: lighten($yellow, 5%) !important;
+              background-color: lighten($green, 5%) !important;
 
               .title {
-                color: darken($yellow, 30%) !important;
+                color: darken($green, 30%) !important;
 
                 .qual {
                   opacity: 1 !important;
 
                   .icon-icomoon {
-                    color: darken($yellow, 30%) !important;
+                    color: darken($green, 30%) !important;
                   }
                 }
               }
 
               .content {
-                background-color: lighten($yellow, 30%) !important;
+                background-color: lighten($green, 30%) !important;
                 border: none !important;
+
+                .icon-icomoon {
+                  color: darken($green, 30%) !important;
+                }
+
+                .value {
+                  color: darken($green, 30%) !important;
+                }
               }
 
               .more {
                 .dropdown-toggle {
-                  color: darken($yellow, 30%) !important;
+                  color: darken($green, 30%) !important;
 
                   .toggle-text {
                     border: none !important;
                   }
 
                   .caret {
-                    border-top-color: darken($yellow, 30%) !important;
+                    border-top-color: darken($green, 30%) !important;
                   }
                 }
               }
@@ -138,6 +146,11 @@
                   fill: $darkgray !important;
                 }
 
+                // Graph peaks
+                rect[fill="#109618"] {
+                  fill: $yellow !important;
+                }
+
                 // Graph lines
                 rect[width="1"],
                 rect[height="1"] {
@@ -171,6 +184,30 @@
                   stroke: $blue !important;
                   font: 600 12px "Montserrat", sans-serif !important;
                 }
+              }
+            }
+
+            .stats-empty {
+              color: $white !important;
+              background: $black !important;
+
+              h3 {
+                color: $red !important;
+              }
+
+              p {
+                @include flex-layout(row, center, center);
+
+                a {
+                  @include anchor-to-button(
+                    $background-color: $red,
+                    $background-hover: darken($red, 10%)
+                  );
+                }
+              }
+
+              .icon-icomoon {
+                color: $red !important;
               }
             }
           }
