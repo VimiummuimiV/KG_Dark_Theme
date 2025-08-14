@@ -55,6 +55,10 @@ $gametype-colors: (
             }
             .chart-pie {
               svg {
+                rect {
+                  fill: transparent !important;
+                }
+
                 g {
                   path {
                     stroke: none !important;
