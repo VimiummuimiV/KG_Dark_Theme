@@ -14,39 +14,40 @@
   img {
     $iconColor: $lightblue; // Default icon color
 
-    // Individual button backgrounds using map
+    // Individual button backgrounds using map (only names)
     $button-map: (
-      "rte-quote": icon("quote", $iconColor),
-      "rte-quotesel": icon("blockquote", $iconColor),
-      "rte-bold": icon("bold", $iconColor),
-      "rte-italic": icon("italic", $iconColor),
-      "rte-underlined": icon("underline", $iconColor),
-      "rte-strike": icon("strikethrough", $iconColor),
-      "rte-sup": icon("superscript", $iconColor),
-      "rte-sub": icon("subscript", $iconColor),
-      "rte-size": icon("textSize", $iconColor),
-      "rte-color": icon("textColor", $iconColor),
-      "rte-background": icon("textBackground", $iconColor),
-      "rte-link": icon("link", $iconColor),
-      "rte-image": icon("image", $iconColor),
-      "rte-hide": icon("spoiler", $iconColor),
-      "rte-left": icon("alignLeft", $iconColor),
-      "rte-center": icon("alignCenter", $iconColor),
-      "rte-right": icon("alignRight", $iconColor),
-      "rte-tab": icon("indent", $iconColor),
-      "rte-list_0": icon("list", $iconColor),
-      "rte-list_1": icon("listNumbered", $iconColor),
-      "rte-code": icon("code", $iconColor),
-      "rte-html": icon("html", $iconColor),
-      "smile": icon("smile", $iconColor),
-      "rte-youtube": icon("youtube", $iconColor)
+      "rte-quote": "quote",
+      "rte-quotesel": "blockquote",
+      "rte-bold": "bold",
+      "rte-italic": "italic",
+      "rte-underlined": "underline",
+      "rte-strike": "strikethrough",
+      "rte-sup": "superscript",
+      "rte-sub": "subscript",
+      "rte-size": "textSize",
+      "rte-color": "textColor",
+      "rte-background": "textBackground",
+      "rte-link": "link",
+      "rte-image": "image",
+      "rte-hide": "spoiler",
+      "rte-left": "alignLeft",
+      "rte-center": "alignCenter",
+      "rte-right": "alignRight",
+      "rte-tab": "indent",
+      "rte-list_0": "list",
+      "rte-list_1": "listNumbered",
+      "rte-code": "code",
+      "rte-html": "html",
+      "smile": "smile",
+      "rte-youtube": "youtube",
     );
 
-    @each $selector, $icon in $button-map {
+    @each $selector, $iconName in $button-map {
       &[src*="#{$selector}"] {
-        background: $icon !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
+        background-image: icon($iconName, $iconColor) !important;
+        &:hover {
+          background-image: icon($iconName, $orange) !important;
+        }
       }
     }
 
@@ -81,11 +82,12 @@
       width: 32px !important;
       height: 32px !important;
       border: 2px solid transparent !important;
+      background-color: $black !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
 
-      // Hover states
       &:hover {
-        background-color: $black !important;
-        border-color: darken($blue, 20%) !important;
+        border-color: darken($orange, 20%) !important;
       }
     }
   }
