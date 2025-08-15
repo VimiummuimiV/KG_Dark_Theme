@@ -1,0 +1,6 @@
+@import "../functions";
+@import "./vectorData/elementIcons";
+@import "./vectorData/textFormatIcons";
+
+// Combine both maps into a new $icons map
+$icons: map-merge($element-icons, $text-format-icons);

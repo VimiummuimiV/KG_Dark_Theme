@@ -1,0 +1,41 @@
+// Universal string replacement (recursive)
+@function str-replace($string, $search, $replace: "") {
+  @if str-length($search) == 0 {
+    @return $string; // Prevent infinite loop
+  }
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+  @return $string;
+}
+
+// Encode SVG for data URL - uses string replacement
+@function svg-encode($svg) {
+  $svg: str-replace($svg, '#', '%23');
+  $svg: str-replace($svg, '<', '%3C');
+  $svg: str-replace($svg, '>', '%3E');
+  $svg: str-replace($svg, '"', "'");
+  @return $svg;
+}
+
+// Function to create a data URL for inline SVG
+@function svg-url($svg) {
+  @return url("data:image/svg+xml;utf8,#{svg-encode($svg)}");
+}
+
+// Function to get icon with specified color (updated)
+@function icon($name, $color: $black) {
+  $svg: map-get($icons, $name);
+  @if $svg == null {
+    @error "Icon '#{$name}' not found in icons map.";
+  }
+  // Replace placeholder with actual color
+  $svg-replacement: str-replace($svg, "color", "#{$color}");
+  @return url("data:image/svg+xml,#{$svg-replacement}");
+}
