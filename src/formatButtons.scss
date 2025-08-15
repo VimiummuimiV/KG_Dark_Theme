@@ -6,6 +6,7 @@
 // Klavotools BB_Tools_Buttons
 #bb_tools_fast-reply,
 #bb_tools_text {
+
   tr {
     display: inline-flex !important;
     flex-wrap: wrap !important;
@@ -80,7 +81,7 @@
       width: 32px !important;
       height: 32px !important;
       border: 2px solid transparent !important;
-      background-color: $black !important;
+      background-color: transparent !important;
       background-position: center !important;
       background-repeat: no-repeat !important;
 
@@ -109,7 +110,7 @@
       justify-content: center !important;
       width: 40px !important;
       height: 32px !important;
-      background: $black icon("moreHorizontal", $lightblue) no-repeat center !important;
+      background: transparent icon("moreHorizontal", $lightblue) no-repeat center !important;
       border: 2px solid transparent !important;
       border-radius: 5px !important;
       cursor: pointer !important;
