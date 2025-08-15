@@ -94,12 +94,11 @@
   @media (max-width: 460px) {
     position: relative;
     overflow: hidden !important;
-    height: 32px !important; // Fixed height to show only the fake button
+    height: 32px !important;
     
-    // Hide all the actual format buttons with opacity, not display
+    // Hide all the actual format buttons completely
     img, select {
-      opacity: 0 !important;
-      pointer-events: none !important;
+      display: none !important;
     }
     
     // Create a fake button using ::before pseudo-element
@@ -125,13 +124,11 @@
       height: auto !important; // Allow full height
       
       img, select {
-        opacity: 1 !important;
-        pointer-events: auto !important;
+        display: inline !important;
       }
       
       &::before {
-        opacity: 0 !important;
-        pointer-events: none !important;
+        display: none !important;
       }
     }
   }
