@@ -12,8 +12,6 @@
   }
 
   img {
-    $iconColor: $lightblue; // Default icon color
-
     // Individual button backgrounds using map (only names)
     $button-map: (
       "rte-quote": "quote",
@@ -44,7 +42,7 @@
 
     @each $selector, $iconName in $button-map {
       &[src*="#{$selector}"] {
-        background-image: icon($iconName, $iconColor) !important;
+        background-image: icon($iconName, $lightblue) !important;
         &:hover {
           background-image: icon($iconName, $orange) !important;
         }
@@ -88,6 +86,52 @@
 
       &:hover {
         border-color: darken($orange, 20%) !important;
+      }
+    }
+  }
+
+  // Mobile responsive behavior
+  @media (max-width: 460px) {
+    position: relative;
+    overflow: hidden !important;
+    height: 32px !important; // Fixed height to show only the fake button
+    
+    // Hide all the actual format buttons with opacity, not display
+    img, select {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    
+    // Create a fake button using ::before pseudo-element
+    &::before {
+      content: "" !important; // Three dots symbol for the fake button
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 40px !important;
+      height: 32px !important;
+      background: $black icon("moreHorizontal", $lightblue) no-repeat center !important;
+      border: 2px solid transparent !important;
+      border-radius: 5px !important;
+      cursor: pointer !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      z-index: 10 !important;
+    }
+    
+    // Show buttons on hover and hide fake button
+    &:hover {
+      height: auto !important; // Allow full height
+      
+      img, select {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      
+      &::before {
+        opacity: 0 !important;
+        pointer-events: none !important;
       }
     }
   }
