@@ -241,6 +241,12 @@
             &:has(th) {
               display: none !important;
             }
+
+            td {
+              min-height: 32px !important;
+              width: 100% !important;
+              justify-content: center !important;
+            }
           }
 
           .offset_up,
@@ -277,6 +283,10 @@
             background-position: left center !important;
             background-size: 32px !important;
 
+            @media (max-width: 1100px) {
+              width: fit-content !important;
+            }
+
             a {
               border: none !important;
             }
@@ -298,10 +308,6 @@
           .car {
             margin-right: 15px !important;
 
-            @media (max-width: 1100px) {
-              width: 100% !important;
-            }
-
             .img {
               &::before {
                 filter: brightness(0.88) !important;
@@ -313,7 +319,7 @@
               right: calc(100% + 5px) !important;
 
               @media (max-width: 1100px) {
-                right: 50% !important;
+                right: calc(50% - -5px) !important;
                 transform: translateX(-100%) !important;
               }
             }
@@ -340,7 +346,7 @@
           td {
             display: inline-flex !important;
             flex-direction: row !important;
-            justify-content: start !important;
+            justify-content: start;
             align-items: center !important;
             width: fit-content;
             background-color: transparent !important;
@@ -394,6 +400,10 @@
       transform: translateY(-50%) translateX(calc(100% - 50px)) !important; // Hide most of it off-screen
       transition: transform 0.3s ease !important; // Move transition to base state
 
+      @media (max-width: 500px) {
+        width: 300px !important;
+      }
+
       p {
         opacity: 0 !important;
         transition: opacity 0.3s ease !important;
@@ -441,9 +451,18 @@
             position: relative !important;
             left: auto !important;
             right: auto !important;
+            white-space: nowrap !important;
+          }
+
+          a[href*="/vocs/"] {
+            display: none !important;
           }
 
           &.gametype-voc {
+            .gametype-voc {
+              left: 0 !important;
+            }
+
             span {
               margin: 0 !important;
             }
