@@ -7,11 +7,6 @@
   justify-content: center !important;
   gap: 10px !important;
 
-  @media (max-width: 1100px) {
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-
   h3 {
     display: none !important;
   }
@@ -393,6 +388,52 @@
 
         p {
           opacity: 1 !important;
+        }
+      }
+    }
+  }
+
+  // ADAPTIVE STYLES FOR MOBILE AND TABLET
+  @media (max-width: 1100px) {
+    flex-direction: column !important;
+    align-items: center !important;
+
+    .left-col,
+    dt:first-child {
+      position: static !important;
+      width: 100% !important;
+      margin-bottom: 20px !important;
+
+      h4 {
+        width: 100% !important;
+      }
+
+      ul.mode {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+
+        li {
+          width: auto !important;
+          min-width: 80px !important;
+          margin: 5px !important;
+          font-size: 0.9em !important;
+
+          a {
+            position: relative !important;
+            left: auto !important;
+            right: auto !important;
+          }
+
+          &.gametype-voc {
+            span {
+              margin: 0 !important;
+            }
+
+            &::before {
+              display: none !important;
+            }
+          }
         }
       }
     }
