@@ -232,8 +232,16 @@
           border-radius: 5px !important;
           margin: 5px 0 !important;
           padding: 5px !important;
-          height: 70px !important;
+          height: auto !important;
+          min-height: 70px !important;
           position: relative !important;
+
+          // Hide table header rows on small screens
+          @media (max-width: 1100px) {
+            &:has(th) {
+              display: none !important;
+            }
+          }
 
           .offset_up,
           .offset_down {
@@ -265,6 +273,7 @@
 
           .name {
             width: 220px !important;
+            height: 32px !important;
             background-position: left center !important;
             background-size: 32px !important;
 
@@ -289,6 +298,10 @@
           .car {
             margin-right: 15px !important;
 
+            @media (max-width: 1100px) {
+              width: 100% !important;
+            }
+
             .img {
               &::before {
                 filter: brightness(0.88) !important;
@@ -298,6 +311,11 @@
             .numbers {
               bottom: 5px !important;
               right: calc(100% + 5px) !important;
+
+              @media (max-width: 1100px) {
+                right: 50% !important;
+                transform: translateX(-100%) !important;
+              }
             }
           }
 
@@ -324,7 +342,7 @@
             flex-direction: row !important;
             justify-content: start !important;
             align-items: center !important;
-            width: fit-content !important;
+            width: fit-content;
             background-color: transparent !important;
             border: none !important;
             height: 100% !important;
