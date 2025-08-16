@@ -236,19 +236,6 @@
           min-height: 70px !important;
           position: relative !important;
 
-          // Hide table header rows on small screens
-          @media (max-width: 1100px) {
-            &:has(th) {
-              display: none !important;
-            }
-
-            td {
-              min-height: 32px !important;
-              width: 100% !important;
-              justify-content: center !important;
-            }
-          }
-
           .offset_up,
           .offset_down {
             position: absolute !important;
@@ -283,10 +270,6 @@
             background-position: left center !important;
             background-size: 32px !important;
 
-            @media (max-width: 1100px) {
-              width: fit-content !important;
-            }
-
             a {
               border: none !important;
             }
@@ -317,11 +300,6 @@
             .numbers {
               bottom: 5px !important;
               right: calc(100% + 5px) !important;
-
-              @media (max-width: 1100px) {
-                right: calc(50% - -5px) !important;
-                transform: translateX(-100%) !important;
-              }
             }
           }
 
@@ -400,10 +378,6 @@
       transform: translateY(-50%) translateX(calc(100% - 50px)) !important; // Hide most of it off-screen
       transition: transform 0.3s ease !important; // Move transition to base state
 
-      @media (max-width: 500px) {
-        width: 300px !important;
-      }
-
       p {
         opacity: 0 !important;
         transition: opacity 0.3s ease !important;
@@ -420,9 +394,15 @@
       }
     }
   }
+}
 
-  // ADAPTIVE STYLES FOR MOBILE AND TABLET
-  @media (max-width: 1100px) {
+// ===============================
+// MEDIA QUERIES
+// ===============================
+
+// Tablet and mobile breakpoint
+@media (max-width: 1100px) {
+  #toplist {
     flex-direction: column !important;
     align-items: center !important;
 
@@ -472,6 +452,50 @@
             }
           }
         }
+      }
+    }
+
+    .content-col,
+    dd {
+      table {
+        tbody {
+          tr {
+            min-height: 32px !important;
+
+            // Hide table header rows on small screens
+            &:has(th) {
+              display: none !important;
+            }
+
+            .name {
+              width: fit-content !important;
+            }
+
+            .car {
+              .numbers {
+                right: calc(50% - -5px) !important;
+                transform: translateX(-100%) !important;
+              }
+            }
+
+            td {
+              min-height: 32px !important;
+              width: 100% !important;
+              justify-content: center !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Small mobile breakpoint
+@media (max-width: 500px) {
+  #toplist {
+    .right-col {
+      .info {
+        width: 300px !important;
       }
     }
   }
