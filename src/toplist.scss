@@ -7,6 +7,11 @@
   justify-content: center !important;
   gap: 10px !important;
 
+  @media (max-width: 1100px) {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
   h3 {
     display: none !important;
   }
@@ -182,6 +187,7 @@
   .content-col,
   // Top list table parent navigating from vocabulary
   dd {
+    background: $darkgray !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -198,7 +204,7 @@
         border-radius: 5px !important;
         border: 1px solid $gray !important;
         width: 60px !important;
-        height: 100% !important;
+        height: auto !important;
         padding: 0 !important;
         margin-right: 10px !important;
         transition: background 0.15s ease !important;
