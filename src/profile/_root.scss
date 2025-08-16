@@ -8,6 +8,8 @@
 
   // Trophy/achievement styles
   .trophy {
+    @include flex-layout(row, center, center);
+
     .item {
       .dummy {
         background: $darkgray !important;
@@ -64,8 +66,13 @@
 
   // Profile header styles
   .profile-header {
+    width: 1000px !important;
     background: $darkgray !important;
     border-bottom: 1px solid $gray !important;
+
+    @media (max-width: 1000px) {
+      width: 100% !important;
+    }
 
     .car {
       background: $darkgray !important;
@@ -116,6 +123,51 @@
     .mini-nav {
       display: none !important;
       opacity: 0 !important;
+    }
+  }
+
+  // Profile container styles
+  .profile-container {
+    width: 1000px !important;
+
+    @media (max-width: 1000px) {
+      width: 100% !important;
+    }
+
+    .profile-content {
+      width: 80% !important;
+
+      @media (max-width: 1000px) {
+        width: 100% !important;
+
+        @media (max-width: 720px) {
+          @include flex-layout(column, center, center);
+        }
+      }
+
+      #profile-index {
+        width: 100% !important;
+
+        .col-xs-9 {
+          width: 80% !important;
+
+          @media (max-width: 720px) {
+            width: 100% !important;
+          }
+        }
+
+        .col-xs-3 {
+          width: 20% !important;
+
+          .stats {
+            width: auto !important;
+
+            @media (max-width: 720px) {
+              display: none !important;
+            }
+          }
+        }
+      }
     }
   }
 

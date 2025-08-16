@@ -2,77 +2,79 @@
 #content .sidebar {
   float: left !important;
   width: 20% !important;
-
-  @media (max-width: 1000px) {
-    @include flex-layout(row, start, start);
-    float: none !important;
-    width: 100% !important;
-  }
-
+  
   .profile-nav {
     background-color: transparent !important;
-
     &::before {
       display: none !important;
     }
-
-    @media (max-width: 1000px) {
-      @include flex-layout(row, start, start);
-      gap: 5px !important;
-    }
   }
-
+  
   // Base link styles
   a {
     color: $white !important;
     background: $deepgray !important;
     text-decoration: none !important;
-
-    @media (max-width: 1000px) {
-      @include flex-layout();
-      padding: 0 !important;
-      width: 35px !important;
-      height: 35px !important;
-      border-radius: 5px !important;
-    }
-
+    
     .icon-icomoon {
       color: $white !important;
-
-      @media (max-width: 1000px) {
-        margin: 0 !important;
-      }
     }
-
+    
     span {
       color: $white !important;
-
-      @media (max-width: 1000px) {
-        display: none !important;
-      }
     }
-
+    
     &:hover,
     &:focus {
       background: $black !important;
     }
   }
-
+  
   // Active state
   .active > a {
     background: $blue !important;
-
+    
     .icon-icomoon {
       color: $deepgray !important;
     }
-
+    
     span {
       color: $deepgray !important;
     }
-
+    
     &:hover,
     &:focus {
       background: $blue !important;
+    }
+  }
+}
+
+// Media queries
+@media (max-width: 1000px) {
+  #content .sidebar {
+    @include flex-layout(row, start, start);
+    float: none !important;
+    width: 100% !important;
+    
+    .profile-nav {
+      @include flex-layout(row, start, start);
+      gap: 5px !important;
+    }
+    
+    a {
+      @include flex-layout();
+      padding: 0 !important;
+      width: 35px !important;
+      height: 35px !important;
+      border-radius: 5px !important;
+      
+      .icon-icomoon {
+        margin: 0 !important;
+      }
+      
+      span {
+        display: none !important;
+      }
     }
   }
 }
