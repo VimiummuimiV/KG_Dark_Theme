@@ -67,9 +67,10 @@ $awards: (
 }
 
 @mixin button-base {
-  font-weight: normal !important;
   border: none !important;
   border-radius: 3px !important;
+  font-weight: 700 !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 @mixin button-style($bg-color, $text-color) {

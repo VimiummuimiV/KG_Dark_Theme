@@ -32,8 +32,13 @@
       }
     }
 
-    .contact:hover {
-      background: $deepgray !important;
+    .contact {
+      border: none !important;
+      border-radius: 5px !important;
+
+      &:hover {
+        background: $deepgray !important;
+      }
     }
   }
 

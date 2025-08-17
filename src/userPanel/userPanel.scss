@@ -53,11 +53,15 @@ $buttonHeight: 44px;
 
         .icon {
           &[src*="active"] {
-            @include daily-task-icon(icon("alertCircle", $yellow) no-repeat center / 35px);
+            @include daily-task-icon(
+              icon("alertCircle", $yellow) no-repeat center / 35px
+            );
           }
 
           &[src*="completed"] {
-            @include daily-task-icon(icon("checkCircle", $green) no-repeat center / 35px);
+            @include daily-task-icon(
+              icon("checkCircle", $green) no-repeat center / 35px
+            );
           }
         }
       }
@@ -95,8 +99,9 @@ $buttonHeight: 44px;
             color: $black !important;
             border: none !important;
             border-radius: 3px !important;
-            font-weight: lighter !important;
             transition: all 0.2s ease !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
 
             &:hover {
               background: $blue !important;
@@ -104,9 +109,34 @@ $buttonHeight: 44px;
             }
           }
 
-          .logout a {
-            padding: 5px 10px !important;
-            width: fit-content !important;
+          a[href*="/u/#/"] {
+            padding: 0 !important;
+            font-size: 0 !important;
+            width: 35px !important;
+            height: 35px !important;
+            background: $gray icon("user", $black) no-repeat center / 20px !important;
+
+            &:hover {
+              background: $blue icon("user", $black) no-repeat center / 20px !important;
+            }
+          }
+
+          .logout {
+            position: absolute !important;
+            top: 0 !important;
+            right: 0 !important;
+
+            a {
+              padding: 0 !important;
+              font-size: 0 !important;
+              width: 35px !important;
+              height: 35px !important;
+              background: $gray icon("logOut", $black) no-repeat center / 20px !important;
+
+              &:hover {
+                background: $blue icon("logOut", $black) no-repeat center / 20px !important;
+              }
+            }
           }
 
           ul {
@@ -271,7 +301,6 @@ $buttonHeight: 44px;
   #userpanel-bonuses {
     font-size: 12px !important;
     color: $blue !important;
-    font-weight: 500 !important;
   }
 
   #userpanel-scores,
