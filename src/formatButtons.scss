@@ -1,11 +1,9 @@
 /* Forum and Vocabularies comments Textarea bbcode formatting buttons */
 
 // Default container
-#fast-reply-controls,
-#text-controls,
+.rte-buttonbar,
 // Klavotools BB_Tools_Buttons
-#bb_tools_fast-reply,
-#bb_tools_text {
+.bb_tools {
 
   tr {
     display: inline-flex !important;

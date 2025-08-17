@@ -50,8 +50,8 @@
             }
           }
 
-          #bb_tools_text,
-          #text-controls {
+          .bb_tools,
+          .rte-buttonbar {
             margin: 10px 0 !important;
           }
 
@@ -83,7 +83,7 @@
 
         dd:has(input) {
           margin-top: 5px !important;
-          
+
           @media (max-width: 400px) {
             gap: 5px !important;
             @include flex-layout(column);

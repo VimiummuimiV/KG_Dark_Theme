@@ -117,18 +117,20 @@
 
 @mixin send-preview-buttons() {
   input {
+    padding: 0 !important;
     border: none !important;
     width: 50% !important;
     height: 40px !important;
-    color: $black !important;
-    transition: background-color 0.15s ease !important;
     font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     font-size: 14px !important;
+    color: $black !important;
+    transition: background-color 0.15s ease !important;
   }
 
-  input[name="send"] {
+  input[name="send"],
+  input[onclick*="submit"] {
     border-radius: 5px 0 0 5px !important;
     border-right: 1px solid $black !important;
     background: $gray icon("send", $black) no-repeat 15px center / 24px !important;
@@ -138,9 +140,12 @@
     }
   }
 
-  input[name="preview"] {
+  input[name="preview"],
+  input[onclick*="cancel"] {
     border-radius: 0 5px 5px 0 !important;
     background: $gray icon("eye", $black) no-repeat 15px center / 24px !important;
+    // Fix for the forum preview button on post edit NOT write
+    float: right !important;
 
     &:hover {
       background-color: $blue !important;
@@ -153,12 +158,14 @@
       font-size: 11px !important;
     }
 
-    input[name="send"] {
+    input[name="send"],
+    input[onclick*="submit"] {
       background-size: 18px !important;
       background-position: 10px center !important;
     }
 
-    input[name="preview"] {
+    input[name="preview"],
+    input[onclick*="cancel"] {
       background-size: 18px !important;
       background-position: 10px center !important;
     }
@@ -166,10 +173,13 @@
 
   @media (max-width: 400px) {
     input[name="send"],
-    input[name="preview"] {
+    input[onclick*="submit"],
+    input[name="preview"],
+    input[onclick*="cancel"] {
       width: 100% !important;
       border-radius: 5px !important;
       border: none !important;
+      float: none !important;
     }
   }
 }

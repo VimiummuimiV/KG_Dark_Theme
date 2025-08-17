@@ -182,12 +182,6 @@
             }
           }
 
-          td {
-            @media (max-width: 480px) {
-              width: 100% !important;
-            }
-          }
-
           .post-container {
             padding: 0 !important;
 
@@ -197,7 +191,9 @@
             }
 
             .text {
-              img.linked-image:not([src*="smilies/"]):not(img[src*="avatars/"]) {
+              img.linked-image:not([src*="smilies/"]):not(
+                  img[src*="avatars/"]
+                ) {
                 animation: fadeIn 0.5s ease-in-out;
                 filter: brightness(0.5) !important;
                 transition: filter 0.1s ease-in-out;
@@ -218,6 +214,33 @@
                 &:hover {
                   transform: scale(3) !important;
                 }
+              }
+            }
+
+            .edit-block {
+              textarea {
+                width: 100% !important;
+                height: 400px !important;
+                font-size: 1.2em !important;
+                padding: 10px !important;
+                border-radius: 5px !important;
+                border: 1px solid $gray !important;
+                background-color: $deepgray !important;
+                resize: none !important;
+                transition: border-color 0.15s ease-in-out,
+                  background-color 0.15s ease-in-out !important;
+
+                &:focus {
+                  border-color: $blue !important;
+                  background-color: $black !important;
+                }
+              }
+
+              @include send-preview-buttons();
+              
+              // Send, Preview buttons
+              input {
+                margin-top: 5px !important;
               }
             }
           }
