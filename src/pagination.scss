@@ -5,7 +5,7 @@
   color: $white !important;
   background: $black !important;
   position: fixed !important;
-  top: 45px !important;
+  top: 0 !important;
   right: 0 !important;
   z-index: 120 !important;
   display: flex !important;
@@ -17,15 +17,6 @@
   opacity: 0.5 !important;
   transition: opacity 0.15s ease-in-out !important;
 
-  @media (max-width: 2000px) {
-    top: unset !important;
-    bottom: 0 !important;
-    right: 10px !important;
-    border-radius: 5px 5px 0 0 !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-
   // Make background transparent when there's no .paginator inside
   &:not(:has(.paginator)) {
     background: transparent !important;
@@ -34,65 +25,6 @@
   &:hover {
     opacity: 1 !important;
     transition: opacity 0.2s !important;
-  }
-
-  // Collapsed button behavior only for screens 1420px and lower
-  @media (max-width: 1440px) {
-    // Collapsed state
-    width: 50px !important;
-    height: 50px !important;
-    overflow: hidden !important;
-    transition: all 0.15s ease-in-out !important;
-    cursor: pointer !important;
-
-    @media (max-width: 800px) {
-      opacity: 1 !important;
-      bottom: unset !important;
-      top: 88px !important;
-      right: 60px !important;
-      border-radius: 0 0 5px 5px !important;
-    }
-
-    // Expanded state on hover
-    &:hover {
-      width: auto !important;
-      height: auto !important;
-      transition: all 0.15s ease-in-out !important;
-
-      // Show all content on hover
-      .paginator,
-      .page,
-      .selected {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-    }
-
-    // Hide content in collapsed state
-    .paginator,
-    .page,
-    .selected {
-      opacity: 0 !important;
-      transition: opacity 0.15s ease-in-out !important;
-      pointer-events: none !important;
-    }
-
-    // Add a visual indicator in collapsed state
-    &::before {
-      content: "" !important;
-      position: absolute !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      pointer-events: none !important;
-      z-index: 1 !important;
-      background: transparent icon("moreHorizontal", $lightblue) no-repeat center !important;
-    }
-
-    &:hover::before {
-      opacity: 0 !important;
-    }
   }
 
   // Nested paginator controls
@@ -110,10 +42,6 @@
       display: flex !important;
       overflow: hidden !important;
       border-radius: 3px !important;
-
-      @media (max-width: 2000px) {
-        flex-direction: column !important;
-      }
 
       // Hide icons in forum pagination
       i {
@@ -205,5 +133,99 @@
         transition: all 0.1s !important;
       }
     }
+  }
+}
+
+/* Conditional positioning when userpanel exists */
+body:has(.userpanel) .pages {
+  top: 45px !important;
+
+  @media (max-width: 2000px) {
+    top: unset !important;
+  }
+
+  @media (max-width: 800px) {
+    top: 88px !important;
+  }
+}
+
+/* Media queries that work regardless of userpanel */
+@media (max-width: 2000px) {
+  .pages {
+    top: unset !important;
+    bottom: 0 !important;
+    right: 10px !important;
+    border-radius: 5px 5px 0 0 !important;
+    flex-direction: column !important;
+    align-items: center !important;
+
+    .paginator {
+      .ctrls {
+        flex-direction: column !important;
+      }
+    }
+  }
+}
+
+// Collapsed button behavior only for screens 1440px and lower
+@media (max-width: 1440px) {
+  .pages {
+    // Collapsed state
+    width: 50px !important;
+    height: 50px !important;
+    overflow: hidden !important;
+    transition: all 0.15s ease-in-out !important;
+    cursor: pointer !important;
+
+    // Expanded state on hover
+    &:hover {
+      width: auto !important;
+      height: auto !important;
+      transition: all 0.15s ease-in-out !important;
+
+      // Show all content on hover
+      .paginator,
+      .page,
+      .selected {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+    }
+
+    // Hide content in collapsed state
+    .paginator,
+    .page,
+    .selected {
+      opacity: 0 !important;
+      transition: opacity 0.15s ease-in-out !important;
+      pointer-events: none !important;
+    }
+
+    // Add a visual indicator in collapsed state
+    &::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+      background: transparent icon("moreHorizontal", $lightblue) no-repeat center !important;
+    }
+
+    &:hover::before {
+      opacity: 0 !important;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .pages {
+    top: 0 !important;
+    bottom: unset !important;
+    right: 60px !important;
+    border-radius: 0 0 5px 5px !important;
+    opacity: 1 !important;
   }
 }

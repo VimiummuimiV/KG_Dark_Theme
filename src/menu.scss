@@ -185,6 +185,13 @@ body:has(.userpanel) #head .right {
         opacity: 0 !important;
         visibility: hidden !important;
       }
+
+      // Keep hamburger button visible when login block is hovered (since menu is hidden)
+      &:hover .login-block:hover ~ .menu {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
     }
 
     // Small mobile - more compact dropdown
