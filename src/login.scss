@@ -44,6 +44,11 @@
   }
 }
 
+/* Hide login block when userpanel exists */
+body:has(.userpanel) .login-block {
+  display: none !important;
+}
+
 /* LOGIN FORM */
 
 /* Login form popup */

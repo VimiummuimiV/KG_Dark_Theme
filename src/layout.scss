@@ -9,6 +9,7 @@
 }
 
 $space: 100px;
+
 /* global */
 .minwidth {
   min-width: unset !important;
@@ -48,4 +49,9 @@ $space: 100px;
       top: $space + 50px !important;
     }
   }
+}
+
+/* Conditional positioning when userpanel not exists */
+body:not(:has(.userpanel)) #content .minwidth_holyhack {
+  top: $space - 40px !important;
 }
