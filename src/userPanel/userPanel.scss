@@ -102,6 +102,7 @@ $buttonHeight: 44px;
             transition: all 0.2s ease !important;
             font-weight: 600 !important;
             text-transform: uppercase !important;
+            margin: 0 !important;
 
             &:hover {
               background: $blue !important;
@@ -112,29 +113,31 @@ $buttonHeight: 44px;
           a[href*="/u/#/"] {
             padding: 0 !important;
             font-size: 0 !important;
-            width: 35px !important;
-            height: 35px !important;
-            background: $gray icon("user", $black) no-repeat center / 20px !important;
+            width: 70px !important;
+            height: 50px !important;
+            background: $gray icon("user", $black) no-repeat center / 24px !important;
 
             &:hover {
-              background: $blue icon("user", $black) no-repeat center / 20px !important;
+              background: $blue icon("user", $black) no-repeat center / 24px !important;
             }
           }
 
           .logout {
             position: absolute !important;
             top: 0 !important;
+            bottom: unset !important;
             right: 0 !important;
+            margin: 0 !important;
 
             a {
               padding: 0 !important;
               font-size: 0 !important;
-              width: 35px !important;
-              height: 35px !important;
-              background: $gray icon("logOut", $black) no-repeat center / 20px !important;
+              width: 70px !important;
+              height: 50px !important;
+              background: $gray icon("logOut", $black) no-repeat center / 24px !important;
 
               &:hover {
-                background: $blue icon("logOut", $black) no-repeat center / 20px !important;
+                background: $blue icon("logOut", $black) no-repeat center / 24px !important;
               }
             }
           }
