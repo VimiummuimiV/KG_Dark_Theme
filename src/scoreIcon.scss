@@ -8,9 +8,9 @@
   width: $size !important;
   height: $size !important;
   
-  // Active (highlighted) segments are yellow, inactive are orange
-  $active-color: #FFFF00;   // Yellow
-  $inactive-color: #ff8c00cc; // Orange
+  // Active (highlighted) segments are $yellow, inactive are $orange
+  $active-color: $yellow;
+  $inactive-color: $orange;
   
   background: url("data:image/svg+xml,#{generate-score-svg($score-level, $size, $active-color, $inactive-color)}") !important;
   background-repeat: no-repeat !important;

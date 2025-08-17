@@ -1,0 +1,102 @@
+@import "./data/variables";
+
+#register {
+  h4 {
+    font: 700 1.5em "Montserrat", sans-serif !important;
+    text-transform: uppercase !important;
+
+    + p {
+      color: $lightgray !important;
+    }
+  }
+
+  form#registerform {
+    table {
+      @include flex-layout(column, center, center);
+
+      tr {
+        @include flex-layout(column, center, center);
+        background: $black !important;
+        border-radius: 10px !important;
+        width: 330px !important;
+        padding: 10px !important;
+        margin-bottom: 10px !important;
+
+        th {
+          color: $orange !important;
+          width: fit-content !important;
+        }
+
+        &:has(.g-recaptcha) {
+          th {
+            display: none !important;
+          }
+        }
+      }
+
+      .big {
+        padding: 0 !important;
+        background: $deepgray !important;
+        border-radius: 5px !important;
+        overflow: hidden !important;
+        border: none !important;
+
+        input {
+          padding: 5px 10px !important;
+          width: 280px !important;
+          color: $white !important;
+          background: $deepgray !important;
+        }
+
+        &[style*="error.gif"] {
+          background: darken($red, 10%) none !important;
+
+          input {
+            background: $red !important;
+            color: $black !important;
+          }
+        }
+
+        &[style*="ok.gif"] {
+          background: darken($green, 10%) none !important;
+
+          input {
+            background: $green !important;
+            color: $black !important;
+          }
+        }
+      }
+
+      .note {
+        padding: 0 0 10px !important;
+        width: fit-content !important;
+        font-size: 12px !important;
+        width: 280px !important;
+
+        div[id*="_note"] {
+          color: $white !important;
+        }
+        div[id*="_error"] {
+          color: $red !important;
+        }
+      }
+
+      #register_submit_button {
+        text-transform: uppercase !important;
+        width: 300px !important;
+        border: none !important;
+        outline: none !important;
+        border-radius: 5px !important;
+        background: $gray !important;
+        color: $black !important;
+        transition: background 0.15s ease-in-out !important;
+        font: 600 1em "Montserrat", sans-serif !important;
+
+        &:hover {
+          cursor: pointer !important;
+          background: $blue !important;
+        }
+      }
+    }
+  }
+}

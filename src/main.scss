@@ -35,7 +35,6 @@
 // -----------------------------------------------------------------------------
 // 5. UI COMPONENTS
 // -----------------------------------------------------------------------------
-@import "components";
 @import "modalDialogue";
 @import "formatButtons";
 @import "calendar";
@@ -51,6 +50,7 @@
 // 6. PAGES & SECTIONS
 // -----------------------------------------------------------------------------
 @import "./home/home";
+@import "register";
 @import "login";
 @import "./profile/profile";
 @import "./vocabularies/vocabularies";

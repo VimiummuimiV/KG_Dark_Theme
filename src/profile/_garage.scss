@@ -1,23 +1,82 @@
+// Car color dialog styles
+.dlg-profile-car-color {
+  #cp1 {
+    #cp1_ColorMap,
+    #cp1_ColorBar {
+      border: none !important;
+      border-radius: 5px !important;
+      overflow: hidden !important;
+    }
+
+    .other {
+      .car {
+        @include flex-layout(row);
+        width: 100% !important;
+        margin-bottom: 10px !important;
+      }
+    }
+
+    td:has(#cp1_Hex) {
+      font-size: 0 !important;
+    }
+
+    #cp1_Hex {
+      width: 100% !important;
+      background: $black !important;
+      padding: 5px 10px !important;
+      border-radius: 3px !important;
+      outline: none !important;
+      border: none !important;
+      font: 500 14px "Montserrat", sans-serif !important;
+    }
+  }
+}
+
 // Car aero dialog styles
 .dlg-profile-car-aero {
   .aero-canvas {
     border: none !important;
 
     .content {
-      background: $gray !important;
+      background: $darkgray !important;
+
+      .white-top,
+      .white-left,
+      .white-right,
+      .white-bottom {
+        background: $darkgray !important;
+      }
+
+      .car {
+        .img {
+          &::before {
+            transform-origin: top left !important;
+          }
+        }
+
+        &[style*="120"] .img::before {
+          transform: scale(2) !important;
+        }
+
+        &[style*="70"] .img::before {
+          transform: scale(4) !important;
+        }
+      }
     }
   }
 
   .warning {
-    background: rgba(225, 20, 0, 0.5) !important;
-    color: $white !important;
+    background: darken($red, 30%) !important;
+    border-radius: 10px !important;
+    color: lighten($red, 10%) !important;
   }
 }
 
 // Toolbar and button styles for car section
 .literally {
   .toolbar {
-    background: $deepgray !important;
+    border-radius: 5px !important;
+    background: $black !important;
 
     .toolbar-row {
       border: none !important;
@@ -26,7 +85,8 @@
 
   .button {
     &.danger {
-      background: rgba(225, 20, 0, 0.5) !important;
+      background: darken($red, 30%) !important;
+      color: lighten($red, 10%) !important;
     }
 
     border: none !important;
@@ -49,17 +109,80 @@
 // My car block styles
 .profile-car {
   .my-car {
+    position: relative !important;
     z-index: 15 !important;
     background: $darkgray !important;
-    border: 1px solid $gray !important;
+    border-radius: 10px !important;
+    border: 2px solid $gray !important;
+    margin: 0 0 20px !important;
+    width: 100% !important;
 
     .car {
       background: $darkgray !important;
+      padding: 10px !important;
+      margin: 30px 5px !important;
+    }
+
+    // Override margin when no scores or bonuses
+    &:not(:has(.scores)):not(:has(.bonuses)) {
+      .car {
+        margin: 30px 5px 5px !important;
+      }
     }
 
     .title {
-      color: gold !important;
+      color: $yellow !important;
       border-bottom: 1px solid transparent !important;
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      padding: 10px !important;
+      margin: 0 !important;
+      min-width: 120px !important;
+    }
+
+    .car-action {
+      @include flex-layout(row);
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 0 0 20px !important;
+      padding: 0 !important;
+
+      .car-controls {
+        @include flex-layout(row);
+        margin: 0 !important;
+        padding: 0 !important;
+
+        button {
+          width: fit-content !important;
+          margin: 2px !important;
+        }
+
+        .calculation {
+          .price-label {
+            display: none !important;
+          }
+
+          .price:not(:has(span)) {
+            display: none !important;
+          }
+
+          .price {
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+
+            .scores,
+            .bonuses {
+              padding: 10px !important;
+              margin: 0 !important;
+              min-width: 120px !important;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -70,27 +193,35 @@
   }
 
   .car-block {
-    .name {
-      color: $blue !important;
-    }
-  }
-
-  .tuning-category {
-    .tuning-item {
-      border: 1px solid transparent !important;
-
-      .price {
-        color: $white !important;
-
-        .scores {
-          color: lightgreen !important;
-          background: transparent !important;
-        }
+    .car-block-content {
+      .name {
+        color: $blue !important;
       }
 
       &.active {
         border: 1px solid $blue !important;
       }
     }
+  }
+
+  .tuning-category {
+    .tuning-item {
+      border-radius: 10px !important;
+      border: 2px solid transparent !important;
+
+      &.active {
+        border: 2px solid $blue !important;
+      }
+    }
+  }
+
+  .scores {
+    color: lighten($green, 15%) !important;
+    background: transparent !important;
+  }
+
+  .bonuses {
+    color: lighten($lightblue, 15%) !important;
+    background: transparent !important;
   }
 }

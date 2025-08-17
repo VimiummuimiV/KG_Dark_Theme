@@ -6,21 +6,20 @@
   .c {
     position: relative !important;
     border-radius: 1em !important;
-    background-color: $deepgray !important;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2) !important;
+    background-color: $black !important;
     padding: 1em !important;
     z-index: 5 !important;
 
     .preerror {
-      color: #808080 !important;
+      color: $gray !important;
     }
 
     s.trackerror {
-      color: hsl(0, 80%, 70%) !important;
+      color: lighten($red, 5%) !important;
     }
 
     span.trackerror {
-      color: hsl(0, 80%, 50%) !important;
+      color: darken($red, 5%) !important;
     }
 
     

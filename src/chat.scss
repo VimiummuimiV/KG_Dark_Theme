@@ -278,6 +278,12 @@ $chatHeaderSize: 26px;
                     }
                   }
 
+                  .chat-guest {
+                    padding: 10px !important;
+                    background: $deepgray !important;
+                    border: none !important;
+                  }
+
                   input.text {
                     border: none !important;
                     outline: none !important;
