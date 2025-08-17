@@ -8,8 +8,8 @@
   z-index: 100 !important;
   position: fixed !important;
   @include flex-layout();
-  height: 45px !important;
-  width: 45px !important;
+  height: 50px !important;
+  width: 50px !important;
   border-radius: 0 0 0 5px !important;
   padding: 0 !important;
   color: transparent !important;
@@ -27,9 +27,9 @@
     padding-left: unset !important;
     background: transparent icon("key", $black) no-repeat center / 24px !important;
     text-decoration: none !important;
-    height: 45px !important;
+    height: 50px !important;
     position: absolute !important;
-    width: 45px !important;
+    width: 50px !important;
 
     span {
       display: none !important;
@@ -204,8 +204,8 @@
     opacity: 1 !important;
     top: 0 !important;
     right: 0 !important;
-    height: 45px !important;
-    width: 45px !important;
+    height: 50px !important;
+    width: 50px !important;
     background-color: $gray !important;
     background-image: icon("close", $black) !important;
     background-repeat: no-repeat !important;
@@ -220,5 +220,20 @@
     ins {
       display: none !important;
     }
+  }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 1000px) {
+  .login-block {
+    border-radius: 0 0 5px 5px !important;
+    right: unset !important;
+    left: 70px !important;
+  }
+
+  #login-form .close {
+    border-radius: 0 0 5px 5px !important;
+    right: unset !important;
+    left: 70px !important;
   }
 }

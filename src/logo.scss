@@ -1,4 +1,4 @@
-@import "../data/variables";
+@import "./data/variables";
 
 /* Logo styles */
 #head #logo {
@@ -8,7 +8,7 @@
   padding: 0 !important;
   float: none !important;
   position: fixed !important;
-  top: 45px !important;
+  top: 0 !important;
   background-color: $black !important;
   border-radius: 0 0 6px 6px !important;
 
@@ -39,4 +39,29 @@
   }
 }
 
-@import "logo-adaptive";
+/* Conditional positioning when userpanel exists */
+.userpanel ~ #head #logo,
+body:has(.userpanel) #head #logo {
+  top: 45px !important;
+
+  @media (max-width: 1000px) {
+    top: 88px !important;
+  }
+}
+
+/* Mobile/Tablet responsive styles - work regardless of userpanel */
+@media (max-width: 1000px) {
+  #head #logo {
+    left: 5px !important;
+    width: 55px !important;
+
+    a {
+      width: 55px !important;
+
+      &::after {
+        mask: $keysLogoSmall no-repeat center / 30px !important;
+        width: 55px !important;
+      }
+    }
+  }
+}

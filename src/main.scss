@@ -26,10 +26,10 @@
 // -----------------------------------------------------------------------------
 // 4. LAYOUT COMPONENTS
 // -----------------------------------------------------------------------------
-@import "./logo/logo";
+@import "logo";
 @import "avatar";
 @import "./userPanel/userPanel";
-@import "./mainMenu/mainMenu";
+@import "menu";
 @import "floatingNavigation";
 
 // -----------------------------------------------------------------------------
