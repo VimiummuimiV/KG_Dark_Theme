@@ -51,23 +51,27 @@
         tr:nth-child(1) {
           // Best speed
           td:nth-child(2) {
-            background: icon("bestSpeed", $green) no-repeat left center / contain !important;
+            background: icon("bestSpeed", $green) no-repeat left center /
+              contain !important;
           }
           // Error percentage
           td:nth-child(5) {
-            background: icon("errorPercentage", $red) no-repeat left center / contain !important;
+            background: icon("errorPercentage", $red) no-repeat left center /
+              contain !important;
           }
         }
 
         tr:nth-child(2) {
           // Top position
           td:nth-child(1) {
-            background: icon("topPosition", $lightblue) no-repeat left center / contain !important;
+            background: icon("topPosition", $lightblue) no-repeat left center /
+              contain !important;
           }
 
           // Average speed
           td:nth-child(2) {
-            background: icon("averageSpeed", $yellow) no-repeat left center / contain !important;
+            background: icon("averageSpeed", $yellow) no-repeat left center /
+              contain !important;
           }
 
           // Odometer
@@ -87,19 +91,29 @@
       right: 0 !important;
       width: 100vw !important;
 
-      @media (max-width: 475px) {
+      @media (max-width: 710px) {
         .user-dropdown {
-          .name {
-            padding: 10px !important;
-            border-right: 1px solid $gray !important;
+          .dropmenu {
+            position: fixed !important;
+            top: 50% !important;
+            right: 50% !important;
+            transform: translate(50%, -50%) !important;
+            border-radius: 5px !important;
+          }
 
-            img {
-              margin: 0 !important;
-            }
+          @media (max-width: 475px) {
+            .name {
+              padding: 10px !important;
+              border-right: 1px solid $gray !important;
 
-            span,
-            .caret {
-              display: none !important;
+              img {
+                margin: 0 !important;
+              }
+
+              span,
+              .caret {
+                display: none !important;
+              }
             }
           }
         }
