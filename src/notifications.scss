@@ -31,7 +31,6 @@
     // Close notification button
     a {
       position: relative !important;
-      font-size: 0 !important;
       width: 250px !important;
       height: 35px !important;
       border: none !important;
@@ -40,6 +39,11 @@
       margin: 0 !important;
       padding: 0 !important;
       transition: background 0.15s ease-in-out !important;
+    }
+
+    // Join invite button
+    input[type="button"] {
+      font-size: 0 !important;
     }
 
     // Join invite button
