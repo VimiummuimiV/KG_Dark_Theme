@@ -1,6 +1,13 @@
 /* POPUP BOX CONFIRMATION STYLES */
 .popup_message,
 #drop_message {
+  width: 100% !important;
+  height: 100% !important;
+
+  .back {
+    position: fixed !important;
+  }
+
   .popup-box {
     border-radius: 10px !important;
     overflow: hidden !important;
