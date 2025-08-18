@@ -2,7 +2,7 @@
 .notification-bar,
 #top-popup {
   @include flex-layout();
-  position: absolute !important;
+  position: fixed !important;
   left: unset !important;
   right: 5px !important;
   background: $black !important;
