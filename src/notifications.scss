@@ -1,135 +1,105 @@
 /* NOTIFICATIONS */
 .notification-bar,
 #top-popup {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-direction: column !important;
+  @include flex-layout();
   position: absolute !important;
-  left: inherit !important;
-  right: 0 !important;
-  background: $deepgray !important;
+  left: unset !important;
+  right: 5px !important;
+  background: $black !important;
   border: 1px solid $blue !important;
   width: 350px !important;
   height: 200px !important;
-  opacity: 0.5 !important;
-  transition: all 1s !important;
-
-  &:hover {
-    opacity: 1 !important;
-  }
+  border-radius: 5px !important;
+  z-index: 120 !important;
+  transition: top 1s !important;
 
   .content {
     text-align: center !important;
   }
 
   .right {
+    @include flex-layout();
     float: unset !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    gap: 10px !important;
     padding: 0 !important;
-    flex-direction: column !important;
 
+    // Join invite button
+    // Do not disturb button
+    button,
+    // Enter game button
+    input[type="button"],
+    // Close notification button
     a {
-      transition: all 0.1s !important;
       position: relative !important;
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
+      font-size: 0 !important;
       width: 250px !important;
       height: 35px !important;
-      border: 1px solid $white !important;
+      border: none !important;
+      border-radius: 5px !important;
+      outline: none !important;
       margin: 0 !important;
       padding: 0 !important;
+      transition: background 0.15s ease-in-out !important;
+    }
+
+    // Join invite button
+    // Do not disturb button
+    button {
+      background: $gray !important;
+      color: $black !important;
 
       &:hover {
-        background: #772a34 !important;
-        border: 1px solid $red !important;
+        background: $blue !important;
+      }
+    }
+
+    // Enter game button
+    input[type="button"] {
+      background: $green icon("stadiaController", $black) no-repeat center /
+        20px !important;
+
+      &:hover {
+        background: darken($green, 10%) icon("stadiaController", $black)
+          no-repeat center / 20px !important;
+      }
+    }
+
+    // Close notification button
+    a {
+      background: $red icon("close", $black) no-repeat center / 20px !important;
+
+      &:hover {
+        background: darken($red, 10%) icon("close", $black) no-repeat center /
+          20px !important;
       }
 
       img {
-        filter: invert(100%) brightness(2) !important;
+        display: none !important;
       }
     }
-  }
-
-  button {
-    top: 0 !important;
-    display: block !important;
-    height: 35px !important;
-    width: 250px !important;
-
-    &:nth-child(2) {
-      top: -1px !important;
-    }
-  }
-
-  input[type="button"] {
-    width: 250px !important;
-    height: 35px !important;
   }
 }
 
 .notification-bar {
-  z-index: 120 !important;
-  transition: all 2s !important;
   top: -200px !important;
+  
+  &.ng-scope:not(.ng-hide) {
+    top: 50px !important;
 
-  &.ng-scope {
-    top: 45px !important;
-
-    &.fixed {
-      top: 45px !important;
+    @media (max-width: 1000px) {
+      top: 135px !important;
     }
-  }
-
-  &.ng-scope.ng-hide {
-    top: -200px !important;
-
-    &.fixed {
-      top: -200px !important;
-    }
-  }
-
-  button {
-    border: 1px solid $white !important;
-    color: $white !important;
-    background: none !important;
-
-    &:hover {
-      border: 1px solid $blue !important;
-      color: $deepgray !important;
-      background: $blue !important;
-    }
-  }
-
-  .right a {
-    top: -2px !important;
   }
 }
 
 #top-popup {
-  top: -200px;
+  top: -200px !important;
+  
+  &[style*="top: "]:not([style*="top: -"]) {
+    top: 50px !important;
 
-  &[style*="display: none"] {
-    display: none !important;
-  }
-
-  &[style*="top: "] {
-    top: 45px !important;
-  }
-
-  &[style*="top: -"] {
-    top: -200px !important;
-    transition: all 1s !important;
-  }
-
-  .right a {
-    top: -1px !important;
-  }
-
-  button:nth-child(2) {
-    top: -1px !important;
+    @media (max-width: 1000px) {
+      top: 135px !important;
+    }
   }
 }

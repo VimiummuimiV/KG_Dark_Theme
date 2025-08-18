@@ -65,6 +65,7 @@ $awards: (
 }
 
 @mixin button-base {
+  width: auto;
   border: none !important;
   border-radius: 3px !important;
   font-weight: 700 !important;
