@@ -5184,6 +5184,13 @@ body:has(.userpanel) .login-block {
   justify-content: center !important;
   align-items: center !important;
 }
+@media (max-width: 550px) {
+  #content .profile-root .trophy {
+    width: 100% !important;
+    margin-bottom: 10px !important;
+    transform: scale(0.9) !important;
+  }
+}
 #content .profile-root .trophy .item .dummy {
   background: hsl(0, 0%, 15%) !important;
   border: 1px solid hsl(210, 5%, 40%) !important;
@@ -5227,8 +5234,38 @@ body:has(.userpanel) .login-block {
     width: 100% !important;
   }
 }
+@media (max-width: 1000px) and (max-width: 600px) {
+  #content .profile-root .profile-header {
+    height: 150px !important;
+  }
+  #content .profile-root .profile-header .title {
+    top: unset !important;
+    bottom: 40px !important;
+    left: 14px !important;
+  }
+  #content .profile-root .profile-header .username {
+    top: unset !important;
+    bottom: 0 !important;
+    left: 14px !important;
+  }
+}
+@media (max-width: 1000px) and (max-width: 600px) and (max-width: 420px) {
+  #content .profile-root .profile-header .username {
+    bottom: 10px !important;
+  }
+  #content .profile-root .profile-header .username .name {
+    font-size: 20px !important;
+  }
+}
 #content .profile-root .profile-header .car {
   background: hsl(0, 0%, 15%) !important;
+}
+#content .profile-root .profile-header .car-numbers[src="/img/regnum/img.png"] {
+  display: none !important;
+}
+#content .profile-root .profile-header .car-numbers {
+  bottom: unset !important;
+  top: 60px !important;
 }
 #content .profile-root .profile-header .username .history .history-popup {
   background-color: hsl(0, 0%, 10%) !important;
@@ -5274,6 +5311,11 @@ body:has(.userpanel) .login-block {
     width: 100% !important;
   }
 }
+@media (max-width: 1000px) and (max-width: 550px) {
+  #content .profile-root .profile-container {
+    padding: 0 !important;
+  }
+}
 #content .profile-root .profile-container .profile-content {
   width: 80% !important;
 }
@@ -5299,6 +5341,11 @@ body:has(.userpanel) .login-block {
 @media (max-width: 720px) {
   #content .profile-root .profile-container .profile-content #profile-index .col-xs-9 {
     width: 100% !important;
+  }
+}
+@media (max-width: 720px) and (max-width: 550px) {
+  #content .profile-root .profile-container .profile-content #profile-index .col-xs-9 {
+    padding: 0 !important;
   }
 }
 #content .profile-root .profile-container .profile-content #profile-index .col-xs-3 {
@@ -5509,6 +5556,10 @@ body:has(.userpanel) .login-block {
   border: 1px solid hsl(210, 5%, 40%) !important;
 }
 
+body:has(.car-numbers[src="/img/regnum/img.png"]) .car {
+  top: 30px !important;
+}
+
 #content .sidebar {
   float: left !important;
   width: 20% !important;
@@ -5667,13 +5718,13 @@ body:has(.userpanel) .login-block {
 }
 
 .achieve {
-  border: 1px solid transparent;
   background: transparent !important;
   border-radius: 10px !important;
 }
 .achieve .achieve-content {
   background-color: hsl(0, 0%, 10%) !important;
   border-radius: 10px !important;
+  width: auto !important;
 }
 .achieve .achieve-content .title {
   color: hsl(30, 65%, 50%) !important;
@@ -5703,8 +5754,7 @@ body:has(.userpanel) .login-block {
   color: hsl(50, 80%, 50%) !important;
 }
 .achieve .achieve-icon {
-  background: linear-gradient(135deg, rgba(210.375, 127.5, 44.625, 0.7) 0%, rgba(102, 136, 153, 0.7) 100%) !important;
-  border: 1px solid transparent !important;
+  background: linear-gradient(135deg, hsl(30, 65%, 40%), hsl(200, 20%, 40%)) !important;
   border-radius: 10px !important;
 }
 .achieve .achieve-icon img {
@@ -5712,7 +5762,6 @@ body:has(.userpanel) .login-block {
 }
 .achieve .achieve-icon:hover {
   background: linear-gradient(135deg, rgb(210.375, 127.5, 44.625) 0%, #668899 100%) !important;
-  border: 1px solid transparent !important;
 }
 
 .dlg-set-index-achieve .modal2-body .list .item .achieve.reduced {
@@ -5743,11 +5792,36 @@ body:has(.userpanel) .login-block {
 .profile-achieves .options .btn-group .btn .toggle-text b {
   color: hsl(200, 20%, 50%) !important;
 }
+.profile-achieves .list {
+  margin: 5px 0 0 !important;
+}
+.profile-achieves .list.reduced {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+.profile-achieves .list .group .item .actions {
+  width: 20px !important;
+  height: 20px !important;
+  right: 5px !important;
+  top: 5px !important;
+}
+.profile-achieves .list .group .item .actions .dropdown-toggle {
+  width: 20px !important;
+  height: 20px !important;
+}
 .profile-achieves .list .group .item .achieve {
   background: transparent !important;
 }
 .profile-achieves .list .group .more-achieves {
-  background: transparent !important;
+  color: hsl(200, 40%, 60%) !important;
+  background: hsl(0, 0%, 5%) !important;
+  transition: color 0.15s ease-in-out !important;
+}
+.profile-achieves .list .group .more-achieves:hover {
+  color: hsl(200, 20%, 50%) !important;
 }
 
 body .achieve .achieve-content .levels .level .popover .achieve {
@@ -6745,6 +6819,14 @@ body .achieve .achieve-content .levels .level .popover .achieve {
   height: auto !important;
   margin: 0 0 0 20px !important;
   padding: 0 !important;
+}
+@media (max-width: 600px) {
+  .profile-car .my-car .car-action {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
 }
 .profile-car .my-car .car-action .car-controls {
   display: flex !important;

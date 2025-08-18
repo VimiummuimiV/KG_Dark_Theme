@@ -148,6 +148,10 @@
       margin: 0 0 0 20px !important;
       padding: 0 !important;
 
+      @media (max-width: 600px) {
+        @include flex-layout(column);
+      }
+
       .car-controls {
         @include flex-layout(row);
         margin: 0 !important;
