@@ -87,6 +87,11 @@
           background: $darkgray !important;
 
           .graph-controls {
+            @media (max-width: 750px) {
+              @include flex-layout(column, start, start);
+              gap: 5px !important;
+            }
+
             .period {
               .dropdown-menu {
                 overflow: hidden !important;
@@ -140,6 +145,10 @@
 
           .charts-contents {
             .chart-graph {
+              @media (max-width: 666px) {
+                transform: scale(0.8) !important;
+              }
+
               svg {
                 // Graph background
                 rect[fill="#ffffff"] {
@@ -227,6 +236,11 @@
           .table-controls {
             @include flex-layout(row, center, center);
             gap: 10px !important;
+
+            @media (max-width: 666px) {
+              @include flex-layout(column, start, start);
+              gap: 5px !important;
+            }
 
             .table-control {
               margin: 0 !important;

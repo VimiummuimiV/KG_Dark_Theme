@@ -191,35 +191,33 @@
       @media (max-width: 1000px) {
         width: 100% !important;
 
-        @media (max-width: 720px) {
+        @media (max-width: 800px) {
           @include flex-layout(column, center, center);
+          padding: 0 !important;
         }
       }
 
-      #profile-index {
+      .row {
         width: 100% !important;
 
         .col-xs-9 {
           width: 80% !important;
 
-          @media (max-width: 720px) {
+          @media (max-width: 800px) {
             width: 100% !important;
-
-            @media (max-width: 550px) {
-              padding: 0 !important;
-            }
+            padding: 0 !important;
           }
         }
 
         .col-xs-3 {
           width: 20% !important;
 
+          @media (max-width: 800px) {
+            display: none !important;
+          }
+
           .stats {
             width: auto !important;
-
-            @media (max-width: 720px) {
-              display: none !important;
-            }
           }
         }
       }
