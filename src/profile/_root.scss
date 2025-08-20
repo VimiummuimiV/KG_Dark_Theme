@@ -80,9 +80,15 @@
 
   // Profile header styles
   .profile-header {
+    position: relative !important;
     width: 1000px !important;
     background: $darkgray !important;
     border-bottom: 1px solid $gray !important;
+
+    // Hide the div container below the header
+    + div {
+      display: none !important;
+    }
 
     @media (max-width: 1000px) {
       width: 100% !important;
@@ -259,16 +265,25 @@
 
   // Scroll to top button styles
   .scroll-to-top {
-    background-color: $black !important;
-    color: $white !important;
-    margin-top: 45px !important;
+    padding: 0 !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    position: fixed !important;
+    left: unset !important;
+    top: 10% !important;
+    right: 0 !important;
+    height: 100px !important;
+    width: 100px !important;
+    border-radius: 10px 0 0 10px !important;
+    background: $gray icon("arrowUpCircle", $black) no-repeat center / 50px !important;
+    transition: background 0.15s ease-in-out !important;
 
     @media (max-width: 1000px) {
       margin-top: 100px !important;
     }
 
     &:hover {
-      background-color: $deepgray !important;
+      background: $blue icon("arrowUpCircle", $black) no-repeat center / 50px !important;
     }
   }
 
