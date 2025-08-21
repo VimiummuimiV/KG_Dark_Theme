@@ -109,6 +109,7 @@
 // My car block styles
 .profile-car {
   .my-car {
+    top: unset !important; // Reset top position
     position: relative !important;
     z-index: 15 !important;
     background: $darkgray !important;

@@ -85,11 +85,6 @@
     background: $darkgray !important;
     border-bottom: 1px solid $gray !important;
 
-    // Hide the div container below the header
-    + div {
-      display: none !important;
-    }
-
     @media (max-width: 1000px) {
       width: 100% !important;
 
@@ -498,4 +493,11 @@
 // Shift car position from top slightly to bottom when car-numbers image is empty
 body:has(.car-numbers[src="/img/regnum/img.png"]) .profile-header .car {
   top: 30px !important;
+}
+
+// Hide spacing divs above and below elements
+div[style*="height: 100px"]:has(+ .profile-header),
+.profile-header + div[style*="height: 100px"],
+.my-car + div[style*="height: 357px"] {
+  display: none !important;
 }
