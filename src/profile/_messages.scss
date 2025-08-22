@@ -1,5 +1,5 @@
 // Messages section styles
-.profile-messages {
+#content .profile-messages {
   .name {
     color: $blue !important;
 
@@ -10,25 +10,31 @@
 
   .dialog {
     border: 1px solid $gray !important;
+    border-radius: unset !important;
   }
 
-  .message.unread {
-    background-color: $deepgray !important;
+  .message {
+    &.unread {
+      background: $deepgray !important;
+    }
   }
 
   .messages-contacts {
-    .message.unread {
-      background-color: $blue !important;
+    .message {
+      &.unread {
+        background: $blue !important;
 
-      .text {
-        color: $deepgray !important;
+        .text {
+          color: $deepgray !important;
+        }
       }
     }
 
     .contacts-content {
-      .contact.unread {
-        background-color: $deepgray !important;
-        border-bottom: 1px solid $blue !important;
+      .contact {
+        &.unread {
+          background-color: $deepgray !important;
+        }
       }
     }
 
@@ -43,19 +49,18 @@
   }
 
   .deleted {
-    border: 1px solid $blue !important;
-    background-color: $deepgray !important;
+    background-color: darken($red, 10%) !important;
+    color: darken($red, 50%) !important;
+    border-radius: 3px !important;
+
+    a {
+      color: $black !important;
+    }
   }
 
   .dialog-header {
     background: $darkgray !important;
     border-bottom: 1px solid $gray !important;
-
-    .controls {
-      .btn {
-        legal: $deepgray !important;
-      }
-    }
   }
 
   .dialog-write {

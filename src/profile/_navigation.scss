@@ -5,8 +5,23 @@
   
   .profile-nav {
     background-color: transparent !important;
+
     &::before {
       display: none !important;
+    }
+
+    li {
+      .badge {
+        background: $blue !important;
+        color: $deepgray !important;
+      }
+
+      &.active {
+        .badge {
+          background: $deepgray !important;
+          color: $blue !important;
+        }
+      }
     }
   }
   
