@@ -140,6 +140,17 @@
       .cost {
         color: $orange !important;
       }
+
+      .gametype-voc {
+        a {
+          color: $gametype-voc !important;
+          transition: color 0.15s ease-in-out !important;
+
+          &:hover {
+            color: lighten($gametype-voc, 10%) !important;
+          }
+        }
+      }
     }
 
     .players {
