@@ -523,6 +523,11 @@
             width: 100% !important;
 
             .top-award {
+
+              .car_rating {
+                color: $white !important;
+              }
+
               .numbers {
                 transition: width 0.15s !important;
               }
