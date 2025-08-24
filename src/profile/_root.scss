@@ -8,7 +8,7 @@
 
   // Trophy/achievement styles
   .trophy {
-    @include flex-layout(row, center, center);
+    @include flex-layout(row, center, center, false);
 
     @media (max-width: 550px) {
       width: 100% !important;
