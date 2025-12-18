@@ -94,7 +94,7 @@
 
   // ===== AVATAR BIGGENING =====
 
-  function replaceBigAvatars() {
+  function replaceSmallAvatars() {
     // Avatar URL pattern to match
     const match = /avatars\/(\d+)\.png/g;
 
@@ -136,11 +136,11 @@
 
   function applyAvatarBiggener() {
     addEventListener('DOMContentLoaded', () => {
-      replaceBigAvatars();
+      replaceSmallAvatars();
     });
     // Also observe for dynamic content changes
     const observer = new MutationObserver(() => {
-      replaceBigAvatars();
+      replaceSmallAvatars();
     });
     observer.observe(document.documentElement, {
       childList: true,
