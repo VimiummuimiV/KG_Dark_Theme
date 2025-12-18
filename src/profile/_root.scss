@@ -425,6 +425,27 @@
 
         .text {
           color: $white !important;
+
+          table {
+            tr,
+            td,
+            th {
+              border: 1px solid $darkgray !important;
+              background-color: $black !important;
+              padding: 5px !important;
+            }
+
+            code {
+              background-color: $black !important;
+              border: none !important;
+              color: $green !important;
+            }
+          }
+
+          // Invert webp images for KG_WebTypeStats 
+          img[src^="data:image/webp;base64,"] {
+            filter: invert(1) !important;
+          }
         }
 
         .readmore.fade-top {
