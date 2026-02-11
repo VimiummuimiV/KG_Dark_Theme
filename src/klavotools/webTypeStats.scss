@@ -51,277 +51,317 @@ $corr-bg: #660000;
 
 // Component styles
 #wts-side-panel {
-  background-color: $bg-secondary !important;
+    width: 300px;
+    border-radius: 0 5px 5px 0 !important;
+    background: $black !important;
+    transition: opacity 0.15s ease-in-out !important;
+    position: fixed !important;
+    top: 340px;
+    padding: 10px !important;
+
+    a {
+        @include anchor-to-button($font-size: 13px, $font-weight: 500);
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    @media (max-width: 1350px) {
+        width: 60px !important;
+        padding: 5px !important;
+
+        // Hide text labels, show only icons
+        span,
+        .wts-label {
+            display: none !important;
+        }
+    }
+
+    @media (max-width: 970px) {
+        @include collapsible-panel($order: 3,
+            $icon: "barChart",
+            $icon-color: $text-primary,
+            $size: 50px,
+            $gap: 10px,
+            $expanded-width: 200px,
+            $background: $black,
+            $transition-duration: 0.15s,
+            $content-transition-duration: 0.3s,
+            $content-transition-delay: 0.05s);
+    }
 }
 
 #wts-rec {
-  background: radial-gradient($rec-recording 40%, $text-muted) !important;
-  box-shadow: 0 0 2px $text-black !important;
-
-  &.blink {
+    top: 8px !important;
+    right: 8px !important;
     background: radial-gradient($rec-recording 40%, $text-muted) !important;
-  }
+    box-shadow: 0 0 2px $text-black !important;
 
-  &.pause {
-    background: radial-gradient($rec-pause 40%, $text-muted) !important;
-  }
+    &.blink {
+        background: radial-gradient($rec-recording 40%, $text-muted) !important;
+    }
 
-  &.ready {
-    background: radial-gradient($rec-ready 40%, $text-muted) !important;
-  }
+    &.pause {
+        background: radial-gradient($rec-pause 40%, $text-muted) !important;
+    }
+
+    &.ready {
+        background: radial-gradient($rec-ready 40%, $text-muted) !important;
+    }
 }
 
 #wts-draggable-window {
-  background: $bg-primary !important;
-  color: $text-primary !important;
-  box-shadow: 0 4px 20px $shadow-dark !important;
+    background: $bg-primary !important;
+    color: $text-primary !important;
+    box-shadow: 0 4px 20px $shadow-dark !important;
 
-  .wts-header {
-    background: $bg-secondary !important;
+    .wts-header {
+        background: $bg-primary !important;
 
-    select {
-      color: $text-primary !important;
-      background: $bg-tertiary !important;
-      border: 1px solid $border-primary !important;
+        select {
+            color: $text-primary !important;
+            background: $bg-tertiary !important;
+            border: 1px solid $border-primary !important;
+        }
     }
-  }
 
-  #wts-list-progress {
-    background-color: $text-disabled !important;
-  }
-
-  .wts-button {
-    color: $text-muted !important;
-
-    &:hover {
-      color: $text-primary !important;
+    #wts-list-progress {
+        background-color: $text-disabled !important;
     }
-  }
 
-  .wts-close {
-    color: $text-muted !important;
-
-    &:hover {
-      color: $text-white !important;
-      background-color: $close-hover !important;
-    }
-  }
-
-  .wts-menu-wrapper {
-    .wts-menu {
-      background: $bg-tertiary !important;
-      border: 1px solid $border-secondary !important;
-      box-shadow: 0 2px 6px $shadow-medium !important;
-
-      &-header {
-        background: $bg-secondary !important;
-        border-bottom: 1px solid $border-primary !important;
-      }
-
-      a {
-        color: $text-primary !important;
+    .wts-button {
+        color: $text-muted !important;
 
         &:hover {
-          background: $menu-hover !important;
-          color: $text-white !important;
+            color: $text-primary !important;
         }
-      }
-    }
-  }
-
-  #wts-tab-switcher {
-    background: $bg-secondary !important;
-
-    .wts-tab-button {
-      color: $base-color !important;
-
-      &:hover {
-        color: $text-primary !important;
-      }
-
-      &.inactive {
-        color: $text-dark !important;
-      }
-    }
-  }
-
-  hr {
-    border-top: 1px solid $border-tertiary !important;
-  }
-
-  .wts-stats {
-    background-image: linear-gradient($bg-secondary, 50%, $bg-dark) !important;
-    color: $text-muted !important;
-
-    span {
-      color: $text-primary !important;
     }
 
-    &.partial {
-      background-image: linear-gradient($bg-secondary, 50%, $partial-indicator-color) !important;
-    }
-  }
+    .wts-close {
+        color: $text-muted !important;
 
-  .wts-chart.partial {
-    box-shadow: 0 2px 5px 3px $partial-indicator-color !important;
-  }
+        &:hover {
+            color: $text-white !important;
+            background: transparent !important;
+        }
+    }
+
+    .wts-menu-wrapper {
+        .wts-menu {
+            background: $bg-tertiary !important;
+            border: 1px solid $border-secondary !important;
+            box-shadow: 0 2px 6px $shadow-medium !important;
+
+            &-header {
+                background: $bg-secondary !important;
+                border-bottom: 1px solid $border-primary !important;
+            }
+
+            a {
+                color: $text-primary !important;
+
+                &:hover {
+                    background: $menu-hover !important;
+                    color: $text-white !important;
+                }
+            }
+        }
+    }
+
+    #wts-tab-switcher {
+        background: $bg-primary !important;
+
+        .wts-tab-button {
+            color: $base-color !important;
+
+            &:hover {
+                color: $text-primary !important;
+            }
+
+            &.inactive {
+                color: $text-dark !important;
+            }
+        }
+    }
+
+    hr {
+        border-top: 1px solid $border-tertiary !important;
+    }
+
+    .wts-stats {
+        background-image: linear-gradient($bg-secondary, 50%, $bg-dark) !important;
+        color: $text-muted !important;
+
+        span {
+            color: $text-primary !important;
+        }
+
+        &.partial {
+            background-image: linear-gradient($bg-secondary, 50%, $partial-indicator-color) !important;
+        }
+    }
+
+    .wts-chart.partial {
+        box-shadow: 0 2px 5px 3px $partial-indicator-color !important;
+    }
 }
 
 .wts-chart-tooltip {
-  background: $bg-tertiary !important;
-  color: $text-secondary !important;
-  border: 1px solid $border-secondary !important;
+    background: $bg-tertiary !important;
+    color: $text-secondary !important;
+    border: 1px solid $border-secondary !important;
 
-  span {
-    color: $text-primary !important;
-  }
+    span {
+        color: $text-primary !important;
+    }
 
-  span.time {
-    color: $text-white !important;
-    background-color: $base-color !important;
-  }
+    span.time {
+        color: $text-white !important;
+        background-color: $base-color !important;
+    }
 }
 
 #wts-chart-mag-glass {
-  background-image: linear-gradient($border-tertiary, $bg-tertiary, $border-tertiary) !important;
-  box-shadow: 0 0 2px $text-black !important;
+    background-image: linear-gradient($border-tertiary, $bg-tertiary, $border-tertiary) !important;
+    box-shadow: 0 0 2px $text-black !important;
 
-  .wts-tt-prev-key,
-  .wts-tt-next-key {
-    background: $base-color !important;
-    color: $text-white !important;
-  }
-
-  .wts-tt-delay {
-    background: $border-tertiary !important;
-    color: $text-primary !important;
-
-    &.fast {
-      background-color: $fast-delay-color !important;
-      color: $text-black !important;
+    .wts-tt-prev-key,
+    .wts-tt-next-key {
+        background: $base-color !important;
+        color: $text-white !important;
     }
-  }
+
+    .wts-tt-delay {
+        background: $border-tertiary !important;
+        color: $text-primary !important;
+
+        &.fast {
+            background-color: $fast-delay-color !important;
+            color: $text-black !important;
+        }
+    }
 }
 
 #wts-text-controls {
-  label {
-    background-color: $bg-tertiary !important;
-    color: $text-primary !important;
-  }
+    label {
+        background-color: $bg-tertiary !important;
+        color: $text-primary !important;
+    }
 
-  #hide-fast + label {
-    background-color: $label-fast !important;
-    color: $text-white !important;
-  }
+    #hide-fast+label {
+        background-color: $label-fast !important;
+        color: $text-white !important;
+    }
 
-  #hide-err + label {
-    background-color: $label-err !important;
-    color: $text-white !important;
-  }
+    #hide-err+label {
+        background-color: $label-err !important;
+        color: $text-white !important;
+    }
 
-  #hide-corr + label {
-    background-color: $label-corr !important;
-    color: $text-white !important;
-  }
+    #hide-corr+label {
+        background-color: $label-corr !important;
+        color: $text-white !important;
+    }
 }
 
 .wts-text {
-  span.s:hover {
-    background-color: $highlighter-color !important;
-  }
-
-  .err {
-    color: $error-color !important;
-  }
-
-  .corr {
-    color: $text-white !important;
-    background-color: $corr-bg !important;
-
-    &:hover {
-      box-shadow: 0 0 4px $base-color !important;
+    span.s:hover {
+        background-color: $highlighter-color !important;
     }
-  }
 
-  .fast {
-    color: $text-black !important;
-    background-color: $fast-delay-color !important;
-
-    &:hover {
-      box-shadow: 0 0 2px $fast-delay-color !important;
+    .err {
+        color: $error-color !important;
     }
-  }
 
-  &.hide-fast .fast {
-    color: unset !important;
-    background-color: unset !important;
-  }
+    .corr {
+        color: $text-white !important;
+        background-color: $corr-bg !important;
+
+        &:hover {
+            box-shadow: 0 0 4px $base-color !important;
+        }
+    }
+
+    .fast {
+        color: $text-black !important;
+        background-color: $fast-delay-color !important;
+
+        &:hover {
+            box-shadow: 0 0 2px $fast-delay-color !important;
+        }
+    }
+
+    &.hide-fast .fast {
+        color: unset !important;
+        background-color: unset !important;
+    }
 }
 
 .wts-track-selection {
-  background-color: $bg-tertiary !important;
+    background-color: $bg-tertiary !important;
 }
 
 .wts-track-current {
-  background-color: $highlighter-color !important;
+    background-color: $highlighter-color !important;
 }
 
 .c.wts-track-current {
-  border-color: $base-color !important;
-  background: $highlighter-color !important;
+    border-color: $base-color !important;
+    background: $highlighter-color !important;
 }
 
 .wts-track-start,
 .wts-track-end {
-  color: $text-disabled !important;
+    color: $text-disabled !important;
 }
 
 #wts-toast {
-  background-color: $bg-tertiary !important;
-  color: $text-primary !important;
-  box-shadow: 0 4px 8px $shadow-light !important;
+    background-color: $bg-tertiary !important;
+    color: $text-primary !important;
+    box-shadow: 0 4px 8px $shadow-light !important;
 
-  &.ok {
-    background-color: $success-bg !important;
-    color: $text-white !important;
-  }
+    &.ok {
+        background-color: $success-bg !important;
+        color: $text-white !important;
+    }
 
-  &.warn {
-    background-color: $warning-bg !important;
-    color: $text-black !important;
-  }
+    &.warn {
+        background-color: $warning-bg !important;
+        color: $text-black !important;
+    }
 
-  &.err {
-    background-color: $error-color !important;
-    color: $text-white !important;
-  }
+    &.err {
+        background-color: $error-color !important;
+        color: $text-white !important;
+    }
 }
 
 .wts-overlay {
-  background: $overlay-bg !important;
+    background: $overlay-bg !important;
 
-  .wts-progress-box {
-    background: $bg-tertiary !important;
-    box-shadow: 0 4px 12px $shadow-medium !important;
-    color: $text-primary !important;
+    .wts-progress-box {
+        background: $bg-tertiary !important;
+        box-shadow: 0 4px 12px $shadow-medium !important;
+        color: $text-primary !important;
 
-    .wts-progress-bar {
-      background: $progress-bg !important;
+        .wts-progress-bar {
+            background: $progress-bg !important;
+        }
+
+        .wts-progress-fill {
+            background: $progress-fill !important;
+        }
     }
-
-    .wts-progress-fill {
-      background: $progress-fill !important;
-    }
-  }
 }
 
 @for $i from 0 through 20 {
-  .wts-text .grad#{$i} {
-    color: $text-disabled !important;
-    border-color: adjust-hue(lighten($text-disabled, $i * 2%), $i * 10deg) !important;
-  }
+    .wts-text .grad#{$i} {
+        color: $text-disabled !important;
+        border-color: adjust-hue(lighten($text-disabled, $i * 2%), $i * 10deg) !important;
+    }
 
-  .wts-text.grad#{$i} .grad#{$i} {
-    color: $text-primary !important;
-  }
+    .wts-text.grad#{$i} .grad#{$i} {
+        color: $text-primary !important;
+    }
 }
