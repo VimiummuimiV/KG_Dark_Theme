@@ -42,6 +42,26 @@
           @include rounded-button(0 10px, $orange);
         }
       }
+
+      #topic-title-edit-block {
+        @include flex-layout(row, start, center, false);
+
+        input {
+          border: none !important;
+          outline: none !important;
+          background: $black !important;
+          padding: 0 10px !important;
+          height: 35px !important;
+          border-radius: 5px !important;
+          color: $white !important;
+          font-size: 1em !important;
+        }
+
+        button {
+          background-image: icon("check", $black);
+          @include rounded-button(0 10px, $green);
+        }
+      }
     }
 
     form {
