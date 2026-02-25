@@ -26,8 +26,9 @@
           &::before {
             content: "";
             position: absolute !important;
-            width: 100% !important;
-            height: 100% !important;
+            right: 0 !important;
+            height: 90px !important;
+            width: 260px !important;
             z-index: 15 !important;
             background: transparent $speedPanelDigitsPlace no-repeat right
               center / contain !important;
