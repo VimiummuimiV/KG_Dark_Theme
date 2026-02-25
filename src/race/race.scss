@@ -606,6 +606,14 @@
   }
 }
 
+// AFK notification
+#afkNotification {
+  top: 2px !important;
+  background: $orange !important;
+  font: 600 14px "Montserrat", sans-serif !important;
+  color: $black !important;
+}
+
 #content .gameblock .handle {
   margin-left: -5px !important;
   opacity: 0.5 !important;
