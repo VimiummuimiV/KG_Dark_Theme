@@ -108,18 +108,27 @@
             justify-content: center;
             z-index: 20 !important;
 
-            #waiting {
-              &[style="none"] {
-                display: none !important;
-              }
-
-              position: absolute !important;
-              color: transparent !important;
+            #waiting, #racing {
+              font-size: 0 !important; // Remove unnecessary text label
+              position: relative !important;
               display: flex;
               justify-content: center !important;
               align-items: center !important;
               flex-direction: row-reverse !important;
               transform-origin: bottom center;
+
+              div { // If any div inside, make it centered too
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+              }
+            }
+
+            #waiting {
+              &[style="none"] {
+                display: none !important;
+              }
+
               animation: wait 1s infinite ease-in-out;
               animation-timing-function: linear;
             }
@@ -129,10 +138,9 @@
                 display: none !important;
               }
 
-              position: absolute !important;
-              display: flex !important;
-              justify-content: center !important;
-              align-items: center !important;
+              #next_time {
+                display: none !important; // Remove that absolute garbage
+              }
             }
 
             #paused {
