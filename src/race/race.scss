@@ -57,7 +57,20 @@
           background-color: $darkgray !important;
           background-image: $semaphore !important;
           background-size: 52px 360px !important;
+          background-repeat: no-repeat !important;
+          background-position-y: 0px !important;
           background-position-x: 10px !important;
+          height: 90px !important;
+
+          &.ready {
+            background-position-y: -90px !important;
+          }
+          &.steady {
+            background-position-y: -180px !important;
+          }
+          &.go {
+            background-position-y: -270px !important;
+          }
 
           table {
             width: 100% !important;

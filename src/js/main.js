@@ -252,7 +252,7 @@
         arrow.classList.add('speedpanel-arrow');
         Object.assign(arrow.style, {
           position: 'absolute',
-          bottom: '40px',
+          bottom: '30px',
           right: '148px',
           pointerEvents: 'none',
           filter: `drop-shadow(0 0 6px ${SPEEDOMETER_ARROW_COLOR}) drop-shadow(0 0 12px ${SPEEDOMETER_ARROW_COLOR}40)`,
