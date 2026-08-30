@@ -17,6 +17,10 @@
         padding: 0 !important;
       }
 
+      td[colspan] {
+        font-size: 10pt !important;
+      }
+
       #submit_login {
         @include auth-submit-button;
       }

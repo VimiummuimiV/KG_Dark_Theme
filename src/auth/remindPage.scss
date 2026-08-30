@@ -1,0 +1,26 @@
+// Password reminder page (/remind/)
+// .msg is a shared sitewide message box (base.scss) — scope to this specific
+// form instead of touching .msg, so other .msg usages stay untouched.
+form[action="/remind/"] {
+  @include flex-layout(column, center, center);
+  gap: 10px !important;
+  padding: 0 !important;
+  color: $white !important;
+
+  input[type="text"] {
+    background: $black !important;
+    color: $white !important;
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 0 10px !important;
+    height: 35px !important;
+    width: 250px !important;
+  }
+
+  input[type="submit"] {
+    @include auth-submit-button;
+    padding: 0 !important;
+    height: 35px !important;
+    width: 250px !important;
+  }
+}
