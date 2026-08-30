@@ -1,0 +1,38 @@
+#register {
+  h4 {
+    font: 700 1.5em "Montserrat", sans-serif !important;
+    text-transform: uppercase !important;
+
+    + p {
+      color: $lightgray !important;
+    }
+  }
+
+  form#registerform {
+    table {
+      @include auth-form-table;
+
+      tr:has(.g-recaptcha) th {
+        display: none !important;
+      }
+
+      .note {
+        padding: 0 0 10px !important;
+        width: fit-content !important;
+        font-size: 12px !important;
+        width: 280px !important;
+
+        div[id*="_note"] {
+          color: $white !important;
+        }
+        div[id*="_error"] {
+          color: $red !important;
+        }
+      }
+
+      #register_submit_button {
+        @include auth-submit-button;
+      }
+    }
+  }
+}

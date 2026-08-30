@@ -1,0 +1,36 @@
+#login-page {
+  h4 {
+    font: 700 1.5em "Montserrat", sans-serif !important;
+    text-transform: uppercase !important;
+  }
+
+  form#loginpageform {
+    table {
+      @include auth-form-table;
+
+      // Rows that only carry an empty "&nbsp;" label (title, captcha, submit, links)
+      tr:has(h4, #smart-captcha-container, #submit_login, .links) th {
+        display: none !important;
+      }
+
+      #submit_login {
+        @include auth-submit-button;
+      }
+
+      .links {
+        padding: 10px 0 0 !important;
+        text-align: center !important;
+
+        a {
+          color: $white !important;
+          text-decoration: none !important;
+          font-size: 12px !important;
+
+          &:hover {
+            color: $orange !important;
+          }
+        }
+      }
+    }
+  }
+}
