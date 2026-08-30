@@ -69,3 +69,11 @@
     background: $blue !important;
   }
 }
+
+// Hides the <th> label cell for rows that don't carry a real label
+// (e.g. captcha row, submit row, title row) — pass the selector(s) that identify the row
+@mixin auth-hide-th($selectors) {
+  tr:has(#{$selectors}) th {
+    display: none !important;
+  }
+}

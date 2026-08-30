@@ -12,9 +12,7 @@
     table {
       @include auth-form-table;
 
-      tr:has(.g-recaptcha) th {
-        display: none !important;
-      }
+      @include auth-hide-th(".g-recaptcha");
 
       .note {
         padding: 0 0 10px !important;

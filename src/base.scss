@@ -356,7 +356,8 @@ body .tipsy {
   }
 }
 
-// Google recaptcha
-.g-recaptcha {
+// Google and Yandex recaptcha
+.g-recaptcha,
+.smart-captcha {
   filter: invert(1) hue-rotate(40deg) brightness(0.6) contrast(0.9) !important;
 }

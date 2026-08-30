@@ -8,9 +8,12 @@
     table {
       @include auth-form-table;
 
-      // Rows that only carry an empty "&nbsp;" label (title, captcha, submit, links)
-      tr:has(h4, #smart-captcha-container, #submit_login, .links) th {
-        display: none !important;
+      @include auth-hide-th("h4, #smart-captcha-container, #submit_login, .links");
+
+      // Title row shouldn't look like a form-field card
+      tr:has(h4) {
+        background: transparent !important;
+        padding: 0 !important;
       }
 
       #submit_login {
