@@ -21,17 +21,19 @@
       }
 
       .links {
-        padding: 10px 0 0 !important;
-        text-align: center !important;
+        width: 100% !important;
+        padding: 0 !important;
+        gap: 10px !important;
+
+        @include flex-layout(row, center, center);
+
+        br {
+          display: none !important;
+        }
 
         a {
-          color: $white !important;
-          text-decoration: none !important;
-          font-size: 12px !important;
-
-          &:hover {
-            color: $orange !important;
-          }
+          @include anchor-to-button($font-size: 12px, $width: 50%);
+          justify-content: center !important;
         }
       }
     }
